@@ -10,7 +10,7 @@ import Foundation
 /**
 A type that represents `Emoji`.
  */
-final class Emoji: Identifiable {
+final class Emoji {
 
     /**
      The character that represents this emoji.
@@ -20,11 +20,20 @@ final class Emoji: Identifiable {
     let character: Character
 
     /**
-     The identifier of `Emoji`. Each emoji is identifed by its codepoints.
+     The skin-tone's variations of this emoji.
+
+     For example, If the base emoji is 👮, the skinTones should be:
+     ```swift
+     let emoji = Emoji(character: .init("👮"))
+     emoji.skinTones.forEach { print($0.character) }
+     // Prints 👮🏻
+     // Prints 👮🏼
+     // Prints 👮🏽
+     // Prints 👮🏾
+     // Prints 👮🏿
+     ```
      */
-    var id: Character {
-        return self.character
-    }
+    var skinTones: [Emoji] = []
 
     /**
      Creates a new *Emoji* instance by the given character.
@@ -34,4 +43,15 @@ final class Emoji: Identifiable {
     }
 
     
+}
+
+extension Emoji: Identifiable {
+
+    /**
+     The identifier of `Emoji`. Each emoji is identifed by its codepoints.
+     */
+    var id: Character {
+        return character
+    }
+
 }

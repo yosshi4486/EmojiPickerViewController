@@ -47,6 +47,12 @@ public class EmojiLoader {
         let emojiOrderingWholeText = try! String(contentsOf: emojiOrderingFileURL, encoding: .utf8)
         let emojiOrderingTextLines = emojiOrderingWholeText.split(separator: "\n")
 
+        /*
+         The local var is used for handling skin tones. Adds skin-tone emojis into the `Emoji.skinTones` property, rather than adding it to `emojis` in this scope.
+         */
+        var skinToneBaseScalar: Unicode.Scalar? = nil
+        var skinToneBaseEmoji: Emoji? = nil
+
         for emojiOrderingTextLine in emojiOrderingTextLines {
 
             guard emojiOrderingTextLine.first != "#" else {
@@ -66,7 +72,19 @@ public class EmojiLoader {
             let unicodeScalarView = String.UnicodeScalarView(unicodeScalars)
             let character = Character(String(unicodeScalarView))
             let emoji = Emoji(character: character)
-            emojis.append(emoji)
+
+            if skinToneBaseScalar == unicodeScalars.first {
+
+                skinToneBaseEmoji?.skinTones.append(emoji)
+
+            } else {
+
+                emojis.append(emoji)
+
+                skinToneBaseScalar = unicodeScalars.first
+                skinToneBaseEmoji = emoji
+            }
+
         }
 
         return emojis

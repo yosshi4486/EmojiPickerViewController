@@ -26,6 +26,9 @@ class EmojiLoaderTests: XCTestCase {
         let emojis = loader.load()
         XCTAssertEqual(emojis.count, 3633)
 
+        // Assert First and Last
+        XCTAssertEqual(emojis.first?.character, "😀")
+        XCTAssertEqual(emojis.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
     }
 
 
