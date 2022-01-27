@@ -205,6 +205,12 @@
 # unicode-org/cldr
 Original Licence URL: https://github.com/unicode-org/cldr/blob/main/unicode-license.txt
 
+## Changes in This Resositiry:
+
+- Renames file names in `annotationsDerived` to `xxx_derived.xml`, because files in `annotations` have same names and swift package can not recognize same name.
+
+## Text
+
 UNICODE, INC. LICENSE AGREEMENT - DATA FILES AND SOFTWARE
 
 See Terms of Use for definitions of Unicode Inc.'s
