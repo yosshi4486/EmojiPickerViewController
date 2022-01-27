@@ -11,6 +11,10 @@ Xcode automatically handles some types bellow:
 
 Other resources must be declared in `Package.swift`
 
+## Current Referenced Version
+Dev No.40.
+https://cldr.unicode.org/index/downloads
+
 ## Annotations
 All annotation files are located at: https://github.com/unicode-org/cldr/tree/main/common/annotations
 All derived annotation files are located at: https://github.com/unicode-org/cldr/tree/main/common/annotationsDerived
