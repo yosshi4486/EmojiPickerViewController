@@ -22,22 +22,22 @@ class EmojiLoaderTests: XCTestCase {
 
         // Emoji Counts: https://unicode.org/emoji/charts/emoji-counts.html
 
-        let loadExpectation = expectation(description: "load")
         let loader = EmojiLoader()
-        loader.load { emojis in
-            XCTAssertEqual(emojis.count, 3633)
-            loadExpectation.fulfill()
-        }
-
-        wait(for: [loadExpectation], timeout: 1.0)
+        let emojis = loader.load()
+        XCTAssertEqual(emojis.count, 3633)
 
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
+
+    func testPerformanceLoad() throws {
+
+        let loader = EmojiLoader()
+
+        // loader.load() should be finished less than 0.1sec.
         self.measure {
-            // Put the code you want to measure the time of here.
+            _ = loader.load()
         }
+
     }
 
 }

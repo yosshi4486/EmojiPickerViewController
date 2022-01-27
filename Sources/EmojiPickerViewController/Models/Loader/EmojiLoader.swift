@@ -30,9 +30,7 @@ public class EmojiLoader {
     }
 
     /**
-     Loads entire emoji asynchronously.
-
-     Because the process may take long time, please consider using `DispatchQueue` to run this process in background queues.
+     Loads entire emojis.
 
      - Complexity:
      O(n) where n is number of emojis.
@@ -41,7 +39,7 @@ public class EmojiLoader {
        - completionHandler:
          emojis: The all emojis which are ordered following a unicode definition. **It is not codepoint's order.**
      */
-    func load(completionHandler: ([Emoji]) -> Void) {
+    func load() -> [Emoji] {
 
         var emojis: [Emoji] = []
 
@@ -71,8 +69,7 @@ public class EmojiLoader {
             emojis.append(emoji)
         }
 
-        completionHandler(emojis)
-
+        return emojis
     }
 
 }
