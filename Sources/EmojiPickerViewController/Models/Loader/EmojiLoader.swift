@@ -248,6 +248,8 @@ public class EmojiLoader {
          */
         var skinToneBaseEmoji: Emoji?
 
+        var emojiOrder: Int = 0
+
         for emojiTestTextLine in emojiTestTextLines {
 
             let row = Row(emojiTestTextLine)
@@ -282,7 +284,8 @@ public class EmojiLoader {
             let unicodeScalarView = String.UnicodeScalarView(unicodeScalars)
             let character = Character(String(unicodeScalarView))
 
-            let emoji = Emoji(character: character, group: String(group!), subgroup: String(subgroup!))
+            let emoji = Emoji(character: character, recommendedOrder: UInt(exactly: emojiOrder)!, group: String(group!), subgroup: String(subgroup!))
+            
             emojis.append(emoji)
             skinToneBaseEmoji = emoji
 
@@ -296,6 +299,9 @@ public class EmojiLoader {
 //                skinToneBaseEmoji?.orderedSkinToneEmojis.append(emoji)
 //
 //            }
+
+            // The value is decremented only when the row is for an emoji data.
+            emojiOrder += 1
 
         }
 

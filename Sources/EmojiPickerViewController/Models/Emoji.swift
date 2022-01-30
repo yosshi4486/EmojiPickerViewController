@@ -37,10 +37,8 @@ public final class Emoji {
 
     /**
      The recommended emoji order which CLDR provides.  The emojis in `Resources/emoji-test.txt` are following CLDR order.
-
-     The default value is `0`, however an actual value will be set later.
      */
-    internal(set) public var recommendedOrder: UInt = 0
+    public let recommendedOrder: UInt
 
     /**
      The primay label of the emoji. This property is set following `Resources/labels.txt`. Ex.) Smileys & People, Animals & Nature.
@@ -96,8 +94,9 @@ public final class Emoji {
     /**
      Creates a new *Emoji* instance by the given character.
      */
-    init(character: Character, group: String, subgroup: String) {
+    init(character: Character, recommendedOrder: UInt, group: String, subgroup: String) {
         self.character = character
+        self.recommendedOrder = recommendedOrder
         self.group = group
         self.subgroup = subgroup
     }
