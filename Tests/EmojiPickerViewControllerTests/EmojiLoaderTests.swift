@@ -31,15 +31,17 @@ class EmojiLoaderTests: XCTestCase {
         XCTAssertEqual(emojis.count, 3624)
 
         // Assert First and Last
-        XCTAssertEqual(emojis.first?.character, "😀")
-        XCTAssertEqual(emojis.first?.recommendedOrder, 0)
-        XCTAssertEqual(emojis.first?.group, "Smileys & Emotion")
-        XCTAssertEqual(emojis.first?.subgroup, "face-smiling")
+        let grinningFace = Character("\u{1F600}")
+        XCTAssertEqual(emojis[grinningFace]?.character, "😀")
+        XCTAssertEqual(emojis[grinningFace]?.recommendedOrder, 0)
+        XCTAssertEqual(emojis[grinningFace]?.group, "Smileys & Emotion")
+        XCTAssertEqual(emojis[grinningFace]?.subgroup, "face-smiling")
 
-        XCTAssertEqual(emojis.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(emojis.last?.recommendedOrder, 3623)
-        XCTAssertEqual(emojis.last?.group, "Flags")
-        XCTAssertEqual(emojis.last?.subgroup, "subdivision-flag")
+        let flagWales = Character("\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}")
+        XCTAssertEqual(emojis[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+        XCTAssertEqual(emojis[flagWales]?.recommendedOrder, 3623)
+        XCTAssertEqual(emojis[flagWales]?.group, "Flags")
+        XCTAssertEqual(emojis[flagWales]?.subgroup, "subdivision-flag")
 
     }
 

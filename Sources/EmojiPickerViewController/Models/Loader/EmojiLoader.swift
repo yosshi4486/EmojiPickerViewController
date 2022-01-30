@@ -228,13 +228,12 @@ public class EmojiLoader {
      - Complexity:
      O(n) where n is number of emojis.
 
-     - Parameters:
-       - completionHandler:
-         emojis: The all emojis which are ordered following a unicode definition. **It is not codepoint's order.**
+     - Returns:
+     A dictionay which the key is `Character` and the value is `Emoji`. `Dictionary` is more useful for searching and replacing thire properties, rather than using `Array`.
      */
-    public func load() -> [Emoji] {
+    public func load() -> [Emoji.ID: Emoji] {
 
-        var emojis: [Emoji] = []
+        var dictionary: [Emoji.ID: Emoji] = [:]
 
         let emojiTestTextFileURL = bundle.url(forResource: "emoji-test", withExtension: "txt")!
         let emojiTestWholeText = try! String(contentsOf: emojiTestTextFileURL, encoding: .utf8)
@@ -285,8 +284,7 @@ public class EmojiLoader {
             let character = Character(String(unicodeScalarView))
 
             let emoji = Emoji(character: character, recommendedOrder: UInt(exactly: emojiOrder)!, group: String(group!), subgroup: String(subgroup!))
-            
-            emojis.append(emoji)
+            dictionary[emoji.id] = emoji
             skinToneBaseEmoji = emoji
 
 //            if unicodeScalars[0].properties.isEmojiModifierBase {
@@ -305,7 +303,7 @@ public class EmojiLoader {
 
         }
 
-        return emojis
+        return dictionary
     }
 
 }
