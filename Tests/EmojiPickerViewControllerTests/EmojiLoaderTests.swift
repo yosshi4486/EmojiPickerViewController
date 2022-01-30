@@ -21,10 +21,12 @@ class EmojiLoaderTests: XCTestCase {
     func testLoadEntireEmojiByOrdering() throws {
 
         // Emoji Counts: https://unicode.org/emoji/charts/emoji-counts.html
+        // The result should ignore component's count from the total counts.
+        // 3633 - 9(compoents) = 3624
 
         let loader = EmojiLoader()
         let emojis = loader.load()
-        XCTAssertEqual(emojis.count, 3633)
+        XCTAssertEqual(emojis.count, 3624)
 
         // Assert First and Last
         XCTAssertEqual(emojis.first?.character, "😀")
