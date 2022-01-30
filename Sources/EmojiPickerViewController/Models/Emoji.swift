@@ -9,7 +9,7 @@ import Foundation
 
 /**
 A type that represents `Emoji`.
- */
+*/
 final class Emoji {
 
     /**
@@ -32,8 +32,10 @@ final class Emoji {
      // Prints 👮🏾
      // Prints 👮🏿
      ```
+
+     The emojis are ordered conforming unicode-org/cldr recommendations. You can get [👮🏿👮🏾👮🏽👮🏼👮🏻] reversed array by using `orderedSkinToneEmojis`.
      */
-    var skinTones: [Emoji] = []
+    var orderedSkinToneEmojis: [Emoji] = []
 
     /**
      Creates a new *Emoji* instance by the given character.
