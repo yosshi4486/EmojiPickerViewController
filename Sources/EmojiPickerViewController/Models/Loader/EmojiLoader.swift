@@ -157,12 +157,12 @@ public class EmojiLoader {
         /**
          The unicode scalars of the emoji.
          */
-        let unicodeScalars: [Unicode.Scalar]
+        public let unicodeScalars: [Unicode.Scalar]
 
         /**
          The status of the emoji.
          */
-        let status: Status
+        public let status: Status
 
         /**
          Creates a *Data* instance by the given data's row string. This initializer returns `nil` if the given `dataRowString` doesn't follow the correct format.
@@ -213,21 +213,14 @@ public class EmojiLoader {
     }
 
     /**
-     The bundle where the resouces are located.
+     The `main` loader instance to load emojis. You can only access to `main`.
      */
-    let bundle: Bundle
+    public static let main = EmojiLoader()
 
     /**
-     Create an *Emoji Loader* instance by the given bundle.
-
-     - Parameters:
-       - bundle: The bundle for which loads resouces.
+     The bundle where the resouces are located. In swift package system, `.module` specifies the resource's bundle of the current module.
      */
-    init(bundle: Bundle = Bundle.module) {
-
-        self.bundle = bundle
-
-    }
+    let bundle: Bundle = .module
 
     /**
      Loads entire emojis.
@@ -239,7 +232,7 @@ public class EmojiLoader {
        - completionHandler:
          emojis: The all emojis which are ordered following a unicode definition. **It is not codepoint's order.**
      */
-    func load() -> [Emoji] {
+    public func load() -> [Emoji] {
 
         var emojis: [Emoji] = []
 
