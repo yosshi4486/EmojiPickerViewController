@@ -273,30 +273,17 @@ public class EmojiLoader {
             }
 
             let unicodeScalars = data.unicodeScalars
-            assert(!unicodeScalars.isEmpty)
-
-//            // Emoji Modifiers should not be showed.
-//            if unicodeScalars.count == 1, unicodeScalars[0].properties.isEmojiModifier {
-//                continue
-//            }
-
             let unicodeScalarView = String.UnicodeScalarView(unicodeScalars)
             let character = Character(String(unicodeScalarView))
 
             let emoji = Emoji(character: character, recommendedOrder: UInt(exactly: emojiOrder)!, group: String(group!), subgroup: String(subgroup!))
-            dictionary[emoji.id] = emoji
-            skinToneBaseEmoji = emoji
 
-//            if unicodeScalars[0].properties.isEmojiModifierBase {
-//
-//                emojis.append(emoji)
-//                skinToneBaseEmoji = emoji
-//
-//            } else {
-//
-//                skinToneBaseEmoji?.orderedSkinToneEmojis.append(emoji)
-//
-//            }
+            if emoji.isEmojiModifierSequence {
+                skinToneBaseEmoji?.orderedSkinToneEmojis.append(emoji)
+            } else {
+                dictionary[emoji.id] = emoji
+                skinToneBaseEmoji = emoji
+            }
 
             // The value is decremented only when the row is for an emoji data.
             emojiOrder += 1

@@ -23,12 +23,22 @@ class EmojiLoaderTests: XCTestCase {
     func testLoadEntireEmojiByOrdering() throws {
 
         // Emoji Counts: https://unicode.org/emoji/charts/emoji-counts.html
-        // The result should ignore component's count from the total counts.
-        // 3633 - 9(compoents) = 3624
+
+        let totalEmojiCounts = 3633
+        let cSkinTonedEmojiCounts = 645
+        let zHairSkinTonedEmojiCounts = 60
+        let zGenderSkinTonedEmojiCounts = 470
+        let zRoleSkinTonedEmojiCounts = 300
+        let zFamilySkinTonedEmojiCounts = 235
+        let zSkinTonedEmojiCounts = 65
+        let componentCounts = 9
+
+        // SkinToned emojis are added in `orderedSkinToneEmojis` and will be shown in the emoji-variation popover.
+        let numbersOfEmojisForShowingInKeyboard = totalEmojiCounts - cSkinTonedEmojiCounts - zHairSkinTonedEmojiCounts - zGenderSkinTonedEmojiCounts - zRoleSkinTonedEmojiCounts - zFamilySkinTonedEmojiCounts - zSkinTonedEmojiCounts - componentCounts
 
         let loader = EmojiLoader()
         let emojis = loader.load()
-        XCTAssertEqual(emojis.count, 3624)
+        XCTAssertEqual(emojis.count, numbersOfEmojisForShowingInKeyboard)
 
         // Assert First and Last
         let grinningFace = Character("\u{1F600}")

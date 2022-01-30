@@ -114,3 +114,53 @@ extension Emoji: Identifiable {
     }
 
 }
+
+extension Emoji {
+
+    /**
+     Returns boolean value indicating whether this emoji consists of *Emoji Modifier Sequence*.
+
+     > ED-13. emoji modifier sequence — A sequence of the following form:
+     > emoji_modifier_sequence := emoji_modifier_base emoji_modifier
+     > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.4 Emoji Modifiers, ED-13. emoji modifier sequence, https://unicode.org/reports/tr51/#def_emoji_modifier_sequence, viewed: 2022/01/30)
+
+     - Complexity: O(n) where n is number of unicode scalars in the character.
+     */
+    public var isEmojiModifierSequence: Bool {
+
+        let scalars = character.unicodeScalars
+
+        // In this repository, emoji modifiers can not exist in isolate.
+        if scalars.count == 1 {
+            assert(!character.unicodeScalars.first!.properties.isEmojiModifier)
+            return false
+        }
+
+        // emoji_modifier_sequence := emoji_modifier_base emoji_modifier
+        var index: Int = 1
+        while index < scalars.count {
+
+            let accessor = scalars.index(scalars.startIndex, offsetBy: index)
+
+            if scalars[accessor].properties.isEmojiModifier {
+                return true
+            }
+
+            // The next codepoints of zwj must be emoji_modifier_base.
+            if scalars[accessor].properties.isJoinControl {
+
+                index += 2
+
+            } else {
+
+                index += 1
+                
+            }
+
+        }
+
+        return false
+
+    }
+
+}
