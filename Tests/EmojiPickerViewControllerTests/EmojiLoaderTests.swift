@@ -32,7 +32,13 @@ class EmojiLoaderTests: XCTestCase {
 
         // Assert First and Last
         XCTAssertEqual(emojis.first?.character, "😀")
+        XCTAssertEqual(emojis.first?.group, "Smileys & Emotion")
+        XCTAssertEqual(emojis.first?.subgroup, "face-smiling")
+
         XCTAssertEqual(emojis.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+        XCTAssertEqual(emojis.last?.group, "Flags")
+        XCTAssertEqual(emojis.last?.subgroup, "subdivision-flag")
+
     }
 
 

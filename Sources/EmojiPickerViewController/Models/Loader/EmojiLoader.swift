@@ -264,7 +264,7 @@ public class EmojiLoader {
             let unicodeScalarView = String.UnicodeScalarView(unicodeScalars)
             let character = Character(String(unicodeScalarView))
 
-            let emoji = Emoji(character: character)
+            let emoji = Emoji(character: character, group: String(group!), subgroup: String(subgroup!))
             emojis.append(emoji)
             skinToneBaseEmoji = emoji
 
