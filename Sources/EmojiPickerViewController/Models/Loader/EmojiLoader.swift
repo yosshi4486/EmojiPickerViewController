@@ -10,11 +10,182 @@ import Foundation
 /**
  A type that loads all possible emoji that are defined in Unicode v14.0.
 
+ The resource which this object loads is located at  https://www.unicode.org/Public/emoji/14.0/emoji-test.txt , this loader loads data following the format.
+
  - Note:
  `Loader` is designed rather than using `TopLevelDecoder` protocol, because `emoji-test` is NOT data format. It's only semi-colon separated plain text.
 
  */
 public class EmojiLoader {
+
+    /**
+     A row of `emoji-test.txt`.
+     */
+    public enum Row<S: StringProtocol>: Equatable {
+
+        /**
+         The comment row. It should be ignored in parsing.
+         */
+        case comment
+
+        /**
+         The header row that indicates group name. The associated value is a group name, which is trimmed row comments and whitespaces.
+         */
+        case groupHeader(groupName: S.SubSequence)
+
+        /**
+         The header row that indicates subgroup name. The associated value is a subgroup name, which is trimmed row comments and whitespaces.
+         */
+        case subgroupHeader(suggroupName: S.SubSequence)
+
+        /**
+         The data row that indicates emoji data.
+         */
+        case data(EmojiLoader.Data)
+
+        /**
+         Creates a *Row* instance by the given line's string, which the original string is the whole text of `emoji-test.txt`.
+
+         This initializer initializes `self` to `.comment` if the format of the given `lineString` is unknown. (Not in emoji-test.txt)
+
+         - Parameters:
+           - lineString:The string object that represents a line of the whole `emoji-test.txt` text.
+         */
+        internal init(_ lineString: S) {
+
+            if lineString.first == "#" {
+
+                if lineString.hasPrefix("# group:"), let colonIndex = lineString.firstIndex(of: ":"), let groupStartIndex = lineString.index(colonIndex, offsetBy: 2, limitedBy: lineString.endIndex) {
+
+                    let groupName = lineString.suffix(from: groupStartIndex)
+                    self = .groupHeader(groupName: groupName)
+
+                } else if lineString.hasPrefix("# subgroup:"),  let colonIndex = lineString.firstIndex(of: ":"), let subgroupStartIndex = lineString.index(colonIndex, offsetBy: 2, limitedBy: lineString.endIndex) {
+
+                    let subgroupName = lineString.suffix(from: subgroupStartIndex)
+                    self = .subgroupHeader(suggroupName: subgroupName)
+
+                } else {
+
+                    self = .comment
+
+                }
+
+            } else {
+
+                guard let data = EmojiLoader.Data(dataRowString: lineString) else {
+                    self = .comment
+                    return
+                }
+
+                self = .data(data)
+
+            }
+
+        }
+
+    }
+
+    /**
+     A  emoji data structure of `emoji-test.txt`.
+     */
+    public struct Data: Equatable {
+
+        /**
+         A status of an emoji.
+
+         The specifications of this *Status* are defined in [UTS #51](https://unicode.org/reports/tr51/)
+         */
+        public enum Status: String {
+
+            /**
+             The component status.
+
+             > ED-5. emoji component — A character that has the Emoji_Component property.
+             > These characters are used in emoji sequences but normally do not appear on emoji keyboards as separate choices, such as keycap base characters or Regional_Indicator characters.
+             > Some emoji components are emoji characters, and others (such as tag characters and ZWJ) are not.
+             > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.1 Emoji Characters, ED-5. emoji component, https://unicode.org/reports/tr51/#def_level2_emoji, viewed: 2022/01/30)
+             */
+            case component
+
+            /**
+             The fully qualified status.
+
+             > ED-18. fully-qualified emoji — A qualified emoji character, or an emoji sequence in which each emoji character is qualified.
+             > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.5 Emoji Sequences, ED-18. fully-qualified emoji , https://unicode.org/reports/tr51/#def_fully_qualified_emoji, viewed: 2022/01/30)
+             */
+            case fullyQualified = "fully-qualified"
+
+            /**
+             The minimally qualified status.
+
+             > ED-18a. minimally-qualified emoji — An emoji sequence in which the first character is qualified but the sequence is not fully qualified.
+             > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.5 Emoji Sequences, ED-18a. minimally-qualified emoji , https://unicode.org/reports/tr51/#def_minimally_qualified_emoji, viewed: 2022/01/30)
+             */
+            case minimallyQualified = "minimally-qualified"
+
+            /**
+             The unqualified status.
+
+             > ED-19. unqualified emoji — An emoji that is neither fully-qualified nor minimally qualified.
+             > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.5 Emoji Sequences, ED-19. unqualified emoji , https://unicode.org/reports/tr51/#def_unqualified_emoji, viewed: 2022/01/30)
+             */
+            case unqualified
+
+        }
+
+        /**
+         The unicode scalars of the emoji.
+         */
+        let unicodeScalars: [Unicode.Scalar]
+
+        /**
+         The status of the emoji.
+         */
+        let status: Status
+
+        /**
+         Creates a *Data* instance by the given data's row string. This initializer returns `nil` if the given `dataRowString` doesn't follow the correct format.
+
+         - Parameters:
+           - dataRowString: The row string that includues a codepoints and status.
+         */
+        internal init?<S: StringProtocol>(dataRowString: S) {
+
+            let columns = dataRowString.split(separator: ";")
+            guard columns.count == 2 else {
+                return nil
+            }
+
+            let codePointsColumn = columns[0]
+            let statusColumn = columns[1] // includes line comments and whitespaces.
+
+            let unicodeScalars: [Unicode.Scalar] = codePointsColumn.split(separator: " ").compactMap({ UInt32($0, radix: 16) }).compactMap({ Unicode.Scalar($0) })
+            guard !unicodeScalars.isEmpty else {
+                return nil
+            }
+
+            let statusRawString: S.SubSequence
+            if let commentIndex = statusColumn.firstIndex(of: "#") {
+
+                statusRawString = statusColumn.prefix(upTo: commentIndex)
+
+            } else {
+
+                statusRawString = statusColumn
+
+            }
+
+            guard let status = Status(rawValue: statusRawString.trimmingCharacters(in: .whitespaces)) else {
+                return nil
+            }
+
+            self.unicodeScalars = unicodeScalars
+            self.status = status
+
+        }
+
+    }
 
     /**
      The bundle where the resouces are located.
@@ -47,7 +218,6 @@ public class EmojiLoader {
 
         var emojis: [Emoji] = []
 
-        // The original resource is located at https://www.unicode.org/Public/emoji/14.0/emoji-test.txt .
         let emojiTestTextFileURL = bundle.url(forResource: "emoji-test", withExtension: "txt")!
         let emojiTestWholeText = try! String(contentsOf: emojiTestTextFileURL, encoding: .utf8)
         let emojiTestTextLines = emojiTestWholeText.split(separator: "\n")
@@ -60,48 +230,30 @@ public class EmojiLoader {
          */
         var skinToneBaseEmoji: Emoji?
 
-        for (index, emojiOrderingTextLine) in emojiTestTextLines.enumerated() {
+        for emojiTestTextLine in emojiTestTextLines {
 
-            /*
-             There are three possible lines when the parser faces a "#":
-             1. Comment
-             2. Group name
-             3. Subgroup name
-             */
-            if emojiOrderingTextLine.first == "#" {
+            let row = Row(emojiTestTextLine)
 
-                if emojiOrderingTextLine.hasPrefix("# group:"), let colonIndex = emojiOrderingTextLine.firstIndex(of: ":") {
+            guard case .data(let data) = row else {
 
-                    let groupStartIndex = emojiOrderingTextLine.index(colonIndex, offsetBy: 2)
-                    group = emojiOrderingTextLine.suffix(from: groupStartIndex)
+                if case .groupHeader(let name) = row {
 
-                } else if emojiOrderingTextLine.hasPrefix("# subgroup:"),  let colonIndex = emojiOrderingTextLine.firstIndex(of: ":") {
+                    group = name
 
-                    let subgroupStartIndex = emojiOrderingTextLine.index(colonIndex, offsetBy: 2)
-                    subgroup = emojiOrderingTextLine.suffix(from: subgroupStartIndex)
+                } else if case .subgroupHeader(suggroupName: let name) = row {
+
+                    subgroup = name
 
                 }
 
                 continue
-
             }
 
-            let columns = emojiOrderingTextLine.split(separator: ";")
-            guard columns.count == 2 else {
-                fatalError("An iggegal form or a implementation problem is detected. Line in Whole Text: \(index), Line's Text: \(emojiOrderingTextLine)")
-            }
-
-            let hexCodepoints: [Substring] = columns[0].split(separator: " ")
-            let status = columns[1].split(separator: "#").first!.trimmingCharacters(in: .whitespaces)
-
-            guard status == "fully-qualified" else {
+            guard case .fullyQualified = data.status else {
                 continue
             }
 
-            let unicodeScalars: [Unicode.Scalar] = hexCodepoints
-                .compactMap({ UInt32($0, radix: 16) })  // Convert hex to UInt32.
-                .compactMap({ Unicode.Scalar($0) })     // Convert UInt32 to Unicode.Scalar.
-
+            let unicodeScalars = data.unicodeScalars
             assert(!unicodeScalars.isEmpty)
 
 //            // Emoji Modifiers should not be showed.
