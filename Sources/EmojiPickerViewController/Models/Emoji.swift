@@ -40,21 +40,21 @@ public final class Emoji {
 
      The default value is `0`, however an actual value will be set later.
      */
-    var recommendedOrder: UInt = 0
+    internal(set) var recommendedOrder: UInt = 0
 
     /**
      The primay label of the emoji. This property is set following `Resources/labels.txt`. Ex.) Smileys & People, Animals & Nature.
 
      The default value is empty, however an actual value will be set later.
      */
-    var primaryLabel: String = ""
+    internal(set) var primaryLabel: String = ""
 
     /**
      The secondary label of the emoji. This property is set following `Resources/labels.txt`. Ex.) transport-ground, food-prepared.
 
      The default value is empty, however an actual value will be set later.
      */
-    var secondaryLabel: String = ""
+    internal(set) var secondaryLabel: String = ""
 
     /**
      The annotations for searching emojis. The value includes multiple annotations which are separated by vertical line "|",  such as `face | geek | nerd`.  This property is set following`Resources/CLDR/annotations` and `Resources/CLDR/annotationsDerived` .
@@ -63,7 +63,7 @@ public final class Emoji {
 
      - SeeAlso: [UITextInputMode.currentInputModeDidChangeNotification](https://developer.apple.com/documentation/uikit/uitextinputmode/1614517-currentinputmodedidchangenotific)
      */
-    var annotations: String = ""
+    internal(set) var annotations: String = ""
 
     /**
      The tts value for screen reader functionality. In Apple Platform, the value should be read by VoiceOver. This property is set following`Resources/CLDR/annotations` and `Resources/CLDR/annotationsDerived`
@@ -72,7 +72,7 @@ public final class Emoji {
 
      - SeeAlso: [UITextInputMode.currentInputModeDidChangeNotification](https://developer.apple.com/documentation/uikit/uitextinputmode/1614517-currentinputmodedidchangenotific)
      */
-    var textToSpeach: String = ""
+    internal(set) var textToSpeach: String = ""
 
     /**
      The skin-tone's variations of this emoji.
@@ -91,12 +91,12 @@ public final class Emoji {
 
      The emojis are ordered conforming unicode-org/cldr recommendations. You can get [👮🏿👮🏾👮🏽👮🏼👮🏻] reversed array by using `orderedSkinToneEmojis`.
      */
-    var orderedSkinToneEmojis: [Emoji] = []
+    internal(set) var orderedSkinToneEmojis: [Emoji] = []
 
     /**
      Creates a new *Emoji* instance by the given character.
      */
-    init(character: Character, group: String, subgroup: String) {
+    internal init(character: Character, group: String, subgroup: String) {
         self.character = character
         self.group = group
         self.subgroup = subgroup
