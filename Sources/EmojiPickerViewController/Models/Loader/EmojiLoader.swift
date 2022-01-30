@@ -25,21 +25,41 @@ public class EmojiLoader {
 
         /**
          The comment row. It should be ignored in parsing.
+
+         For instance:
+         ```
+         # Emoji Keyboard/Display Test Data for UTS #51
+         ```
          */
         case comment
 
         /**
          The header row that indicates group name. The associated value is a group name, which is trimmed row comments and whitespaces.
+
+         For instance:
+         ```
+         # group: Smileys & Emotion
+         ```
          */
         case groupHeader(groupName: S.SubSequence)
 
         /**
          The header row that indicates subgroup name. The associated value is a subgroup name, which is trimmed row comments and whitespaces.
+
+         For instance:
+         ```
+         # subgroup: face-smiling
+         ```
          */
         case subgroupHeader(suggroupName: S.SubSequence)
 
         /**
          The data row that indicates emoji data.
+
+         For instance:
+         ```
+         1F636 200D 1F32B FE0F; fully-qualified # 😶‍🌫️ E13.1 face in clouds
+         ```
          */
         case data(EmojiLoader.Data)
 
@@ -151,6 +171,11 @@ public class EmojiLoader {
            - dataRowString: The row string that includues a codepoints and status.
          */
         internal init?<S: StringProtocol>(dataRowString: S) {
+
+            /*
+             The goal of this initialization is parsing the below to get the unicode scalars and status.
+             `1F636 200D 1F32B FE0F                                  ; fully-qualified     # 😶‍🌫️ E13.1 face in clouds`
+             */
 
             let columns = dataRowString.split(separator: ";")
             guard columns.count == 2 else {
