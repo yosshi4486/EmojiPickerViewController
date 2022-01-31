@@ -21,9 +21,6 @@ Emoji 14.0
 All annotation files are located at: https://github.com/unicode-org/cldr/tree/main/common/annotations
 All derived annotation files are located at: https://github.com/unicode-org/cldr/tree/main/common/annotationsDerived
 
-## Labels
-All annotation files are located at: https://github.com/unicode-org/cldr/blob/main/common/properties/labels.txt
-
 ## LICENSE
 I copied unicode-org/cldr terms-of-uses at `EmojiPickerViewController/LICENSE.md`, and described which the changes are made.
 

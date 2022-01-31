@@ -1,0 +1,25 @@
+
+// Labels
+
+// All labels should be title styled capitalization.
+
+"smileys_people" = "Smileys & People";
+
+"animals_nature" = "Animals & Nature";
+
+"food_drink" = "Food & Drink";
+
+"travel_places" = "Travel & Places";
+
+"activities" = "Activities";
+
+"objects" = "Objects";
+
+"symbols" = "Symbols";
+
+"flags" = "Flags";
+
+// UI
+
+// Title style
+"search_emoji" = "Search Emoji";
