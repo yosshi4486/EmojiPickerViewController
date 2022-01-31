@@ -232,11 +232,6 @@ open class EmojiLoader {
     }
 
     /**
-     The `main` loader instance to load emojis. You can only access to `main`.
-     */
-    public static let main = EmojiLoader()
-
-    /**
      The bundle where the resouces are located. In swift package system, `.module` specifies the resource's bundle of the current module.
      */
     let bundle: Bundle = .module
