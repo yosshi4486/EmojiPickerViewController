@@ -51,12 +51,24 @@ class EmojiLoaderTests: XCTestCase {
         let zSkinTonedEmojiCounts = 65
         let componentCounts = 9
 
+        let numbersOfEmojisForShowingInKeyboardWithVariationPopover = totalEmojiCounts - componentCounts
+
         // SkinToned emojis are added in `orderedSkinToneEmojis` and will be shown in the emoji-variation popover.
-        let numbersOfEmojisForShowingInKeyboard = totalEmojiCounts - cSkinTonedEmojiCounts - zHairSkinTonedEmojiCounts - zGenderSkinTonedEmojiCounts - zRoleSkinTonedEmojiCounts - zFamilySkinTonedEmojiCounts - zSkinTonedEmojiCounts - componentCounts
+        let numbersOfEmojisForShowingInKeyboardWithoutVariationPopover = numbersOfEmojisForShowingInKeyboardWithVariationPopover
+        - cSkinTonedEmojiCounts
+        - zHairSkinTonedEmojiCounts
+        - zGenderSkinTonedEmojiCounts
+        - zRoleSkinTonedEmojiCounts
+        - zFamilySkinTonedEmojiCounts
+        - zSkinTonedEmojiCounts
 
         let loader = EmojiLoader()
         let emojis = loader.load()
-        XCTAssertEqual(emojis.count, numbersOfEmojisForShowingInKeyboard)
+
+        let allEmojiCount: Int = emojis.values.reduce(0, { $0 + ($1.orderedSkinToneEmojis.count + 1) })
+        XCTAssertEqual(allEmojiCount, numbersOfEmojisForShowingInKeyboardWithVariationPopover)
+
+        XCTAssertEqual(emojis.count, numbersOfEmojisForShowingInKeyboardWithoutVariationPopover)
 
         // Assert First and Last
         let grinningFace = Character("\u{1F600}")
