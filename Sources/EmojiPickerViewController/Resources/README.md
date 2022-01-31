@@ -15,6 +15,8 @@ Other resources must be declared in `Package.swift`
 Dev No.40.
 https://cldr.unicode.org/index/downloads
 
+Emoji 14.0
+
 ## Annotations
 All annotation files are located at: https://github.com/unicode-org/cldr/tree/main/common/annotations
 All derived annotation files are located at: https://github.com/unicode-org/cldr/tree/main/common/annotationsDerived
@@ -22,4 +24,6 @@ All derived annotation files are located at: https://github.com/unicode-org/cldr
 ## Labels
 All annotation files are located at: https://github.com/unicode-org/cldr/blob/main/common/properties/labels.txt
 
+## LICENSE
+I copied unicode-org/cldr terms-of-uses at `EmojiPickerViewController/LICENSE.md`, and described which the changes are made.
 
