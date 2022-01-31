@@ -139,7 +139,13 @@ public final class Emoji {
     internal(set) public var orderedSkinToneEmojis: [Emoji] = []
 
     /**
-     Creates a new *Emoji* instance by the given character.
+     Creates a new *Emoji* instance by the required parameters.
+
+     - Parameters:
+       - character: The character that represents an emoji.
+       - recommendedOrder: The CLDR unsigned integer order for keyboard.
+       - group: The group name where the emoji belongs.
+       - subgroup: The subgroup name where the emoji belongs.
      */
     init(character: Character, recommendedOrder: UInt, group: String, subgroup: String) {
         self.character = character
