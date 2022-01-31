@@ -75,11 +75,11 @@ public final class Emoji {
     /**
      The skin-tone's variations of this emoji.
 
-     For example, If the base emoji is 👮, the skinTones should be:
+     For example, If the base emoji is 👮, the `orderedSkinToneEmojis` are:
 
      ```swift
      let emoji = Emoji(character: .init("👮"))
-     emoji.skinTones.forEach { print($0.character) }
+     emoji.orderedSkinToneEmojis.forEach { print($0.character) }
      // Prints 👮🏻
      // Prints 👮🏼
      // Prints 👮🏽
@@ -87,7 +87,7 @@ public final class Emoji {
      // Prints 👮🏿
      ```
 
-     The emojis are ordered conforming unicode-org/cldr recommendations. You can get [👮🏿👮🏾👮🏽👮🏼👮🏻] reversed array by using `orderedSkinToneEmojis`.
+     The emojis are ordered conforming unicode-org/cldr recommendations. You can get [👮🏿👮🏾👮🏽👮🏼👮🏻] reversed array by using `orderedSkinToneEmojis.reversed()`.
      */
     internal(set) public var orderedSkinToneEmojis: [Emoji] = []
 
