@@ -243,7 +243,23 @@ public class EmojiLoader {
         var subgroup: Substring?
 
         /*
-         The local var is used for handling skin tones. Adds skin-tone emojis into the `Emoji.skinTones` property, rather than adding it to `emojis` in this scope.
+         The local var is used for handling skin tones. Adds skin-tone emojis into the `Emoji.orderedSkinTonesEmojis` property, rather than adding it into `dictionary`.
+
+         The most important expectation for combining skintones to a base emoji is the orders of emojis in the `emoji-test.txt` file,  which the all skintone candidates of the emoji are sandwitched between the base emoji and a NEXT base emoji.
+
+         Ex)
+         1F9D1 200D 1F9BC                                       ; fully-qualified     # 🧑‍🦼 E12.1 person in motorized wheelchair                            *BASE EMOJI*
+         1F9D1 1F3FB 200D 1F9BC                                 ; fully-qualified     # 🧑🏻‍🦼 E12.1 person in motorized wheelchair: light skin tone           *SKINTONED EMOJI*
+         1F9D1 1F3FC 200D 1F9BC                                 ; fully-qualified     # 🧑🏼‍🦼 E12.1 person in motorized wheelchair: medium-light skin tone    *SKINTONED EMOJI*
+         1F9D1 1F3FD 200D 1F9BC                                 ; fully-qualified     # 🧑🏽‍🦼 E12.1 person in motorized wheelchair: medium skin tone          *SKINTONED EMOJI*
+         1F9D1 1F3FE 200D 1F9BC                                 ; fully-qualified     # 🧑🏾‍🦼 E12.1 person in motorized wheelchair: medium-dark skin tone     *SKINTONED EMOJI*
+         1F9D1 1F3FF 200D 1F9BC                                 ; fully-qualified     # 🧑🏿‍🦼 E12.1 person in motorized wheelchair: dark skin tone            *SKINTONED EMOJI*
+         1F468 200D 1F9BC                                       ; fully-qualified     # 👨‍🦼 E12.0 man in motorized wheelchair                               *NEXT BASE EMOJI*
+
+         In this example, 🧑🏻‍🦼🧑🏼‍🦼🧑🏽‍🦼🧑🏾‍🦼🧑🏿‍🦼 are added as `orderedSkinToneEmojis` of 🧑‍🦼.
+         (Resources/emoji-test.txt)
+
+         This implementation adds emojis as `orderedSkinToneEmojis` until a next base emoji that the `isEmojiModifierSequence` is false, is found.
          */
         var skinToneBaseEmoji: Emoji?
 
