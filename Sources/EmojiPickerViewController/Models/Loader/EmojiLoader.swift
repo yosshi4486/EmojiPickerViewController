@@ -35,7 +35,7 @@ import Foundation
  `Loader` is designed rather than using `TopLevelDecoder` protocol, because `emoji-test` is NOT data format. It's only semi-colon separated plain text.
 
  */
-public class EmojiLoader {
+open class EmojiLoader {
 
     /**
      A row of `emoji-test.txt`.
@@ -250,7 +250,7 @@ public class EmojiLoader {
      - Returns:
      A dictionay which the key is `Character` and the value is `Emoji`. `Dictionary` is more useful for searching and replacing thire properties, rather than using `Array`.
      */
-    public func load() -> [Emoji.ID: Emoji] {
+    open func load() -> [Emoji.ID: Emoji] {
 
         var dictionary: [Emoji.ID: Emoji] = [:]
 
