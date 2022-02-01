@@ -85,10 +85,10 @@ class EmojiAnnotationLoaderTests: XCTestCase {
         let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["zh_Hans_SG", "agq_CM", "ar_KW", "ru"])
         XCTAssertNoThrow(try loader.load())
 
-        XCTAssertEqual(emojiDictionary["😀"]?.annotation, "лицо | радость | счастье | улыбка | широкая улыбка | широко улыбается")
-        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeach, "широко улыбается")
-        XCTAssertEqual(emojiDictionary["💏"]?.annotation, "любовь | пара | поцелуй | романтика | чувства")
-        XCTAssertEqual(emojiDictionary["💏"]?.textToSpeach, "поцелуй")
+        XCTAssertEqual(emojiDictionary["😀"]?.annotation, "лицо | радость | счастье | улыбка | широкая улыбка | широко улыбается", "Failed to failover to `ru` language. The other annotation is loaded.")
+        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeach, "широко улыбается", "Failed to failover to `ru` language. The other textToSpeach is loaded.")
+        XCTAssertEqual(emojiDictionary["💏"]?.annotation, "любовь | пара | поцелуй | романтика | чувства", "Failed to failover to `ru` language. The other annotation is loaded.")
+        XCTAssertEqual(emojiDictionary["💏"]?.textToSpeach, "поцелуй", "Failed to failover to `ru` language. The other textToSpeach is loaded.")
 
 
     }
@@ -104,10 +104,10 @@ class EmojiAnnotationLoaderTests: XCTestCase {
 
         XCTAssertNoThrow(try loader.load())
 
-        XCTAssertEqual(emojiDictionary["😀"]?.annotation, "face | grin | grinning face")
-        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeach, "grinning face")
-        XCTAssertEqual(emojiDictionary["💏"]?.annotation, "couple | kiss")
-        XCTAssertEqual(emojiDictionary["💏"]?.textToSpeach, "kiss")
+        XCTAssertEqual(emojiDictionary["😀"]?.annotation, "face | grin | grinning face", "Failed to prioritized head language(en). The other language is loaded.")
+        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeach, "grinning face", "Failed to prioritized head language(en). The other language is loaded.")
+        XCTAssertEqual(emojiDictionary["💏"]?.annotation, "couple | kiss", "Failed to prioritized head language(en). The other language is loaded.")
+        XCTAssertEqual(emojiDictionary["💏"]?.textToSpeach, "kiss", "Failed to prioritized head language(en). The other language is loaded.")
 
     }
 
