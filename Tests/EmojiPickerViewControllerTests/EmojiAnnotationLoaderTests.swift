@@ -42,15 +42,15 @@ class EmojiAnnotationLoaderTests: XCTestCase {
 
         XCTContext.runActivity(named: "File Exist") { _ in
 
-            let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageCode: "zh-Hant-HK")
-            XCTAssertEqual(loader.resourceURL, baseURL?.appendingPathComponent("zh_Hant_HK.xml"), "Failed to replace the hyphen separated language code with underscore.")
+            let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageIdentifiers: [])
+            XCTAssertEqual(loader.resourceURL(for: "zh-Hant-HK"), baseURL?.appendingPathComponent("zh_Hant_HK.xml"), "Failed to replace the hyphen separated language code with underscore.")
 
         }
 
         XCTContext.runActivity(named: "File Not Exist") { _ in
 
-            let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageCode: "a-b-c-d")
-            XCTAssertNil(loader.resourceURL, "Failed to guard unlisted language codes.")
+            let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageIdentifiers: [])
+            XCTAssertNil(loader.resourceURL(for: "a-b-c-d"), "Failed to guard unlisted language codes.")
 
         }
 
@@ -58,13 +58,13 @@ class EmojiAnnotationLoaderTests: XCTestCase {
 
     func testLoadThrowsError() throws {
 
-        let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageCode: "a-b-c-d")
+        let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageIdentifiers: ["a-b-c-d"])
 
         XCTAssertThrowsError(try loader.load()) { error in
 
-            if case .annotationFileNotFound(let languageCode) = (error as? EmojiAnnotationLoader.Error) {
+            if case .annotationFileNotFound(let languageCodes) = (error as? EmojiAnnotationLoader.Error) {
 
-                XCTAssertEqual(languageCode, "a-b-c-d", "Failed to get the expected language code.")
+                XCTAssertEqual(languageCodes, ["a-b-c-d"], "Failed to get the expected language code.")
 
             } else {
 
@@ -74,5 +74,42 @@ class EmojiAnnotationLoaderTests: XCTestCase {
         }
 
     }
+
+    func testLoadFailOver() throws {
+
+        let emojiDictionary: [Emoji.ID:Emoji] = [
+            "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
+            "💏": Emoji(character: "💏", recommendedOrder: 0, group: "", subgroup: "")
+        ]
+
+        let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["zh_Hans_SG", "agq_CM", "ar_KW", "ru"])
+        XCTAssertNoThrow(try loader.load())
+
+        XCTAssertEqual(emojiDictionary["😀"]?.annotation, "лицо | радость | счастье | улыбка | широкая улыбка | широко улыбается")
+        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeach, "широко улыбается")
+        XCTAssertEqual(emojiDictionary["💏"]?.annotation, "любовь | пара | поцелуй | романтика | чувства")
+        XCTAssertEqual(emojiDictionary["💏"]?.textToSpeach, "поцелуй")
+
+
+    }
+
+    func testHeadLanguageIsPrioritized() throws {
+
+        let emojiDictionary: [Emoji.ID:Emoji] = [
+            "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
+            "💏": Emoji(character: "💏", recommendedOrder: 0, group: "", subgroup: "")
+        ]
+
+        let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["en", "ja", "de"]) // All associated annotation files exist.
+
+        XCTAssertNoThrow(try loader.load())
+
+        XCTAssertEqual(emojiDictionary["😀"]?.annotation, "face | grin | grinning face")
+        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeach, "grinning face")
+        XCTAssertEqual(emojiDictionary["💏"]?.annotation, "couple | kiss")
+        XCTAssertEqual(emojiDictionary["💏"]?.textToSpeach, "kiss")
+
+    }
+
 
 }

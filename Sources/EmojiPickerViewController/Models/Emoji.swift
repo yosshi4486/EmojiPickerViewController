@@ -102,13 +102,13 @@ public class Emoji {
     }
 
     /**
-     The annotations for searching emojis. The value includes multiple annotations which are separated by vertical line "|",  such as `face | geek | nerd`. This property is set following`Resources/CLDR/annotations` and `Resources/CLDR/annotationsDerived` .
+     The annotation for searching emojis. The value includes multiple annotation which are separated by vertical line "|",  such as `face | geek | nerd`. This property is set following`Resources/CLDR/annotation` and `Resources/CLDR/annotationsDerived` .
 
      This property can be replaced when the keyboard's primary language is changed. The default value is empty, however an actual value will be set later.
 
      - SeeAlso: [UITextInputMode.currentInputModeDidChangeNotification](https://developer.apple.com/documentation/uikit/uitextinputmode/1614517-currentinputmodedidchangenotific)
      */
-    internal(set) public var annotations: String = ""
+    internal(set) public var annotation: String = ""
 
     /**
      The tts value for screen reader functionality. In Apple Platform, the value should be read by VoiceOver. This property is set following`Resources/CLDR/annotations` and `Resources/CLDR/annotationsDerived`

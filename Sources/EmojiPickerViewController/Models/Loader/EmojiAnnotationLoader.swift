@@ -27,9 +27,9 @@ import Foundation
 import SwiftyXMLParser
 
 /**
- A type that loads emoji's annotations and tts to already loaded emojis.
+ A type that loads emoji's annotation and tts to already loaded emojis.
 
- The resources which this object loads are located at `Resources/CLDR/annotations` and `Resources/CLDR/annotationsDerived`.
+ The resources which this object loads are located at `Resources/CLDR/annotation` and `Resources/CLDR/annotationsDerived`.
 
  The original resources are:
  - https://github.com/unicode-org/cldr/tree/main/common/annoatations
@@ -48,31 +48,21 @@ class EmojiAnnotationLoader: Loader {
     enum Error: Swift.Error {
 
         /**
-         An error that an annotation file associated with the language code is not found. The associated value is language code.
+         An error that an annotation file associated with the language codes is not found. The associated value is language codes.
          */
-        case annotationFileNotFound(String)
+        case annotationFileNotFound([String])
 
     }
 
     /**
-     The URL where the destination resource is located.
+     The BCP 47 language identifiers for which loads annotations, such as "es", “en-US”, or “fr-CA”. The first identifier is loaded first, and if it fails to load, the next identifier is checked. This continues until the end of the array.
 
-     Returns nil if there is no annotation file which has name "{language}.xml". This method replaces hyphen with underscore for following the unicode-org/cldr annotation file's naming rule.
+     This object loads locale-specific annotations in `load()` method, following this `languageIdentifiers` property.
      */
-    var resourceURL: URL? {
-        let identifier = languageCode.replacingOccurrences(of: "-", with: "_")
-        return bundle.url(forResource: identifier, withExtension: "xml")
-    }
+    var languageIdentifiers: [String]
 
     /**
-     The BCP 47 language code for which loads annotations, such as "es", “en-US”, or “fr-CA”
-
-     This object loads locale-specific annotations in `load()` method, following this `language` property.
-     */
-    var languageCode: String
-
-    /**
-     The emoji dictionary that contains all possible emojis for setting annotations and tts..
+     The emoji dictionary that contains all possible emojis for setting annotation and tts..
      */
     let emojiDictionary: [Emoji.ID : Emoji]
 
@@ -80,13 +70,13 @@ class EmojiAnnotationLoader: Loader {
      Creates an *Emoji Annotation Loader* instance by the given locale.
 
      - Parameters:
-       - emojiDictionary: The dictionary which the key is a `Character` and the value is a `Emoji`, for setting annotations and tts.
-       - languageCode: The BCP 47 language code for which loads annotations.
+       - emojiDictionary: The dictionary which the key is a `Character` and the value is a `Emoji`, for setting annotation and tts.
+       - languageIdentifiers: The BCP 47 language identifiers for which loads annotations. Giving several language identifiers may help to avoid a `annotationFileNotFound` error.
      */
-    init(emojiDictionary: [Emoji.ID: Emoji], languageCode: String) {
+    init(emojiDictionary: [Emoji.ID: Emoji], languageIdentifiers: [String]) {
 
         self.emojiDictionary = emojiDictionary
-        self.languageCode = languageCode
+        self.languageIdentifiers = languageIdentifiers
 
     }
 
@@ -95,13 +85,48 @@ class EmojiAnnotationLoader: Loader {
      */
     func load() throws {
 
-        guard let resourceURL = resourceURL else {
+        var annotationsFileURL: URL?
 
-            throw Error.annotationFileNotFound(languageCode)
+        for languageCode in languageIdentifiers {
+            annotationsFileURL = resourceURL(for: languageCode)
+
+            if annotationsFileURL != nil {
+                break
+            }
+        }
+
+        guard let annotationsFileURL = annotationsFileURL else {
+            throw Error.annotationFileNotFound(languageIdentifiers)
+        }
+
+        // In this source, we don't have to worry about resources file errors, because the files are managed by this module, not user.
+        let annotationXMLData = try! Data(contentsOf: annotationsFileURL)
+        let xml = XML.parse(annotationXMLData)
+
+        for annotation in xml.ldml.annotations.annotation {
+
+            let cp = annotation.attributes["cp"] // The type is string
+            let character = Character(cp!)
+
+            // is tts type.
+            if annotation.attributes["type"] == "tts" {
+
+                emojiDictionary[character]?.textToSpeach = annotation.text!
+
+            } else {
+
+                emojiDictionary[character]?.annotation = annotation.text!
+                
+            }
 
         }
 
-        
+    }
+
+    func resourceURL(for languageIdentifier: String) -> URL? {
+
+        let identifier = languageIdentifier.replacingOccurrences(of: "-", with: "_")
+        return bundle.url(forResource: identifier, withExtension: "xml")
 
     }
 

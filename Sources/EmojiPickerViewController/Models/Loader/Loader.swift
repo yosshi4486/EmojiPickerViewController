@@ -41,11 +41,6 @@ protocol Loader {
     var bundle: Bundle { get }
 
     /**
-     The URL where the destination resource is located.
-     */
-    var resourceURL: URL? { get }
-
-    /**
      Loads data.
      */
     func load() throws -> Loaded

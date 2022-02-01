@@ -95,16 +95,6 @@ class EmojiLoaderTests: XCTestCase {
 
     }
 
-    func testResourceURL() throws {
-
-        let baseURL = Bundle.module.resourceURL
-
-        let loader = EmojiLoader()
-        XCTAssertEqual(loader.resourceURL, baseURL?.appendingPathComponent("emoji-test.txt"))
-
-    }
-
-
     func testPerformanceLoad() throws {
 
         let loader = EmojiLoader()

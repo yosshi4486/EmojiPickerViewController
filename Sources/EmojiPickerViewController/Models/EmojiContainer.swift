@@ -51,7 +51,7 @@ public class EmojiContainer {
 
         // 1. Load emoji
 
-        // 2. Load initial annotations and tts
+        // 2. Load initial annotation and tts
 
         // 3. Register `UITextInputMode.currentInputModeDidChangeNotification`
 
