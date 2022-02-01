@@ -39,7 +39,7 @@ import Foundation
  - SeeAlso:
   - [LSDM](https://unicode.org/reports/tr35/)
  */
-open class EmojiAnnotationLoader {
+class EmojiAnnotationLoader: Loader {
 
     /**
      The locale for which loads annotations.
@@ -49,7 +49,7 @@ open class EmojiAnnotationLoader {
     var locale: Locale
 
     /**
-     The emoji dictionary that contains all possible emojis except for components.
+     The emoji dictionary that contains all possible emojis for setting annotations and tts..
      */
     let emojiDictionary: [Emoji.ID : Emoji]
 
@@ -57,10 +57,16 @@ open class EmojiAnnotationLoader {
      Creates an *Emoji Annotation Loader* instance by the given locale.
 
      - Parameters:
+       - emojiDictionary: The dictionary which the key is a `Character` and the value is a `Emoji`, for setting annotations and tts.
        - locale: The locale for which loads annotations.
      */
     init(emojiDictionary: [Emoji.ID: Emoji], locale: Locale) {
+        self.emojiDictionary = emojiDictionary
         self.locale = locale
+    }
+
+    func load() {
+
     }
 
 }

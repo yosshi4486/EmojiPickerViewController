@@ -36,7 +36,7 @@ import Foundation
 
  We can make all property changes to `let` by making a combined resource of all resources, but it may make other complications.
 */
-public final class Emoji {
+public class Emoji {
 
     /**
      The character representation of the emoji.

@@ -35,12 +35,12 @@ import Foundation
  `Loader` is designed rather than using `TopLevelDecoder` protocol, because `emoji-test` is NOT data format. It's only semi-colon separated plain text.
 
  */
-open class EmojiLoader {
+class EmojiLoader: Loader {
 
     /**
      A row of `emoji-test.txt`.
      */
-    public enum Row<S: StringProtocol>: Equatable {
+    enum Row<S: StringProtocol>: Equatable {
 
         /**
          The comment row. It should be ignored in parsing.
@@ -90,7 +90,7 @@ open class EmojiLoader {
          - Parameters:
            - lineString:The string object that represents a line of the whole `emoji-test.txt` text.
          */
-        internal init(_ lineString: S) {
+        init(_ lineString: S) {
 
             if lineString.first == "#" {
 
@@ -128,14 +128,14 @@ open class EmojiLoader {
     /**
      A  emoji data structure of `emoji-test.txt`.
      */
-    public struct Data: Equatable {
+    struct Data: Equatable {
 
         /**
          A status of an emoji.
 
          The specifications of this *Status* are defined in [UTS #51](https://unicode.org/reports/tr51/)
          */
-        public enum Status: String {
+        enum Status: String {
 
             /**
              The component status.
@@ -176,12 +176,12 @@ open class EmojiLoader {
         /**
          The unicode scalars of the emoji.
          */
-        public let unicodeScalars: [Unicode.Scalar]
+        let unicodeScalars: [Unicode.Scalar]
 
         /**
          The status of the emoji.
          */
-        public let status: Status
+        let status: Status
 
         /**
          Creates a *Data* instance by the given data's row string. This initializer returns `nil` if the given `dataRowString` doesn't follow the correct format.
@@ -189,7 +189,7 @@ open class EmojiLoader {
          - Parameters:
            - dataRowString: The row string that includues a codepoints and status.
          */
-        internal init?<S: StringProtocol>(dataRowString: S) {
+        init?<S: StringProtocol>(dataRowString: S) {
 
             /*
              The goal of this initialization is parsing the below to get the unicode scalars and status.
@@ -232,11 +232,6 @@ open class EmojiLoader {
     }
 
     /**
-     The bundle where the resouces are located. In swift package system, `.module` specifies the resource's bundle of the current module.
-     */
-    let bundle: Bundle = .module
-
-    /**
      Loads entire emojis.
 
      - Complexity:
@@ -246,7 +241,7 @@ open class EmojiLoader {
        - fullyQualifiedEmojisDictionary: The emoji dictionary that has emojis listed in `emoji-test.txt`, which the emoji's status is `.fullyQualified`. The key is a character and the value is an emoji object.
        - fullyQualifiedOrderedEmojisForKeyboard: The ordered emoji array for keyboard presentation, which the emoji's status is `.fullyQualified`. The array doesn't contain  modifier sequences.
      */
-    open func load() -> ([Emoji.ID: Emoji], [Emoji]) {
+    func load() -> ([Emoji.ID: Emoji], [Emoji]) {
 
         var dictionary: [Emoji.ID: Emoji] = [:]
         var orderedArray: [Emoji] = []
