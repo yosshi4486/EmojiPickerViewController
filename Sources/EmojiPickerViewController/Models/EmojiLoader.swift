@@ -243,11 +243,13 @@ open class EmojiLoader {
      O(n) where n is number of emojis.
 
      - Returns:
-     A dictionay which the key is `Character` and the value is `Emoji`. `Dictionary` is more useful for searching and replacing thire properties, rather than using `Array`.
+       - fullyQualifiedEmojisDictionary: The emoji dictionary that has emojis listed in `emoji-test.txt`, which the emoji's status is `.fullyQualified`. The key is a character and the value is an emoji object.
+       - fullyQualifiedOrderedEmojisForKeyboard: The ordered emoji array for keyboard presentation, which the emoji's status is `.fullyQualified`. The array doesn't contain  modifier sequences.
      */
-    open func load() -> [Emoji.ID: Emoji] {
+    open func load() -> ([Emoji.ID: Emoji], [Emoji]) {
 
         var dictionary: [Emoji.ID: Emoji] = [:]
+        var orderedArray: [Emoji] = []
 
         let emojiTestTextFileURL = bundle.url(forResource: "emoji-test", withExtension: "txt")!
         let emojiTestWholeText = try! String(contentsOf: emojiTestTextFileURL, encoding: .utf8)
@@ -308,10 +310,12 @@ open class EmojiLoader {
 
             let emoji = Emoji(character: character, recommendedOrder: UInt(exactly: emojiOrder)!, group: String(group!), subgroup: String(subgroup!))
 
+            dictionary[character] = emoji
+
             if emoji.isEmojiModifierSequence {
                 skinToneBaseEmoji?.orderedSkinToneEmojis.append(emoji)
             } else {
-                dictionary[emoji.id] = emoji
+                orderedArray.append(emoji)
                 skinToneBaseEmoji = emoji
             }
 
@@ -320,7 +324,7 @@ open class EmojiLoader {
 
         }
 
-        return dictionary
+        return (dictionary, orderedArray)
     }
 
 }

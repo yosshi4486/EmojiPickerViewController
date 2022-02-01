@@ -51,10 +51,10 @@ class EmojiLoaderTests: XCTestCase {
         let zSkinTonedEmojiCounts = 65
         let componentCounts = 9
 
-        let numbersOfEmojisForShowingInKeyboardWithVariationPopover = totalEmojiCounts - componentCounts
+        let numbersOfEmojisForShowingInKeyboardWithoutVariationPopover = totalEmojiCounts - componentCounts
 
         // SkinToned emojis are added in `orderedSkinToneEmojis` and will be shown in the emoji-variation popover.
-        let numbersOfEmojisForShowingInKeyboardWithoutVariationPopover = numbersOfEmojisForShowingInKeyboardWithVariationPopover
+        let numbersOfEmojisForShowingInKeyboardWithVariationPopover = numbersOfEmojisForShowingInKeyboardWithoutVariationPopover
         - cSkinTonedEmojiCounts
         - zHairSkinTonedEmojiCounts
         - zGenderSkinTonedEmojiCounts
@@ -64,24 +64,34 @@ class EmojiLoaderTests: XCTestCase {
 
         let loader = EmojiLoader()
         let emojis = loader.load()
+        let dictionary = emojis.0
+        let array = emojis.1
 
-        let allEmojiCount: Int = emojis.values.reduce(0, { $0 + ($1.orderedSkinToneEmojis.count + 1) })
-        XCTAssertEqual(allEmojiCount, numbersOfEmojisForShowingInKeyboardWithVariationPopover)
-
-        XCTAssertEqual(emojis.count, numbersOfEmojisForShowingInKeyboardWithoutVariationPopover)
+        XCTAssertEqual(dictionary.count, numbersOfEmojisForShowingInKeyboardWithoutVariationPopover)
+        XCTAssertEqual(array.count, numbersOfEmojisForShowingInKeyboardWithVariationPopover)
 
         // Assert First and Last
+        XCTAssertEqual(array.first?.character, "😀")
+        XCTAssertEqual(array.first?.recommendedOrder, 0)
+        XCTAssertEqual(array.first?.group, "Smileys & Emotion")
+        XCTAssertEqual(array.first?.subgroup, "face-smiling")
+
+        XCTAssertEqual(array.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+        XCTAssertEqual(array.last?.recommendedOrder, 3623)
+        XCTAssertEqual(array.last?.group, "Flags")
+        XCTAssertEqual(array.last?.subgroup, "subdivision-flag")
+
         let grinningFace = Character("\u{1F600}")
-        XCTAssertEqual(emojis[grinningFace]?.character, "😀")
-        XCTAssertEqual(emojis[grinningFace]?.recommendedOrder, 0)
-        XCTAssertEqual(emojis[grinningFace]?.group, "Smileys & Emotion")
-        XCTAssertEqual(emojis[grinningFace]?.subgroup, "face-smiling")
+        XCTAssertEqual(dictionary[grinningFace]?.character, "😀")
+        XCTAssertEqual(dictionary[grinningFace]?.recommendedOrder, 0)
+        XCTAssertEqual(dictionary[grinningFace]?.group, "Smileys & Emotion")
+        XCTAssertEqual(dictionary[grinningFace]?.subgroup, "face-smiling")
 
         let flagWales = Character("\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}")
-        XCTAssertEqual(emojis[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(emojis[flagWales]?.recommendedOrder, 3623)
-        XCTAssertEqual(emojis[flagWales]?.group, "Flags")
-        XCTAssertEqual(emojis[flagWales]?.subgroup, "subdivision-flag")
+        XCTAssertEqual(dictionary[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+        XCTAssertEqual(dictionary[flagWales]?.recommendedOrder, 3623)
+        XCTAssertEqual(dictionary[flagWales]?.group, "Flags")
+        XCTAssertEqual(dictionary[flagWales]?.subgroup, "subdivision-flag")
 
     }
 
