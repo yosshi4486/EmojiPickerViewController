@@ -231,8 +231,12 @@ class EmojiLoader: Loader {
 
     }
 
+    var resourceURL: URL? {
+        return bundle.url(forResource: "emoji-test", withExtension: "txt")
+    }
+
     /**
-     Loads entire emojis.
+     Loads entire emojis and returns them.
 
      - Complexity:
      O(n) where n is number of emojis.
@@ -246,8 +250,7 @@ class EmojiLoader: Loader {
         var dictionary: [Emoji.ID: Emoji] = [:]
         var orderedArray: [Emoji] = []
 
-        let emojiTestTextFileURL = bundle.url(forResource: "emoji-test", withExtension: "txt")!
-        let emojiTestWholeText = try! String(contentsOf: emojiTestTextFileURL, encoding: .utf8)
+        let emojiTestWholeText = try! String(contentsOf: resourceURL!, encoding: .utf8)
         let emojiTestTextLines = emojiTestWholeText.split(separator: "\n")
 
         var group: Substring?

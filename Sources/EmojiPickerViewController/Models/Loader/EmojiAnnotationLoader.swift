@@ -42,11 +42,21 @@ import Foundation
 class EmojiAnnotationLoader: Loader {
 
     /**
-     The locale for which loads annotations.
+     The URL where the destination resource is located.
 
-     This object loads locale-specific annotations in `load()` method, following this `locale` property.
+     Returns nil if there is no annotation file which has name "{language}.xml". This method replaces hyphen with underscore for following the unicode-org/cldr annotation file's naming rule.
      */
-    var locale: Locale
+    var resourceURL: URL? {
+        let identifier = languageCode.replacingOccurrences(of: "-", with: "_")
+        return bundle.url(forResource: identifier, withExtension: "xml")
+    }
+
+    /**
+     The BCP 47 language code for which loads annotations, such as "es", “en-US”, or “fr-CA”
+
+     This object loads locale-specific annotations in `load()` method, following this `language` property.
+     */
+    var languageCode: String
 
     /**
      The emoji dictionary that contains all possible emojis for setting annotations and tts..
@@ -58,13 +68,18 @@ class EmojiAnnotationLoader: Loader {
 
      - Parameters:
        - emojiDictionary: The dictionary which the key is a `Character` and the value is a `Emoji`, for setting annotations and tts.
-       - locale: The locale for which loads annotations.
+       - languageCode: The BCP 47 language code for which loads annotations.
      */
-    init(emojiDictionary: [Emoji.ID: Emoji], locale: Locale) {
+    init(emojiDictionary: [Emoji.ID: Emoji], languageCode: String) {
+
         self.emojiDictionary = emojiDictionary
-        self.locale = locale
+        self.languageCode = languageCode
+        
     }
 
+    /**
+     Loads an annotations data file for setting each emoji's annotation and tts property.
+     */
     func load() {
 
     }

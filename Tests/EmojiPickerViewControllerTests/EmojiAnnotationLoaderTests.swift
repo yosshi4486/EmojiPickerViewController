@@ -36,11 +36,23 @@ class EmojiAnnotationLoaderTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testInit() throws {
+    func testResourceURL() throws {
 
-        // Give hyphen formatted identifier
-//        let loader = EmojiAnnotationLoader(locale: Locale(identifier: "en-001"))
-//        XCTAssertEqual(loader.locale.identifier, "en_001")
+        let baseURL = Bundle.module.resourceURL
+
+        XCTContext.runActivity(named: "File Exist") { _ in
+
+            let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageCode: "zh-Hant-HK")
+            XCTAssertEqual(loader.resourceURL, baseURL?.appendingPathComponent("zh_Hant_HK.xml"))
+
+        }
+
+        XCTContext.runActivity(named: "File Not Exist") { _ in
+
+            let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageCode: "a-b-c-d")
+            XCTAssertNil(loader.resourceURL)
+
+        }
 
     }
 
