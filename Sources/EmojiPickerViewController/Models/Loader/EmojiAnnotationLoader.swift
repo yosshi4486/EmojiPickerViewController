@@ -24,6 +24,7 @@
 //  
 
 import Foundation
+import SwiftyXMLParser
 
 /**
  A type that loads emoji's annotations and tts to already loaded emojis.
