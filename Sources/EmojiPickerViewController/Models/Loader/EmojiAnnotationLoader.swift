@@ -42,6 +42,18 @@ import Foundation
 class EmojiAnnotationLoader: Loader {
 
     /**
+     An error type that occurs in *Emoji Annotation Loader*.
+     */
+    enum Error: Swift.Error {
+
+        /**
+         An error that an annotation file associated with the language code is not found. The associated value is language code.
+         */
+        case annotationFileNotFound(String)
+
+    }
+
+    /**
      The URL where the destination resource is located.
 
      Returns nil if there is no annotation file which has name "{language}.xml". This method replaces hyphen with underscore for following the unicode-org/cldr annotation file's naming rule.
@@ -74,13 +86,21 @@ class EmojiAnnotationLoader: Loader {
 
         self.emojiDictionary = emojiDictionary
         self.languageCode = languageCode
-        
+
     }
 
     /**
      Loads an annotations data file for setting each emoji's annotation and tts property.
      */
-    func load() {
+    func load() throws {
+
+        guard let resourceURL = resourceURL else {
+
+            throw Error.annotationFileNotFound(languageCode)
+
+        }
+
+        
 
     }
 

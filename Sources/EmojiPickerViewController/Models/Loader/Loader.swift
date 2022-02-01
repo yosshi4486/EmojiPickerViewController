@@ -48,7 +48,7 @@ protocol Loader {
     /**
      Loads data.
      */
-    func load() -> Loaded
+    func load() throws -> Loaded
 
 }
 

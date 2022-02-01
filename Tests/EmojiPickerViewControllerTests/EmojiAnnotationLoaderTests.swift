@@ -43,24 +43,36 @@ class EmojiAnnotationLoaderTests: XCTestCase {
         XCTContext.runActivity(named: "File Exist") { _ in
 
             let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageCode: "zh-Hant-HK")
-            XCTAssertEqual(loader.resourceURL, baseURL?.appendingPathComponent("zh_Hant_HK.xml"))
+            XCTAssertEqual(loader.resourceURL, baseURL?.appendingPathComponent("zh_Hant_HK.xml"), "Failed to replace the hyphen separated language code with underscore.")
 
         }
 
         XCTContext.runActivity(named: "File Not Exist") { _ in
 
             let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageCode: "a-b-c-d")
-            XCTAssertNil(loader.resourceURL)
+            XCTAssertNil(loader.resourceURL, "Failed to guard unlisted language codes.")
 
         }
 
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testLoadThrowsError() throws {
+
+        let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageCode: "a-b-c-d")
+
+        XCTAssertThrowsError(try loader.load()) { error in
+
+            if case .annotationFileNotFound(let languageCode) = (error as? EmojiAnnotationLoader.Error) {
+
+                XCTAssertEqual(languageCode, "a-b-c-d", "Failed to get the expected language code.")
+
+            } else {
+
+                XCTFail("Failed to match case of enum. expected: EmojiAnnotationLoader.Error.annotationFileNotFound, actual: \(String(describing: error))")
+
+            }
         }
+
     }
 
 }
