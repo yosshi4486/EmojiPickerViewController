@@ -56,7 +56,24 @@ class EmojiAnnotationLoaderTests: XCTestCase {
 
     }
 
-    func testLoadThrowsError() throws {
+    func testLoad() throws {
+
+        let emojiDictionary: [Emoji.ID:Emoji] = [
+            "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
+            "💏": Emoji(character: "💏", recommendedOrder: 0, group: "", subgroup: "")
+        ]
+
+        let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["ja"])
+        XCTAssertNoThrow(try loader.load())
+
+        XCTAssertEqual(emojiDictionary["😀"]?.annotation, "スマイル | にっこり | にっこり笑う | 笑う | 笑顔 | 顔", "Failed to load `ja` annotations.")
+        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeach, "にっこり笑う", "Failed to load `ja` textToSpeach.")
+        XCTAssertEqual(emojiDictionary["💏"]?.annotation, "2人でキス | カップル | キス | ちゅっ | ハート", "Failed to load `ja` annotations.")
+        XCTAssertEqual(emojiDictionary["💏"]?.textToSpeach, "2人でキス", "Failed to load `ja` textToSpeach.")
+
+    }
+
+    func testLoadFailed() throws {
 
         let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageIdentifiers: ["a-b-c-d"])
 
@@ -64,7 +81,7 @@ class EmojiAnnotationLoaderTests: XCTestCase {
 
             if case .annotationFileNotFound(let languageCodes) = (error as? EmojiAnnotationLoader.Error) {
 
-                XCTAssertEqual(languageCodes, ["a-b-c-d"], "Failed to get the expected language code.")
+                XCTAssertEqual(languageCodes, ["a-b-c-d"], "Failed to get the expected language identifier.")
 
             } else {
 
@@ -90,6 +107,30 @@ class EmojiAnnotationLoaderTests: XCTestCase {
         XCTAssertEqual(emojiDictionary["💏"]?.annotation, "любовь | пара | поцелуй | романтика | чувства", "Failed to failover to `ru` language. The other annotation is loaded.")
         XCTAssertEqual(emojiDictionary["💏"]?.textToSpeach, "поцелуй", "Failed to failover to `ru` language. The other textToSpeach is loaded.")
 
+
+    }
+
+    func testLoadFailOverFailed() throws {
+
+        let emojiDictionary: [Emoji.ID:Emoji] = [
+            "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
+            "💏": Emoji(character: "💏", recommendedOrder: 0, group: "", subgroup: "")
+        ]
+
+        // No available annotation file under Resources/CLDR directory.
+        let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["zh_Hans_SG", "agq_CM", "ar_KW"])
+        XCTAssertThrowsError(try loader.load()) { error in
+
+            if case .annotationFileNotFound(let languageCodes) = (error as? EmojiAnnotationLoader.Error) {
+
+                XCTAssertEqual(languageCodes, ["zh_Hans_SG", "agq_CM", "ar_KW"], "Failed to get the expected language identifiers.")
+
+            } else {
+
+                XCTFail("Failed to match case of enum. expected: EmojiAnnotationLoader.Error.annotationFileNotFound, actual: \(String(describing: error))")
+
+            }
+        }
 
     }
 
