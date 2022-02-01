@@ -25,6 +25,7 @@
 
 import Foundation
 import SwiftyXMLParser
+import UIKit
 
 /**
  A type that loads emoji's annotation and tts to already loaded emojis.
@@ -69,9 +70,23 @@ class EmojiAnnotationLoader: Loader {
     /**
      Creates an *Emoji Annotation Loader* instance by the given locale.
 
+     For example:
+
+     ```swift
+     let defaultIdentifier = "en" // defaultIdentifier.xml must be located at Resources/CLDR/annotations or Resources/CLDR/annotationsDerived.
+
+     let identifiers: [String] = [currenttTextInputMode.primaryLanguage!] + Locale.preferredLanguages + [defaultIdentifier] // Located as last element is better for a loading stabilizer.
+     let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: identifiers)
+     do {
+         try loader.load()
+     } catch {
+         print(error)
+     }
+     ```
+
      - Parameters:
        - emojiDictionary: The dictionary which the key is a `Character` and the value is a `Emoji`, for setting annotation and tts.
-       - languageIdentifiers: The BCP 47 language identifiers for which loads annotations. Giving several language identifiers may help to avoid a `annotationFileNotFound` error.
+       - languageIdentifiers: The BCP 47 language identifiers for which loads annotations. At least, you should give one identifier that makes sure to be able to load. It helps to avoid throwing a `annotationFileNotFound` error.
      */
     init(emojiDictionary: [Emoji.ID: Emoji], languageIdentifiers: [String]) {
 
