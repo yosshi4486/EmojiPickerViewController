@@ -138,6 +138,14 @@ class EmojiAnnotationLoader: Loader {
 
     }
 
+    /**
+     Returns an annotation file's URL for the given `languageIdentifier`.
+
+     The hyphens in the given `languageIdentifier` are replaced with underscores to follow file's naming rule.
+
+     - Parameters:
+       - languageIdentifier: The BCP 47 language identifier for which looks up an annotation file's URL.
+     */
     func resourceURL(for languageIdentifier: String) -> URL? {
 
         let identifier = languageIdentifier.replacingOccurrences(of: "-", with: "_")
