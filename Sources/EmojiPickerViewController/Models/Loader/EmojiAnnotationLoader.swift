@@ -102,12 +102,8 @@ class EmojiAnnotationLoader: Loader {
 
         var annotationsFileURL: URL?
 
-        for languageCode in languageIdentifiers {
-            annotationsFileURL = resourceURL(for: languageCode)
-
-            if annotationsFileURL != nil {
-                break
-            }
+        for languageIdentifier in languageIdentifiers where annotationsFileURL == nil {
+            annotationsFileURL = resourceURL(for: languageIdentifier)
         }
 
         guard let annotationsFileURL = annotationsFileURL else {
