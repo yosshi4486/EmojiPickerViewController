@@ -120,9 +120,9 @@ public class Emoji {
     internal(set) public var textToSpeach: String = ""
 
     /**
-     The skin-tone's variations of this emoji.
+     The skin-tone's variations of this emoji. The value is `empty` when the emoji is not emoji modifier base.
 
-     For example, If the base emoji is 👮, the `orderedSkinToneEmojis` are:
+     For instance, when this emoji is 👮, the `orderedSkinToneEmojis` are:
 
      ```swift
      let emoji = Emoji(character: .init("👮"))
@@ -137,6 +137,39 @@ public class Emoji {
      The emojis are ordered conforming unicode-org/cldr recommendations. You can get [👮🏿👮🏾👮🏽👮🏼👮🏻] reversed array by using `orderedSkinToneEmojis.reversed()`.
      */
     internal(set) public var orderedSkinToneEmojis: [Emoji] = []
+
+    /**
+     The generic skin-toneed emoji. The value is `nil` when this emoji is not emoji modifier sequence.
+
+     For instance,   when this emoji is 👮🏽, the `genericSkinToneEmoji` is 👮.
+
+     - Note:
+     The term of "generic" is described in [UTS #51, 2.4 Diversity](https://unicode.org/reports/tr51/#Diversity)
+     */
+    internal(set) public weak var genericSkinToneEmoji: Emoji?
+
+    /**
+     The other qualified version of this emoji. The value is `empty` when there is no qualified variations.
+
+     For instance, when this emoji is 👮‍♂️(1F46E 200D 2642 FE0F), the `minimallyQualifiedOrUnqualifiedVersions` is  [👮‍♂(1F46E 200D 2642)] which the element doesn't have an emoji presentation selector (U+FE0F).
+
+     Some emojis can have several unqualified versions of emoji like bellows:
+
+     ```
+     🕵️‍♂️(1F575 FE0F 200D 2642 FE0F): fully-qualified
+     🕵‍♂️(1F575 200D 2642 FE0F)     : unqualified
+     🕵️‍♂(1F575 FE0F 200D 2642)   : unqualified
+     🕵‍♂(1F575 200D 2642)          : unqualified
+     ```
+     */
+    internal(set) public var minimallyQualifiedOrUnqualifiedVersions: [Emoji]
+
+    /**
+     The fully qualified version of this emoji. The value is `nil` when the status of this emoji is fully qualififed.
+
+     For instance, when this emoji is 👮‍♂️(1F46E 200D 2642), the `fullyQualifiedVersion` is 👮‍♂️(1F46E 200D 2642 FE0F).
+     */
+    internal(set) public weak var fullyQualifiedVersion: Emoji?
 
     /**
      Creates a new *Emoji* instance by the required parameters.
