@@ -67,7 +67,7 @@ public class EmojiContainer: Loader {
     private var currentInputMode: UITextInputMode?
 
     /**
-     The loaded emoji dictionary that has emojis listed in `emoji-test.txt`, which the emoji's status is `.fullyQualified`. The key is a character and the value is an emoji object. The dictionary is empty before an initial call of `load()`.
+     The loaded emoji dictionary that has emojis listed in `emoji-test.txt`. The key is a character and the value is an emoji object. The dictionary is empty before an initial call of `load()`.
 
      The emoji dictionary are desinged for searching an emoji by specifying the character. The references of contained emojis are shared with `orderedEmojisForKeyboard`.
      */

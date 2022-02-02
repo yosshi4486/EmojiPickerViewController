@@ -131,49 +131,6 @@ class EmojiLoader: Loader {
     struct Data: Equatable {
 
         /**
-         A status of an emoji.
-
-         The specifications of this *Status* are defined in [UTS #51](https://unicode.org/reports/tr51/)
-         */
-        enum Status: String {
-
-            /**
-             The component status.
-
-             > ED-5. emoji component — A character that has the Emoji_Component property.
-             > These characters are used in emoji sequences but normally do not appear on emoji keyboards as separate choices, such as keycap base characters or Regional_Indicator characters.
-             > Some emoji components are emoji characters, and others (such as tag characters and ZWJ) are not.
-             > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.1 Emoji Characters, ED-5. emoji component, https://unicode.org/reports/tr51/#def_level2_emoji, viewed: 2022/01/30)
-             */
-            case component
-
-            /**
-             The fully qualified status.
-
-             > ED-18. fully-qualified emoji — A qualified emoji character, or an emoji sequence in which each emoji character is qualified.
-             > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.5 Emoji Sequences, ED-18. fully-qualified emoji , https://unicode.org/reports/tr51/#def_fully_qualified_emoji, viewed: 2022/01/30)
-             */
-            case fullyQualified = "fully-qualified"
-
-            /**
-             The minimally qualified status.
-
-             > ED-18a. minimally-qualified emoji — An emoji sequence in which the first character is qualified but the sequence is not fully qualified.
-             > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.5 Emoji Sequences, ED-18a. minimally-qualified emoji , https://unicode.org/reports/tr51/#def_minimally_qualified_emoji, viewed: 2022/01/30)
-             */
-            case minimallyQualified = "minimally-qualified"
-
-            /**
-             The unqualified status.
-
-             > ED-19. unqualified emoji — An emoji that is neither fully-qualified nor minimally qualified.
-             > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.5 Emoji Sequences, ED-19. unqualified emoji , https://unicode.org/reports/tr51/#def_unqualified_emoji, viewed: 2022/01/30)
-             */
-            case unqualified
-
-        }
-
-        /**
          The unicode scalars of the emoji.
          */
         let unicodeScalars: [Unicode.Scalar]
@@ -181,7 +138,7 @@ class EmojiLoader: Loader {
         /**
          The status of the emoji.
          */
-        let status: Status
+        let status: Emoji.Status
 
         /**
          Creates a *Data* instance by the given data's row string. This initializer returns `nil` if the given `dataRowString` doesn't follow the correct format.
@@ -220,7 +177,7 @@ class EmojiLoader: Loader {
 
             }
 
-            guard let status = Status(rawValue: statusRawString.trimmingCharacters(in: .whitespaces)) else {
+            guard let status = Emoji.Status(rawValue: statusRawString.trimmingCharacters(in: .whitespaces)) else {
                 return nil
             }
 
@@ -238,7 +195,7 @@ class EmojiLoader: Loader {
      O(n) where n is number of emojis.
 
      - Returns:
-       - fullyQualifiedEmojisDictionary: The emoji dictionary that has emojis listed in `emoji-test.txt`, which the emoji's status is `.fullyQualified`. The key is a character and the value is an emoji object.
+       - wholeEmojiDictionary: The emoji dictionary that has emojis listed in `emoji-test.txt`. The key is a character and the value is an emoji object.
        - fullyQualifiedOrderedEmojisForKeyboard: The ordered emoji array for keyboard presentation, which the emoji's status is `.fullyQualified`. The array doesn't contain  modifier sequences.
      */
     func load() -> ([Emoji.ID: Emoji], [Emoji]) {
@@ -254,9 +211,9 @@ class EmojiLoader: Loader {
         var subgroup: Substring?
 
         /*
-         The local var is used for handling skin tones. Adds skin-tone emojis into the `Emoji.orderedSkinTonesEmojis` property, rather than adding it into `dictionary`.
+         The local var are used for handling skin tones and minimally-qualified/unqualified versions.
 
-         The most important expectation for combining skintones to a base emoji is the orders of emojis in the `emoji-test.txt` file,  which the all skintone candidates of the emoji are sandwitched between the base emoji and a NEXT base emoji.
+         The most important expectation for combining variations is the orders of emojis in the `emoji-test.txt` file,  which the all candidates of the emoji are sandwitched between the fully-qualified generic skintoned emoji and a NEXT fully-qualified generic skintoned emoji.
 
          Ex)
          1F9D1 200D 1F9BC                                       ; fully-qualified     # 🧑‍🦼 E12.1 person in motorized wheelchair                            *BASE EMOJI*
@@ -272,7 +229,8 @@ class EmojiLoader: Loader {
 
          This implementation adds emojis as `orderedSkinToneEmojis` until a next base emoji that the `isEmojiModifierSequence` is false, is found.
          */
-        var skinToneBaseEmoji: Emoji?
+        var genericSkinToneEmoji: Emoji?
+        var fullyQualifiedEmoji: Emoji?
 
         var emojiOrder: Int = 0
 
@@ -295,24 +253,39 @@ class EmojiLoader: Loader {
                 continue
             }
 
-            guard case .fullyQualified = data.status else {
-                continue
-            }
-
             let unicodeScalars = data.unicodeScalars
             let unicodeScalarView = String.UnicodeScalarView(unicodeScalars)
             let character = Character(String(unicodeScalarView))
 
-            let emoji = Emoji(character: character, recommendedOrder: UInt(exactly: emojiOrder)!, group: String(group!), subgroup: String(subgroup!))
+            let emoji = Emoji(character: character, status: data.status, cldrOrder: emojiOrder, group: String(group!), subgroup: String(subgroup!))
 
             dictionary[character] = emoji
 
-            if emoji.isEmojiModifierSequence {
-                skinToneBaseEmoji?.orderedSkinToneEmojis.append(emoji)
-            } else {
-                orderedArray.append(emoji)
-                skinToneBaseEmoji = emoji
+            switch data.status {
+            case .fullyQualified:
+                fullyQualifiedEmoji = emoji
+
+            case .minimallyQualified, .unqualified:
+                fullyQualifiedEmoji?.minimallyQualifiedOrUnqualifiedVersions.append(emoji)
+                emoji.fullyQualifiedVersion = fullyQualifiedEmoji
+
+            case .component:
+                break // Do nothing
             }
+
+            if emoji.isEmojiModifierSequence {
+                genericSkinToneEmoji?.orderedSkinToneEmojis.append(emoji)
+                emoji.genericSkinToneEmoji = genericSkinToneEmoji
+            } else {
+                genericSkinToneEmoji = emoji
+
+                // An element of an array for keyboard must be `isEmojiModifierSequence` and `.fullyQualified`.
+                if case .fullyQualified = data.status {
+                    orderedArray.append(emoji)
+                }
+                
+            }
+
 
             // The value is decremented only when the row is for an emoji data.
             emojiOrder += 1

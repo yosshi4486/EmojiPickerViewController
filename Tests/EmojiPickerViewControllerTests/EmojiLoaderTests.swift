@@ -46,16 +46,20 @@ let emojiFlagSequenceCounts =     258
 let emojiTagSequenceCounts =      3
 let componentCounts =             9
 
-let emojiCountsForShowingInKeyboardWithoutVariationPopover = totalEmojiCounts - componentCounts
-
 // SkinToned emojis are added in `orderedSkinToneEmojis` and will be shown in the emoji-variation popover.
-let emojiCountsForShowingInKeyboardWithVariationPopover = emojiCountsForShowingInKeyboardWithoutVariationPopover
+let emojiCountsForShowingInKeyboard = totalEmojiCounts
 - cSkinTonedEmojiCounts
 - zHairSkinTonedEmojiCounts
 - zGenderSkinTonedEmojiCounts
 - zRoleSkinTonedEmojiCounts
 - zFamilySkinTonedEmojiCounts
 - zSkinTonedEmojiCounts
+- componentCounts
+
+// grep \; PathToProject/EmojiPickerViewController/Sources/EmojiPickerViewController/Resources/emoji-test.txt | wc -l
+// > 4703
+// -1 is a consideration for header comment of `emoji-text.txt`
+let emojiCountsListedInEmojiTest = 4702
 
 class EmojiLoaderTests: XCTestCase {
 
@@ -76,29 +80,30 @@ class EmojiLoaderTests: XCTestCase {
         let dictionary = emojis.0
         let array = emojis.1
 
-        XCTAssertEqual(dictionary.count, emojiCountsForShowingInKeyboardWithoutVariationPopover)
-        XCTAssertEqual(array.count, emojiCountsForShowingInKeyboardWithVariationPopover)
+        XCTAssertEqual(dictionary.count, emojiCountsListedInEmojiTest)
+        XCTAssertEqual(array.count, emojiCountsForShowingInKeyboard)
 
         // Assert First and Last
         XCTAssertEqual(array.first?.character, "😀")
-        XCTAssertEqual(array.first?.recommendedOrder, 0)
+        XCTAssertEqual(array.first?.cldrOrder, 0)
         XCTAssertEqual(array.first?.group, "Smileys & Emotion")
         XCTAssertEqual(array.first?.subgroup, "face-smiling")
 
         XCTAssertEqual(array.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(array.last?.recommendedOrder, 3623)
+        XCTAssertEqual(array.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         XCTAssertEqual(array.last?.group, "Flags")
         XCTAssertEqual(array.last?.subgroup, "subdivision-flag")
 
         let grinningFace = Character("\u{1F600}")
         XCTAssertEqual(dictionary[grinningFace]?.character, "😀")
-        XCTAssertEqual(dictionary[grinningFace]?.recommendedOrder, 0)
+        XCTAssertEqual(dictionary[grinningFace]?.cldrOrder, 0)
         XCTAssertEqual(dictionary[grinningFace]?.group, "Smileys & Emotion")
         XCTAssertEqual(dictionary[grinningFace]?.subgroup, "face-smiling")
 
         let flagWales = Character("\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}")
         XCTAssertEqual(dictionary[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(dictionary[flagWales]?.recommendedOrder, 3623)
+        XCTAssertEqual(dictionary[flagWales]?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
+
         XCTAssertEqual(dictionary[flagWales]?.group, "Flags")
         XCTAssertEqual(dictionary[flagWales]?.subgroup, "subdivision-flag")
 
@@ -246,38 +251,6 @@ class EmojiLoaderTests: XCTestCase {
         XCTAssertEqual(data.unicodeScalars, ["\u{1F469}", "\u{200D}", "\u{2764}", "\u{FE0F}", "\u{200D}", "\u{1F48B}", "\u{200D}", "\u{1F469}"])
 
         XCTAssertEqual(data.status, .fullyQualified)
-
-    }
-
-    // MARK: - Testing EmojiLoader.Data.Status
-
-    func testInitStatusComponent() throws {
-
-        XCTAssertEqual(EmojiLoader.Data.Status(rawValue: "component"), .component)
-
-    }
-
-    func testInitStatusFullyQualified() throws {
-
-        XCTAssertEqual(EmojiLoader.Data.Status(rawValue: "fully-qualified"), .fullyQualified)
-
-    }
-
-    func testInitStatusMinimallyQualified() throws {
-
-        XCTAssertEqual(EmojiLoader.Data.Status(rawValue: "minimally-qualified"), .minimallyQualified)
-
-    }
-
-    func testInitStatusUnqualified() throws {
-
-        XCTAssertEqual(EmojiLoader.Data.Status(rawValue: "unqualified"), .unqualified)
-
-    }
-
-    func testInitStatusUnknownNil() throws {
-
-        XCTAssertNil(EmojiLoader.Data.Status(rawValue: "unknown"))
 
     }
 

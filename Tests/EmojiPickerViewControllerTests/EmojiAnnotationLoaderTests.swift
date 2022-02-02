@@ -59,8 +59,8 @@ class EmojiAnnotationLoaderTests: XCTestCase {
     func testLoadAnnotations() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
-            "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
-            "💏": Emoji(character: "💏", recommendedOrder: 0, group: "", subgroup: "")
+            "😀": Emoji(character: "😀"),
+            "💏": Emoji(character: "💏")
         ]
 
         let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["ja"])
@@ -95,7 +95,7 @@ class EmojiAnnotationLoaderTests: XCTestCase {
     func testNotLoadAnnotationsDerived() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
-            "👶🏾": Emoji(character: "👶🏾", recommendedOrder: 0, group: "", subgroup: "")
+            "👶🏾": Emoji(character: "👶🏾")
         ]
 
         let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["ja"])
@@ -109,8 +109,8 @@ class EmojiAnnotationLoaderTests: XCTestCase {
     func testLoadAnnotationsFailOver() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
-            "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
-            "💏": Emoji(character: "💏", recommendedOrder: 0, group: "", subgroup: "")
+            "😀": Emoji(character: "😀"),
+            "💏": Emoji(character: "💏")
         ]
 
         let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["zh_Hans_SG", "agq_CM", "ar_KW", "ru"])
@@ -127,8 +127,8 @@ class EmojiAnnotationLoaderTests: XCTestCase {
     func testLoadAnnotationsFailOverFailed() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
-            "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
-            "💏": Emoji(character: "💏", recommendedOrder: 0, group: "", subgroup: "")
+            "😀": Emoji(character: "😀"),
+            "💏": Emoji(character: "💏")
         ]
 
         // No available annotation file under Resources/CLDR directory.
@@ -151,8 +151,8 @@ class EmojiAnnotationLoaderTests: XCTestCase {
     func testHeadLanguageIsPrioritized() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
-            "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
-            "💏": Emoji(character: "💏", recommendedOrder: 0, group: "", subgroup: "")
+            "😀": Emoji(character: "😀"),
+            "💏": Emoji(character: "💏")
         ]
 
         let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["en", "ja", "de"]) // All associated annotation files exist.

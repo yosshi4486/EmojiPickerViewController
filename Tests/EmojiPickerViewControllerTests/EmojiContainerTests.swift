@@ -51,11 +51,11 @@ class EmojiContainerTests: XCTestCase {
         try container.load()
 
         // Postcheck
-        XCTAssertEqual(container.emojiDictionary.count, emojiCountsForShowingInKeyboardWithoutVariationPopover)
-        XCTAssertEqual(container.orderedEmojisForKeyboard.count, emojiCountsForShowingInKeyboardWithVariationPopover)
+        XCTAssertEqual(container.emojiDictionary.count, emojiCountsListedInEmojiTest)
+        XCTAssertEqual(container.orderedEmojisForKeyboard.count, emojiCountsForShowingInKeyboard)
 
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.recommendedOrder, 3623)
+        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.group, "Flags")
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.subgroup, "subdivision-flag")
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.annotation, "旗")
@@ -63,7 +63,7 @@ class EmojiContainerTests: XCTestCase {
 
         let flagWales = Character("\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}")
         XCTAssertEqual(container.emojiDictionary[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(container.emojiDictionary[flagWales]?.recommendedOrder, 3623)
+        XCTAssertEqual(container.emojiDictionary[flagWales]?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         XCTAssertEqual(container.emojiDictionary[flagWales]?.group, "Flags")
         XCTAssertEqual(container.emojiDictionary[flagWales]?.subgroup, "subdivision-flag")
         XCTAssertEqual(container.emojiDictionary[flagWales]?.annotation, "旗")
@@ -78,18 +78,18 @@ class EmojiContainerTests: XCTestCase {
         try container.load()
 
         // Precheck
-        XCTAssertEqual(container.emojiDictionary.count, emojiCountsForShowingInKeyboardWithoutVariationPopover)
-        XCTAssertEqual(container.orderedEmojisForKeyboard.count, emojiCountsForShowingInKeyboardWithVariationPopover)
+        XCTAssertEqual(container.emojiDictionary.count, emojiCountsListedInEmojiTest)
+        XCTAssertEqual(container.orderedEmojisForKeyboard.count, emojiCountsForShowingInKeyboard)
 
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.character, "😀")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.recommendedOrder, 0)
+        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.cldrOrder, 0)
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.group, "Smileys & Emotion")
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.subgroup, "face-smiling")
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.annotation, "スマイル | にっこり | にっこり笑う | 笑う | 笑顔 | 顔")
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.textToSpeach, "にっこり笑う")
 
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.recommendedOrder, 3623)
+        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.group, "Flags")
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.subgroup, "subdivision-flag")
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.annotation, "旗")
@@ -101,14 +101,14 @@ class EmojiContainerTests: XCTestCase {
 
         // Postcheck
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.character, "😀")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.recommendedOrder, 0)
+        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.cldrOrder, 0)
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.group, "Smileys & Emotion")
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.subgroup, "face-smiling")
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.annotation, "face | grin | grinning face")
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.textToSpeach, "grinning face")
 
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.recommendedOrder, 3623)
+        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.group, "Flags")
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.subgroup, "subdivision-flag")
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.annotation, "flag")

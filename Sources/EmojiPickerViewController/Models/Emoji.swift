@@ -39,9 +39,58 @@ import Foundation
 public class Emoji {
 
     /**
+     A status of an emoji.
+
+     The specifications of this *Status* are defined in [UTS #51](https://unicode.org/reports/tr51/)
+     */
+    public enum Status: String {
+
+        /**
+         The component status.
+
+         > ED-5. emoji component — A character that has the Emoji_Component property.
+         > These characters are used in emoji sequences but normally do not appear on emoji keyboards as separate choices, such as keycap base characters or Regional_Indicator characters.
+         > Some emoji components are emoji characters, and others (such as tag characters and ZWJ) are not.
+         > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.1 Emoji Characters, ED-5. emoji component, https://unicode.org/reports/tr51/#def_level2_emoji, viewed: 2022/01/30)
+         */
+        case component
+
+        /**
+         The fully qualified status.
+
+         > ED-18. fully-qualified emoji — A qualified emoji character, or an emoji sequence in which each emoji character is qualified.
+         > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.5 Emoji Sequences, ED-18. fully-qualified emoji , https://unicode.org/reports/tr51/#def_fully_qualified_emoji, viewed: 2022/01/30)
+         */
+        case fullyQualified = "fully-qualified"
+
+        /**
+         The minimally qualified status.
+
+         > ED-18a. minimally-qualified emoji — An emoji sequence in which the first character is qualified but the sequence is not fully qualified.
+         > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.5 Emoji Sequences, ED-18a. minimally-qualified emoji , https://unicode.org/reports/tr51/#def_minimally_qualified_emoji, viewed: 2022/01/30)
+         */
+        case minimallyQualified = "minimally-qualified"
+
+        /**
+         The unqualified status.
+
+         > ED-19. unqualified emoji — An emoji that is neither fully-qualified nor minimally qualified.
+         > (© 2021 Unicode, Inc, UNICODE EMOJI, 1.4.5 Emoji Sequences, ED-19. unqualified emoji , https://unicode.org/reports/tr51/#def_unqualified_emoji, viewed: 2022/01/30)
+         */
+        case unqualified
+
+    }
+
+
+    /**
      The character representation of the emoji.
      */
     public let character: Character
+
+    /**
+     The status of the emoji.
+     */
+    public let status: Emoji.Status
 
     /**
      The group name where the emoji belongs. This property is set following `Resources/emoji-test.txt`. Ex.) Smileys & Emotion, People & Body
@@ -54,9 +103,9 @@ public class Emoji {
     public let subgroup: String
 
     /**
-     The recommended emoji order which CLDR provides.  The emojis in `Resources/emoji-test.txt` are following CLDR order.
+     The emoji order which unicode-org/cldr provides.  The emojis in `Resources/emoji-test.txt` are following CLDR order.
      */
-    public let recommendedOrder: UInt
+    public let cldrOrder: Int
 
     /**
      The label of the emoji, which is used as category as usual.
@@ -162,7 +211,7 @@ public class Emoji {
      🕵‍♂(1F575 200D 2642)          : unqualified
      ```
      */
-    internal(set) public var minimallyQualifiedOrUnqualifiedVersions: [Emoji]
+    internal(set) public var minimallyQualifiedOrUnqualifiedVersions: [Emoji] = []
 
     /**
      The fully qualified version of this emoji. The value is `nil` when the status of this emoji is fully qualififed.
@@ -176,17 +225,18 @@ public class Emoji {
 
      - Parameters:
        - character: The character that represents an emoji.
-       - recommendedOrder: The CLDR unsigned integer order for keyboard.
+       - status: The status of the emoji.
+       - cldrOrder: The CLDR integer order for keyboard.
        - group: The group name where the emoji belongs.
        - subgroup: The subgroup name where the emoji belongs.
      */
-    init(character: Character, recommendedOrder: UInt, group: String, subgroup: String) {
+    init(character: Character, status: Status = .fullyQualified, cldrOrder: Int = 0, group: String = "", subgroup: String = "") {
         self.character = character
-        self.recommendedOrder = recommendedOrder
+        self.status = status
+        self.cldrOrder = cldrOrder
         self.group = group
         self.subgroup = subgroup
     }
-
     
 }
 
@@ -218,7 +268,6 @@ extension Emoji {
 
         // In this repository, emoji modifiers can not exist in isolate.
         if scalars.count == 1 {
-            assert(!character.unicodeScalars.first!.properties.isEmojiModifier)
             return false
         }
 
