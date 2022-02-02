@@ -71,9 +71,13 @@ class EmojiLoaderTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    #error("TBD")
+    - Fix implementations to pass tests and add more tests
+    - Pass an annotation to the fullyQualifiedVersion emoji in annotation loader
+
     // MARK: - Testing EmojiLoader
 
-    func testLoadEntireEmojiByOrdering() throws {
+    func testLoad() throws {
 
         let loader = EmojiLoader()
         let emojis = loader.load()
@@ -106,6 +110,33 @@ class EmojiLoaderTests: XCTestCase {
 
         XCTAssertEqual(dictionary[flagWales]?.group, "Flags")
         XCTAssertEqual(dictionary[flagWales]?.subgroup, "subdivision-flag")
+
+        // Assert ordered skintones
+        let victoryHand = Character("\u{270C}\u{FE0F}")
+        XCTAssertEqual(dictionary[victoryHand]?.character, "✌️")
+        XCTAssertEqual(dictionary[victoryHand]?.orderedSkinToneEmojis.map({ $0.character }), [
+            Character("✌🏻"),
+            Character("✌🏼"),
+            Character("✌🏽"),
+            Character("✌🏾"),
+            Character("✌🏿")
+        ])
+        XCTAssertNil(dictionary[victoryHand]?.genericSkinToneEmoji)
+
+        XCTAssertEqual(dictionary[victoryHand]?.minimallyQualifiedOrUnqualifiedVersions.map({ $0.character }), [Character("✌")])
+        XCTAssertNil(dictionary[victoryHand]?.fullyQualifiedVersion)
+
+        // Assert status variations
+        let manDetective = Character("\u{1F575}\u{FE0F}\u{200D}\u{2642}\u{FE0F}")
+        XCTAssertEqual(dictionary[manDetective]?.character, "🕵️‍♂️")
+        XCTAssertEqual(dictionary[manDetective]?.orderedSkinToneEmojis.isEmpty, true)
+        XCTAssertNil(dictionary[manDetective]?.genericSkinToneEmoji)
+        XCTAssertEqual(dictionary[manDetective]?.minimallyQualifiedOrUnqualifiedVersions.map({ $0.character }), [
+            Character("🕵‍♂️"),
+            Character("🕵️‍♂"),
+            Character("🕵‍♂")
+        ])
+        XCTAssertNil(dictionary[manDetective]?.fullyQualifiedVersion)
 
     }
 
