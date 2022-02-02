@@ -26,6 +26,37 @@
 import XCTest
 @testable import EmojiPickerViewController
 
+// Emoji Counts: https://unicode.org/emoji/charts/emoji-counts.html
+
+let totalEmojiCounts =            3633
+let cEmojiCounts =                1354
+let cSkinTonedEmojiCounts =       645
+let zHairEmojiCounts =            12
+let zHairSkinTonedEmojiCounts =   60
+let zGenderEmojiCounts =          102
+let zGenderSkinTonedEmojiCounts = 470
+let zRoleEmojiCounts =            60
+let zRoleSkinTonedEmojiCounts =   300
+let zFamilyEmojiCounts =          32
+let zFamilySkinTonedEmojiCounts = 235
+let zSkinTonedEmojiCounts =       65
+let zcEmojiCounts =               13
+let emojiKeycapSequenceCounts =   12
+let emojiFlagSequenceCounts =     258
+let emojiTagSequenceCounts =      3
+let componentCounts =             9
+
+let emojiCountsForShowingInKeyboardWithoutVariationPopover = totalEmojiCounts - componentCounts
+
+// SkinToned emojis are added in `orderedSkinToneEmojis` and will be shown in the emoji-variation popover.
+let emojiCountsForShowingInKeyboardWithVariationPopover = emojiCountsForShowingInKeyboardWithoutVariationPopover
+- cSkinTonedEmojiCounts
+- zHairSkinTonedEmojiCounts
+- zGenderSkinTonedEmojiCounts
+- zRoleSkinTonedEmojiCounts
+- zFamilySkinTonedEmojiCounts
+- zSkinTonedEmojiCounts
+
 class EmojiLoaderTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -40,35 +71,13 @@ class EmojiLoaderTests: XCTestCase {
 
     func testLoadEntireEmojiByOrdering() throws {
 
-        // Emoji Counts: https://unicode.org/emoji/charts/emoji-counts.html
-
-        let totalEmojiCounts = 3633
-        let cSkinTonedEmojiCounts = 645
-        let zHairSkinTonedEmojiCounts = 60
-        let zGenderSkinTonedEmojiCounts = 470
-        let zRoleSkinTonedEmojiCounts = 300
-        let zFamilySkinTonedEmojiCounts = 235
-        let zSkinTonedEmojiCounts = 65
-        let componentCounts = 9
-
-        let numbersOfEmojisForShowingInKeyboardWithoutVariationPopover = totalEmojiCounts - componentCounts
-
-        // SkinToned emojis are added in `orderedSkinToneEmojis` and will be shown in the emoji-variation popover.
-        let numbersOfEmojisForShowingInKeyboardWithVariationPopover = numbersOfEmojisForShowingInKeyboardWithoutVariationPopover
-        - cSkinTonedEmojiCounts
-        - zHairSkinTonedEmojiCounts
-        - zGenderSkinTonedEmojiCounts
-        - zRoleSkinTonedEmojiCounts
-        - zFamilySkinTonedEmojiCounts
-        - zSkinTonedEmojiCounts
-
         let loader = EmojiLoader()
         let emojis = loader.load()
         let dictionary = emojis.0
         let array = emojis.1
 
-        XCTAssertEqual(dictionary.count, numbersOfEmojisForShowingInKeyboardWithoutVariationPopover)
-        XCTAssertEqual(array.count, numbersOfEmojisForShowingInKeyboardWithVariationPopover)
+        XCTAssertEqual(dictionary.count, emojiCountsForShowingInKeyboardWithoutVariationPopover)
+        XCTAssertEqual(array.count, emojiCountsForShowingInKeyboardWithVariationPopover)
 
         // Assert First and Last
         XCTAssertEqual(array.first?.character, "😀")
