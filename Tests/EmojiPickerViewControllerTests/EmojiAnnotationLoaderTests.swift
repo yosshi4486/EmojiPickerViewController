@@ -56,7 +56,7 @@ class EmojiAnnotationLoaderTests: XCTestCase {
 
     }
 
-    func testLoad() throws {
+    func testLoadAnnotations() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
             "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
@@ -73,7 +73,7 @@ class EmojiAnnotationLoaderTests: XCTestCase {
 
     }
 
-    func testLoadFailed() throws {
+    func testLoadAnnotationsFailed() throws {
 
         let loader = EmojiAnnotationLoader(emojiDictionary: [:], languageIdentifiers: ["a-b-c-d"])
 
@@ -92,7 +92,21 @@ class EmojiAnnotationLoaderTests: XCTestCase {
 
     }
 
-    func testLoadFailOver() throws {
+    func testNotLoadAnnotationsDerived() throws {
+
+        let emojiDictionary: [Emoji.ID:Emoji] = [
+            "👶🏾": Emoji(character: "👶🏾", recommendedOrder: 0, group: "", subgroup: "")
+        ]
+
+        let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["ja"])
+        XCTAssertNoThrow(try loader.load())
+
+        XCTAssertEqual(emojiDictionary["👶🏾"]?.annotation, "")
+        XCTAssertEqual(emojiDictionary["👶🏾"]?.textToSpeach, "")
+
+    }
+
+    func testLoadAnnotationsFailOver() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
             "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
@@ -110,7 +124,7 @@ class EmojiAnnotationLoaderTests: XCTestCase {
 
     }
 
-    func testLoadFailOverFailed() throws {
+    func testLoadAnnotationsFailOverFailed() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
             "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: ""),
