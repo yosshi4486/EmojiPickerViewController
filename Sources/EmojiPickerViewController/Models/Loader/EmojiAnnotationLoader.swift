@@ -30,10 +30,9 @@ import UIKit
 /**
  A type that loads emoji's annotation and tts to already loaded emojis.
 
- The resources which this object loads are located at `Resources/CLDR/annotation` and `Resources/CLDR/annotationsDerived`.
+ The resources which this object loads are located at `Resources/CLDR/annotation`.
 
- The original resources are:
- - https://github.com/unicode-org/cldr/tree/main/common/annoatations
+ The original resource is https://github.com/unicode-org/cldr/tree/main/common/annoatations
  - https://github.com/unicode-org/cldr/tree/main/common/annoatationsDerived
 
  This loader loads annotations and tts following the LSDM specification.
@@ -135,7 +134,7 @@ class EmojiAnnotationLoader: Loader {
     }
 
     /**
-     Returns an annotation file's URL for the given `languageIdentifier`.
+     Returns an annotation file's URL for the given `languageIdentifier`.  ex). ~/Resources/ja.xml
 
      The hyphens in the given `languageIdentifier` are replaced with underscores to follow file's naming rule.
 
@@ -144,8 +143,8 @@ class EmojiAnnotationLoader: Loader {
      */
     func resourceURL(for languageIdentifier: String) -> URL? {
 
-        let identifier = languageIdentifier.replacingOccurrences(of: "-", with: "_")
-        return bundle.url(forResource: identifier, withExtension: "xml")
+        let filename = languageIdentifier.replacingOccurrences(of: "-", with: "_")
+        return bundle.url(forResource: filename, withExtension: "xml")
 
     }
 

@@ -24,6 +24,7 @@
 //  
 
 import XCTest
+@testable import EmojiPickerViewController
 
 class EmojiAnnotationDerivedLoaderTests: XCTestCase {
 
@@ -35,19 +36,136 @@ class EmojiAnnotationDerivedLoaderTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testResourceURL() throws {
+
+        let baseURL = Bundle.module.resourceURL
+
+        XCTContext.runActivity(named: "File Exist") { _ in
+
+            let loader = EmojiAnnotationDerivedLoader(emojiDictionary: [:], languageIdentifiers: [])
+            XCTAssertEqual(loader.resourceURL(for: "zh-Hant-HK"), baseURL?.appendingPathComponent("zh_Hant_HK_derived.xml"), "Failed to replace the hyphen separated language code with underscore.")
+
+        }
+
+        XCTContext.runActivity(named: "File Not Exist") { _ in
+
+            let loader = EmojiAnnotationDerivedLoader(emojiDictionary: [:], languageIdentifiers: [])
+            XCTAssertNil(loader.resourceURL(for: "a-b-c-d"), "Failed to guard unlisted language codes.")
+
+        }
+
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testLoadAnnotationsDerived() throws {
+
+        let emojiDictionary: [Emoji.ID:Emoji] = [
+            "👋🏾": Emoji(character: "👋🏾", recommendedOrder: 0, group: "", subgroup: ""),
+            "🇲🇽": Emoji(character: "🇲🇽", recommendedOrder: 0, group: "", subgroup: "")
+        ]
+
+        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["ja"])
+        XCTAssertNoThrow(try loader.load())
+
+        XCTAssertEqual(emojiDictionary["👋🏾"]?.annotation, "バイバイ | やや濃い肌色 | 手 | 手を振る", "Failed to load `ja` annotations.")
+        XCTAssertEqual(emojiDictionary["👋🏾"]?.textToSpeach, "手を振る: やや濃い肌色", "Failed to load `ja` textToSpeach.")
+        XCTAssertEqual(emojiDictionary["🇲🇽"]?.annotation, "旗", "Failed to load `ja` annotations.")
+        XCTAssertEqual(emojiDictionary["🇲🇽"]?.textToSpeach, "旗: メキシコ", "Failed to load `ja` textToSpeach.")
+
     }
+
+    func testLoadAnnotationsDerivedFailed() throws {
+
+        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: [:], languageIdentifiers: ["a-b-c-d"])
+
+        XCTAssertThrowsError(try loader.load()) { error in
+
+            if case .annotationFileNotFound(let languageCodes) = (error as? EmojiAnnotationLoader.Error) {
+
+                XCTAssertEqual(languageCodes, ["a-b-c-d"], "Failed to get the expected language identifier.")
+
+            } else {
+
+                XCTFail("Failed to match case of enum. expected: EmojiAnnotationLoader.Error.annotationFileNotFound, actual: \(String(describing: error))")
+
+            }
+        }
+
+    }
+
+    func testNotLoadAnnotations() throws {
+
+        let emojiDictionary: [Emoji.ID:Emoji] = [
+            "😀": Emoji(character: "😀", recommendedOrder: 0, group: "", subgroup: "")
+        ]
+
+        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["ja"])
+        XCTAssertNoThrow(try loader.load())
+
+        XCTAssertEqual(emojiDictionary["😀"]?.annotation, "")
+        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeach, "")
+
+    }
+
+    func testLoadAnnotationsDerivedFailOver() throws {
+
+        let emojiDictionary: [Emoji.ID:Emoji] = [
+            "👋🏾": Emoji(character: "👋🏾", recommendedOrder: 0, group: "", subgroup: ""),
+            "🇲🇽": Emoji(character: "🇲🇽", recommendedOrder: 0, group: "", subgroup: "")
+        ]
+
+        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["zh_Hans_SG", "agq_CM", "ar_KW", "ru"])
+        XCTAssertNoThrow(try loader.load())
+
+        XCTAssertEqual(emojiDictionary["👋🏾"]?.annotation, "взмах | машет рукой | привет | приветствие | рука | темный тон кожи", "Failed to failover to `ru` language. The other annotation is loaded.")
+        XCTAssertEqual(emojiDictionary["👋🏾"]?.textToSpeach, "машет рукой: темный тон кожи", "Failed to failover to `ru` language. The other textToSpeach is loaded.")
+        XCTAssertEqual(emojiDictionary["🇲🇽"]?.annotation, "флаг", "Failed to failover to `ru` language. The other annotation is loaded.")
+        XCTAssertEqual(emojiDictionary["🇲🇽"]?.textToSpeach, "флаг: Мексика", "Failed to failover to `ru` language. The other textToSpeach is loaded.")
+
+
+    }
+
+    func testLoadAnnotationsFailOverFailed() throws {
+
+        let emojiDictionary: [Emoji.ID:Emoji] = [
+            "👋🏾": Emoji(character: "👋🏾", recommendedOrder: 0, group: "", subgroup: ""),
+            "🇲🇽": Emoji(character: "🇲🇽", recommendedOrder: 0, group: "", subgroup: "")
+        ]
+
+        // No available annotation file under Resources/CLDR directory.
+        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["zh_Hans_SG", "agq_CM", "ar_KW"])
+        XCTAssertThrowsError(try loader.load()) { error in
+
+            if case .annotationFileNotFound(let languageCodes) = (error as? EmojiAnnotationLoader.Error) {
+
+                XCTAssertEqual(languageCodes, ["zh_Hans_SG", "agq_CM", "ar_KW"], "Failed to get the expected language identifiers.")
+
+            } else {
+
+                XCTFail("Failed to match case of enum. expected: EmojiAnnotationLoader.Error.annotationFileNotFound, actual: \(String(describing: error))")
+
+            }
+        }
+
+    }
+
+    func testHeadLanguageIsPrioritized() throws {
+
+        let emojiDictionary: [Emoji.ID:Emoji] = [
+            "👋🏾": Emoji(character: "👋🏾", recommendedOrder: 0, group: "", subgroup: ""),
+            "🇲🇽": Emoji(character: "🇲🇽", recommendedOrder: 0, group: "", subgroup: "")
+        ]
+
+        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, languageIdentifiers: ["en", "ja", "de"]) // All associated annotation files exist.
+
+        XCTAssertNoThrow(try loader.load())
+
+        XCTAssertEqual(emojiDictionary["👋🏾"]?.annotation, "hand | medium-dark skin tone | wave | waving", "Failed to prioritized head language(en). The other language is loaded.")
+        XCTAssertEqual(emojiDictionary["👋🏾"]?.textToSpeach, "waving hand: medium-dark skin tone", "Failed to prioritized head language(en). The other language is loaded.")
+        XCTAssertEqual(emojiDictionary["🇲🇽"]?.annotation, "flag", "Failed to prioritized head language(en). The other language is loaded.")
+        XCTAssertEqual(emojiDictionary["🇲🇽"]?.textToSpeach, "flag: Mexico", "Failed to prioritized head language(en). The other language is loaded.")
+
+    }
+
+
 
 }

@@ -24,3 +24,36 @@
 //  
 
 import Foundation
+
+/**
+ A subtype that loads emoji's annotation **derived** and derived tts to already loaded emojis.
+
+ The resources which this object loads are located at `Resources/CLDR/annotationsDerived`. The original resource is https://github.com/unicode-org/cldr/tree/main/common/annoatationsDerived
+
+ This loader loads annotations and tts following the LSDM specification.
+
+ - Note:
+ I suppose that **Derived** means emoji sequences like emoji modifier sequence or emoji flag sequence.
+
+ - SeeAlso:
+  - [LSDM](https://unicode.org/reports/tr35/)
+
+ */
+class EmojiAnnotationDerivedLoader: EmojiAnnotationLoader {
+
+    /**
+     Returns an annotation derived file's URL for the given `languageIdentifier`. ex). ~/Resources/ja_derived.xml
+
+     The hyphens in the given `languageIdentifier` are replaced with underscores to follow file's naming rule.
+
+     - Parameters:
+       - languageIdentifier: The BCP 47 language identifier for which looks up an annotation file's URL.
+     */
+    override func resourceURL(for languageIdentifier: String) -> URL? {
+
+        let filename = languageIdentifier.replacingOccurrences(of: "-", with: "_").appending("_derived")
+        return bundle.url(forResource: filename, withExtension: "xml")
+
+    }
+
+}

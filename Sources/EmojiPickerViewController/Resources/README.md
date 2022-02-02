@@ -22,5 +22,5 @@ All annotation files are located at: https://github.com/unicode-org/cldr/tree/ma
 All derived annotation files are located at: https://github.com/unicode-org/cldr/tree/main/common/annotationsDerived
 
 ## LICENSE
-I copied unicode-org/cldr terms-of-uses at `EmojiPickerViewController/LICENSE.md`, and described which the changes are made.
+I copied unicode-org/cldr terms-of-uses at `EmojiPickerViewController/LICENSE.md`, and described what the changes are made.
 
