@@ -29,7 +29,7 @@ import UIKit
 /**
  A container object for loading, storing and updating stored emojis.
  */
-public class EmojiContainer {
+public class EmojiContainer: Loader {
 
     /**
      The `main` container instance for operating emojis. You can only access to `main`.
@@ -37,44 +37,116 @@ public class EmojiContainer {
     public static let main = EmojiContainer()
 
     /**
-     The boolean value indicating whether this container automatically updates annotations following `UITextInputMode.currentInputModeDidChangeNotification`. The default value is `true`.
+     The boolean value indicating whether this container automatically updates annotations following `UITextInputMode.currentInputModeDidChangeNotification`. The default value is `false`.
      */
-    public var automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange: Bool = true
+    public var automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange: Bool = false
 
+    /**
+     The BCP 47  language identifiers are actually used to load emoji's annotations.
+
+     This container uses the `currentInputMode.primaryLanguage` as primary identifier when the `automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange` is true. Otherwise; the value is completely equal to `preferredLanguageIdentifiers`.
+     */
+    public var languageIdentifiers: [String] {
+
+        if automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange, let currentPrimaryLanguage = currentInputMode?.primaryLanguage {
+            return [currentPrimaryLanguage] + preferredLanguageIdentifiers
+        } else {
+            return preferredLanguageIdentifiers
+        }
+
+    }
+
+    /**
+     The BCP 47  language identifiers to load emoji's annotations. The default value is empty.
+     */
+    public var preferredLanguageIdentifiers: [String] = []
+
+    /**
+     The current input mode is getting from `UITextInputMode.currentInputModeDidChangeNotification`.
+     */
+    private var currentInputMode: UITextInputMode?
+
+    /**
+     The loaded emoji dictionary that has emojis listed in `emoji-test.txt`, which the emoji's status is `.fullyQualified`. The key is a character and the value is an emoji object. The dictionary is empty before an initial call of `load()`.
+
+     The emoji dictionary are desinged for searching an emoji by specifying the character. The references of contained emojis are shared with `orderedEmojisForKeyboard`.
+     */
     internal(set) public var emojiDictionary: [Emoji.ID : Emoji] = [:]
 
-    internal(set) public var orderedEmojisForKeyboard: [Emoji] = []
+    /**
+     The loaded and ordered emoji array for keyboard presentation, which the emoji's status is `.fullyQualified`. The array doesn't contain modifier sequences. The array is empty before an initial call of `load()`.
 
-    private let emojiLoader = EmojiLoader()
+     This ordered emoji array are desinged for implementing a keyboard view or picker view.
+     */
+    internal(set) public var orderedEmojisForKeyboard: [Emoji] = []
 
     init() {
 
-        // 1. Load emoji
-
-        // 2. Load initial annotation and tts
-
-        // 3. Register `UITextInputMode.currentInputModeDidChangeNotification`
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotationsAutomatically(_:)), name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)
 
     }
 
-    public func searchEmojis(from keyboard: String) -> [Emoji] {
+    deinit {
 
-        // Test performances array filter and regex.
-        fatalError("Should be implemented.")
-    }
-
-    public func updateAnnotations(with locale: Locale) {
+        NotificationCenter.default.removeObserver(self, name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)
 
     }
 
-    private func updateAnnotationsAutomatically(_ notification: Notification) {
+    /**
+     Loads emojis and annotations.
+
+     After an initial call of this method, you should use `loadAnnotations()` rather than calling `load()`  again,  because this method replaces both cached `emojiDictionary` and `orderedEmojisForKeyboard`.
+     */
+    public func load() throws {
+
+        let emojiLoader = EmojiLoader()
+        (emojiDictionary, orderedEmojisForKeyboard) = emojiLoader.load()
+
+        try loadAnnotations()
+
+    }
+
+    /**
+     Loads annotations following `languageIdentifiers`.
+
+     - Precondition:
+     This method should be called after an initial call of `load()`.
+     */
+    public func loadAnnotations() throws {
+
+        precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty)
+
+        let annotationLoader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: languageIdentifiers)
+        try annotationLoader.load()
+
+        let annotationDerivedLoader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, languageIdentifiers: languageIdentifiers)
+        try annotationDerivedLoader.load()
+
+    }
+
+    /**
+     Returns emojis which an `emoji.annotation` contains the given keyword.
+
+     - Precondition:
+     This method should be called after an initial call of `load()`.
+     */
+    public func searchEmojisForKeyboard(from keyword: String) -> [Emoji] {
+
+        precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty)
+
+        return orderedEmojisForKeyboard.filter({ $0.annotation.contains(keyword) })
+
+    }
+
+
+    @objc private func updateAnnotationsAutomatically(_ notification: Notification) {
 
         guard automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange, let mode = notification.object as? UITextInputMode else {
             return
         }
 
-        let annotationLanguage: String = mode.primaryLanguage ?? Locale.preferredLanguages[0]
-        updateAnnotations(with: Locale(identifier: annotationLanguage))
+        currentInputMode = mode
+        try? loadAnnotations()
 
     }
 
