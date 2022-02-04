@@ -118,15 +118,23 @@ class EmojiAnnotationLoader: Loader {
             let cp = annotation.attributes["cp"] // The type is string
             let character = Character(cp!)
 
-            // is tts type.
+            /*
+             Some annotations are not for `.fullyQualified`, so we have to care that. This implementation is bit a complex.
+             When the cp indicate minimally-qualified or unqualified emoji, assigns values to the fully-qualified version by referring the `fullyQualifiedVersion` property.
+             */
+
+            let targetEmoji: Emoji? = emojiDictionary[character]
+
             if annotation.attributes["type"] == "tts" {
 
-                emojiDictionary[character]?.textToSpeach = annotation.text!
+                targetEmoji?.textToSpeach = annotation.text!
+                targetEmoji?.fullyQualifiedVersion?.textToSpeach = annotation.text!
 
             } else {
 
-                emojiDictionary[character]?.annotation = annotation.text!
-                
+                targetEmoji?.annotation = annotation.text!
+                targetEmoji?.fullyQualifiedVersion?.annotation = annotation.text!
+
             }
 
         }

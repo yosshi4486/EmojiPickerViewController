@@ -68,6 +68,14 @@ class EmojiContainerTests: XCTestCase {
         XCTAssertEqual(container.emojiDictionary[flagWales]?.subgroup, "subdivision-flag")
         XCTAssertEqual(container.emojiDictionary[flagWales]?.annotation, "旗")
         XCTAssertEqual(container.emojiDictionary[flagWales]?.textToSpeach, "旗: ウェールズ")
+
+        // Test all fully-qualified emojis have annotation and tts.
+        for emoji in container.orderedEmojisForKeyboard {
+            XCTAssertNotEqual(emoji.annotation, "")
+            XCTAssertNotEqual(emoji.textToSpeach, "")
+            XCTAssertTrue(emoji.orderedSkinToneEmojis.allSatisfy({ $0.annotation != "" && $0.textToSpeach != "" }))
+        }
+
     }
 
     func testLoadAnnotationsOnly() throws {
