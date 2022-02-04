@@ -124,4 +124,32 @@ class EmojiContainerTests: XCTestCase {
 
     }
 
+    func testSearchEmojisForKeyboard() throws {
+
+        // Preparation
+        let container = EmojiContainer()
+        container.preferredLanguageIdentifiers = ["en"]
+        try container.load()
+
+        // Search "frog"
+        let frogs = container.searchEmojisForKeyboard(from: "frog")
+        XCTAssertEqual(frogs.count, 1)
+        XCTAssertEqual(frogs.first?.character, "🐸")
+
+        // Search "cop"
+        let cop = container.searchEmojisForKeyboard(from: "cop")
+        XCTAssertEqual(cop.count, 8)
+
+        XCTAssertEqual(cop[0].character, "👮")
+        XCTAssertEqual(cop[1].character, "👮‍♂️")
+        XCTAssertEqual(cop[2].character, "👮‍♀️")
+        XCTAssertEqual(cop[3].character, "🚁")
+        XCTAssertEqual(cop[4].character, "🔬")
+        XCTAssertEqual(cop[5].character, "🔭")
+        XCTAssertEqual(cop[6].character, "🩺")
+        XCTAssertEqual(cop[7].character, "©️")
+
+    }
+
+
 }

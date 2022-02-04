@@ -125,10 +125,13 @@ public class EmojiContainer: Loader {
     }
 
     /**
-     Returns emojis which an `emoji.annotation` contains the given keyword.
+     Returns emojis which contains the given keyword in `annotation` property. minimally-qualified emojis , unqualified emojis and emoji modifier sequences (skintoned emoji) are ignored from search targets.
 
      - Precondition:
      This method should be called after an initial call of `load()`.
+
+     - Complexity:
+     O(m * n) where m is number of elements in the ordered emoji array and n is a length of  annotation, however we don't have to worry the cost too much, because the size of computation must be enough small (m is 1300~1400, n is 30~50).
      */
     public func searchEmojisForKeyboard(from keyword: String) -> [Emoji] {
 
