@@ -71,10 +71,6 @@ class EmojiLoaderTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    #error("TBD")
-    - Fix implementations to pass tests and add more tests
-    - Pass an annotation to the fullyQualifiedVersion emoji in annotation loader
-
     // MARK: - Testing EmojiLoader
 
     func testLoad() throws {
@@ -87,56 +83,159 @@ class EmojiLoaderTests: XCTestCase {
         XCTAssertEqual(dictionary.count, emojiCountsListedInEmojiTest)
         XCTAssertEqual(array.count, emojiCountsForShowingInKeyboard)
 
-        // Assert First and Last
-        XCTAssertEqual(array.first?.character, "😀")
-        XCTAssertEqual(array.first?.cldrOrder, 0)
-        XCTAssertEqual(array.first?.group, "Smileys & Emotion")
-        XCTAssertEqual(array.first?.subgroup, "face-smiling")
+        XCTContext.runActivity(named: "Test: The reference of an emoji is shared both Array and Dictionary") { _ in
 
-        XCTAssertEqual(array.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(array.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
-        XCTAssertEqual(array.last?.group, "Flags")
-        XCTAssertEqual(array.last?.subgroup, "subdivision-flag")
+            XCTAssertEqual(array.first?.character, "😀")
+            XCTAssertEqual(array.first?.cldrOrder, 0)
+            XCTAssertEqual(array.first?.group, "Smileys & Emotion")
+            XCTAssertEqual(array.first?.subgroup, "face-smiling")
 
-        let grinningFace = Character("\u{1F600}")
-        XCTAssertEqual(dictionary[grinningFace]?.character, "😀")
-        XCTAssertEqual(dictionary[grinningFace]?.cldrOrder, 0)
-        XCTAssertEqual(dictionary[grinningFace]?.group, "Smileys & Emotion")
-        XCTAssertEqual(dictionary[grinningFace]?.subgroup, "face-smiling")
+            XCTAssertEqual(array.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+            XCTAssertEqual(array.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
+            XCTAssertEqual(array.last?.group, "Flags")
+            XCTAssertEqual(array.last?.subgroup, "subdivision-flag")
 
-        let flagWales = Character("\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}")
-        XCTAssertEqual(dictionary[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(dictionary[flagWales]?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
+            let grinningFace = Character(exactly: "1F600")
+            XCTAssertEqual(dictionary[grinningFace]?.character, "😀")
+            XCTAssertEqual(dictionary[grinningFace]?.cldrOrder, 0)
+            XCTAssertEqual(dictionary[grinningFace]?.group, "Smileys & Emotion")
+            XCTAssertEqual(dictionary[grinningFace]?.subgroup, "face-smiling")
 
-        XCTAssertEqual(dictionary[flagWales]?.group, "Flags")
-        XCTAssertEqual(dictionary[flagWales]?.subgroup, "subdivision-flag")
+            let flagWales = Character(exactly: "1F3F4 E0067 E0062 E0077 E006C E0073 E007F")
+            XCTAssertEqual(dictionary[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+            XCTAssertEqual(dictionary[flagWales]?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
 
-        // Assert ordered skintones
-        let victoryHand = Character("\u{270C}\u{FE0F}")
-        XCTAssertEqual(dictionary[victoryHand]?.character, "✌️")
-        XCTAssertEqual(dictionary[victoryHand]?.orderedSkinToneEmojis.map({ $0.character }), [
-            Character("✌🏻"),
-            Character("✌🏼"),
-            Character("✌🏽"),
-            Character("✌🏾"),
-            Character("✌🏿")
-        ])
-        XCTAssertNil(dictionary[victoryHand]?.genericSkinToneEmoji)
+            XCTAssertEqual(dictionary[flagWales]?.group, "Flags")
+            XCTAssertEqual(dictionary[flagWales]?.subgroup, "subdivision-flag")
 
-        XCTAssertEqual(dictionary[victoryHand]?.minimallyQualifiedOrUnqualifiedVersions.map({ $0.character }), [Character("✌")])
-        XCTAssertNil(dictionary[victoryHand]?.fullyQualifiedVersion)
+        }
 
-        // Assert status variations
-        let manDetective = Character("\u{1F575}\u{FE0F}\u{200D}\u{2642}\u{FE0F}")
-        XCTAssertEqual(dictionary[manDetective]?.character, "🕵️‍♂️")
-        XCTAssertEqual(dictionary[manDetective]?.orderedSkinToneEmojis.isEmpty, true)
-        XCTAssertNil(dictionary[manDetective]?.genericSkinToneEmoji)
-        XCTAssertEqual(dictionary[manDetective]?.minimallyQualifiedOrUnqualifiedVersions.map({ $0.character }), [
-            Character("🕵‍♂️"),
-            Character("🕵️‍♂"),
-            Character("🕵‍♂")
-        ])
-        XCTAssertNil(dictionary[manDetective]?.fullyQualifiedVersion)
+        try XCTContext.runActivity(named: "Test: An emoji that doesn't have any variations") { _ in
+
+            // Assert For Variation Base
+            let kissMarkCharacter = Character(exactly: "1F48B")
+            let kissMarkEmoji = try XCTUnwrap(dictionary[kissMarkCharacter])
+            XCTAssertEqual(kissMarkEmoji.character, "💋")
+
+            // Assert for Qualified Variations
+            XCTAssertNil(kissMarkEmoji.fullyQualifiedVersion)
+            XCTAssertTrue(kissMarkEmoji.minimallyQualifiedOrUnqualifiedVersions.isEmpty)
+
+            // Assert For Modifier Sequence Variations
+            XCTAssertNil(kissMarkEmoji.genericSkinToneEmoji)
+            XCTAssertTrue(kissMarkEmoji.orderedSkinToneEmojis.isEmpty)
+        }
+
+        try XCTContext.runActivity(named: "Test: An emoji that has modifier sequence's variation, but no qualified variations") { _ in
+
+            // Assert For Variation Base
+            let victoryHandCharacter = Character(exactly: "1F90F")
+            let victoryHandEmoji = try XCTUnwrap(dictionary[victoryHandCharacter])
+            XCTAssertEqual(victoryHandEmoji.character, "🤏")
+
+            // Assert for Qualified Variations
+            XCTAssertNil(victoryHandEmoji.fullyQualifiedVersion)
+            XCTAssertTrue(victoryHandEmoji.minimallyQualifiedOrUnqualifiedVersions.isEmpty)
+
+            // Assert For Modifier Sequence Variations
+            let expectedSkintoneVariations = [
+                Character(exactly: "1F90F 1F3FB"), // 🤏🏻
+                Character(exactly: "1F90F 1F3FC"), // 🤏🏼
+                Character(exactly: "1F90F 1F3FD"), // 🤏🏽
+                Character(exactly: "1F90F 1F3FE"), // 🤏🏾
+                Character(exactly: "1F90F 1F3FF")  // 🤏🏿
+            ]
+
+            XCTAssertNil(victoryHandEmoji.genericSkinToneEmoji)
+            XCTAssertEqual(victoryHandEmoji.orderedSkinToneEmojis.count, 5)
+
+            for (index, skintonedEmoji) in victoryHandEmoji.orderedSkinToneEmojis.enumerated() {
+                XCTAssertEqual(skintonedEmoji.character, expectedSkintoneVariations[index])
+                XCTAssertNil(skintonedEmoji.fullyQualifiedVersion)
+                XCTAssertTrue(skintonedEmoji.minimallyQualifiedOrUnqualifiedVersions.isEmpty)
+                XCTAssertEqual(skintonedEmoji.genericSkinToneEmoji, victoryHandEmoji)
+                XCTAssertTrue(skintonedEmoji.orderedSkinToneEmojis.isEmpty)
+            }
+
+        }
+
+        try XCTContext.runActivity(named: "Test: An emoji that has qualified, but no variationsmodifier sequence's variations") { _ in
+
+            // Assert For Variation Base
+            let passengerShipCharacter = Character(exactly: "1F6F3 FE0F")
+            let passengerShipEmoji = try XCTUnwrap(dictionary[passengerShipCharacter])
+            XCTAssertEqual(passengerShipEmoji.character, "🛳️")
+
+            // Assert for Qualified Variations
+            XCTAssertNil(passengerShipEmoji.fullyQualifiedVersion)
+            XCTAssertEqual(passengerShipEmoji.minimallyQualifiedOrUnqualifiedVersions.count, 1)
+
+            let qualifiedVariation = passengerShipEmoji.minimallyQualifiedOrUnqualifiedVersions[0]
+            XCTAssertEqual(qualifiedVariation.fullyQualifiedVersion, passengerShipEmoji)
+            XCTAssertTrue(qualifiedVariation.minimallyQualifiedOrUnqualifiedVersions.isEmpty)
+            XCTAssertNil(qualifiedVariation.genericSkinToneEmoji)
+            XCTAssertTrue(qualifiedVariation.orderedSkinToneEmojis.isEmpty)
+
+            // Assert For Modifier Sequence Variations
+            XCTAssertNil(passengerShipEmoji.genericSkinToneEmoji)
+            XCTAssertTrue(passengerShipEmoji.orderedSkinToneEmojis.isEmpty)
+        }
+
+        try XCTContext.runActivity(named: "Test: An emoji that has both modifier sequences's variations and qualified variations.") { _ in
+
+            // Assert For Variation Base
+            let manDetectiveCharacter = Character(exactly: "1F575 FE0F 200D 2642 FE0F")
+            let manDetectiveEmoji = try XCTUnwrap(dictionary[manDetectiveCharacter])
+            XCTAssertEqual(manDetectiveEmoji.character, Character(exactly: "1F575 FE0F 200D 2642 FE0F")) // 🕵️‍♂️
+
+            // Assert for Qualified Variations
+            XCTAssertNil(manDetectiveEmoji.fullyQualifiedVersion)
+            XCTAssertEqual(manDetectiveEmoji.minimallyQualifiedOrUnqualifiedVersions.count, 3)
+
+            let expectedQualifiedVariations = [
+                Character(exactly: "1F575 200D 2642 FE0F"), // 🕵‍♂️
+                Character(exactly: "1F575 FE0F 200D 2642"), // 🕵️‍♂
+                Character(exactly: "1F575 200D 2642")       // 🕵‍♂
+            ]
+
+            for (index, qualifiedVariation) in manDetectiveEmoji.minimallyQualifiedOrUnqualifiedVersions.enumerated() {
+                XCTAssertEqual(qualifiedVariation.character, expectedQualifiedVariations[index])
+                XCTAssertEqual(qualifiedVariation.fullyQualifiedVersion, manDetectiveEmoji)
+                XCTAssertTrue(qualifiedVariation.minimallyQualifiedOrUnqualifiedVersions.isEmpty)
+                XCTAssertNil(qualifiedVariation.genericSkinToneEmoji)
+                XCTAssertTrue(qualifiedVariation.orderedSkinToneEmojis.isEmpty)
+            }
+
+            // Assert For Modifier Sequence Variations
+            XCTAssertNil(manDetectiveEmoji.genericSkinToneEmoji)
+            XCTAssertEqual(manDetectiveEmoji.orderedSkinToneEmojis.count, 5)
+
+            let expectedSkintoneVariationssWithItsQualifiedVariation: [(Character, Character)] = [
+                (Character(exactly: "1F575 1F3FB 200D 2642 FE0F"), Character(exactly: "1F575 1F3FB 200D 2642")), // 🕵🏻‍♂️, 🕵🏻‍♂
+                (Character(exactly: "1F575 1F3FC 200D 2642 FE0F"), Character(exactly: "1F575 1F3FC 200D 2642")), // 🕵🏼‍♂️, 🕵🏼‍♂
+                (Character(exactly: "1F575 1F3FD 200D 2642 FE0F"), Character(exactly: "1F575 1F3FD 200D 2642")), // 🕵🏽‍♂, 🕵🏽‍♂
+                (Character(exactly: "1F575 1F3FE 200D 2642 FE0F"), Character(exactly: "1F575 1F3FE 200D 2642")), // 🕵🏾‍♂️, 🕵🏽‍♂
+                (Character(exactly: "1F575 1F3FF 200D 2642 FE0F"), Character(exactly: "1F575 1F3FF 200D 2642")), // 🕵🏾‍♂️, 🕵🏽‍♂
+            ]
+
+            for (index, skintoneVariation) in manDetectiveEmoji.orderedSkinToneEmojis.enumerated() {
+                XCTAssertEqual(skintoneVariation.character, expectedSkintoneVariationssWithItsQualifiedVariation[index].0)
+                XCTAssertEqual(skintoneVariation.genericSkinToneEmoji, manDetectiveEmoji)
+                XCTAssertTrue(skintoneVariation.orderedSkinToneEmojis.isEmpty)
+                XCTAssertNil(skintoneVariation.fullyQualifiedVersion)
+
+                XCTAssertEqual(skintoneVariation.minimallyQualifiedOrUnqualifiedVersions.count, 1)
+                let qualifiedVariation = skintoneVariation.minimallyQualifiedOrUnqualifiedVersions[0]
+                XCTAssertEqual(qualifiedVariation.character, expectedSkintoneVariationssWithItsQualifiedVariation[index].1)
+                XCTAssertEqual(qualifiedVariation.fullyQualifiedVersion, skintoneVariation)
+                XCTAssertTrue(qualifiedVariation.minimallyQualifiedOrUnqualifiedVersions.isEmpty)
+                XCTAssertNil(qualifiedVariation.genericSkinToneEmoji)
+                XCTAssertTrue(qualifiedVariation.orderedSkinToneEmojis.isEmpty)
+
+            }
+
+        }
+
 
     }
 
@@ -283,6 +382,17 @@ class EmojiLoaderTests: XCTestCase {
 
         XCTAssertEqual(data.status, .fullyQualified)
 
+    }
+
+}
+
+extension Character {
+
+    // Such as 1F575 1F3FB 200D 2642
+    init(exactly hexString: String) {
+        let unicodeScalars: [Unicode.Scalar] = hexString.split(separator: " ").compactMap({ UInt32($0, radix: 16) }).compactMap({ Unicode.Scalar($0) })
+        let unicodeScalarView = Character.UnicodeScalarView(unicodeScalars)
+        self.init(String(unicodeScalarView))
     }
 
 }

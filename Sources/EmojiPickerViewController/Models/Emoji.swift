@@ -183,7 +183,7 @@ public class Emoji {
      // Prints 👮🏿
      ```
 
-     The emojis are ordered conforming unicode-org/cldr recommendations. You can get [👮🏿👮🏾👮🏽👮🏼👮🏻] reversed array by using `orderedSkinToneEmojis.reversed()`.
+     The status of each emoji element is `.fullyQualified`. If the element has its minimaly-qualified or unqualified variations, they are set into `element.minimallyQualifiedOrUnqualifiedVersions`.
      */
     internal(set) public var orderedSkinToneEmojis: [Emoji] = []
 
@@ -247,6 +247,35 @@ extension Emoji: Identifiable {
      */
     public var id: Character {
         return character
+    }
+
+}
+
+extension Emoji: Equatable {
+
+    public static func == (lhs: Emoji, rhs: Emoji) -> Bool {
+
+        // Now, the implementation doesn't considier bidi references.
+        return lhs.character == rhs.character &&
+        lhs.status == rhs.status &&
+        lhs.group == rhs.group &&
+        lhs.subgroup == rhs.subgroup &&
+        lhs.cldrOrder == rhs.cldrOrder &&
+        lhs.annotation == rhs.annotation &&
+        lhs.textToSpeach == rhs.textToSpeach
+
+    }
+
+}
+
+extension Emoji: CustomStringConvertible {
+
+    public var description: String {
+
+        """
+        character: \(character), status: \(status), group: \(group), subgroup: \(subgroup), cldrOrder: \(cldrOrder), annotation: \(annotation), textToSpeach: \(textToSpeach)
+        """
+
     }
 
 }

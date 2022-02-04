@@ -213,23 +213,35 @@ class EmojiLoader: Loader {
         /*
          The local var are used for handling skin tones and minimally-qualified/unqualified versions.
 
-         The most important expectation for combining variations is the orders of emojis in the `emoji-test.txt` file,  which the all candidates of the emoji are sandwitched between the fully-qualified generic skintoned emoji and a NEXT fully-qualified generic skintoned emoji.
+         The most important expectation for combining variations is the orders of emojis in the `emoji-test.txt` file. The rules of the order are:
+         1. fully-qualified and non emoji modiifier sequence, which we name "variation base" is located at head. This is a separater of the variations of the emoji.
+         2. minimally-qualified or unqualified emojis are listed next of 1.
+         3. modifier sequences(skintoned emoji) are listed next of 2.
+         NOTE: modifier sequences may have its monimally-qualified or unqualified variations.
 
          Ex)
-         1F9D1 200D 1F9BC                                       ; fully-qualified     # 🧑‍🦼 E12.1 person in motorized wheelchair                            *BASE EMOJI*
-         1F9D1 1F3FB 200D 1F9BC                                 ; fully-qualified     # 🧑🏻‍🦼 E12.1 person in motorized wheelchair: light skin tone           *SKINTONED EMOJI*
-         1F9D1 1F3FC 200D 1F9BC                                 ; fully-qualified     # 🧑🏼‍🦼 E12.1 person in motorized wheelchair: medium-light skin tone    *SKINTONED EMOJI*
-         1F9D1 1F3FD 200D 1F9BC                                 ; fully-qualified     # 🧑🏽‍🦼 E12.1 person in motorized wheelchair: medium skin tone          *SKINTONED EMOJI*
-         1F9D1 1F3FE 200D 1F9BC                                 ; fully-qualified     # 🧑🏾‍🦼 E12.1 person in motorized wheelchair: medium-dark skin tone     *SKINTONED EMOJI*
-         1F9D1 1F3FF 200D 1F9BC                                 ; fully-qualified     # 🧑🏿‍🦼 E12.1 person in motorized wheelchair: dark skin tone            *SKINTONED EMOJI*
-         1F468 200D 1F9BC                                       ; fully-qualified     # 👨‍🦼 E12.0 man in motorized wheelchair                               *NEXT BASE EMOJI*
+         1F575 FE0F 200D 2642 FE0F                              ; fully-qualified     # 🕵️‍♂️ E4.0 man detective                             <VARIATION BASE>
+         1F575 200D 2642 FE0F                                   ; unqualified         # 🕵‍♂️ E4.0 man detective                             <VARIATION OF VARIATION BASE>
+         1F575 FE0F 200D 2642                                   ; unqualified         # 🕵️‍♂ E4.0 man detective                           <VARIATION OF VARIATION BASE>
+         1F575 200D 2642                                        ; unqualified         # 🕵‍♂ E4.0 man detective                             <VARIATION OF VARIATION BASE>
+         1F575 1F3FB 200D 2642 FE0F                             ; fully-qualified     # 🕵🏻‍♂️ E4.0 man detective: light skin tone            <MODIFIER SEQUENCE OF VARIATION BASE>
+         1F575 1F3FB 200D 2642                                  ; minimally-qualified # 🕵🏻‍♂ E4.0 man detective: light skin tone            <VARIATION OF MODIFIER SEQUENCE>
+         1F575 1F3FC 200D 2642 FE0F                             ; fully-qualified     # 🕵🏼‍♂️ E4.0 man detective: medium-light skin tone     <MODIFIER SEQUENCE OF VARIATION BASE>
+         1F575 1F3FC 200D 2642                                  ; minimally-qualified # 🕵🏼‍♂ E4.0 man detective: medium-light skin tone     <VARIATION OF MODIFIER SEQUENCE>
+         1F575 1F3FD 200D 2642 FE0F                             ; fully-qualified     # 🕵🏽‍♂️ E4.0 man detective: medium skin tone           <MODIFIER SEQUENCE OF VARIATION BASE>
+         1F575 1F3FD 200D 2642                                  ; minimally-qualified # 🕵🏽‍♂ E4.0 man detective: medium skin tone           <VARIATION OF MODIFIER SEQUENCE>
+         1F575 1F3FE 200D 2642 FE0F                             ; fully-qualified     # 🕵🏾‍♂️ E4.0 man detective: medium-dark skin tone      <MODIFIER SEQUENCE OF VARIATION BASE>
+         1F575 1F3FE 200D 2642                                  ; minimally-qualified # 🕵🏾‍♂ E4.0 man detective: medium-dark skin tone      <VARIATION OF MODIFIER SEQUENCE>
+         1F575 1F3FF 200D 2642 FE0F                             ; fully-qualified     # 🕵🏿‍♂️ E4.0 man detective: dark skin tone             <MODIFIER SEQUENCE OF VARIATION BASE>
+         1F575 1F3FF 200D 2642                                  ; minimally-qualified # 🕵🏿‍♂ E4.0 man detective: dark skin tone             <VARIATION OF MODIFIER SEQUENCE>
 
-         In this example, 🧑🏻‍🦼🧑🏼‍🦼🧑🏽‍🦼🧑🏾‍🦼🧑🏿‍🦼 are added as `orderedSkinToneEmojis` of 🧑‍🦼.
-         (Resources/emoji-test.txt)
-
-         This implementation adds emojis as `orderedSkinToneEmojis` until a next base emoji that the `isEmojiModifierSequence` is false, is found.
+         1F575 FE0F 200D 2640 FE0F                              ; fully-qualified     # 🕵️‍♀️ E4.0 woman detective                           <NEXT VARIATION BASE>
          */
-        var genericSkinToneEmoji: Emoji?
+
+        // Variation base is fully-qualified and non emoji modiifier sequence.
+        var variationBaseEmoji:Emoji?
+
+        // FullyQualifiedEmoji is fully-qualified. It may be mofifier sequence.
         var fullyQualifiedEmoji: Emoji?
 
         var emojiOrder: Int = 0
@@ -263,29 +275,31 @@ class EmojiLoader: Loader {
 
             switch data.status {
             case .fullyQualified:
+
                 fullyQualifiedEmoji = emoji
 
+                if emoji.isEmojiModifierSequence {
+
+                    variationBaseEmoji?.orderedSkinToneEmojis.append(emoji)
+                    emoji.genericSkinToneEmoji = variationBaseEmoji
+
+                } else {
+
+                    // Normally, a keyboard should present only variation base emojis, and present modifier sequences(skintoned) by long-pressing the key.
+
+                    variationBaseEmoji = emoji
+                    orderedArray.append(emoji)
+
+                }
+
             case .minimallyQualified, .unqualified:
+
                 fullyQualifiedEmoji?.minimallyQualifiedOrUnqualifiedVersions.append(emoji)
                 emoji.fullyQualifiedVersion = fullyQualifiedEmoji
 
             case .component:
                 break // Do nothing
             }
-
-            if emoji.isEmojiModifierSequence {
-                genericSkinToneEmoji?.orderedSkinToneEmojis.append(emoji)
-                emoji.genericSkinToneEmoji = genericSkinToneEmoji
-            } else {
-                genericSkinToneEmoji = emoji
-
-                // An element of an array for keyboard must be `isEmojiModifierSequence` and `.fullyQualified`.
-                if case .fullyQualified = data.status {
-                    orderedArray.append(emoji)
-                }
-                
-            }
-
 
             // The value is decremented only when the row is for an emoji data.
             emojiOrder += 1
