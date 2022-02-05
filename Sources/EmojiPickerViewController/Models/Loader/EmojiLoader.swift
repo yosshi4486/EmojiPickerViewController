@@ -200,7 +200,7 @@ class EmojiLoader: Loader {
      - Complexity:
      O(n) where n is number of lines in `emoji-test.txt`.
      */
-    func load() {
+    @MainActor func load() {
 
         // Cleanup loaded data
         if !(wholeEmojiDictionary.isEmpty && fullyQualifiedOrderedEmojisForKeyboard.isEmpty) {

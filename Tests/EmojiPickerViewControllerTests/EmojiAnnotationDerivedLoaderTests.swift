@@ -26,7 +26,7 @@
 import XCTest
 @testable import EmojiPickerViewController
 
-class EmojiAnnotationDerivedLoaderTests: XCTestCase {
+@MainActor class EmojiAnnotationDerivedLoaderTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

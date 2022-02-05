@@ -105,7 +105,7 @@ public class EmojiContainer: Loader {
 
      After an initial call of this method, you should use `loadAnnotations()` rather than calling `load()`  again,  because this method replaces both cached `emojiDictionary` and `orderedEmojisForKeyboard`.
      */
-    public func load() throws {
+    @MainActor public func load() throws {
 
         emojiLoader.load()
         try loadAnnotations()
@@ -118,7 +118,7 @@ public class EmojiContainer: Loader {
      - Precondition:
      This method should be called when the emoji-set is loaded.
      */
-    public func loadAnnotations() throws {
+    @MainActor public func loadAnnotations() throws {
 
         precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty, "Logical Failure, `load()` should be called before `loadAnnotations()`.")
 
@@ -165,7 +165,7 @@ public class EmojiContainer: Loader {
     }
 
 
-    @objc private func updateAnnotationsAutomatically(_ notification: Notification) {
+    @MainActor @objc private func updateAnnotationsAutomatically(_ notification: Notification) {
 
         guard automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange, let mode = notification.object as? UITextInputMode else {
             return

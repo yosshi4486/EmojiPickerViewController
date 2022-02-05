@@ -61,7 +61,7 @@ let emojiCountsForShowingInKeyboard = totalEmojiCounts
 // -1 is a consideration for header comment of `emoji-text.txt`
 let emojiCountsListedInEmojiTest = 4702
 
-class EmojiLoaderTests: XCTestCase {
+@MainActor class EmojiLoaderTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
