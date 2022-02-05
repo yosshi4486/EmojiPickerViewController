@@ -34,6 +34,8 @@ import Foundation
  - Note:
  `Loader` is designed rather than using `TopLevelDecoder` protocol, because `emoji-test` is NOT data format. It's only semi-colon separated plain text.
 
+ - TODO:
+ This class is not thread safe, it doesn't do anything about data race. Implements as `actor`?
  */
 class EmojiLoader: Loader {
 

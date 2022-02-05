@@ -28,6 +28,9 @@ import UIKit
 
 /**
  A container object for loading, storing and updating stored emojis.
+
+ - TODO:
+ This class is not thread safe, it doesn't do anything about data race. Implements as `actor`?
  */
 public class EmojiContainer: Loader {
 
