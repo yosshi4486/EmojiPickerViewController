@@ -134,13 +134,19 @@ public class EmojiContainer: Loader {
      This method should be called after an initial call of `load()`.
 
      - Complexity:
-     O(m * n) where m is number of elements in the ordered emoji array and n is a length of  annotation, however we don't have to worry the cost too much, because the size of computation must be enough small (m is 1300~1400, n is 30~50).
+     O(n * m * o) where n is the number of elements in the ordered emoji array, m is the length of the annotation sequence and m is the length of the word in annotation, however we don't have to worry the cost too much, because the size of computation must be enough small (n is 1300~1400, m is 2~5, n is 3 ~15).
      */
     public func searchEmojisForKeyboard(from keyword: String) -> [Emoji] {
 
         precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty)
 
-        return orderedEmojisForKeyboard.filter({ $0.annotation.contains(keyword) })
+        return orderedEmojisForKeyboard.filter({ // n回実行
+            $0.annotation
+                .split(separator: "|") // m回実行, annotationの候補の数
+                .contains(where: {　　　// m回実行, aanotationの候補の数
+                    $0.trimmingCharacters(in: .whitespaces).starts(with: keyword) // o回実行, 1つのアノテーション候補の長さ
+                })
+        })
 
     }
 
