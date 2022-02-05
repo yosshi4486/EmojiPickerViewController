@@ -67,18 +67,23 @@ public class EmojiContainer: Loader {
     private var currentInputMode: UITextInputMode?
 
     /**
-     The loaded emoji dictionary that has emojis listed in `emoji-test.txt`. The key is a character and the value is an emoji object. The dictionary is empty before an initial call of `load()`.
+     The emoji loader.
+     */
+    private let emojiLoader = EmojiLoader()
+
+    /**
+     The entire emoji dictionary that has emojis listed in `emoji-test.txt`. The key is a character and the value is an emoji object. The dictionary is empty before an initial call of `load()`.
 
      The emoji dictionary are desinged for searching an emoji by specifying the character. The references of contained emojis are shared with `orderedEmojisForKeyboard`.
      */
-    internal(set) public var emojiDictionary: [Emoji.ID : Emoji] = [:]
+    public var emojiDictionary: [Emoji.ID : Emoji] { emojiLoader.wholeEmojiDictionary }
 
     /**
-     The loaded and ordered emoji array for keyboard presentation, which the emoji's status is `.fullyQualified`. The array doesn't contain modifier sequences. The array is empty before an initial call of `load()`.
+     The ordered emoji array for keyboard presentation, which the emoji's status is `.fullyQualified`. The array doesn't contain modifier sequences. The array is empty before an initial call of `load()`.
 
      This ordered emoji array are desinged for implementing a keyboard view or picker view.
      */
-    internal(set) public var orderedEmojisForKeyboard: [Emoji] = []
+    public var orderedEmojisForKeyboard: [Emoji] { emojiLoader.fullyQualifiedOrderedEmojisForKeyboard }
 
     init() {
 
@@ -99,9 +104,7 @@ public class EmojiContainer: Loader {
      */
     public func load() throws {
 
-        let emojiLoader = EmojiLoader()
-        (emojiDictionary, orderedEmojisForKeyboard) = emojiLoader.load()
-
+        emojiLoader.load()
         try loadAnnotations()
 
     }
@@ -110,11 +113,11 @@ public class EmojiContainer: Loader {
      Loads annotations following `languageIdentifiers`.
 
      - Precondition:
-     This method should be called after an initial call of `load()`.
+     This method should be called when the emoji-set is loaded.
      */
     public func loadAnnotations() throws {
 
-        precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty)
+        precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty, "Logical Failure, `load()` should be called before `loadAnnotations()`.")
 
         let annotationLoader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: languageIdentifiers)
         try annotationLoader.load()

@@ -188,20 +188,23 @@ class EmojiLoader: Loader {
 
     }
 
+    private(set) var wholeEmojiDictionary: [Emoji.ID: Emoji] = [:]
+
+    private(set) var fullyQualifiedOrderedEmojisForKeyboard: [Emoji] = []
+
     /**
      Loads entire emojis and returns them.
 
      - Complexity:
-     O(n) where n is number of emojis.
-
-     - Returns:
-       - wholeEmojiDictionary: The emoji dictionary that has emojis listed in `emoji-test.txt`. The key is a character and the value is an emoji object.
-       - fullyQualifiedOrderedEmojisForKeyboard: The ordered emoji array for keyboard presentation, which the emoji's status is `.fullyQualified`. The array doesn't contain  modifier sequences.
+     O(n) where n is number of lines in `emoji-test.txt`.
      */
-    func load() -> ([Emoji.ID: Emoji], [Emoji]) {
+    func load() {
 
-        var dictionary: [Emoji.ID: Emoji] = [:]
-        var orderedArray: [Emoji] = []
+        // Cleanup loaded data
+        if !(wholeEmojiDictionary.isEmpty && fullyQualifiedOrderedEmojisForKeyboard.isEmpty) {
+            wholeEmojiDictionary = [:]
+            fullyQualifiedOrderedEmojisForKeyboard = []
+        }
 
         let emojiTestFileURL = bundle.url(forResource: "emoji-test", withExtension: "txt")
         let emojiTestWholeText = try! String(contentsOf: emojiTestFileURL!, encoding: .utf8)
@@ -271,7 +274,7 @@ class EmojiLoader: Loader {
 
             let emoji = Emoji(character: character, status: data.status, cldrOrder: emojiOrder, group: String(group!), subgroup: String(subgroup!))
 
-            dictionary[character] = emoji
+            wholeEmojiDictionary[character] = emoji
 
             switch data.status {
             case .fullyQualified:
@@ -288,7 +291,7 @@ class EmojiLoader: Loader {
                     // Normally, a keyboard should present only variation base emojis, and present modifier sequences(skintoned) by long-pressing the key.
 
                     variationBaseEmoji = emoji
-                    orderedArray.append(emoji)
+                    fullyQualifiedOrderedEmojisForKeyboard.append(emoji)
 
                 }
 
@@ -306,7 +309,6 @@ class EmojiLoader: Loader {
 
         }
 
-        return (dictionary, orderedArray)
     }
 
 }

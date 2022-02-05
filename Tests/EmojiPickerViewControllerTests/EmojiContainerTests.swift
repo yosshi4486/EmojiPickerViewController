@@ -105,7 +105,7 @@ class EmojiContainerTests: XCTestCase {
 
         // Execute
         container.preferredLanguageIdentifiers = ["en"]
-        try container.load()
+        try container.loadAnnotations()
 
         // Postcheck
         XCTAssertEqual(container.orderedEmojisForKeyboard.first?.character, "😀")

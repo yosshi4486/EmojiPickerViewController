@@ -76,9 +76,9 @@ class EmojiLoaderTests: XCTestCase {
     func testLoad() throws {
 
         let loader = EmojiLoader()
-        let emojis = loader.load()
-        let dictionary = emojis.0
-        let array = emojis.1
+        loader.load()
+        let dictionary = loader.wholeEmojiDictionary
+        let array = loader.fullyQualifiedOrderedEmojisForKeyboard
 
         XCTAssertEqual(dictionary.count, emojiCountsListedInEmojiTest)
         XCTAssertEqual(array.count, emojiCountsForShowingInKeyboard)

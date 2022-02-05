@@ -31,11 +31,6 @@ import Foundation
 protocol Loader {
 
     /**
-     The concrete type of loaded data.
-     */
-    associatedtype Loaded
-
-    /**
      The bundle where the resouces are located.
      */
     var bundle: Bundle { get }
@@ -43,7 +38,7 @@ protocol Loader {
     /**
      Loads data.
      */
-    func load() throws -> Loaded
+    func load() throws
 
 }
 
