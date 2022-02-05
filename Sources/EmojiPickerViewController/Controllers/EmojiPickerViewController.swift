@@ -119,7 +119,12 @@ open class EmojiPickerViewController: UIViewController {
         let groupedAndOrderedEmojis = Dictionary(grouping: emojiContainer.orderedEmojisForKeyboard, by: { $0.group })
         var labeledAndOrderedEmojis: [EmojiLabel: [Emoji]] = [:]
         for (key, value) in groupedAndOrderedEmojis {
-            labeledAndOrderedEmojis[EmojiLabel(group: key)!] = value
+            let label = EmojiLabel(group: key)!
+            if labeledAndOrderedEmojis[label] == nil {
+                labeledAndOrderedEmojis[label] = value
+            } else {
+                labeledAndOrderedEmojis[label]?.append(contentsOf: value)
+            }
         }
 
         var snapshot: NSDiffableDataSourceSnapshot<EmojiLabel, Emoji> = .init()
