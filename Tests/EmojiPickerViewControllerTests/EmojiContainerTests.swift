@@ -147,5 +147,52 @@ class EmojiContainerTests: XCTestCase {
 
     }
 
+    func testArraySearchPerformance() throws {
+
+        let container = EmojiContainer()
+        container.preferredLanguageIdentifiers = ["en"]
+        try container.load()
+
+        measure {
+            _ = container.searchEmojisForKeyboard(from: "cop")
+
+        }
+
+    }
+
+    func testRegexSearchPerformance() throws {
+
+        let container = EmojiContainer()
+        container.preferredLanguageIdentifiers = ["en"]
+        try container.load()
+
+        // Even if we adopt regex for searching emojis, we have to search two files, which the one is annotations and the other is annotationsDerived, moreover we have to care about status of emojis in the implementation.
+        // We think that the time difference is not big, so we decided to use array search for providing search API.
+        measure {
+
+            let annotationString = try! String(contentsOf: Bundle.module.url(forResource: "en", withExtension: "xml")!, encoding: .utf8)
+            let annotationDerivedString = try! String(contentsOf: Bundle.module.url(forResource: "en_derived", withExtension: "xml")!, encoding: .utf8)
+
+            let patternForSearchingAnnotation = String(format: #"<annotation cp="(.)">.*?(%@).*?</annotation>"#, "cop")
+            let regularExpression = try! NSRegularExpression(pattern: patternForSearchingAnnotation, options: [])
+            let matchesOfAnnotation = regularExpression.matches(in: annotationString, options: [], range: NSRange(location: 0, length: annotationString.utf16.count))
+            let matchesOfAnnotationDerived = regularExpression.matches(in: annotationDerivedString, options: [], range: NSRange(location: 0, length: annotationDerivedString.utf16.count))
+
+            let cops: [Emoji] = matchesOfAnnotation.compactMap({
+                let character = Character((annotationString as NSString).substring(with: $0.range(at: 1)))
+                return container.emojiDictionary[character]
+            })
+            let copsDerived: [Emoji] = matchesOfAnnotationDerived.compactMap({
+                let character = Character((annotationDerivedString as NSString).substring(with: $0.range(at: 1)))
+                return container.emojiDictionary[character]
+            })
+
+            let marged = cops + copsDerived
+            let _ = marged.compactMap({ $0.fullyQualifiedVersion == nil ? $0 : $0.fullyQualifiedVersion }).sorted(by: { $0.cldrOrder < $1.cldrOrder })
+
+        }
+
+    }
+
 
 }

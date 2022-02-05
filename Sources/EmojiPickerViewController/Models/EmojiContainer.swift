@@ -140,13 +140,7 @@ public class EmojiContainer: Loader {
 
         precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty)
 
-        return orderedEmojisForKeyboard.filter({ // n回実行
-            $0.annotation
-                .split(separator: "|") // m回実行, annotationの候補の数
-                .contains(where: {　　　// m回実行, aanotationの候補の数
-                    $0.trimmingCharacters(in: .whitespaces).starts(with: keyword) // o回実行, 1つのアノテーション候補の長さ
-                })
-        })
+        return orderedEmojisForKeyboard.filter({ $0.annotation.split(separator: "|").contains(where: { $0.trimmingCharacters(in: .whitespaces).starts(with: keyword) }) })
 
     }
 
