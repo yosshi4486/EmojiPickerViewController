@@ -88,6 +88,13 @@ public class EmojiContainer: Loader {
      */
     public var orderedEmojisForKeyboard: [Emoji] { emojiLoader.fullyQualifiedOrderedEmojisForKeyboard }
 
+    /**
+     The boolean value indicating whether the `load()` has already called.
+     */
+    public var isLoaded: Bool {
+        return !emojiDictionary.isEmpty
+    }
+
     init() {
 
         NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotationsAutomatically(_:)), name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)

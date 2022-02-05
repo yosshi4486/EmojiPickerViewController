@@ -108,49 +108,6 @@ public class Emoji {
     public let cldrOrder: Int
 
     /**
-     The label of the emoji, which is used as category as usual.
-
-     - Note:
-     unicode-org/cldr has a `labels.text` file for labeling emojis, but parsing it and setting lables to emojis takes time and effort, so we decided to compute the label from `group` and `subgroup` for ease.
-
-     - SeeAlso: [unicode-org/cldr/common/properties/label.txt](https://github.com/unicode-org/cldr/blob/main/common/properties/labels.txt)
-     */
-    public var localizedLabel: String? {
-
-        switch group {
-
-        case "Smileys & Emotion", "People & Body":
-            return NSLocalizedString("smileys_people", bundle: .module, comment: "Emoji label: groups emojis into Smileys & People.")
-
-        case "Animals & Nature":
-            return NSLocalizedString("animals_nature", bundle: .module, comment: "Emoji label: groups emojis into Animals & Nature.")
-
-        case "Food & Drink":
-            return NSLocalizedString("food_drink", bundle: .module, comment: "Emoji label: groups emojis into Food & Drink.")
-
-        case "Travel & Places":
-            return NSLocalizedString("travel_places", bundle: .module, comment: "Emoji label: groups emojis into Travel & Places.")
-
-        case "Activities":
-            return NSLocalizedString("activities", bundle: .module, comment: "Emoji label: groups emojis into Activities.")
-
-        case "Objects":
-            return NSLocalizedString("objects", bundle: .module, comment: "Emoji label: groups emojis into Objects.")
-
-        case "Symbols":
-            return NSLocalizedString("symbols", bundle: .module, comment: "Emoji label: groups emojis into Symbols.")
-
-        case "Flags":
-            return NSLocalizedString("flags", bundle: .module, comment: "Emoji label: groups emojis into Flags.")
-
-        default: // "Component" or future added unknown groups returns nil.
-            return nil
-
-        }
-
-    }
-
-    /**
      The annotation for searching emojis. The value includes multiple annotation which are separated by vertical line "|",  such as `face | geek | nerd`. This property is set following`Resources/CLDR/annotation` and `Resources/CLDR/annotationsDerived` .
 
      This property can be replaced when the keyboard's primary language is changed. The default value is empty, however an actual value will be set later.
@@ -264,6 +221,20 @@ extension Emoji: Equatable {
         lhs.annotation == rhs.annotation &&
         lhs.textToSpeach == rhs.textToSpeach
 
+    }
+
+}
+
+extension Emoji: Hashable {
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(character)
+        hasher.combine(status)
+        hasher.combine(group)
+        hasher.combine(subgroup)
+        hasher.combine(cldrOrder)
+        hasher.combine(annotation)
+        hasher.combine(textToSpeach)
     }
 
 }
