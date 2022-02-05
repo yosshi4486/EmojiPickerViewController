@@ -245,7 +245,7 @@ class EmojiLoaderTests: XCTestCase {
 
         // loader.load() should be finished less than 0.1sec.
         self.measure {
-            _ = loader.load()
+            loader.load()
         }
 
     }

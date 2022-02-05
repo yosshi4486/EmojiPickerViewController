@@ -147,7 +147,6 @@ class EmojiContainerTests: XCTestCase {
 
     }
 
-    @available(iOS 13.0.0, *)
     func testSearchEmojisForKeyboardAsync() async throws {
 
         // Preparation

@@ -152,7 +152,6 @@ public class EmojiContainer: Loader {
 
      Using this async interface is recommented for providing resut-set in picker or keyboard.
      */
-    @available(iOS 13.0.0, *)
     public func searchEmojisForKeyboard(from keyboard: String) async -> [Emoji] {
         precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty)
 
