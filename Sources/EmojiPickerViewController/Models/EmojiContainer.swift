@@ -144,6 +144,24 @@ public class EmojiContainer: Loader {
 
     }
 
+    /**
+     An async interface of `searchEmojisForKeyboard(from:)`.
+
+     Using this async interface is recommented for providing resut-set in picker or keyboard.
+     */
+    @available(iOS 13.0.0, *)
+    public func searchEmojisForKeyboard(from keyboard: String) async -> [Emoji] {
+        precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty)
+
+        return await withCheckedContinuation({ continuation in
+            DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+                let searchResults = self.searchEmojisForKeyboard(from: keyboard)
+                continuation.resume(returning: searchResults)
+            }
+        })
+
+    }
+
 
     @objc private func updateAnnotationsAutomatically(_ notification: Notification) {
 

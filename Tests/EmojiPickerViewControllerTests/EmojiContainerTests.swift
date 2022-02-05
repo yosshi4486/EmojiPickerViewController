@@ -147,6 +147,32 @@ class EmojiContainerTests: XCTestCase {
 
     }
 
+    @available(iOS 13.0.0, *)
+    func testSearchEmojisForKeyboardAsync() async throws {
+
+        // Preparation
+        let container = EmojiContainer()
+        container.preferredLanguageIdentifiers = ["en"]
+        try container.load()
+
+        // Search "frog"
+        let frogs = await container.searchEmojisForKeyboard(from: "frog")
+        XCTAssertEqual(frogs.count, 1)
+        XCTAssertEqual(frogs.first?.character, "🐸")
+
+        // Search "cop"
+        let cop = await container.searchEmojisForKeyboard(from: "cop")
+        XCTAssertEqual(cop.count, 4)
+
+        XCTAssertEqual(cop[0].character, "👮")
+        XCTAssertEqual(cop[1].character, "👮‍♂️")
+        XCTAssertEqual(cop[2].character, "👮‍♀️")
+        XCTAssertEqual(cop[3].character, "©️")
+
+    }
+
+
+
     func testArraySearchPerformance() throws {
 
         let container = EmojiContainer()
