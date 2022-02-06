@@ -13,6 +13,7 @@
 		18B44A1E27AF59F3000BACE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B44A1C27AF59F3000BACE5 /* Main.storyboard */; };
 		18B44A2027AF59F5000BACE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B44A1F27AF59F5000BACE5 /* Assets.xcassets */; };
 		18B44A2327AF59F5000BACE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18B44A2127AF59F5000BACE5 /* LaunchScreen.storyboard */; };
+		18B44A2E27AF5F36000BACE5 /* EmojiPickerViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 18B44A2D27AF5F36000BACE5 /* EmojiPickerViewController */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		18B44A1F27AF59F5000BACE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18B44A2227AF59F5000BACE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18B44A2427AF59F5000BACE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18B44A2B27AF5EA1000BACE5 /* EmojiPickerViewController */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = EmojiPickerViewController; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B44A2E27AF5F36000BACE5 /* EmojiPickerViewController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +43,10 @@
 		18B44A0A27AF59F3000BACE5 = {
 			isa = PBXGroup;
 			children = (
+				18B44A2A27AF5EA1000BACE5 /* Packages */,
 				18B44A1527AF59F3000BACE5 /* Example */,
 				18B44A1427AF59F3000BACE5 /* Products */,
+				18B44A2C27AF5F36000BACE5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +72,21 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		18B44A2A27AF5EA1000BACE5 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				18B44A2B27AF5EA1000BACE5 /* EmojiPickerViewController */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		18B44A2C27AF5F36000BACE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -83,6 +103,9 @@
 			dependencies = (
 			);
 			name = Example;
+			packageProductDependencies = (
+				18B44A2D27AF5F36000BACE5 /* EmojiPickerViewController */,
+			);
 			productName = Example;
 			productReference = 18B44A1327AF59F3000BACE5 /* Example.app */;
 			productType = "com.apple.product-type.application";
@@ -360,6 +383,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18B44A2D27AF5F36000BACE5 /* EmojiPickerViewController */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EmojiPickerViewController;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 18B44A0B27AF59F3000BACE5 /* Project object */;
 }
