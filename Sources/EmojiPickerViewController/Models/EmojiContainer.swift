@@ -35,6 +35,13 @@ import UIKit
 public class EmojiContainer: Loader {
 
     /**
+     Posts when the current annotations changes.
+
+     The posting object is a EmojiAnnotationLocale instance.
+     */
+    static let currentAnnotationDidChangeNotification = Notification.Name(rawValue: "_currentAnnotationDidChangeNotification")
+
+    /**
      The `main` container instance for operating emojis. You can only access to `main`.
      */
     public static let main = EmojiContainer()
@@ -166,6 +173,8 @@ public class EmojiContainer: Loader {
 
         try? loadAnnotations()
 
+        NotificationCenter.default.post(name: EmojiContainer.currentAnnotationDidChangeNotification, object: autoUpdatingLocale)
+        
     }
 
 }

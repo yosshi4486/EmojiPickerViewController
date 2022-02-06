@@ -36,6 +36,14 @@ import XCTest
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    class StubTextInputMode: UITextInputMode {
+        var textLanguage: String?
+
+        override var primaryLanguage: String? {
+            return textLanguage
+        }
+    }
+
     func testLoad() throws {
 
         let container = EmojiContainer()
@@ -166,6 +174,65 @@ import XCTest
         XCTAssertEqual(cop[1].character, "👮‍♂️")
         XCTAssertEqual(cop[2].character, "👮‍♀️")
         XCTAssertEqual(cop[3].character, "©️")
+
+    }
+
+    func testContainerUpdatesAnnotationsWhenReceivingNotifications() throws {
+
+        // Preparation
+        let container = EmojiContainer()
+        container.annotationLocale = EmojiAnnotationLocale(languageIdentifier: "en")!
+        container.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
+        try container.load()
+
+        let grinningFace = try XCTUnwrap(container.orderedEmojisForKeyboard.first)
+
+        XCTAssertEqual(grinningFace.character, "😀")
+        XCTAssertEqual(grinningFace.cldrOrder, 0)
+        XCTAssertEqual(grinningFace.group, "Smileys & Emotion")
+        XCTAssertEqual(grinningFace.subgroup, "face-smiling")
+        XCTAssertEqual(grinningFace.annotation, "face | grin | grinning face")
+        XCTAssertEqual(grinningFace.textToSpeach, "grinning face")
+
+        XCTContext.runActivity(named: "Post notification: ja") { _ in
+            let textInputMode = StubTextInputMode()
+            textInputMode.textLanguage = "ja"
+
+            let notificationExpectation = XCTNSNotificationExpectation(name: EmojiContainer.currentAnnotationDidChangeNotification, object: nil, notificationCenter: .default)
+            NotificationCenter.default.post(name: UITextInputMode.currentInputModeDidChangeNotification, object: textInputMode)
+            
+            wait(for: [notificationExpectation], timeout: 1.0)
+            XCTAssertEqual(grinningFace.character, "😀")
+            XCTAssertEqual(grinningFace.annotation, "スマイル | にっこり | にっこり笑う | 笑う | 笑顔 | 顔")
+            XCTAssertEqual(grinningFace.textToSpeach, "にっこり笑う")
+        }
+
+        XCTContext.runActivity(named: "Post notification: de_CH") { _ in
+            let textInputMode = StubTextInputMode()
+            textInputMode.textLanguage = "de_CH"
+
+            let notificationExpectation = XCTNSNotificationExpectation(name: EmojiContainer.currentAnnotationDidChangeNotification, object: nil, notificationCenter: .default)
+            NotificationCenter.default.post(name: UITextInputMode.currentInputModeDidChangeNotification, object: textInputMode)
+            wait(for: [notificationExpectation], timeout: 1.0)
+
+            XCTAssertEqual(grinningFace.character, "😀")
+            XCTAssertEqual(grinningFace.annotation, "Gesicht | grinsendes Gesicht mit grossen Augen | lol | lustig")
+            XCTAssertEqual(grinningFace.textToSpeach, "grinsendes Gesicht mit grossen Augen")
+
+        }
+
+        XCTContext.runActivity(named: "Post notification: zh_Hant_HK") { _ in
+            let textInputMode = StubTextInputMode()
+            textInputMode.textLanguage = "zh_Hant_HK"
+
+            let notificationExpectation = XCTNSNotificationExpectation(name: EmojiContainer.currentAnnotationDidChangeNotification, object: nil, notificationCenter: .default)
+            NotificationCenter.default.post(name: UITextInputMode.currentInputModeDidChangeNotification, object: textInputMode)
+            wait(for: [notificationExpectation], timeout: 1.0)
+
+            XCTAssertEqual(grinningFace.character, "😀")
+            XCTAssertEqual(grinningFace.annotation, "哈哈 | 笑臉 | 開眼嘅笑臉")
+            XCTAssertEqual(grinningFace.textToSpeach, "開眼嘅笑臉")
+        }
 
     }
 
