@@ -61,27 +61,50 @@ public struct EmojiAnnotationResource {
 
      For instance, "sr-Cyrl_BA", "sr" is language designator, "Cyrl" is script designator, "BA" is regional designator. Cyrl is joined by "-" and "BA" is joined by "_". Please check apple's document archive for details.
 
+     *However*, this initialization can handle themas correct format if the identifier is "sr_Cyrl_BA" or "sr-Cyrl-BA"
+
      - Parameters:
-       - locale: The locale identifier which indicates the locale for whichloads annotations.
+       - localeIdentifier: The locale identifier which indicates the locale for whichloads annotations.
      */
     public init?(localeIdentifier: String) {
 
-        /*
-         The rule of locale ID joiners:
-         - use _(underscore) before regional designator.
-         - use -(hyphen) befoer script designator.
+        var languageCode: String?
+        var scriptCode: String?
+        var regionCode: String?
 
-         For instance, "sr-Cyrl_BA", "sr" is language designator, "Cyrl" is script designator, "BA" is regional designator. Cyrl is joined by "-" and "BA" is joined by "_". Please check apple's document archive for details.
+        let underscoredLocaleIdentifier = localeIdentifier.replacingOccurrences(of: "-", with: "_")
+        let idComponents = underscoredLocaleIdentifier.components(separatedBy: "_")
 
-         we intentionally use a raw string instance rather than using Foundation.Locale, because Locale rounds up several locales. (e.g.) Locale(identifier: "sr-Cyrl_BA").identifier == "sr_BA".
-         */
+        if idComponents.count == 3 {
 
-        let underscoreComponents = localeIdentifier.components(separatedBy: "_")
-        let hyphenComponents = underscoreComponents[0].components(separatedBy: "-")
+            // language-script_region
 
-        let languageCode: String = hyphenComponents[0]
-        let scriptCode: String? = hyphenComponents.count == 2 ? hyphenComponents[1] : nil
-        let regionCode: String? = underscoreComponents.count == 2 ? underscoreComponents[1] : nil
+            languageCode = idComponents[0].isISO639LanguageCodeForm ? idComponents[0] : nil
+            scriptCode = idComponents[1].isISO15924ScriptCodeForm ? idComponents[1] : nil
+            regionCode = idComponents[2].isISO3166RegionCodeForm ? idComponents[2] : nil
+
+        } else if idComponents.count == 2 {
+
+            // language-script or language_region
+
+            languageCode = idComponents[0].isISO639LanguageCodeForm ? idComponents[0] : nil
+            if idComponents[1].isISO15924ScriptCodeForm {
+                scriptCode = idComponents[1]
+            } else if idComponents[1].isISO3166RegionCodeForm {
+                regionCode = idComponents[1]
+            }
+
+        } else if idComponents.count == 1 {
+
+            // language
+            languageCode = idComponents[0].isISO639LanguageCodeForm ? idComponents[0] : nil
+
+        }
+
+        // Fails the initialization if there is no language code.
+        guard let languageCode = languageCode else {
+            return nil
+        }
 
         let baseAnontationFilename: String = {
 
@@ -153,6 +176,71 @@ public struct EmojiAnnotationResource {
 
     static func annotationDerivedResource(for identifier: String) -> URL? {
         return Bundle.module.url(forResource: "\(identifier)_derived", withExtension: "xml")
+    }
+
+}
+
+extension String {
+
+    /**
+     The boolean value indicating whether self follows ISO639 language code's form. (e.g)  hsb, de, ja, en
+
+     Since this checker only checks the form, the string may not be valid language code.
+
+     - SeeAlso:
+       - [Language and Locale IDs](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)
+       - [Codes for the Representation of Names of Languages](https://www.loc.gov/standards/iso639-2/php/English_list.php)
+     */
+    var isISO639LanguageCodeForm: Bool {
+
+        guard count == 2 || count == 3 else {
+            return false
+        }
+
+        return allSatisfy({ $0.isASCII && $0.isLowercase })
+
+    }
+
+    /**
+     The boolean value indicating whether self follows ISO3166 region code's form. (e.g)  CH, 001, US, NE
+
+     Since this checker only checks the form, the string may not be valid region code.
+
+     - SeeAlso:
+       - [Language and Locale IDs](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)
+     */
+    var isISO3166RegionCodeForm: Bool {
+
+        guard count == 2 || count == 3 else {
+            return false
+        }
+
+        return allSatisfy({ $0.isASCII && $0.isUppercase }) || (count == 3 && allSatisfy({ $0.isNumber && $0.isASCII }))
+
+    }
+
+    /**
+     The boolean value indicating whether self follows ISO15924 script code's form. (e.g)  Arab, Cyrl, Latn
+
+     Since this checker only checks the form, the string may not be valid script code.
+
+     - SeeAlso:
+       - [Language and Locale IDs](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)
+       - [Codes for the representation of names of scripts](http://www.unicode.org/iso15924/iso15924-codes.html)
+     */
+    var isISO15924ScriptCodeForm: Bool {
+
+        guard count == 4 else {
+            return false
+        }
+
+        return enumerated().allSatisfy({ index, character in
+            if index == 0 {
+                return character.isASCII && character.isUppercase
+            } else {
+                return character.isASCII && character.isLowercase
+            }
+        })
     }
 
 }

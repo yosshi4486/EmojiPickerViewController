@@ -40,17 +40,13 @@ class EmojiAnnotationResourceTests: XCTestCase {
 
         let resourceBaseURL = Bundle.module.resourceURL!
 
-        /*
-         The rule of joiners:
-         - use _(underscore) before regional designator.
-         - use -(hyphen) befoer script designator.
-
-         For instance, "sr-Cyrl_BA", "sr" is language designator, "Cyrl" is script designator, "BA" is regional designator. Cyrl is joined by "-" and "BA" is joined by "_". Please check apple's document archive for details.
-         */
+        let notexistValidFormLanguageCode = "zz"
+        let notexistValidFormScriptCode = "Abcd"
+        let notexistValidFormRegionCode = "ABC"
 
         XCTContext.runActivity(named: "language-script_region") { _ in
 
-            XCTContext.runActivity(named: "valid-valid_valid") { _ in
+            XCTContext.runActivity(named: "exist-exist_exist") { _ in
                 let locale = EmojiAnnotationResource(localeIdentifier: "sr-Cyrl_BA")
                 XCTAssertNotNil(locale)
                 XCTAssertEqual(locale?.localeIdentifier, "sr-Cyrl_BA")
@@ -58,41 +54,41 @@ class EmojiAnnotationResourceTests: XCTestCase {
                 XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("sr_Cyrl_derived.xml"), resourceBaseURL.appendingPathComponent("sr_Cyrl_BA_derived.xml")])
             }
 
-            XCTContext.runActivity(named: "valid-valid_invalid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "sr-Cyrl_INVALID")
+            XCTContext.runActivity(named: "exist-exist_notexist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "sr-Cyrl_\(notexistValidFormRegionCode)")
                 XCTAssertNotNil(locale)
-                XCTAssertEqual(locale?.localeIdentifier, "sr-Cyrl_INVALID")
+                XCTAssertEqual(locale?.localeIdentifier, "sr-Cyrl_\(notexistValidFormRegionCode)")
                 XCTAssertEqual(locale?.annotationFileURLs, [resourceBaseURL.appendingPathComponent("sr_Cyrl.xml")])
                 XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("sr_Cyrl_derived.xml")])
             }
 
-            XCTContext.runActivity(named: "valid-invalid_valid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "sr-INVALID_BA")
+            XCTContext.runActivity(named: "exist-notexist_exist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "sr-\(notexistValidFormScriptCode)_BA")
                 XCTAssertNil(locale)
             }
 
-            XCTContext.runActivity(named: "valid-invalid_invalid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "sr-INVALID_INVALID")
+            XCTContext.runActivity(named: "exist-notexist_notexist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "sr-\(notexistValidFormScriptCode)_\(notexistValidFormRegionCode)")
                 XCTAssertNil(locale)
             }
 
-            XCTContext.runActivity(named: "invalid-valid_valid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "INVALID-Cyrl_BA")
+            XCTContext.runActivity(named: "notexist-exist_exist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "\(notexistValidFormLanguageCode)-Cyrl_BA")
                 XCTAssertNil(locale)
             }
 
-            XCTContext.runActivity(named: "invalid-valid_invalid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "INVALID-Cyrl_INVALID")
+            XCTContext.runActivity(named: "notexist-exist_notexist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "\(notexistValidFormLanguageCode)-Cyrl_\(notexistValidFormRegionCode)")
                 XCTAssertNil(locale)
             }
 
-            XCTContext.runActivity(named: "invalid-invalid_valid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "INVALID-INVALID_BA")
+            XCTContext.runActivity(named: "notexist-notexist_exist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "\(notexistValidFormLanguageCode)-\(notexistValidFormScriptCode)_BA")
                 XCTAssertNil(locale)
             }
 
-            XCTContext.runActivity(named: "invalid-invalid_invalid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "INVALID-INVALID_INVALID")
+            XCTContext.runActivity(named: "notexist-notexist_notexist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "\(notexistValidFormLanguageCode)-\(notexistValidFormScriptCode)_\(notexistValidFormRegionCode)")
                 XCTAssertNil(locale)
             }
 
@@ -100,7 +96,7 @@ class EmojiAnnotationResourceTests: XCTestCase {
 
         XCTContext.runActivity(named: "language-script") { _ in
 
-            XCTContext.runActivity(named: "valid-valid") { _ in
+            XCTContext.runActivity(named: "exist-exist") { _ in
                 let locale = EmojiAnnotationResource(localeIdentifier: "zh-Hant")
                 XCTAssertNotNil(locale)
                 XCTAssertEqual(locale?.localeIdentifier, "zh-Hant")
@@ -108,18 +104,18 @@ class EmojiAnnotationResourceTests: XCTestCase {
                 XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("zh_Hant_derived.xml")])
             }
 
-            XCTContext.runActivity(named: "valid-invalid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "zh-INVALID")
+            XCTContext.runActivity(named: "exist-notexist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "zh-\(notexistValidFormScriptCode)")
                 XCTAssertNil(locale)
             }
 
-            XCTContext.runActivity(named: "invalid-valid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "INVALID-Hant")
+            XCTContext.runActivity(named: "notexist-exist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "\(notexistValidFormLanguageCode)-Hant")
                 XCTAssertNil(locale)
             }
 
-            XCTContext.runActivity(named: "invalid-invalid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "INVALID-INVALID")
+            XCTContext.runActivity(named: "notexist-notexist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "\(notexistValidFormLanguageCode)-\(notexistValidFormScriptCode)")
                 XCTAssertNil(locale)
             }
 
@@ -127,7 +123,7 @@ class EmojiAnnotationResourceTests: XCTestCase {
 
         XCTContext.runActivity(named: "language_region") { _ in
 
-            XCTContext.runActivity(named: "valid_valid") { _ in
+            XCTContext.runActivity(named: "exist_exist") { _ in
                 let locale = EmojiAnnotationResource(localeIdentifier: "en_IN")
                 XCTAssertNotNil(locale)
                 XCTAssertEqual(locale?.localeIdentifier, "en_IN")
@@ -135,21 +131,21 @@ class EmojiAnnotationResourceTests: XCTestCase {
                 XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("en_derived.xml"), resourceBaseURL.appendingPathComponent("en_IN_derived.xml")])
             }
 
-            XCTContext.runActivity(named: "valid_invalid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "en_INVALID")
+            XCTContext.runActivity(named: "exist_notexist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "en_\(notexistValidFormRegionCode)")
                 XCTAssertNotNil(locale)
-                XCTAssertEqual(locale?.localeIdentifier, "en_INVALID")
+                XCTAssertEqual(locale?.localeIdentifier, "en_\(notexistValidFormRegionCode)")
                 XCTAssertEqual(locale?.annotationFileURLs, [resourceBaseURL.appendingPathComponent("en.xml")])
                 XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("en_derived.xml")])
             }
 
-            XCTContext.runActivity(named: "invalid_valid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "INVALID_IN")
+            XCTContext.runActivity(named: "notexist_exist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "\(notexistValidFormLanguageCode)_IN")
                 XCTAssertNil(locale)
             }
 
-            XCTContext.runActivity(named: "invalid_invalid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "INVALID_INVALID")
+            XCTContext.runActivity(named: "notexist_notexist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: "\(notexistValidFormLanguageCode)_\(notexistValidFormRegionCode)")
                 XCTAssertNil(locale)
             }
 
@@ -157,7 +153,7 @@ class EmojiAnnotationResourceTests: XCTestCase {
 
         XCTContext.runActivity(named: "language") { _ in
 
-            XCTContext.runActivity(named: "valid") { _ in
+            XCTContext.runActivity(named: "exist") { _ in
                 let locale = EmojiAnnotationResource(localeIdentifier: "bg")
                 XCTAssertNotNil(locale)
                 XCTAssertEqual(locale?.localeIdentifier, "bg")
@@ -165,8 +161,8 @@ class EmojiAnnotationResourceTests: XCTestCase {
                 XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("bg_derived.xml")])
             }
 
-            XCTContext.runActivity(named: "invalid") { _ in
-                let locale = EmojiAnnotationResource(localeIdentifier: "INVALID")
+            XCTContext.runActivity(named: "notexist") { _ in
+                let locale = EmojiAnnotationResource(localeIdentifier: notexistValidFormLanguageCode)
                 XCTAssertNil(locale)
             }
 
