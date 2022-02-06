@@ -44,8 +44,8 @@ import Foundation
  */
 class EmojiAnnotationDerivedLoader: EmojiAnnotationLoader {
 
-    override var resourceURL: URL {
-        return annotationLocale.annotationDerivedFileURL
+    override var resourceURLs: [URL] {
+        return annotationResource.annotationDerivedFileURLs
     }
     
 }

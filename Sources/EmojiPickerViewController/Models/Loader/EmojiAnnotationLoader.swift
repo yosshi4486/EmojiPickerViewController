@@ -52,15 +52,15 @@ class EmojiAnnotationLoader: Loader {
     let emojiDictionary: [Emoji.ID : Emoji]
 
     /**
-     The locale for which loads annotations and tts.
+     The resource for which loads annotations and tts.
      */
-    let annotationLocale: EmojiAnnotationLocale
+    let annotationResource: EmojiAnnotationResource
 
     /**
-     The URL where the destination resource is located.
+     The URLs where the destination resources are located.
      */
-    var resourceURL: URL {
-        return annotationLocale.annotationFileURL
+    var resourceURLs: [URL] {
+        return annotationResource.annotationFileURLs
     }
 
     /**
@@ -68,12 +68,12 @@ class EmojiAnnotationLoader: Loader {
 
      - Parameters:
        - emojiDictionary: The dictionary which the key is a `Character` and the value is a `Emoji`, for setting annotation and tts.
-       - annotationLocale: The locale which is associated with the annotations and annotationsDerived files.
+       - annotationResource: The resource which the destination annotations and tts are listed.
      */
-    init(emojiDictionary: [Emoji.ID: Emoji], annotationLocale: EmojiAnnotationLocale) {
+    init(emojiDictionary: [Emoji.ID: Emoji], annotationResource: EmojiAnnotationResource) {
 
         self.emojiDictionary = emojiDictionary
-        self.annotationLocale = annotationLocale
+        self.annotationResource = annotationResource
 
     }
 
@@ -82,31 +82,35 @@ class EmojiAnnotationLoader: Loader {
      */
     @MainActor func load() throws {
 
-        // In this source, we don't have to worry about resources file errors, because the files are managed by this module, not user.
-        let annotationXMLData = try! Data(contentsOf: resourceURL)
-        let xml = XML.parse(annotationXMLData)
+        for resourceURL in resourceURLs {
 
-        for annotation in xml.ldml.annotations.annotation {
+            // In this source, we don't have to worry about resources file errors, because the files are managed by this module, not user.
+            let annotationXMLData = try! Data(contentsOf: resourceURL)
+            let xml = XML.parse(annotationXMLData)
 
-            let cp = annotation.attributes["cp"] // The type is string
-            let character = Character(cp!)
+            for annotation in xml.ldml.annotations.annotation {
 
-            /*
-             Some annotations are not for `.fullyQualified`, so we have to care that. This implementation is bit a complex.
-             When the cp indicate minimally-qualified or unqualified emoji, assigns values to the fully-qualified version by referring the `fullyQualifiedVersion` property.
-             */
+                let cp = annotation.attributes["cp"] // The type is string
+                let character = Character(cp!)
 
-            let targetEmoji: Emoji? = emojiDictionary[character]
+                /*
+                 Some annotations are not for `.fullyQualified`, so we have to care that. This implementation is bit a complex.
+                 When the cp indicate minimally-qualified or unqualified emoji, assigns values to the fully-qualified version by referring the `fullyQualifiedVersion` property.
+                 */
 
-            if annotation.attributes["type"] == "tts" {
+                let targetEmoji: Emoji? = emojiDictionary[character]
 
-                targetEmoji?.textToSpeach = annotation.text!
-                targetEmoji?.fullyQualifiedVersion?.textToSpeach = annotation.text!
+                if annotation.attributes["type"] == "tts" {
 
-            } else {
+                    targetEmoji?.textToSpeach = annotation.text!
+                    targetEmoji?.fullyQualifiedVersion?.textToSpeach = annotation.text!
 
-                targetEmoji?.annotation = annotation.text!
-                targetEmoji?.fullyQualifiedVersion?.annotation = annotation.text!
+                } else {
+
+                    targetEmoji?.annotation = annotation.text!
+                    targetEmoji?.fullyQualifiedVersion?.annotation = annotation.text!
+
+                }
 
             }
 

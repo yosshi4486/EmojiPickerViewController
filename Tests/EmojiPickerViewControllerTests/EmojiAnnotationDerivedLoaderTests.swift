@@ -38,9 +38,9 @@ import XCTest
 
     func testResourceURL() throws {
 
-        let baseURL = Bundle.module.resourceURL
-        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: [:], annotationLocale: EmojiAnnotationLocale(languageIdentifier: "zh-Hant-HK")!)
-        XCTAssertEqual(loader.resourceURL, baseURL?.appendingPathComponent("zh_Hant_HK_derived.xml"), "Failed to replace the hyphen separated language code with underscore.")
+        let baseURL = Bundle.module.resourceURL!
+        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: [:], annotationResource: EmojiAnnotationResource(localeIdentifier: "zh-Hant-HK")!)
+        XCTAssertEqual(loader.resourceURLs, [baseURL.appendingPathComponent("zh_Hant_derived.xml"), baseURL.appendingPathComponent("zh_Hant_HK_derived.xml")], "Failed to replace the hyphen separated language code with underscore.")
 
     }
 
@@ -51,7 +51,7 @@ import XCTest
             "🇲🇽": Emoji(character: "🇲🇽")
         ]
 
-        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, annotationLocale: EmojiAnnotationLocale(languageIdentifier: "ja")!)
+        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, annotationResource: EmojiAnnotationResource(localeIdentifier: "ja")!)
         XCTAssertNoThrow(try loader.load())
 
         XCTAssertEqual(emojiDictionary["👋🏾"]?.annotation, "バイバイ | やや濃い肌色 | 手 | 手を振る", "Failed to load `ja` annotations.")
@@ -67,7 +67,7 @@ import XCTest
             "😀": Emoji(character: "😀")
         ]
 
-        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, annotationLocale: EmojiAnnotationLocale(languageIdentifier: "ja")!)
+        let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, annotationResource: EmojiAnnotationResource(localeIdentifier: "ja")!)
         XCTAssertNoThrow(try loader.load())
 
         XCTAssertEqual(emojiDictionary["😀"]?.annotation, "")

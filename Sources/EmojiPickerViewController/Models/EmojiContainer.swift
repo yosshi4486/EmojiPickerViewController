@@ -37,7 +37,7 @@ public class EmojiContainer: Loader {
     /**
      Posts when the current annotations changes.
 
-     The posting object is a EmojiAnnotationLocale instance.
+     The posting object is a EmojiAnnotationResource instance.
      */
     static let currentAnnotationDidChangeNotification = Notification.Name(rawValue: "_currentAnnotationDidChangeNotification")
 
@@ -54,7 +54,7 @@ public class EmojiContainer: Loader {
     /**
      The locale for which loads annotation.
      */
-    public var annotationLocale: EmojiAnnotationLocale = .default
+    public var annotationResource: EmojiAnnotationResource = .default
 
     /**
      The emoji loader.
@@ -116,10 +116,10 @@ public class EmojiContainer: Loader {
 
         precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty, "Logical Failure, `load()` should be called before `loadAnnotations()`.")
 
-        let annotationLoader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, annotationLocale: annotationLocale)
+        let annotationLoader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, annotationResource: annotationResource)
         try annotationLoader.load()
 
-        let annotationDerivedLoader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, annotationLocale: annotationLocale)
+        let annotationDerivedLoader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, annotationResource: annotationResource)
         try annotationDerivedLoader.load()
 
     }
@@ -165,15 +165,15 @@ public class EmojiContainer: Loader {
             return
         }
 
-        guard let autoUpdatingLocale = EmojiAnnotationLocale(languageIdentifier: primaryLanguage) else {
+        guard let autoUpdatingResource = EmojiAnnotationResource(localeIdentifier: primaryLanguage) else {
             return
         }
 
-        annotationLocale = autoUpdatingLocale
+        annotationResource = autoUpdatingResource
 
         try? loadAnnotations()
 
-        NotificationCenter.default.post(name: EmojiContainer.currentAnnotationDidChangeNotification, object: autoUpdatingLocale)
+        NotificationCenter.default.post(name: EmojiContainer.currentAnnotationDidChangeNotification, object: autoUpdatingResource)
         
     }
 
