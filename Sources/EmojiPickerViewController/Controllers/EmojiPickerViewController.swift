@@ -70,9 +70,6 @@ open class EmojiPickerViewController: UIViewController {
 
         if !emojiContainer.isLoaded {
 
-            // FIXME:
-            emojiContainer.preferredLanguageIdentifiers = ["ja"]
-
             do {
                 try emojiContainer.load()
             } catch {

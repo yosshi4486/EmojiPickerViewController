@@ -45,29 +45,9 @@ public class EmojiContainer: Loader {
     public var automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange: Bool = false
 
     /**
-     The BCP 47  language identifiers are actually used to load emoji's annotations.
-
-     This container uses the `currentInputMode.primaryLanguage` as primary identifier when the `automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange` is true. Otherwise; the value is completely equal to `preferredLanguageIdentifiers`.
+     The locale for which loads annotation.
      */
-    public var languageIdentifiers: [String] {
-
-        if automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange, let currentPrimaryLanguage = currentInputMode?.primaryLanguage {
-            return [currentPrimaryLanguage] + preferredLanguageIdentifiers
-        } else {
-            return preferredLanguageIdentifiers
-        }
-
-    }
-
-    /**
-     The BCP 47  language identifiers to load emoji's annotations. The default value is empty.
-     */
-    public var preferredLanguageIdentifiers: [String] = []
-
-    /**
-     The current input mode is getting from `UITextInputMode.currentInputModeDidChangeNotification`.
-     */
-    private var currentInputMode: UITextInputMode?
+    public var annotationLocale: EmojiAnnotationLocale = .default
 
     /**
      The emoji loader.
@@ -129,10 +109,10 @@ public class EmojiContainer: Loader {
 
         precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty, "Logical Failure, `load()` should be called before `loadAnnotations()`.")
 
-        let annotationLoader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: languageIdentifiers)
+        let annotationLoader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, annotationLocale: annotationLocale)
         try annotationLoader.load()
 
-        let annotationDerivedLoader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, languageIdentifiers: languageIdentifiers)
+        let annotationDerivedLoader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, annotationLocale: annotationLocale)
         try annotationDerivedLoader.load()
 
     }
@@ -174,11 +154,16 @@ public class EmojiContainer: Loader {
 
     @MainActor @objc private func updateAnnotationsAutomatically(_ notification: Notification) {
 
-        guard automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange, let mode = notification.object as? UITextInputMode else {
+        guard automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange, let primaryLanguage = (notification.object as? UITextInputMode)?.primaryLanguage else {
             return
         }
 
-        currentInputMode = mode
+        guard let autoUpdatingLocale = EmojiAnnotationLocale(languageIdentifier: primaryLanguage) else {
+            return
+        }
+
+        annotationLocale = autoUpdatingLocale
+
         try? loadAnnotations()
 
     }

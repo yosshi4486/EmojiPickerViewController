@@ -15,7 +15,7 @@ public struct EmojiAnnotationLocale {
     /**
      The default annotation locale. You can change the static default.
      */
-    static let `default` = EmojiAnnotationLocale(languageIdentifier: "en")
+    static let `default` = EmojiAnnotationLocale(languageIdentifier: "en")!
 
     /**
      Options are used in an initializer of`EmojiAnnotationLocale`.

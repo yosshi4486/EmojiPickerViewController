@@ -47,54 +47,33 @@ import UIKit
 class EmojiAnnotationLoader: Loader {
 
     /**
-     An error type that occurs in *Emoji Annotation Loader*.
-     */
-    enum Error: Swift.Error {
-
-        /**
-         An error that an annotation file associated with the language codes is not found. The associated value is language codes.
-         */
-        case annotationFileNotFound([String])
-
-    }
-
-    /**
-     The BCP 47 language identifiers for which loads annotations, such as "es", “en-US”, or “fr-CA”. The first identifier is loaded first, and if it fails to load, the next identifier is checked. This continues until the end of the array.
-
-     This object loads locale-specific annotations in `load()` method, following this `languageIdentifiers` property.
-     */
-    var languageIdentifiers: [String]
-
-    /**
      The emoji dictionary that contains all possible emojis for setting annotation and tts..
      */
     let emojiDictionary: [Emoji.ID : Emoji]
 
     /**
+     The locale for which loads annotations and tts.
+     */
+    let annotationLocale: EmojiAnnotationLocale
+
+    /**
+     The URL where the destination resource is located.
+     */
+    var resourceURL: URL {
+        return annotationLocale.annotationFileURL
+    }
+
+    /**
      Creates an *Emoji Annotation Loader* instance by the given locale.
-
-     For example:
-
-     ```swift
-     let defaultIdentifier = "en" // defaultIdentifier.xml must be located at Resources/CLDR/annotations or Resources/CLDR/annotationsDerived.
-
-     let identifiers: [String] = [currenttTextInputMode.primaryLanguage!] + Locale.preferredLanguages + [defaultIdentifier] // Located as last element is better for a loading stabilizer.
-     let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, languageIdentifiers: identifiers)
-     do {
-         try loader.load()
-     } catch {
-         print(error)
-     }
-     ```
 
      - Parameters:
        - emojiDictionary: The dictionary which the key is a `Character` and the value is a `Emoji`, for setting annotation and tts.
-       - languageIdentifiers: The BCP 47 language identifiers for which loads annotations. At least, you should give one identifier that makes sure to be able to load. It helps to avoid throwing a `annotationFileNotFound` error.
+       - annotationLocale: The locale which is associated with the annotations and annotationsDerived files.
      */
-    init(emojiDictionary: [Emoji.ID: Emoji], languageIdentifiers: [String]) {
+    init(emojiDictionary: [Emoji.ID: Emoji], annotationLocale: EmojiAnnotationLocale) {
 
         self.emojiDictionary = emojiDictionary
-        self.languageIdentifiers = languageIdentifiers
+        self.annotationLocale = annotationLocale
 
     }
 
@@ -103,18 +82,8 @@ class EmojiAnnotationLoader: Loader {
      */
     @MainActor func load() throws {
 
-        var annotationsFileURL: URL?
-
-        for languageIdentifier in languageIdentifiers where annotationsFileURL == nil {
-            annotationsFileURL = resourceURL(for: languageIdentifier)
-        }
-
-        guard let annotationsFileURL = annotationsFileURL else {
-            throw Error.annotationFileNotFound(languageIdentifiers)
-        }
-
         // In this source, we don't have to worry about resources file errors, because the files are managed by this module, not user.
-        let annotationXMLData = try! Data(contentsOf: annotationsFileURL)
+        let annotationXMLData = try! Data(contentsOf: resourceURL)
         let xml = XML.parse(annotationXMLData)
 
         for annotation in xml.ldml.annotations.annotation {
@@ -142,21 +111,6 @@ class EmojiAnnotationLoader: Loader {
             }
 
         }
-
-    }
-
-    /**
-     Returns an annotation file's URL for the given `languageIdentifier`.  ex). ~/Resources/ja.xml
-
-     The hyphens in the given `languageIdentifier` are replaced with underscores to follow file's naming rule.
-
-     - Parameters:
-       - languageIdentifier: The BCP 47 language identifier for which looks up an annotation file's URL.
-     */
-    func resourceURL(for languageIdentifier: String) -> URL? {
-
-        let filename = languageIdentifier.replacingOccurrences(of: "-", with: "_")
-        return bundle.url(forResource: filename, withExtension: "xml")
 
     }
 

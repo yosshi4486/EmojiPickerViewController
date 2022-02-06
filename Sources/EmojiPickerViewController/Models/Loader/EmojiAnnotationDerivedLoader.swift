@@ -44,19 +44,8 @@ import Foundation
  */
 class EmojiAnnotationDerivedLoader: EmojiAnnotationLoader {
 
-    /**
-     Returns an annotation derived file's URL for the given `languageIdentifier`. ex). ~/Resources/ja_derived.xml
-
-     The hyphens in the given `languageIdentifier` are replaced with underscores to follow file's naming rule.
-
-     - Parameters:
-       - languageIdentifier: The BCP 47 language identifier for which looks up an annotation file's URL.
-     */
-    override func resourceURL(for languageIdentifier: String) -> URL? {
-
-        let filename = languageIdentifier.replacingOccurrences(of: "-", with: "_").appending("_derived")
-        return bundle.url(forResource: filename, withExtension: "xml")
-
+    override var resourceURL: URL {
+        return annotationLocale.annotationDerivedFileURL
     }
-
+    
 }

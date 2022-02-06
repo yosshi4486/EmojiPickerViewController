@@ -41,13 +41,12 @@ import XCTest
         let container = EmojiContainer()
 
         // Precheck
-        XCTAssertTrue(container.preferredLanguageIdentifiers.isEmpty)
-        XCTAssertTrue(container.languageIdentifiers.isEmpty)
+        XCTAssertEqual(container.annotationLocale.languageIdentifier, "en")
         XCTAssertTrue(container.orderedEmojisForKeyboard.isEmpty)
         XCTAssertTrue(container.emojiDictionary.isEmpty)
 
         // Execute
-        container.preferredLanguageIdentifiers = ["ja"]
+        container.annotationLocale = EmojiAnnotationLocale(languageIdentifier: "ja")!
         try container.load()
 
         // Postcheck
@@ -82,7 +81,7 @@ import XCTest
 
         // Preparation
         let container = EmojiContainer()
-        container.preferredLanguageIdentifiers = ["ja"]
+        container.annotationLocale = EmojiAnnotationLocale(languageIdentifier: "ja")!
         try container.load()
 
         // Precheck
@@ -104,7 +103,7 @@ import XCTest
         XCTAssertEqual(container.orderedEmojisForKeyboard.last?.textToSpeach, "旗: ウェールズ")
 
         // Execute
-        container.preferredLanguageIdentifiers = ["en"]
+        container.annotationLocale = EmojiAnnotationLocale(languageIdentifier: "en")!
         try container.loadAnnotations()
 
         // Postcheck
@@ -128,7 +127,7 @@ import XCTest
 
         // Preparation
         let container = EmojiContainer()
-        container.preferredLanguageIdentifiers = ["en"]
+        container.annotationLocale = EmojiAnnotationLocale(languageIdentifier: "en")!
         try container.load()
 
         // Search "frog"
@@ -151,7 +150,7 @@ import XCTest
 
         // Preparation
         let container = EmojiContainer()
-        container.preferredLanguageIdentifiers = ["en"]
+        container.annotationLocale = EmojiAnnotationLocale(languageIdentifier: "en")!
         try container.load()
 
         // Search "frog"
@@ -175,7 +174,7 @@ import XCTest
     func testArraySearchPerformance() throws {
 
         let container = EmojiContainer()
-        container.preferredLanguageIdentifiers = ["en"]
+        container.annotationLocale = EmojiAnnotationLocale(languageIdentifier: "en")!
         try container.load()
 
         measure {
@@ -188,7 +187,7 @@ import XCTest
     func testRegexSearchPerformance() throws {
 
         let container = EmojiContainer()
-        container.preferredLanguageIdentifiers = ["en"]
+        container.annotationLocale = EmojiAnnotationLocale(languageIdentifier: "en")!
         try container.load()
 
         // Even if we adopt regex for searching emojis, we have to search two files, which the one is annotations and the other is annotationsDerived, moreover we have to care about status of emojis in the implementation.
