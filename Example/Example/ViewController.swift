@@ -19,6 +19,12 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
 
         let emojiPicker = EmojiPickerViewController()
+
+        /*
+         You can specify a language for searching and voiceover.
+         */
+        emojiPicker.emojiContainer.annotationLocale = .init(languageIdentifier: "ja")!
+        
         let navigationController = UINavigationController(rootViewController: emojiPicker)
         navigationController.modalPresentationStyle = .pageSheet
 
