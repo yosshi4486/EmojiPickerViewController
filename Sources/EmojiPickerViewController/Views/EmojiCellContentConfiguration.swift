@@ -35,6 +35,11 @@ struct EmojiContentConfiguration: UIContentConfiguration {
      */
     var emoji: Emoji
 
+    /**
+     The emoji index for accessibility.
+     */
+    var accessibilityIndexOfEmoji: Int = 1
+
     func makeContentView() -> UIView & UIContentView {
         return EmojiContentView(self)
     }
@@ -61,6 +66,10 @@ class EmojiContentView: UIView, UIContentView {
         didSet {
             configure(from: configuration)
         }
+    }
+
+    private var emojiConfiguration: EmojiContentConfiguration? {
+        return configuration as? EmojiContentConfiguration
     }
 
     init(_ configuration: UIContentConfiguration) {
@@ -97,6 +106,65 @@ class EmojiContentView: UIView, UIContentView {
             emojiLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
             emojiLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
         ])
+
+    }
+
+    // - MARK: - Accessibilities
+
+    override var isAccessibilityElement: Bool {
+
+        get {
+            return true
+        }
+
+        set {
+            super.isAccessibilityElement = newValue
+        }
+
+    }
+
+    override var accessibilityElements: [Any]? {
+
+        get {
+            return []
+        }
+
+        set {
+            super.accessibilityElements = newValue
+        }
+
+    }
+
+    override var accessibilityTraits: UIAccessibilityTraits {
+
+        get {
+            return .button
+        }
+
+        set {
+            super.accessibilityTraits = newValue
+        }
+
+    }
+
+    override var accessibilityLabel: String? {
+
+        /*
+         Although UILabel speak an annotation of the emoji, speaking testToSpeach is more appropriate than the system behavior.
+         */
+        get {
+
+            guard let emojiConfiguration = emojiConfiguration else {
+                return nil
+            }
+
+            return "\(emojiConfiguration.emoji.textToSpeach), \(emojiConfiguration.accessibilityIndexOfEmoji)"
+
+        }
+
+        set {
+            super.accessibilityLabel = newValue
+        }
 
     }
 

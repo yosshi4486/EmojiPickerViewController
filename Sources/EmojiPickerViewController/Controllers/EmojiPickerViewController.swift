@@ -70,6 +70,9 @@ open class EmojiPickerViewController: UIViewController {
 
         if !emojiContainer.isLoaded {
 
+            // FIXME:
+            emojiContainer.preferredLanguageIdentifiers = ["ja"]
+
             do {
                 try emojiContainer.load()
             } catch {
@@ -115,10 +118,9 @@ open class EmojiPickerViewController: UIViewController {
 
         let emojiCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, Emoji> { [unowned self] cell, indexPath, emoji in
             let index = (self.dataSource.snapshot().indexOfItem(emoji) ?? 0) + 1
-            let contentConfiguration = EmojiContentConfiguration(emoji: emoji)
+            var contentConfiguration = EmojiContentConfiguration(emoji: emoji)
+            contentConfiguration.accessibilityIndexOfEmoji = index
             cell.contentConfiguration = contentConfiguration
-            cell.accessibilityLabel = "\(emoji.textToSpeach), \(index)"
-            cell.accessibilityTraits = .button // double tap to picker an emoji. The property is button?
         }
 
         dataSource = UICollectionViewDiffableDataSource<EmojiLabel, Emoji>(collectionView: collectionView, cellProvider: { collectionView, indexPath, emoji in
