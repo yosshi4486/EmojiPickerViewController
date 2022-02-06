@@ -24,6 +24,7 @@
 //
 
 import UIKit
+import Collections
 
 /**
  A *View Controller* for picking an emoji.
@@ -121,8 +122,10 @@ open class EmojiPickerViewController: UIViewController {
 
     private func applyData() {
 
-        let groupedAndOrderedEmojis = Dictionary(grouping: emojiContainer.orderedEmojisForKeyboard, by: { $0.group })
+        let groupedAndOrderedEmojis = OrderedDictionary<String, [Emoji]>(grouping: emojiContainer.orderedEmojisForKeyboard, by: { $0.group })
         var labeledAndOrderedEmojis: [EmojiLabel: [Emoji]] = [:]
+
+        // To ensure the enemeration order, uses `OrderedDictionary`.
         for (key, value) in groupedAndOrderedEmojis {
             let label = EmojiLabel(group: key)!
             if labeledAndOrderedEmojis[label] == nil {
@@ -137,7 +140,6 @@ open class EmojiPickerViewController: UIViewController {
         // TODO: recently used should be considered later.
 
         snapshot.appendSections(EmojiLabel.allCases)
-
         for label in EmojiLabel.allCases {
             snapshot.appendItems(labeledAndOrderedEmojis[label]!, toSection: label)
         }

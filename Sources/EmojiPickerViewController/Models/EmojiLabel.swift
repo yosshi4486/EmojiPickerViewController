@@ -33,7 +33,7 @@ import Foundation
 
  - SeeAlso: [unicode-org/cldr/common/properties/label.txt](https://github.com/unicode-org/cldr/blob/main/common/properties/labels.txt)
  */
-public enum EmojiLabel: String, CaseIterable {
+public enum EmojiLabel: Int, CaseIterable {
 
     case smileysPeople
 
