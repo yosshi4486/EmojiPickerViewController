@@ -170,7 +170,7 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
 
         let cell = collectionView.cellForItem(at: indexPath)
         let emojiContentConfiguration = cell!.contentConfiguration as! EmojiContentConfiguration
-        delegate?.emojiPickerViewController(self, didFinishPicking: emojiContentConfiguration.emoji)
+        delegate?.emojiPickerViewController(self, didPick: emojiContentConfiguration.emoji)
 
     }
 

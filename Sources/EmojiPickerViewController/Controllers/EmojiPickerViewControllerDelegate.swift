@@ -27,29 +27,40 @@ import Foundation
 
 /**
  A protocol the picker uses to communicate user selections.
+
+ `UIAdaptivePresentationControllerDelegate` can be used to detect dismissing of *Emoji Picker View Controller*.
  */
 public protocol EmojiPickerViewControllerDelegate: AnyObject {
 
     /**
-     Notifies the delegate that the user completed a selection or dismissed the picker.
+     Notifies the delegate that the user completed a picking.
 
-     The view controller doesn't dismiss automatically. The owner should explicitly call `emojiPickerViewController.dismiss()`.
+     The view controller doesn't dismiss automatically after this delegate event. The owner should explicitly call `emojiPickerViewController.dismiss()`.
 
      - Parameters:
        - emojiPickerViewController: The view controller that is presenting the emoji picker.
        - emoji: The emoji that is picked by the user.
      */
-    func emojiPickerViewController(_ emojiPickerViewController: EmojiPickerViewController, didFinishPicking emoji: Emoji)
+    func emojiPickerViewController(_ emojiPickerViewController: EmojiPickerViewController, didPick emoji: Emoji)
 
     /**
      Notifies the delegate that the emoji picker view controller receives error.
 
-     The view controller doesn't dismiss automatically. The owner should explicitly call `emojiPickerViewController.dismiss()`.
+     The view controller doesn't dismiss automatically after this delegate event. The owner should explicitly call `emojiPickerViewController.dismiss()`.
 
      - Parameters:
        - emojiPickerViewController: The view controller that is presenting the emoji picker.
        - error: The error that is raised in the emoji picker view controller.
      */
     func emojiPickerViewController(_ emojiPickerViewController: EmojiPickerViewController, didReceiveError error: Error)
+
+}
+
+public extension EmojiPickerViewController {
+
+    /**
+     The default implementation provided. It does nothing.
+     */
+    func emojiPickerViewController(_ emojiPickerViewController: EmojiPickerViewController, didReceiveError error: Error) { }
 
 }
