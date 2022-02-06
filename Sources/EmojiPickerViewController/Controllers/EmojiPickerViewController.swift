@@ -66,13 +66,9 @@ open class EmojiPickerViewController: UIViewController {
         if !emojiContainer.isLoaded {
 
             do {
-
                 try emojiContainer.load()
-
             } catch {
-
                 delegate?.emojiPickerViewController(self, didReceiveError: error)
-
             }
 
         }
@@ -116,24 +112,32 @@ open class EmojiPickerViewController: UIViewController {
         dataSource = UICollectionViewDiffableDataSource<EmojiLabel, Emoji>(collectionView: collectionView, cellProvider: { collectionView, indexPath, emoji in
             return collectionView.dequeueConfiguredReusableCell(using: emojiCellRegistration, for: indexPath, item: emoji)
         })
+        
         collectionView.dataSource = dataSource
 
     }
 
     private func applyData() {
 
-        let groupedAndOrderedEmojis = OrderedDictionary<String, [Emoji]>(grouping: emojiContainer.orderedEmojisForKeyboard, by: { $0.group })
-        var labeledAndOrderedEmojis: [EmojiLabel: [Emoji]] = [:]
+        let labeledAndOrderedEmojis: [EmojiLabel: [Emoji]] = {
 
-        // To ensure the enemeration order, uses `OrderedDictionary`.
-        for (key, value) in groupedAndOrderedEmojis {
-            let label = EmojiLabel(group: key)!
-            if labeledAndOrderedEmojis[label] == nil {
-                labeledAndOrderedEmojis[label] = value
-            } else {
-                labeledAndOrderedEmojis[label]?.append(contentsOf: value)
+            var dict: [EmojiLabel: [Emoji]] = [:]
+
+            let groupedAndOrderedEmojis = OrderedDictionary<String, [Emoji]>(grouping: emojiContainer.orderedEmojisForKeyboard, by: { $0.group })
+
+            // To ensure the enemeration order, uses `OrderedDictionary`.
+            for (key, value) in groupedAndOrderedEmojis {
+                let label = EmojiLabel(group: key)!
+                if dict[label] == nil {
+                    dict[label] = value
+                } else {
+                    dict[label]?.append(contentsOf: value)
+                }
             }
-        }
+
+            return dict
+
+        }()
 
         var snapshot: NSDiffableDataSourceSnapshot<EmojiLabel, Emoji> = .init()
 
