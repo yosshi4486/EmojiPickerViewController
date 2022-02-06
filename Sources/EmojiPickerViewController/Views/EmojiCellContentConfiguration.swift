@@ -50,10 +50,12 @@ struct EmojiContentConfiguration: UIContentConfiguration {
  */
 class EmojiContentView: UIView, UIContentView {
 
-    /**
-     The image view for which shows the emoji..
-     */
-    let imageView: UIImageView = .init(frame: .zero)
+    let emojiLabel: UILabel = {
+        let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .body)
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
 
     var configuration: UIContentConfiguration {
         didSet {
@@ -76,35 +78,24 @@ class EmojiContentView: UIView, UIContentView {
     func configure(from configuration: UIContentConfiguration) {
 
         guard let configuration = configuration as? EmojiContentConfiguration else {
-            imageView.image = nil
+            emojiLabel.text = ""
             return
         }
 
-        let image = UIGraphicsImageRenderer(size: imageView.bounds.size).image { context in
+        emojiLabel.text = String(configuration.emoji.character)
 
-            let attributes: [NSAttributedString.Key: Any] = [
-                .font: UIFont.preferredFont(forTextStyle: .body),
-                .foregroundColor: UIColor.label
-            ]
-
-            let attributedString = NSAttributedString(string: String(configuration.emoji.character), attributes: attributes)
-            attributedString.draw(with: bounds, options: .usesLineFragmentOrigin, context: nil)
-
-        }
-
-        imageView.image = image
     }
 
     private func commonInit() {
 
-        addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(emojiLabel)
+        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+            emojiLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            emojiLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            emojiLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            emojiLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
         ])
 
     }
