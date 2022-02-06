@@ -46,6 +46,8 @@ let emojiFlagSequenceCounts =     258
 let emojiTagSequenceCounts =      3
 let componentCounts =             9
 
+let e14EmojisExclusionCounts =    37
+
 // SkinToned emojis are added in `orderedSkinToneEmojis` and will be shown in the emoji-variation popover.
 let emojiCountsForShowingInKeyboard = totalEmojiCounts
 - cSkinTonedEmojiCounts
@@ -55,6 +57,7 @@ let emojiCountsForShowingInKeyboard = totalEmojiCounts
 - zFamilySkinTonedEmojiCounts
 - zSkinTonedEmojiCounts
 - componentCounts
+- e14EmojisExclusionCounts
 
 // grep \; PathToProject/EmojiPickerViewController/Sources/EmojiPickerViewController/Resources/emoji-test.txt | wc -l
 // > 4703
@@ -80,10 +83,16 @@ let emojiCountsListedInEmojiTest = 4702
         let dictionary = loader.wholeEmojiDictionary
         let array = loader.fullyQualifiedOrderedEmojisForKeyboard
 
-        XCTAssertEqual(dictionary.count, emojiCountsListedInEmojiTest)
-        XCTAssertEqual(array.count, emojiCountsForShowingInKeyboard)
+        XCTContext.runActivity(named: "Test: The dictionary and array has expected number of emoji") { _ in
+            XCTAssertEqual(dictionary.count, emojiCountsListedInEmojiTest)
+            XCTAssertEqual(array.count, emojiCountsForShowingInKeyboard)
+        }
 
-        XCTContext.runActivity(named: "Test: The reference of an emoji is shared both Array and Dictionary") { _ in
+        XCTContext.runActivity(named: "Test: The array only include emojis which the version is under E 14.0") { _ in
+            XCTAssertTrue(array.allSatisfy({ $0.character.unicodeScalars.first?.properties.age?.major ?? 14 < 14 }))
+        }
+
+        XCTContext.runActivity(named: "Test: The reference of an emoji is shared both Array and Dictionary?") { _ in
 
             XCTAssertEqual(array.first?.character, "😀")
             XCTAssertEqual(array.first?.cldrOrder, 0)

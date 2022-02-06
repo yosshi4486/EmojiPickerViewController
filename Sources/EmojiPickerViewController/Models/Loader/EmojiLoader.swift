@@ -291,9 +291,20 @@ class EmojiLoader: Loader {
                 } else {
 
                     // Normally, a keyboard should present only variation base emojis, and present modifier sequences(skintoned) by long-pressing the key.
-
                     variationBaseEmoji = emoji
-                    fullyQualifiedOrderedEmojisForKeyboard.append(emoji)
+
+                    /*
+                     Since Apple hasn't accepted E14.0 emojis yet, emojis for keyboard have to take the newest emojis off.
+                     Please inform or make a pull request if you have notices the platform has already accepted E14.0 emojis.
+
+                     Date: 2022/02/06
+                     Version: iOS15.3, macOS12.1
+                     */
+
+                    // Unicode.Scalar.Properties.age is nil when the scalar is unsupported. The step bellow understands it as a newest version.
+                    if (unicodeScalars[0].properties.age?.major ?? 14) < 14 {
+                        fullyQualifiedOrderedEmojisForKeyboard.append(emoji)
+                    }
 
                 }
 
