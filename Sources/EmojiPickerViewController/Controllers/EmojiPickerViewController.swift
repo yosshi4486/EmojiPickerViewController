@@ -42,6 +42,11 @@ open class EmojiPickerViewController: UIViewController {
     open var collectionView: UICollectionView!
 
     /**
+     The visual effect view that adds blur effect. You can customize the effect by accessing the properties.
+     */
+    public let visualEffectView: UIVisualEffectView = .init(effect: UIBlurEffect(style: .systemMaterial))
+
+    /**
      The data source of the `collectionView`.
      */
     open var dataSource: UICollectionViewDiffableDataSource<EmojiLabel, Emoji>!
@@ -55,7 +60,7 @@ open class EmojiPickerViewController: UIViewController {
         super.viewDidLoad()
 
         loadEmojiSet()
-        setupCollectionView()
+        setupView()
         setupDataSource()
         applyData()
 
@@ -75,7 +80,7 @@ open class EmojiPickerViewController: UIViewController {
 
     }
 
-    private func setupCollectionView() {
+    private func setupView() {
 
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 5
@@ -85,15 +90,22 @@ open class EmojiPickerViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.delegate = self
 
-        view.addSubview(collectionView)
-        view.backgroundColor = .systemBackground
+        view.addSubview(visualEffectView)
+        visualEffectView.contentView.addSubview(collectionView)
+
+        visualEffectView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
 
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            visualEffectView.topAnchor.constraint(equalTo: view.topAnchor),
+            visualEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            visualEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            visualEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: visualEffectView.contentView.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: visualEffectView.contentView.layoutMarginsGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: visualEffectView.contentView.layoutMarginsGuide.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: visualEffectView.contentView.bottomAnchor)
         ])
         
 
