@@ -54,6 +54,7 @@ class ViewController: UIViewController {
             let sheet = popover.adaptiveSheetPresentationController
             sheet.delegate = self
             sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
 
         } else {
 
@@ -62,6 +63,7 @@ class ViewController: UIViewController {
             let sheet = emojiPicker.sheetPresentationController!
             sheet.delegate = self
             sheet.detents = [.medium(), .large()]
+            sheet.prefersGrabberVisible = true
 
         }
 
