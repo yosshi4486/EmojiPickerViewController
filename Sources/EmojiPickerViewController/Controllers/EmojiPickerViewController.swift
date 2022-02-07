@@ -335,8 +335,10 @@ open class EmojiPickerViewController: UIViewController {
         } else {
 
             #warning("Problem1: How to ensure a small case order at top")
+            // use insertBefore API of snapshot
             #warning("Problem2: DiffableDataSource detects difference by using id, this behavior causes vanishment of some emojis. They appear at searchResult section and dissapear from their section.")
-
+            // define enum Item: Identifiable { case recentlyUsed, case searchResult, case emoji } 
+         
             if snapshot.indexOfSection(.searchResult) == nil {
                 snapshot.appendSections([.searchResult])
                 snapshot.appendItems(searchResults, toSection: .searchResult)
