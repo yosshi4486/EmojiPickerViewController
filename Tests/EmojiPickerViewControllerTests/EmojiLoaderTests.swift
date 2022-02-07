@@ -80,42 +80,46 @@ let emojiCountsListedInEmojiTest = 4702
 
         let loader = EmojiLoader()
         loader.load()
-        let dictionary = loader.wholeEmojiDictionary
-        let array = loader.fullyQualifiedOrderedEmojisForKeyboard
+        let entireEmojiSet = loader.entireEmojiSet
+        let labeledEmojisForKeyboard = loader.labeledEmojisForKeyboard
 
         XCTContext.runActivity(named: "Test: The dictionary and array has expected number of emoji") { _ in
-            XCTAssertEqual(dictionary.count, emojiCountsListedInEmojiTest)
-            XCTAssertEqual(array.count, emojiCountsForShowingInKeyboard)
+            XCTAssertEqual(entireEmojiSet.count, emojiCountsListedInEmojiTest)
+            XCTAssertEqual(labeledEmojisForKeyboard.values.joined().count, emojiCountsForShowingInKeyboard)
         }
 
         XCTContext.runActivity(named: "Test: The array only include emojis which the version is under E 14.0") { _ in
-            XCTAssertTrue(array.allSatisfy({ $0.character.unicodeScalars.first?.properties.age?.major ?? 14 < 14 }))
+            XCTAssertTrue(labeledEmojisForKeyboard.values.joined().allSatisfy({ $0.character.unicodeScalars.first?.properties.age?.major ?? 14 < 14 }))
         }
 
-        XCTContext.runActivity(named: "Test: The reference of an emoji is shared both Array and Dictionary?") { _ in
+        try XCTContext.runActivity(named: "Test: The reference of an emoji is shared both Array and Dictionary?") { _ in
 
-            XCTAssertEqual(array.first?.character, "😀")
-            XCTAssertEqual(array.first?.cldrOrder, 0)
-            XCTAssertEqual(array.first?.group, "Smileys & Emotion")
-            XCTAssertEqual(array.first?.subgroup, "face-smiling")
+            let face = try XCTUnwrap(labeledEmojisForKeyboard[.smileysPeople]?.first)
 
-            XCTAssertEqual(array.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-            XCTAssertEqual(array.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
-            XCTAssertEqual(array.last?.group, "Flags")
-            XCTAssertEqual(array.last?.subgroup, "subdivision-flag")
+            XCTAssertEqual(face.character, "😀")
+            XCTAssertEqual(face.cldrOrder, 0)
+            XCTAssertEqual(face.group, "Smileys & Emotion")
+            XCTAssertEqual(face.subgroup, "face-smiling")
+
+            let flag = try XCTUnwrap((labeledEmojisForKeyboard[.flags]?.last))
+
+            XCTAssertEqual(flag.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+            XCTAssertEqual(flag.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
+            XCTAssertEqual(flag.group, "Flags")
+            XCTAssertEqual(flag.subgroup, "subdivision-flag")
 
             let grinningFace = Character(exactly: "1F600")
-            XCTAssertEqual(dictionary[grinningFace]?.character, "😀")
-            XCTAssertEqual(dictionary[grinningFace]?.cldrOrder, 0)
-            XCTAssertEqual(dictionary[grinningFace]?.group, "Smileys & Emotion")
-            XCTAssertEqual(dictionary[grinningFace]?.subgroup, "face-smiling")
+            XCTAssertEqual(entireEmojiSet[grinningFace]?.character, "😀")
+            XCTAssertEqual(entireEmojiSet[grinningFace]?.cldrOrder, 0)
+            XCTAssertEqual(entireEmojiSet[grinningFace]?.group, "Smileys & Emotion")
+            XCTAssertEqual(entireEmojiSet[grinningFace]?.subgroup, "face-smiling")
 
             let flagWales = Character(exactly: "1F3F4 E0067 E0062 E0077 E006C E0073 E007F")
-            XCTAssertEqual(dictionary[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-            XCTAssertEqual(dictionary[flagWales]?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
+            XCTAssertEqual(entireEmojiSet[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+            XCTAssertEqual(entireEmojiSet[flagWales]?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
 
-            XCTAssertEqual(dictionary[flagWales]?.group, "Flags")
-            XCTAssertEqual(dictionary[flagWales]?.subgroup, "subdivision-flag")
+            XCTAssertEqual(entireEmojiSet[flagWales]?.group, "Flags")
+            XCTAssertEqual(entireEmojiSet[flagWales]?.subgroup, "subdivision-flag")
 
         }
 
@@ -123,7 +127,7 @@ let emojiCountsListedInEmojiTest = 4702
 
             // Assert For Variation Base
             let kissMarkCharacter = Character(exactly: "1F48B")
-            let kissMarkEmoji = try XCTUnwrap(dictionary[kissMarkCharacter])
+            let kissMarkEmoji = try XCTUnwrap(entireEmojiSet[kissMarkCharacter])
             XCTAssertEqual(kissMarkEmoji.character, "💋")
 
             // Assert for Qualified Variations
@@ -139,7 +143,7 @@ let emojiCountsListedInEmojiTest = 4702
 
             // Assert For Variation Base
             let victoryHandCharacter = Character(exactly: "1F90F")
-            let victoryHandEmoji = try XCTUnwrap(dictionary[victoryHandCharacter])
+            let victoryHandEmoji = try XCTUnwrap(entireEmojiSet[victoryHandCharacter])
             XCTAssertEqual(victoryHandEmoji.character, "🤏")
 
             // Assert for Qualified Variations
@@ -172,7 +176,7 @@ let emojiCountsListedInEmojiTest = 4702
 
             // Assert For Variation Base
             let passengerShipCharacter = Character(exactly: "1F6F3 FE0F")
-            let passengerShipEmoji = try XCTUnwrap(dictionary[passengerShipCharacter])
+            let passengerShipEmoji = try XCTUnwrap(entireEmojiSet[passengerShipCharacter])
             XCTAssertEqual(passengerShipEmoji.character, "🛳️")
 
             // Assert for Qualified Variations
@@ -194,7 +198,7 @@ let emojiCountsListedInEmojiTest = 4702
 
             // Assert For Variation Base
             let manDetectiveCharacter = Character(exactly: "1F575 FE0F 200D 2642 FE0F")
-            let manDetectiveEmoji = try XCTUnwrap(dictionary[manDetectiveCharacter])
+            let manDetectiveEmoji = try XCTUnwrap(entireEmojiSet[manDetectiveCharacter])
             XCTAssertEqual(manDetectiveEmoji.character, Character(exactly: "1F575 FE0F 200D 2642 FE0F")) // 🕵️‍♂️
 
             // Assert for Qualified Variations

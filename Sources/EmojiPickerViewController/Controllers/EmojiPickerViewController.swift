@@ -130,33 +130,13 @@ open class EmojiPickerViewController: UIViewController {
 
     private func applyData() {
 
-        let labeledAndOrderedEmojis: [EmojiLabel: [Emoji]] = {
-
-            var dict: [EmojiLabel: [Emoji]] = [:]
-
-            let groupedAndOrderedEmojis = OrderedDictionary<String, [Emoji]>(grouping: emojiContainer.orderedEmojisForKeyboard, by: { $0.group })
-
-            // To ensure the enemeration order, uses `OrderedDictionary`.
-            for (key, value) in groupedAndOrderedEmojis {
-                let label = EmojiLabel(group: key)!
-                if dict[label] == nil {
-                    dict[label] = value
-                } else {
-                    dict[label]?.append(contentsOf: value)
-                }
-            }
-
-            return dict
-
-        }()
-
         var snapshot: NSDiffableDataSourceSnapshot<EmojiLabel, Emoji> = .init()
 
         // TODO: recently used should be considered later.
 
         snapshot.appendSections(EmojiLabel.allCases)
         for label in EmojiLabel.allCases {
-            snapshot.appendItems(labeledAndOrderedEmojis[label]!, toSection: label)
+            snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[label]!, toSection: label)
         }
 
         dataSource.apply(snapshot)

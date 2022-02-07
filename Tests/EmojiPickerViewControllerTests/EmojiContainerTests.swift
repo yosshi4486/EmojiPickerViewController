@@ -50,37 +50,39 @@ import XCTest
 
         // Precheck
         XCTAssertEqual(container.annotationResource.localeIdentifier, "en")
-        XCTAssertTrue(container.orderedEmojisForKeyboard.isEmpty)
-        XCTAssertTrue(container.emojiDictionary.isEmpty)
+        XCTAssertTrue(container.labeledEmojisForKeyboard.isEmpty)
+        XCTAssertTrue(container.entireEmojiSet.isEmpty)
 
         // Execute
         container.annotationResource = EmojiAnnotationResource(localeIdentifier: "ja")!
         try container.load()
 
         // Postcheck
-        XCTAssertEqual(container.emojiDictionary.count, emojiCountsListedInEmojiTest)
-        XCTAssertEqual(container.orderedEmojisForKeyboard.count, emojiCountsForShowingInKeyboard)
-
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.group, "Flags")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.subgroup, "subdivision-flag")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.annotation, "旗")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.textToSpeach, "旗: ウェールズ")
+        XCTAssertEqual(container.entireEmojiSet.count, emojiCountsListedInEmojiTest)
+        XCTAssertEqual(container.labeledEmojisForKeyboard.values.joined().count, emojiCountsForShowingInKeyboard)
 
         let flagWales = Character("\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}")
-        XCTAssertEqual(container.emojiDictionary[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(container.emojiDictionary[flagWales]?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
-        XCTAssertEqual(container.emojiDictionary[flagWales]?.group, "Flags")
-        XCTAssertEqual(container.emojiDictionary[flagWales]?.subgroup, "subdivision-flag")
-        XCTAssertEqual(container.emojiDictionary[flagWales]?.annotation, "旗")
-        XCTAssertEqual(container.emojiDictionary[flagWales]?.textToSpeach, "旗: ウェールズ")
+        XCTAssertEqual(container.entireEmojiSet[flagWales]?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+        XCTAssertEqual(container.entireEmojiSet[flagWales]?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
+        XCTAssertEqual(container.entireEmojiSet[flagWales]?.group, "Flags")
+        XCTAssertEqual(container.entireEmojiSet[flagWales]?.subgroup, "subdivision-flag")
+        XCTAssertEqual(container.entireEmojiSet[flagWales]?.annotation, "旗")
+        XCTAssertEqual(container.entireEmojiSet[flagWales]?.textToSpeach, "旗: ウェールズ")
+
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.group, "Flags")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.subgroup, "subdivision-flag")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.annotation, "旗")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.textToSpeach, "旗: ウェールズ")
 
         // Test all fully-qualified emojis have annotation and tts.
-        for emoji in container.orderedEmojisForKeyboard {
-            XCTAssertNotEqual(emoji.annotation, "")
-            XCTAssertNotEqual(emoji.textToSpeach, "")
-            XCTAssertTrue(emoji.orderedSkinToneEmojis.allSatisfy({ $0.annotation != "" && $0.textToSpeach != "" }))
+        for (_, emojis) in container.labeledEmojisForKeyboard {
+            for emoji in emojis {
+                XCTAssertNotEqual(emoji.annotation, "")
+                XCTAssertNotEqual(emoji.textToSpeach, "")
+                XCTAssertTrue(emoji.orderedSkinToneEmojis.allSatisfy({ $0.annotation != "" && $0.textToSpeach != "" }))
+            }
         }
 
     }
@@ -93,41 +95,41 @@ import XCTest
         try container.load()
 
         // Precheck
-        XCTAssertEqual(container.emojiDictionary.count, emojiCountsListedInEmojiTest)
-        XCTAssertEqual(container.orderedEmojisForKeyboard.count, emojiCountsForShowingInKeyboard)
+        XCTAssertEqual(container.entireEmojiSet.count, emojiCountsListedInEmojiTest)
+        XCTAssertEqual(container.labeledEmojisForKeyboard.values.joined().count, emojiCountsForShowingInKeyboard)
 
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.character, "😀")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.cldrOrder, 0)
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.group, "Smileys & Emotion")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.subgroup, "face-smiling")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.annotation, "スマイル | にっこり | にっこり笑う | 笑う | 笑顔 | 顔")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.textToSpeach, "にっこり笑う")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.character, "😀")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.cldrOrder, 0)
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.group, "Smileys & Emotion")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.subgroup, "face-smiling")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.annotation, "スマイル | にっこり | にっこり笑う | 笑う | 笑顔 | 顔")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.textToSpeach, "にっこり笑う")
 
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.group, "Flags")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.subgroup, "subdivision-flag")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.annotation, "旗")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.textToSpeach, "旗: ウェールズ")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.group, "Flags")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.subgroup, "subdivision-flag")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.annotation, "旗")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.textToSpeach, "旗: ウェールズ")
 
         // Execute
         container.annotationResource = EmojiAnnotationResource(localeIdentifier: "en")!
         try container.loadAnnotations()
 
         // Postcheck
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.character, "😀")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.cldrOrder, 0)
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.group, "Smileys & Emotion")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.subgroup, "face-smiling")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.annotation, "face | grin | grinning face")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.first?.textToSpeach, "grinning face")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.character, "😀")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.cldrOrder, 0)
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.group, "Smileys & Emotion")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.subgroup, "face-smiling")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.annotation, "face | grin | grinning face")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.textToSpeach, "grinning face")
 
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.group, "Flags")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.subgroup, "subdivision-flag")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.annotation, "flag")
-        XCTAssertEqual(container.orderedEmojisForKeyboard.last?.textToSpeach, "flag: Wales")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.group, "Flags")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.subgroup, "subdivision-flag")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.annotation, "flag")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.textToSpeach, "flag: Wales")
 
     }
 
@@ -185,8 +187,7 @@ import XCTest
         container.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
         try container.load()
 
-        let grinningFace = try XCTUnwrap(container.orderedEmojisForKeyboard.first)
-
+        let grinningFace = try XCTUnwrap(container.labeledEmojisForKeyboard[.smileysPeople]?.first)
         XCTAssertEqual(grinningFace.character, "😀")
         XCTAssertEqual(grinningFace.cldrOrder, 0)
         XCTAssertEqual(grinningFace.group, "Smileys & Emotion")
@@ -271,11 +272,11 @@ import XCTest
 
             let cops: [Emoji] = matchesOfAnnotation.compactMap({
                 let character = Character((annotationString as NSString).substring(with: $0.range(at: 1)))
-                return container.emojiDictionary[character]
+                return container.entireEmojiSet[character]
             })
             let copsDerived: [Emoji] = matchesOfAnnotationDerived.compactMap({
                 let character = Character((annotationDerivedString as NSString).substring(with: $0.range(at: 1)))
-                return container.emojiDictionary[character]
+                return container.entireEmojiSet[character]
             })
 
             let marged = cops + copsDerived

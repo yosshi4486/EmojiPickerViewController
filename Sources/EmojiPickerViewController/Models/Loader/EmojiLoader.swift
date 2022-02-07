@@ -25,17 +25,37 @@
 
 
 import Foundation
+import Collections
 
 /**
  A type that loads all possible emoji that are defined in Unicode v14.0.
 
- The resource which this object loads is located at  https://www.unicode.org/Public/emoji/14.0/emoji-test.txt , this loader loads data following the format.
+ The resource which this object loads is located at  https://www.unicode.org/Public/emoji/14.0/emoji-test.txt, this loader loads data following the format.
+
+ This object loads and stores emojis into two properties, the one is `entireEmojiSet` and the other is `labeledEmojisForKeyboard`.
+
+ `entireEmojiSet` is the dictionary which the key is the `Character` and the value is `Emoji`. It contains entire emoji-set are listed in `emoji-test.txt`.
+
+ `labeledEmojisForKeyboard` is also the dictionary which the key is the `EmojiLabel` and the value is `[Emoji]`. Because the dictionary is provided for ordering them on a keybobard or picker, `labeledEmojisForKeyboard` doesn't contain some types of emoji.
+
+ The excluded emojis from `labeledEmojisForKeyboard`are:
+ - minimally-qualified emojis
+ - unqualified emojis
+ - E 14.0 emojis
+ - emoji modifier sequences( because showing a generic-skin-toned emojis on a keyboard, and selecting a skin-tone valiation in the variations selector view, is a well-known experience in iOS and macOS)
+
+ The value of `labeledEmojisForKeyboard` is stored following an order's rule of  [Emoji Ordering, v14.0](https://unicode.org/emoji/charts/emoji-ordering.html), and the type of `labeledEmojisForKeyboard` is `OrderedDictionary` which can ensure the orders of keys, so you can get complete labled and ordered emojis by enumerating the dictionay like this:
+
+ ```swift
+ for (label, orderedEmojis) in labeledEmojisForKeyboard {
+    // The order of `label` follows the order of the EmojiLabel's definition.
+    // The orders of orderedEmojis follows the unicode ordering definitions.
+ }
+ ```
 
  - Note:
- `Loader` is designed rather than using `TopLevelDecoder` protocol, because `emoji-test` is NOT data format. It's only semi-colon separated plain text.
+ `Loader` is designed rather than using `TopLevelDecoder` protocol, because `emoji-test` is NOT data format. It's an only semi-colon separated plain text.
 
- - TODO:
- This class is not thread safe, it doesn't do anything about data race. Implements as `actor`?
  */
 class EmojiLoader: Loader {
 
@@ -190,12 +210,12 @@ class EmojiLoader: Loader {
 
     }
 
-    private(set) var wholeEmojiDictionary: [Emoji.ID: Emoji] = [:]
+    private(set) var entireEmojiSet: [Emoji.ID: Emoji] = [:]
 
-    private(set) var fullyQualifiedOrderedEmojisForKeyboard: [Emoji] = []
+    private(set) var labeledEmojisForKeyboard: OrderedDictionary<EmojiLabel, [Emoji]> = [:]
 
     /**
-     Loads entire emojis and returns them.
+     Loads entire emoji-set and stores into`entireEmojiSet` and  `categorizedEmojisForKeyboard`.
 
      - Complexity:
      O(n) where n is number of lines in `emoji-test.txt`.
@@ -203,17 +223,18 @@ class EmojiLoader: Loader {
     @MainActor func load() {
 
         // Cleanup loaded data
-        if !(wholeEmojiDictionary.isEmpty && fullyQualifiedOrderedEmojisForKeyboard.isEmpty) {
-            wholeEmojiDictionary = [:]
-            fullyQualifiedOrderedEmojisForKeyboard = []
+        if !(entireEmojiSet.isEmpty && labeledEmojisForKeyboard.isEmpty) {
+            entireEmojiSet = [:]
+            labeledEmojisForKeyboard = [:]
         }
 
         let emojiTestFileURL = bundle.url(forResource: "emoji-test", withExtension: "txt")
         let emojiTestWholeText = try! String(contentsOf: emojiTestFileURL!, encoding: .utf8)
         let emojiTestTextLines = emojiTestWholeText.split(separator: "\n")
 
-        var group: Substring?
-        var subgroup: Substring?
+        // group and subgroup never be nil while reading rows.
+        var group: Substring!
+        var subgroup: Substring!
 
         /*
          The local var are used for handling skin tones and minimally-qualified/unqualified versions.
@@ -251,74 +272,84 @@ class EmojiLoader: Loader {
 
         var emojiOrder: Int = 0
 
+        // Label may be nil when reading `Component` group
+        var label: EmojiLabel?
+
         for emojiTestTextLine in emojiTestTextLines {
 
             let row = Row(emojiTestTextLine)
 
-            guard case .data(let data) = row else {
+            switch row {
 
-                if case .groupHeader(let name) = row {
+            case .comment:
+                break
 
-                    group = name
+            case .groupHeader(let groupName):
 
-                } else if case .subgroupHeader(suggroupName: let name) = row {
+                group = groupName
+                label = EmojiLabel(group: String(group))
 
-                    subgroup = name
-
+                if let label = label, labeledEmojisForKeyboard[label] == nil {
+                    labeledEmojisForKeyboard[label] = [] // Initilize an empty arran.
                 }
 
-                continue
-            }
+            case .subgroupHeader(let suggroupName):
 
-            let unicodeScalars = data.unicodeScalars
-            let unicodeScalarView = String.UnicodeScalarView(unicodeScalars)
-            let character = Character(String(unicodeScalarView))
+                subgroup = suggroupName
 
-            let emoji = Emoji(character: character, status: data.status, cldrOrder: emojiOrder, group: String(group!), subgroup: String(subgroup!))
+            case .data(let data):
 
-            wholeEmojiDictionary[character] = emoji
+                let unicodeScalars = data.unicodeScalars
+                let unicodeScalarView = String.UnicodeScalarView(unicodeScalars)
+                let character = Character(String(unicodeScalarView))
 
-            switch data.status {
-            case .fullyQualified:
+                let emoji = Emoji(character: character, status: data.status, cldrOrder: emojiOrder, group: String(group), subgroup: String(subgroup))
 
-                fullyQualifiedEmoji = emoji
+                entireEmojiSet[character] = emoji
 
-                if emoji.isEmojiModifierSequence {
+                switch data.status {
+                case .fullyQualified:
 
-                    variationBaseEmoji?.orderedSkinToneEmojis.append(emoji)
-                    emoji.genericSkinToneEmoji = variationBaseEmoji
+                    fullyQualifiedEmoji = emoji
 
-                } else {
+                    if emoji.isEmojiModifierSequence {
 
-                    // Normally, a keyboard should present only variation base emojis, and present modifier sequences(skintoned) by long-pressing the key.
-                    variationBaseEmoji = emoji
+                        variationBaseEmoji?.orderedSkinToneEmojis.append(emoji)
+                        emoji.genericSkinToneEmoji = variationBaseEmoji
 
-                    /*
-                     Since Apple hasn't accepted E14.0 emojis yet, emojis for keyboard have to take the newest emojis off.
-                     Please inform or make a pull request if you have notices the platform has already accepted E14.0 emojis.
+                    } else {
 
-                     Date: 2022/02/06
-                     Version: iOS15.3, macOS12.1
-                     */
+                        // Normally, a keyboard should present only variation base emojis, and present modifier sequences(skintoned) by long-pressing the key.
+                        variationBaseEmoji = emoji
 
-                    // Unicode.Scalar.Properties.age is nil when the scalar is unsupported. The step bellow understands it as a newest version.
-                    if (unicodeScalars[0].properties.age?.major ?? 14) < 14 {
-                        fullyQualifiedOrderedEmojisForKeyboard.append(emoji)
+                        /*
+                         Since Apple hasn't accepted E14.0 emojis yet, emojis for keyboard have to take the newest emojis off.
+                         Please inform or make a pull request if you have notices the platform has already accepted E14.0 emojis.
+
+                         Date: 2022/02/06
+                         Version: iOS15.3, macOS12.1
+                         */
+
+                        // Unicode.Scalar.Properties.age is nil when the scalar is unsupported. The step bellow understands it as a newest version.
+                        if (unicodeScalars[0].properties.age?.major ?? 14) < 14, let label = label {
+                            labeledEmojisForKeyboard[label]?.append(emoji)
+                        }
+
                     }
 
+                case .minimallyQualified, .unqualified:
+
+                    fullyQualifiedEmoji?.minimallyQualifiedOrUnqualifiedVersions.append(emoji)
+                    emoji.fullyQualifiedVersion = fullyQualifiedEmoji
+
+                case .component:
+                    break // Do nothing
                 }
 
-            case .minimallyQualified, .unqualified:
+                // The value is decremented only when the row is for an emoji data.
+                emojiOrder += 1
 
-                fullyQualifiedEmoji?.minimallyQualifiedOrUnqualifiedVersions.append(emoji)
-                emoji.fullyQualifiedVersion = fullyQualifiedEmoji
-
-            case .component:
-                break // Do nothing
             }
-
-            // The value is decremented only when the row is for an emoji data.
-            emojiOrder += 1
 
         }
 

@@ -25,13 +25,11 @@
 
 import Foundation
 import UIKit
+import Collections
 
 /**
  A container object for loading, storing and updating stored emojis.
-
- - TODO:
- This class is not thread safe, it doesn't do anything about data race. Implements as `actor`?
- */
+*/
 public class EmojiContainer: Loader {
 
     /**
@@ -62,24 +60,24 @@ public class EmojiContainer: Loader {
     private let emojiLoader = EmojiLoader()
 
     /**
-     The entire emoji dictionary that has emojis listed in `emoji-test.txt`. The key is a character and the value is an emoji object. The dictionary is empty before an initial call of `load()`.
+     The emoji dictionary for which provides entire emoji-set. This contains emojis that iOS can not present or are only semantic variations. The dictionary is empty before an initial call of `load()`.
 
-     The emoji dictionary are desinged for searching an emoji by specifying the character. The references of contained emojis are shared with `orderedEmojisForKeyboard`.
+     The emoji dictionary are desinged for searching an emoji from the entire set. The references of contained emojis are shared with `labeledEmojisForKeyboard`.
      */
-    public var emojiDictionary: [Emoji.ID : Emoji] { emojiLoader.wholeEmojiDictionary }
+    public var entireEmojiSet: [Emoji.ID : Emoji] { emojiLoader.entireEmojiSet }
 
     /**
-     The ordered emoji array for keyboard presentation, which the emoji's status is `.fullyQualified`. The array doesn't contain modifier sequences. The array is empty before an initial call of `load()`.
+     The emoji dictionary which provides a subset for a keyboard or picker experience. The array is empty before an initial call of `load()`.
 
-     This ordered emoji array are desinged for implementing a keyboard view or picker view.
+     This ordered emoji array are desinged for implementing a keyboard view or picker view. The references of contained emojis are shared with `entireEmojiSet`
      */
-    public var orderedEmojisForKeyboard: [Emoji] { emojiLoader.fullyQualifiedOrderedEmojisForKeyboard }
+    public var labeledEmojisForKeyboard: OrderedDictionary<EmojiLabel, [Emoji]> { emojiLoader.labeledEmojisForKeyboard }
 
     /**
      The boolean value indicating whether the `load()` has already called.
      */
     public var isLoaded: Bool {
-        return !emojiDictionary.isEmpty
+        return !entireEmojiSet.isEmpty
     }
 
     init() {
@@ -114,12 +112,12 @@ public class EmojiContainer: Loader {
      */
     @MainActor public func loadAnnotations() throws {
 
-        precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty, "Logical Failure, `load()` should be called before `loadAnnotations()`.")
+        precondition(!entireEmojiSet.isEmpty && !labeledEmojisForKeyboard.isEmpty, "Logical Failure, `load()` should be called before `loadAnnotations()`.")
 
-        let annotationLoader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, annotationResource: annotationResource)
+        let annotationLoader = EmojiAnnotationLoader(emojiDictionary: entireEmojiSet, annotationResource: annotationResource)
         try annotationLoader.load()
 
-        let annotationDerivedLoader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, annotationResource: annotationResource)
+        let annotationDerivedLoader = EmojiAnnotationDerivedLoader(emojiDictionary: entireEmojiSet, annotationResource: annotationResource)
         try annotationDerivedLoader.load()
 
     }
@@ -135,9 +133,12 @@ public class EmojiContainer: Loader {
      */
     public func searchEmojisForKeyboard(from keyword: String) -> [Emoji] {
 
-        precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty)
+        precondition(!entireEmojiSet.isEmpty && !labeledEmojisForKeyboard.isEmpty)
 
-        return orderedEmojisForKeyboard.filter({ $0.annotation.split(separator: "|").contains(where: { $0.trimmingCharacters(in: .whitespaces).starts(with: keyword) }) })
+        return labeledEmojisForKeyboard
+            .values
+            .joined()
+            .filter({ $0.annotation.split(separator: "|").contains(where: { $0.trimmingCharacters(in: .whitespaces).starts(with: keyword) }) })
 
     }
 
@@ -147,7 +148,7 @@ public class EmojiContainer: Loader {
      Using this async interface is recommented for providing resut-set in picker or keyboard.
      */
     public func searchEmojisForKeyboard(from keyboard: String) async -> [Emoji] {
-        precondition(!emojiDictionary.isEmpty && !orderedEmojisForKeyboard.isEmpty)
+        precondition(!entireEmojiSet.isEmpty && !labeledEmojisForKeyboard.isEmpty)
 
         return await withCheckedContinuation({ continuation in
             DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
