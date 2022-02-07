@@ -1,13 +1,13 @@
 
 // Labels
 
-"smileysPeople" = "スマイリーと人々";
+"smileys_people" = "スマイリーと人々";
 
-"animalsNature" = "動物と自然";
+"animals_nature" = "動物と自然";
 
-"foodDrink" = "食べ物と飲み物";
+"food_drink" = "食べ物と飲み物";
 
-"travelPlaces" = "旅行と場所";
+"travel_places" = "旅行と場所";
 
 "activities" = "活動";
 
@@ -19,4 +19,4 @@
 
 // UI
 
-"searchEmoji" = "絵文字を検索";
+"search_emoji" = "絵文字を検索";

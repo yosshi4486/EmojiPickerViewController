@@ -86,13 +86,4 @@ public enum EmojiLabel: Int, CaseIterable {
 
     }
 
-    /**
-     The label of the emoji, which is used as category as usual.
-     */
-    public var localizedDescription: String? {
-
-        return NSLocalizedString(String(describing: self), bundle: .module, comment: "Emoji label: groups emojis into Smileys & People.")
-
-    }
-
 }

@@ -81,6 +81,48 @@ open class EmojiPickerViewController: UIViewController {
             }
         }
 
+        /**
+         The label of the emoji, which is used as category as usual.
+         */
+        public var localizedSectionName: String {
+
+            switch self {
+
+            case .recentlyUsed:
+                return NSLocalizedString("recently_used", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+                
+            case .searchResult:
+                return NSLocalizedString("search_result", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+
+            case .smileysPeople:
+                return NSLocalizedString("smileys_people", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+
+            case .animalsNature:
+                return NSLocalizedString("animals_nature", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+
+            case .foodDrink:
+                return NSLocalizedString("food_drink", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+
+            case .travelPlaces:
+                return NSLocalizedString("travel_places", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+
+            case .activities:
+                return NSLocalizedString("activities", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+
+            case .objects:
+                return NSLocalizedString("objects", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+
+            case .symbols:
+                return NSLocalizedString("symbols", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+
+            case .flags:
+                return NSLocalizedString("flags", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+
+            }
+
+        }
+
+
     }
 
     /**
@@ -97,6 +139,13 @@ open class EmojiPickerViewController: UIViewController {
      The visual effect view that adds blur effect. You can customize the effect by accessing the properties.
      */
     public let visualEffectView: UIVisualEffectView = .init(effect: UIBlurEffect(style: .systemMaterial))
+
+    /**
+     The search bar that the user enters tett for searching emojis.
+
+     This view controller uses `UISearchBar` instead of using with `UISearchController`, because showing the results in anothoer view controller is redundant.
+     */
+    public let searchBar: UISearchBar = .init(frame: .zero)
 
     /**
      The data source of the `collectionView`.
@@ -128,7 +177,6 @@ open class EmojiPickerViewController: UIViewController {
         loadEmojiSet()
         setupView()
         setupDataSource()
-        setupSearchController()
         applyData()
 
     }
@@ -182,10 +230,20 @@ open class EmojiPickerViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.delegate = self
 
+        searchBar.autocapitalizationType = .none
+        searchBar.searchTextField.placeholder = NSLocalizedString("search_emoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
+        searchBar.returnKeyType = .search
+        searchBar.searchTextField.clearButtonMode = .whileEditing
+        searchBar.delegate = self
+        searchBar.searchBarStyle = .minimal
+        searchBar.isUserInteractionEnabled = true
+
         view.addSubview(visualEffectView)
+        visualEffectView.contentView.addSubview(searchBar)
         visualEffectView.contentView.addSubview(collectionView)
 
         visualEffectView.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
 
@@ -194,36 +252,15 @@ open class EmojiPickerViewController: UIViewController {
             visualEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             visualEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             visualEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: visualEffectView.contentView.layoutMarginsGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: visualEffectView.contentView.layoutMarginsGuide.trailingAnchor),
+            searchBar.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: visualEffectView.layoutMarginsGuide.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: visualEffectView.layoutMarginsGuide.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: searchBar.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: searchBar.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: visualEffectView.contentView.bottomAnchor)
         ])
         
-
-    }
-
-    private func setupSearchController() {
-
-        /*
-         You can get a search interface for free if you present this view controller with `UINavigationController`.
-         */
-
-
-        let searchController = UISearchController(searchResultsController: self)
-        searchController.automaticallyShowsSearchResultsController = false
-        searchController.automaticallyShowsCancelButton = true
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.autocapitalizationType = .none
-        searchController.searchBar.searchTextField.placeholder = NSLocalizedString("searchEmoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
-        searchController.searchBar.returnKeyType = .search
-        searchController.searchBar.searchTextField.clearButtonMode = .whileEditing
-        searchController.delegate = self
-        searchController.searchBar.delegate = self
-
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
 
     }
 
@@ -237,8 +274,15 @@ open class EmojiPickerViewController: UIViewController {
         }
 
         let headerCellRegistration = UICollectionView.SupplementaryRegistration<EmojiCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { [unowned self] supplementaryView, elementKind, indexPath in
-            let label = self.emojiContainer.labeledEmojisForKeyboard.keys[indexPath.section]
-            supplementaryView.headerLabel.text = label.localizedDescription!
+
+            let section: Section
+            if #available(iOS 15, *) {
+                section = dataSource.sectionIdentifier(for: indexPath.section)!
+            } else {
+                section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
+            }
+
+            supplementaryView.headerLabel.text = section.localizedSectionName
         }
 
         dataSource = UICollectionViewDiffableDataSource<Section, Emoji>(collectionView: collectionView, cellProvider: { collectionView, indexPath, emoji in
@@ -274,7 +318,10 @@ open class EmojiPickerViewController: UIViewController {
 
     private func updateSearchResultSection() {
 
+        #warning("うまく動かない")
+
         var snapshot = dataSource.snapshot()
+
         if searchResults.isEmpty {
 
             if navigationItem.searchController?.searchBar.text?.isEmpty == true {
@@ -283,11 +330,21 @@ open class EmojiPickerViewController: UIViewController {
                 #warning("TODO: Show empty state. No Results")
             }
 
-        } else {
-            snapshot.appendItems(searchResults, toSection: .searchResult)
-        }
+            dataSource.apply(snapshot)
 
-        dataSource.apply(snapshot)
+        } else {
+
+            if !snapshot.sectionIdentifiers.contains(.searchResult) {
+                snapshot.appendSections([.searchResult])
+                dataSource.apply(snapshot)
+            }
+
+            // Using section snapshot makes the datasource repalces the data.
+            var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<Emoji> = .init()
+            sectionSnapshot.append(searchResults, to: nil)
+            dataSource.apply(sectionSnapshot, to: .searchResult)
+
+        }
 
     }
 
@@ -305,18 +362,11 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
 
 }
 
-extension EmojiPickerViewController: UISearchResultsUpdating {
-
-    public func updateSearchResults(for searchController: UISearchController) {
-        search(from: searchController.searchBar.text!)
-    }
-
-
-}
-
 extension EmojiPickerViewController: UISearchBarDelegate {
 
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+//        search(from: searchText)
 
     }
 
@@ -325,18 +375,6 @@ extension EmojiPickerViewController: UISearchBarDelegate {
     }
 
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
-    }
-
-}
-
-extension EmojiPickerViewController: UISearchControllerDelegate {
-
-    public func willPresentSearchController(_ searchController: UISearchController) {
-
-    }
-
-    public func willDismissSearchController(_ searchController: UISearchController) {
 
     }
 

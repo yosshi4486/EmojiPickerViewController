@@ -43,13 +43,11 @@ class ViewController: UIViewController {
          */
         emojiPicker.emojiContainer.annotationResource = EmojiAnnotationResource(localeIdentifier: "ja")!
 
-        let navigationController = UINavigationController(rootViewController: emojiPicker)
-
         if traitCollection.userInterfaceIdiom == .pad {
 
-            navigationController.modalPresentationStyle = .popover
+            emojiPicker.modalPresentationStyle = .popover
 
-            let popover = navigationController.popoverPresentationController!
+            let popover = emojiPicker.popoverPresentationController!
             popover.barButtonItem = navigationItem.rightBarButtonItem
             popover.delegate = self
 
@@ -59,15 +57,15 @@ class ViewController: UIViewController {
 
         } else {
 
-            navigationController.modalPresentationStyle = .pageSheet
+            emojiPicker.modalPresentationStyle = .pageSheet
 
-            let sheet = navigationController.sheetPresentationController!
+            let sheet = emojiPicker.sheetPresentationController!
             sheet.delegate = self
             sheet.detents = [.medium(), .large()]
 
         }
 
-        present(navigationController, animated: true)
+        present(emojiPicker, animated: true)
 
     }
 
