@@ -94,7 +94,6 @@ open class EmojiPickerViewController: UIViewController {
         flowLayout.minimumInteritemSpacing = 5
         flowLayout.itemSize = .init(width: 50, height: 50)
         flowLayout.headerReferenceSize = .init(width: view.bounds.width, height: 50)
-        flowLayout.sectionHeadersPinToVisibleBounds = true
 
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.delegate = self
