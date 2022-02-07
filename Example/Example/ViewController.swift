@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         /*
          You can specify a language for searching and voiceover.
          */
-        emojiPicker.emojiContainer.annotationLocale = .init(languageIdentifier: "ja")!
+        emojiPicker.emojiContainer.annotationResource = EmojiAnnotationResource(localeIdentifier: "ja")!
 
         let navigationController = UINavigationController(rootViewController: emojiPicker)
 

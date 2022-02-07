@@ -52,6 +52,11 @@ open class EmojiPickerViewController: UIViewController {
     open var dataSource: UICollectionViewDiffableDataSource<EmojiLabel, Emoji>!
 
     /**
+     The layout object that `collectionView` uses.
+     */
+    open var flowLayout: UICollectionViewFlowLayout!
+
+    /**
      The container that loads emoji set and annotations.
      */
     public let emojiContainer: EmojiContainer = .main
@@ -82,10 +87,14 @@ open class EmojiPickerViewController: UIViewController {
 
     private func setupView() {
 
-        let flowLayout = UICollectionViewFlowLayout()
+        // The layout is very simple so that we don't have to use compositional layout.
+
+        flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 5
         flowLayout.minimumInteritemSpacing = 5
         flowLayout.itemSize = .init(width: 50, height: 50)
+        flowLayout.headerReferenceSize = .init(width: view.bounds.width, height: 50)
+        flowLayout.sectionHeadersPinToVisibleBounds = true
 
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.delegate = self
@@ -120,9 +129,18 @@ open class EmojiPickerViewController: UIViewController {
             cell.contentConfiguration = contentConfiguration
         }
 
+        let headerCellRegistration = UICollectionView.SupplementaryRegistration<EmojiCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { [unowned self] supplementaryView, elementKind, indexPath in
+            let label = self.emojiContainer.labeledEmojisForKeyboard.keys[indexPath.section]
+            supplementaryView.headerLabel.text = label.localizedDescription!
+        }
+
         dataSource = UICollectionViewDiffableDataSource<EmojiLabel, Emoji>(collectionView: collectionView, cellProvider: { collectionView, indexPath, emoji in
             return collectionView.dequeueConfiguredReusableCell(using: emojiCellRegistration, for: indexPath, item: emoji)
         })
+
+        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+            return collectionView.dequeueConfiguredReusableSupplementary(using: headerCellRegistration, for: indexPath)
+        }
         
         collectionView.dataSource = dataSource
 
