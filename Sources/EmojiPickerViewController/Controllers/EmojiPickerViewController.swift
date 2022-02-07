@@ -334,15 +334,21 @@ open class EmojiPickerViewController: UIViewController {
 
         } else {
 
-            if !snapshot.sectionIdentifiers.contains(.searchResult) {
-                snapshot.appendSections([.searchResult])
-                dataSource.apply(snapshot)
-            }
+            #warning("Problem1: How to ensure a small case order at top")
+            #warning("Problem2: DiffableDataSource detects difference by using id, this behavior causes vanishment of some emojis. They appear at searchResult section and dissapear from their section.")
 
-            // Using section snapshot makes the datasource repalces the data.
-            var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<Emoji> = .init()
-            sectionSnapshot.append(searchResults, to: nil)
-            dataSource.apply(sectionSnapshot, to: .searchResult)
+            if snapshot.indexOfSection(.searchResult) == nil {
+                snapshot.appendSections([.searchResult])
+                snapshot.appendItems(searchResults, toSection: .searchResult)
+                dataSource.apply(snapshot)
+
+            } else {
+                // Using section snapshot makes the datasource repalces the data.
+                var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<Emoji> = .init()
+                sectionSnapshot.append(searchResults, to: nil)
+                dataSource.apply(sectionSnapshot, to: .searchResult)
+
+            }
 
         }
 
@@ -366,7 +372,7 @@ extension EmojiPickerViewController: UISearchBarDelegate {
 
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-//        search(from: searchText)
+        search(from: searchText)
 
     }
 
