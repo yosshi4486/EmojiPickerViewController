@@ -31,6 +31,58 @@ import Collections
  */
 open class EmojiPickerViewController: UIViewController {
 
+    public enum Section: Int, CaseIterable {
+
+        case recentlyUsed
+
+        case searchResult
+
+        case smileysPeople
+
+        case animalsNature
+
+        case foodDrink
+
+        case travelPlaces
+
+        case activities
+
+        case objects
+
+        case symbols
+
+        case flags
+
+        init(emojiLabel: EmojiLabel) {
+            switch emojiLabel {
+            case .smileysPeople:
+                self = .smileysPeople
+
+            case .animalsNature:
+                self = .animalsNature
+
+            case .foodDrink:
+                self = .foodDrink
+
+            case .travelPlaces:
+                self = .travelPlaces
+
+            case .activities:
+                self = .activities
+
+            case .objects:
+                self = .objects
+
+            case .symbols:
+                self = .symbols
+
+            case .flags:
+                self = .flags
+            }
+        }
+
+    }
+
     /**
      The picker’s delegate object.
      */
@@ -49,7 +101,7 @@ open class EmojiPickerViewController: UIViewController {
     /**
      The data source of the `collectionView`.
      */
-    open var dataSource: UICollectionViewDiffableDataSource<EmojiLabel, Emoji>!
+    open var dataSource: UICollectionViewDiffableDataSource<Section, Emoji>!
 
     /**
      The layout object that `collectionView` uses.
@@ -62,9 +114,13 @@ open class EmojiPickerViewController: UIViewController {
     public let emojiContainer: EmojiContainer = .main
 
     /**
-     The search results controller for which presents emoji search results.
+     The emoji search results. The initial value is empty.
      */
-    private var searchResultsController: EmojiSearchResultViewController!
+    open var searchResults: [Emoji] = [] {
+        didSet {
+            updateSearchResultSection()
+        }
+    }
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +130,28 @@ open class EmojiPickerViewController: UIViewController {
         setupDataSource()
         setupSearchController()
         applyData()
+
+    }
+
+    /**
+     Searchs emojis by the given keywork. This method updates triggers `collectionView` update for presenting the search results.
+
+     - Parameters:
+       - keyboard: The keyboard for which search emojis.
+     */
+    func search(from keyboard: String) {
+
+        guard !keyboard.isEmpty else {
+            self.searchResults = []
+            return
+        }
+
+        Task {
+            let results = await emojiContainer.searchEmojisForKeyboard(from: keyboard)
+            DispatchQueue.main.async {
+                self.searchResults = results
+            }
+        }
 
     }
 
@@ -116,7 +194,7 @@ open class EmojiPickerViewController: UIViewController {
             visualEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             visualEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             visualEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.topAnchor.constraint(equalTo: visualEffectView.contentView.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: visualEffectView.contentView.layoutMarginsGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: visualEffectView.contentView.layoutMarginsGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: visualEffectView.contentView.bottomAnchor)
@@ -131,9 +209,8 @@ open class EmojiPickerViewController: UIViewController {
          You can get a search interface for free if you present this view controller with `UINavigationController`.
          */
 
-        searchResultsController = EmojiSearchResultViewController(pickerViewController: self)
 
-        let searchController = UISearchController(searchResultsController: searchResultsController)
+        let searchController = UISearchController(searchResultsController: self)
         searchController.automaticallyShowsSearchResultsController = false
         searchController.automaticallyShowsCancelButton = true
         searchController.obscuresBackgroundDuringPresentation = false
@@ -164,7 +241,7 @@ open class EmojiPickerViewController: UIViewController {
             supplementaryView.headerLabel.text = label.localizedDescription!
         }
 
-        dataSource = UICollectionViewDiffableDataSource<EmojiLabel, Emoji>(collectionView: collectionView, cellProvider: { collectionView, indexPath, emoji in
+        dataSource = UICollectionViewDiffableDataSource<Section, Emoji>(collectionView: collectionView, cellProvider: { collectionView, indexPath, emoji in
             return collectionView.dequeueConfiguredReusableCell(using: emojiCellRegistration, for: indexPath, item: emoji)
         })
 
@@ -178,16 +255,40 @@ open class EmojiPickerViewController: UIViewController {
 
     private func applyData() {
 
-        var snapshot: NSDiffableDataSourceSnapshot<EmojiLabel, Emoji> = .init()
+        var snapshot: NSDiffableDataSourceSnapshot<Section, Emoji> = .init()
 
         // TODO: recently used should be considered later.
 
-        snapshot.appendSections(EmojiLabel.allCases)
-        for label in EmojiLabel.allCases {
-            snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[label]!, toSection: label)
+        snapshot.appendSections([.smileysPeople, .animalsNature, .foodDrink, .travelPlaces, .activities, .objects, .symbols, .flags])
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.smileysPeople]!, toSection: .smileysPeople)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.animalsNature]!, toSection: .animalsNature)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.foodDrink]!, toSection: .foodDrink)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.travelPlaces]!, toSection: .travelPlaces)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.activities]!, toSection: .activities)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.objects]!, toSection: .objects)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.symbols]!, toSection: .symbols)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.flags]!, toSection: .flags)
+
+        dataSource.apply(snapshot)
+    }
+
+    private func updateSearchResultSection() {
+
+        var snapshot = dataSource.snapshot()
+        if searchResults.isEmpty {
+
+            if navigationItem.searchController?.searchBar.text?.isEmpty == true {
+                snapshot.deleteSections([.searchResult])
+            } else {
+                #warning("TODO: Show empty state. No Results")
+            }
+
+        } else {
+            snapshot.appendItems(searchResults, toSection: .searchResult)
         }
 
         dataSource.apply(snapshot)
+
     }
 
 }
@@ -207,7 +308,7 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
 extension EmojiPickerViewController: UISearchResultsUpdating {
 
     public func updateSearchResults(for searchController: UISearchController) {
-        searchResultsController.search(from: searchController.searchBar.text!)
+        search(from: searchController.searchBar.text!)
     }
 
 
