@@ -61,12 +61,18 @@ open class EmojiPickerViewController: UIViewController {
      */
     public let emojiContainer: EmojiContainer = .main
 
+    /**
+     The search results controller for which presents emoji search results.
+     */
+    private var searchResultsController: EmojiSearchResultViewController!
+
     open override func viewDidLoad() {
         super.viewDidLoad()
 
         loadEmojiSet()
         setupView()
         setupDataSource()
+        setupSearchController()
         applyData()
 
     }
@@ -119,6 +125,31 @@ open class EmojiPickerViewController: UIViewController {
 
     }
 
+    private func setupSearchController() {
+
+        /*
+         You can get a search interface for free if you present this view controller with `UINavigationController`.
+         */
+
+        searchResultsController = EmojiSearchResultViewController(pickerViewController: self)
+
+        let searchController = UISearchController(searchResultsController: searchResultsController)
+        searchController.automaticallyShowsSearchResultsController = false
+        searchController.automaticallyShowsCancelButton = true
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.autocapitalizationType = .none
+        searchController.searchBar.searchTextField.placeholder = NSLocalizedString("searchEmoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
+        searchController.searchBar.returnKeyType = .search
+        searchController.searchBar.searchTextField.clearButtonMode = .whileEditing
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+
+    }
+
     private func setupDataSource() {
 
         let emojiCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, Emoji> { [unowned self] cell, indexPath, emoji in
@@ -168,6 +199,43 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath)
         let emojiContentConfiguration = cell!.contentConfiguration as! EmojiContentConfiguration
         delegate?.emojiPickerViewController(self, didPick: emojiContentConfiguration.emoji)
+
+    }
+
+}
+
+extension EmojiPickerViewController: UISearchResultsUpdating {
+
+    public func updateSearchResults(for searchController: UISearchController) {
+        searchResultsController.search(from: searchController.searchBar.text!)
+    }
+
+
+}
+
+extension EmojiPickerViewController: UISearchBarDelegate {
+
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+    }
+
+    public func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+
+    }
+
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+    }
+
+}
+
+extension EmojiPickerViewController: UISearchControllerDelegate {
+
+    public func willPresentSearchController(_ searchController: UISearchController) {
+
+    }
+
+    public func willDismissSearchController(_ searchController: UISearchController) {
 
     }
 
