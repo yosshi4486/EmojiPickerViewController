@@ -102,10 +102,10 @@ class EmojiContentView: UIView, UIContentView {
         emojiLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            emojiLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            emojiLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            emojiLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            emojiLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+            emojiLabel.topAnchor.constraint(equalTo: topAnchor),
+            emojiLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            emojiLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            emojiLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
 
     }
