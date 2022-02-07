@@ -59,6 +59,7 @@ class EmojiContentView: UIView, UIContentView {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
         label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         return label
     }()
 
