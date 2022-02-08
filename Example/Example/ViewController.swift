@@ -45,44 +45,44 @@ class ViewController: UIViewController {
         /*
          Disabling changes animation.
          */
-        emojiPicker.animatingChanges = false
+        // emojiPicker.animatingChanges = false
 
         /*
          Customizing the collectionview layout via `UICollectionViewFlowLayout` object.
          */
-        emojiPicker.flowLayout.itemSize = .init(width: 60, height: 60)
+        // emojiPicker.flowLayout.itemSize = .init(width: 60, height: 60)
 
         /*
          Customizing the searchbar appearances.
          */
-        emojiPicker.searchBar.searchTextField.textColor = .blue
+        // emojiPicker.searchBar.searchTextField.textColor = .blue
 
         /*
          Customizing the visual effect.
          */
-        emojiPicker.visualEffectView.effect = UIBlurEffect(style: .systemUltraThinMaterial)
+        // emojiPicker.visualEffectView.effect = UIBlurEffect(style: .systemUltraThinMaterial)
 
         /*
          Specifying the language for searching and voiceover.
          */
-        emojiPicker.emojiContainer.emojiLocale = EmojiLocale(localeIdentifier: "ja")!
+        // emojiPicker.emojiContainer.emojiLocale = EmojiLocale(localeIdentifier: "ja")!
 
         /*
          Activating an automatic-annotations-update option.
          */
-        emojiPicker.emojiContainer.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
+        // emojiPicker.emojiContainer.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
 
         /*
          Getting the loaded emoji.
          */
 
         // Getting the emoji via the emoji picker, or
-        let bouncingBall = emojiPicker.emojiContainer.entireEmojiSet["⛹🏿‍♀"]!
-        print(bouncingBall)
+        // let bouncingBall = emojiPicker.emojiContainer.entireEmojiSet["⛹🏿‍♀"]!
+        // print(bouncingBall)
 
         // singleton main container.
-        let grapes = EmojiContainer.main.entireEmojiSet["🍇"]!
-        print(grapes)
+        // let grapes = EmojiContainer.main.entireEmojiSet["🍇"]!
+        // print(grapes)
 
         // You can also run load() at any time earlier, such as UIApplicationDelegate, UISceneDelegate and so on.
         // EmojiContainer.main.load()
