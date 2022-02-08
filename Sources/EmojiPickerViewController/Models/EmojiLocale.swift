@@ -1,5 +1,5 @@
 //
-//  EmojiAnnotationResource.swift
+//  EmojiLocale.swift
 //
 //  EmojiPickerViewController
 //  https://github.com/yosshi4486/EmojiPickerViewController
@@ -25,23 +25,25 @@
 import Foundation
 
 /**
- A resource which has a language specific annotations and tts.
+ A locale for which loads the associated language specific files.
+
+ An `EmojiContainer`instance reads `annotations/{localeID}.xml` and `annotationsDerived/{localeID}.xml` to fill the emoji's `annotation` and `textToSpeach` properties. This object specified the locale information for which file should be loaded.
 
  # Reading Difference
  Please see `Resources/CLDR/annotations/af` and `Resources/CLDR/annotations/af_SA`, you can see the first one describes many emojis and the second one describes very few emojis. The rule is that an annotation file which has the region resignator only describes regional differences between the base annotation file. The base annotation is `af` in this case.
 
- Following the specification, *Emoji Annotation Resource* must specify a base annotation file and the reginal specified annotation file if possible.
+ Following the specification, *Emoji Locale* have a base annotation file and the reginal specified annotation file if possible.
 
  - SeeAlso:
  [Language and Locale IDs](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)
 
  */
-public struct EmojiAnnotationResource {
+public struct EmojiLocale {
 
     /**
      The default annotation locale. You can change the static default.
      */
-    static let `default` = EmojiAnnotationResource(localeIdentifier: "en")!
+    static let `default` = EmojiLocale(localeIdentifier: "en")!
 
     /**
      The locale identifier which the accosiated annotations and annotationDerived files exist.
@@ -53,7 +55,7 @@ public struct EmojiAnnotationResource {
     let annotationDerivedFileURLs: [URL]
 
     /**
-     Creates an *Emoji Annotation Locale* instance by the given locale identifier.
+     Creates an *Emoji Locale* instance by the given locale identifier.
 
      The rule of locale ID joiners:
      - use _(underscore) before regional designator.
@@ -65,8 +67,19 @@ public struct EmojiAnnotationResource {
 
      - Parameters:
        - localeIdentifier: The locale identifier which indicates the locale for whichloads annotations.
+
+     - Note:
+     we intentionally implement our EmojiLocale object rather than using Foundation.Locale, because a Foundation.Locale instance rounds the locale identifier following its rules, and the behavior makes our difficult to load the associated annotation files.
+
+     - SeeAlso:
+     LocaleFunctionalTests.testLocaleRoundIdentifer()
+     
      */
     public init?(localeIdentifier: String) {
+
+        /*
+         we intentionally prepare Foundation.Locale rounds
+         */
 
         var languageCode: String?
         var scriptCode: String?
@@ -130,11 +143,11 @@ public struct EmojiAnnotationResource {
 
             var urls: [URL] = []
 
-            if let baseFileURL = EmojiAnnotationResource.annotationResource(for: baseAnontationFilename) {
+            if let baseFileURL = EmojiLocale.annotationResource(for: baseAnontationFilename) {
                 urls.append(baseFileURL)
             }
 
-            if let regionalAnnotationFilename = regionalAnnotationFilename, let regionalFileURL = EmojiAnnotationResource.annotationResource(for: regionalAnnotationFilename) {
+            if let regionalAnnotationFilename = regionalAnnotationFilename, let regionalFileURL = EmojiLocale.annotationResource(for: regionalAnnotationFilename) {
                 urls.append(regionalFileURL)
             }
 
@@ -146,11 +159,11 @@ public struct EmojiAnnotationResource {
 
             var urls: [URL] = []
 
-            if let baseFileURL = EmojiAnnotationResource.annotationDerivedResource(for: baseAnontationFilename) {
+            if let baseFileURL = EmojiLocale.annotationDerivedResource(for: baseAnontationFilename) {
                 urls.append(baseFileURL)
             }
 
-            if let regionalAnnotationFilename = regionalAnnotationFilename, let regionalFileURL = EmojiAnnotationResource.annotationDerivedResource(for: regionalAnnotationFilename) {
+            if let regionalAnnotationFilename = regionalAnnotationFilename, let regionalFileURL = EmojiLocale.annotationDerivedResource(for: regionalAnnotationFilename) {
                 urls.append(regionalFileURL)
             }
 

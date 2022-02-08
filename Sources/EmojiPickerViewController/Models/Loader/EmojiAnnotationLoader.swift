@@ -52,15 +52,15 @@ class EmojiAnnotationLoader: Loader {
     let emojiDictionary: [Emoji.ID : Emoji]
 
     /**
-     The resource for which loads annotations and tts.
+     The locale which specifies the emoji locale information for the loading.
      */
-    let annotationResource: EmojiAnnotationResource
+    let emojiLocale: EmojiLocale
 
     /**
      The URLs where the destination resources are located.
      */
     var resourceURLs: [URL] {
-        return annotationResource.annotationFileURLs
+        return emojiLocale.annotationFileURLs
     }
 
     /**
@@ -68,12 +68,12 @@ class EmojiAnnotationLoader: Loader {
 
      - Parameters:
        - emojiDictionary: The dictionary which the key is a `Character` and the value is a `Emoji`, for setting annotation and tts.
-       - annotationResource: The resource which the destination annotations and tts are listed.
+       - emojiLocale:The locale which specifies the emoji locale information for the loading. `Emoji` annotation and textToSpeach are loaded following the given locale.
      */
-    init(emojiDictionary: [Emoji.ID: Emoji], annotationResource: EmojiAnnotationResource) {
+    init(emojiDictionary: [Emoji.ID: Emoji], emojiLocale: EmojiLocale) {
 
         self.emojiDictionary = emojiDictionary
-        self.annotationResource = annotationResource
+        self.emojiLocale = emojiLocale
 
     }
 

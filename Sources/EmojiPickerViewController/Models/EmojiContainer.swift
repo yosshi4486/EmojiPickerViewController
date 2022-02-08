@@ -35,7 +35,7 @@ public class EmojiContainer: Loader {
     /**
      Posts when the current annotations changes.
 
-     The posting object is a EmojiAnnotationResource instance.
+     The posting object is a EmojiLocale instance.
      */
     static let currentAnnotationDidChangeNotification = Notification.Name(rawValue: "_currentAnnotationDidChangeNotification")
 
@@ -50,9 +50,9 @@ public class EmojiContainer: Loader {
     public var automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange: Bool = false
 
     /**
-     The locale for which loads annotation.
+     The locale which specifies the emoji locale information for the loading.
      */
-    public var annotationResource: EmojiAnnotationResource = .default
+    public var emojiLocale: EmojiLocale = .default
 
     /**
      The emoji loader.
@@ -114,10 +114,10 @@ public class EmojiContainer: Loader {
 
         precondition(!entireEmojiSet.isEmpty && !labeledEmojisForKeyboard.isEmpty, "Logical Failure, `load()` should be called before `loadAnnotations()`.")
 
-        let annotationLoader = EmojiAnnotationLoader(emojiDictionary: entireEmojiSet, annotationResource: annotationResource)
+        let annotationLoader = EmojiAnnotationLoader(emojiDictionary: entireEmojiSet, emojiLocale: emojiLocale)
         try annotationLoader.load()
 
-        let annotationDerivedLoader = EmojiAnnotationDerivedLoader(emojiDictionary: entireEmojiSet, annotationResource: annotationResource)
+        let annotationDerivedLoader = EmojiAnnotationDerivedLoader(emojiDictionary: entireEmojiSet, emojiLocale: emojiLocale)
         try annotationDerivedLoader.load()
 
     }
@@ -166,11 +166,11 @@ public class EmojiContainer: Loader {
             return
         }
 
-        guard let autoUpdatingResource = EmojiAnnotationResource(localeIdentifier: primaryLanguage) else {
+        guard let autoUpdatingResource = EmojiLocale(localeIdentifier: primaryLanguage) else {
             return
         }
 
-        annotationResource = autoUpdatingResource
+        emojiLocale = autoUpdatingResource
 
         try? loadAnnotations()
 

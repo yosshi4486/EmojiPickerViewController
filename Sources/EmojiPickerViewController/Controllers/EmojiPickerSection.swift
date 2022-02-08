@@ -122,7 +122,7 @@ public enum EmojiPickerSection: Int, CaseIterable {
     /**
      The localized section name.
 
-     The property intends to be used as section header title.
+     The property to be used as section header title.
      */
     public var localizedSectionName: String {
 

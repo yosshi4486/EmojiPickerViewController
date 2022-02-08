@@ -53,4 +53,21 @@ class LocaleFunctionalTests: XCTestCase {
 
     }
 
+    func testLocaleRoundIdentifer() throws {
+
+        let langageCode = "sr"
+        let scriptCode = "Cyrl"
+        let regionCode = "BA"
+
+        let identifier = "\(langageCode)-\(scriptCode)_\(regionCode)"
+        let foundationLocale = Locale(identifier: identifier)
+        XCTAssertNotEqual(foundationLocale.identifier, identifier)
+        XCTAssertEqual(foundationLocale.identifier, "sr_BA")
+
+        XCTAssertEqual(foundationLocale.languageCode, "sr")
+        XCTAssertNil(foundationLocale.scriptCode)
+        XCTAssertEqual(foundationLocale.regionCode, "BA")
+
+    }
+
 }

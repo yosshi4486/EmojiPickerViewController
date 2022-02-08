@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         /*
          You can specify a language for searching and voiceover.
          */
-        emojiPicker.emojiContainer.annotationResource = EmojiAnnotationResource(localeIdentifier: "ja")!
+        emojiPicker.emojiContainer.emojiLocale = EmojiLocale(localeIdentifier: "ja")!
 
         if traitCollection.userInterfaceIdiom == .pad {
 
