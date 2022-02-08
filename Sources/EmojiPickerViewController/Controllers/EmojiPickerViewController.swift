@@ -56,7 +56,7 @@ open class EmojiPickerViewController: UIViewController {
     /**
      The data source of the `collectionView`.
      */
-    open var dataSource: UICollectionViewDiffableDataSource<EmojiPickerSection, Emoji>!
+    open var dataSource: UICollectionViewDiffableDataSource<EmojiPickerSection, EmojiPickerItem>!
 
     /**
      The layout object that `collectionView` uses.
@@ -71,7 +71,7 @@ open class EmojiPickerViewController: UIViewController {
     /**
      The emoji search results. The initial value is empty.
      */
-    open var searchResults: [Emoji] = [] {
+    open var searchResults: [EmojiPickerItem] = [] {
         didSet {
             updateSearchResultSection()
         }
@@ -102,8 +102,9 @@ open class EmojiPickerViewController: UIViewController {
 
         Task {
             let results = await emojiContainer.searchEmojisForKeyboard(from: keyboard)
+            let items = results.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) })
             DispatchQueue.main.async {
-                self.searchResults = results
+                self.searchResults = items
             }
         }
 
@@ -172,9 +173,9 @@ open class EmojiPickerViewController: UIViewController {
 
     private func setupDataSource() {
 
-        let emojiCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, Emoji> { [unowned self] cell, indexPath, emoji in
-            let index = (self.dataSource.snapshot().indexOfItem(emoji) ?? 0) + 1
-            var contentConfiguration = EmojiContentConfiguration(emoji: emoji)
+        let emojiCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, EmojiPickerItem> { [unowned self] cell, indexPath, item in
+            let index = (self.dataSource.snapshot().indexOfItem(item) ?? 0) + 1
+            var contentConfiguration = EmojiContentConfiguration(emoji: item.emoji)
             contentConfiguration.accessibilityIndexOfEmoji = index
             cell.contentConfiguration = contentConfiguration
         }
@@ -191,8 +192,8 @@ open class EmojiPickerViewController: UIViewController {
             supplementaryView.headerLabel.text = section.localizedSectionName
         }
 
-        dataSource = UICollectionViewDiffableDataSource<EmojiPickerSection, Emoji>(collectionView: collectionView, cellProvider: { collectionView, indexPath, emoji in
-            return collectionView.dequeueConfiguredReusableCell(using: emojiCellRegistration, for: indexPath, item: emoji)
+        dataSource = UICollectionViewDiffableDataSource<EmojiPickerSection, EmojiPickerItem>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+            return collectionView.dequeueConfiguredReusableCell(using: emojiCellRegistration, for: indexPath, item: item)
         })
 
         dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
@@ -205,19 +206,19 @@ open class EmojiPickerViewController: UIViewController {
 
     private func applyData() {
 
-        var snapshot: NSDiffableDataSourceSnapshot<EmojiPickerSection, Emoji> = .init()
+        var snapshot: NSDiffableDataSourceSnapshot<EmojiPickerSection, EmojiPickerItem> = .init()
 
         // TODO: recently used should be considered later.
 
         snapshot.appendSections([.smileysPeople, .animalsNature, .foodDrink, .travelPlaces, .activities, .objects, .symbols, .flags])
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.smileysPeople]!, toSection: .smileysPeople)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.animalsNature]!, toSection: .animalsNature)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.foodDrink]!, toSection: .foodDrink)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.travelPlaces]!, toSection: .travelPlaces)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.activities]!, toSection: .activities)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.objects]!, toSection: .objects)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.symbols]!, toSection: .symbols)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.flags]!, toSection: .flags)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.smileysPeople]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .smileysPeople)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.animalsNature]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .animalsNature)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.foodDrink]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .foodDrink)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.travelPlaces]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .travelPlaces)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.activities]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .activities)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.objects]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .objects)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.symbols]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .symbols)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.flags]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .flags)
 
         dataSource.apply(snapshot)
     }
@@ -239,22 +240,17 @@ open class EmojiPickerViewController: UIViewController {
             dataSource.apply(snapshot)
 
         } else {
-
-            #warning("Problem1: How to ensure a small case order at top")
-            // use insertBefore API of snapshot
-            #warning("Problem2: DiffableDataSource detects difference by using id, this behavior causes vanishment of some emojis. They appear at searchResult section and dissapear from their section.")
-            // define enum Item: Identifiable { case recentlyUsed, case searchResult, case emoji } 
          
             if snapshot.indexOfSection(.searchResult) == nil {
                 snapshot.insertSections([.searchResult], beforeSection: .smileysPeople)
                 snapshot.appendItems(searchResults, toSection: .searchResult)
-                dataSource.apply(snapshot)
+                dataSource.apply(snapshot, animatingDifferences: false)
 
             } else {
                 // Using section snapshot makes the datasource repalces the data.
-                var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<Emoji> = .init()
+                var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
                 sectionSnapshot.append(searchResults, to: nil)
-                dataSource.apply(sectionSnapshot, to: .searchResult)
+                dataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: false)
 
             }
 
