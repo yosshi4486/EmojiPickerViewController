@@ -47,8 +47,8 @@ import XCTest
     func testLoadAnnotationsDerived() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
-            "👋🏾": Emoji(character: "👋🏾"),
-            "🇲🇽": Emoji(character: "🇲🇽")
+            "👋🏾": Emoji("👋🏾"),
+            "🇲🇽": Emoji("🇲🇽")
         ]
 
         let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, annotationResource: EmojiAnnotationResource(localeIdentifier: "ja")!)
@@ -64,7 +64,7 @@ import XCTest
     func testNotLoadAnnotations() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
-            "😀": Emoji(character: "😀")
+            "😀": Emoji("😀")
         ]
 
         let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, annotationResource: EmojiAnnotationResource(localeIdentifier: "ja")!)

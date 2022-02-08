@@ -41,7 +41,7 @@ class EmojiTests: XCTestCase {
         XCTContext.runActivity(named: "Singleton Emoji") { _ in
 
             // 1F44C
-            let emoji = Emoji(character: "👌")
+            let emoji = Emoji("👌")
             XCTAssertFalse(emoji.isEmojiModifierSequence)
 
         }
@@ -49,7 +49,7 @@ class EmojiTests: XCTestCase {
         XCTContext.runActivity(named: "Emoji ZWJ Sequence") { _ in
 
             // 1F635 200D 1F4AB
-            let emoji = Emoji(character: "😵‍💫")
+            let emoji = Emoji("😵‍💫")
             XCTAssertFalse(emoji.isEmojiModifierSequence)
 
         }
@@ -57,7 +57,7 @@ class EmojiTests: XCTestCase {
         XCTContext.runActivity(named: "Single Person Skin Toned Emoji") { _ in
 
             // 1F44C 1F3FC
-            let emoji = Emoji(character: "👌🏼")
+            let emoji = Emoji("👌🏼")
             XCTAssertTrue(emoji.isEmojiModifierSequence)
 
         }
@@ -65,7 +65,7 @@ class EmojiTests: XCTestCase {
         XCTContext.runActivity(named: "Multiple Person Skin Toned Emoji") { _ in
 
             // 1F9D1 1F3FB 200D 2764 FE0F 200D 1F48B 200D 1F9D1 1F3FC
-            let emoji = Emoji(character: "🧑🏻‍❤️‍💋‍🧑🏼")
+            let emoji = Emoji("🧑🏻‍❤️‍💋‍🧑🏼")
             XCTAssertTrue(emoji.isEmojiModifierSequence)
 
         }

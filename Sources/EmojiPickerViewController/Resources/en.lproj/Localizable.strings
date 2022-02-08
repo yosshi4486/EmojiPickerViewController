@@ -1,25 +1,30 @@
 
-// Labels
+// Sections
 
-// All labels should be title styled capitalization.
+// All sections should be capitilized style.
 
-"smileys_people" = "Smileys & People";
+"recently_used" = "RECENTLY USED";
 
-"animals_nature" = "Animals & Nature";
+"search_result" = "RESULTS";
 
-"food_drink" = "Food & Drink";
+"smileys_people" = "SMILEYS & PEOPLE";
 
-"travel_places" = "Travel & Places";
+"animals_nature" = "ANIMALS & NATURE";
 
-"activities" = "Activities";
+"food_drink" = "FOOD & DRINK";
 
-"objects" = "Objects";
+"travel_places" = "TRAVEL & PLACES";
 
-"symbols" = "Symbols";
+"activities" = "ACTIVITIES";
 
-"flags" = "Flags";
+"objects" = "OBJECTS";
+
+"symbols" = "SYMBOLS";
+
+"flags" = "FLAGS";
 
 // UI
 
 // Title style
 "search_emoji" = "Search Emoji";
+

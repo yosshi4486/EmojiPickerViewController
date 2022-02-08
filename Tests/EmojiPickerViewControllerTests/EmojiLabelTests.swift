@@ -41,72 +41,55 @@ class EmojiLabelTests: XCTestCase {
         XCTContext.runActivity(named: "Group: Smileys & Emotion") { _ in
 
             let label = EmojiLabel(group: "Smileys & Emotion")
-            let key = "smileysPeople"
-            XCTAssertNotEqual(label?.localizedDescription, key)
-            XCTAssertEqual(label?.localizedDescription, NSLocalizedString(key, bundle: .module, comment: ""))
+            XCTAssertEqual(label, .smileysPeople)
 
         }
 
         XCTContext.runActivity(named: "Group: People & Body") { _ in
 
             let label = EmojiLabel(group: "People & Body")
-            let key = "smileysPeople"
-            XCTAssertNotEqual(label?.localizedDescription, key)
-            XCTAssertEqual(label?.localizedDescription, NSLocalizedString(key, bundle: .module, comment: ""))
-
+            XCTAssertEqual(label, .smileysPeople)
         }
 
         XCTContext.runActivity(named: "Group: Food & Drink") { _ in
 
             let label = EmojiLabel(group: "Food & Drink")
-            let key = "foodDrink"
-            XCTAssertNotEqual(label?.localizedDescription, key)
-            XCTAssertEqual(label?.localizedDescription, NSLocalizedString(key, bundle: .module, comment: ""))
-
+            XCTAssertEqual(label, .foodDrink)
         }
 
         XCTContext.runActivity(named: "Group: Travel & Places") { _ in
 
             let label = EmojiLabel(group: "Travel & Places")
-            let key = "travelPlaces"
-            XCTAssertNotEqual(label?.localizedDescription, key)
-            XCTAssertEqual(label?.localizedDescription, NSLocalizedString(key, bundle: .module, comment: ""))
+            XCTAssertEqual(label, .travelPlaces)
 
         }
 
         XCTContext.runActivity(named: "Group: Activities") { _ in
 
             let label = EmojiLabel(group: "Activities")
-            let key = "activities"
-            XCTAssertNotEqual(label?.localizedDescription, key)
-            XCTAssertEqual(label?.localizedDescription, NSLocalizedString(key, bundle: .module, comment: ""))
+            XCTAssertEqual(label, .activities)
+
 
         }
 
         XCTContext.runActivity(named: "Group: Objects") { _ in
 
             let label = EmojiLabel(group: "Objects")
-            let key = "objects"
-            XCTAssertNotEqual(label?.localizedDescription, key)
-            XCTAssertEqual(label?.localizedDescription, NSLocalizedString(key, bundle: .module, comment: ""))
+            XCTAssertEqual(label, .objects)
 
         }
 
         XCTContext.runActivity(named: "Group: Symbols") { _ in
 
             let label = EmojiLabel(group: "Symbols")
-            let key = "symbols"
-            XCTAssertNotEqual(label?.localizedDescription, key)
-            XCTAssertEqual(label?.localizedDescription, NSLocalizedString(key, bundle: .module, comment: ""))
+            XCTAssertEqual(label, .symbols)
 
         }
 
         XCTContext.runActivity(named: "Group: Flags") { _ in
 
             let label = EmojiLabel(group: "Flags")
-            let key = "flags"
-            XCTAssertNotEqual(label?.localizedDescription, key)
-            XCTAssertEqual(label?.localizedDescription, NSLocalizedString(key, bundle: .module, comment: ""))
+            XCTAssertEqual(label, .flags)
 
         }
 

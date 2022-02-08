@@ -187,14 +187,32 @@ public class Emoji {
        - group: The group name where the emoji belongs.
        - subgroup: The subgroup name where the emoji belongs.
      */
-    init(character: Character, status: Status = .fullyQualified, cldrOrder: Int = 0, group: String = "", subgroup: String = "") {
+    init(character: Character, status: Status, cldrOrder: Int, group: String, subgroup: String) {
         self.character = character
         self.status = status
         self.cldrOrder = cldrOrder
         self.group = group
         self.subgroup = subgroup
     }
-    
+
+}
+
+extension Emoji {
+
+    /**
+     Creates a new *Emoji* instance by the required parameters.
+
+     - Parameters:
+       - s: The string that represents a single extended grapheme cluster.
+       - status: The status of the emoji.
+       - cldrOrder: The CLDR integer order for keyboard.
+       - group: The group name where the emoji belongs.
+       - subgroup: The subgroup name where the emoji belongs.
+     */
+    convenience init(_ s: String, status: Status = .fullyQualified, cldrOrder: Int = 0, group: String = "", subgroup: String = "") {
+        self.init(character: Character(s), status: status, cldrOrder: cldrOrder, group: group, subgroup: subgroup)
+    }
+
 }
 
 extension Emoji: Identifiable {

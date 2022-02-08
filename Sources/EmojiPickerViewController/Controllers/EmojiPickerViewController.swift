@@ -31,100 +31,6 @@ import Collections
  */
 open class EmojiPickerViewController: UIViewController {
 
-    public enum Section: Int, CaseIterable {
-
-        case recentlyUsed
-
-        case searchResult
-
-        case smileysPeople
-
-        case animalsNature
-
-        case foodDrink
-
-        case travelPlaces
-
-        case activities
-
-        case objects
-
-        case symbols
-
-        case flags
-
-        init(emojiLabel: EmojiLabel) {
-            switch emojiLabel {
-            case .smileysPeople:
-                self = .smileysPeople
-
-            case .animalsNature:
-                self = .animalsNature
-
-            case .foodDrink:
-                self = .foodDrink
-
-            case .travelPlaces:
-                self = .travelPlaces
-
-            case .activities:
-                self = .activities
-
-            case .objects:
-                self = .objects
-
-            case .symbols:
-                self = .symbols
-
-            case .flags:
-                self = .flags
-            }
-        }
-
-        /**
-         The label of the emoji, which is used as category as usual.
-         */
-        public var localizedSectionName: String {
-
-            switch self {
-
-            case .recentlyUsed:
-                return NSLocalizedString("recently_used", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
-                
-            case .searchResult:
-                return NSLocalizedString("search_result", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
-
-            case .smileysPeople:
-                return NSLocalizedString("smileys_people", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
-
-            case .animalsNature:
-                return NSLocalizedString("animals_nature", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
-
-            case .foodDrink:
-                return NSLocalizedString("food_drink", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
-
-            case .travelPlaces:
-                return NSLocalizedString("travel_places", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
-
-            case .activities:
-                return NSLocalizedString("activities", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
-
-            case .objects:
-                return NSLocalizedString("objects", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
-
-            case .symbols:
-                return NSLocalizedString("symbols", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
-
-            case .flags:
-                return NSLocalizedString("flags", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
-
-            }
-
-        }
-
-
-    }
-
     /**
      The picker’s delegate object.
      */
@@ -150,7 +56,7 @@ open class EmojiPickerViewController: UIViewController {
     /**
      The data source of the `collectionView`.
      */
-    open var dataSource: UICollectionViewDiffableDataSource<Section, Emoji>!
+    open var dataSource: UICollectionViewDiffableDataSource<EmojiPickerSection, Emoji>!
 
     /**
      The layout object that `collectionView` uses.
@@ -275,7 +181,7 @@ open class EmojiPickerViewController: UIViewController {
 
         let headerCellRegistration = UICollectionView.SupplementaryRegistration<EmojiCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { [unowned self] supplementaryView, elementKind, indexPath in
 
-            let section: Section
+            let section: EmojiPickerSection
             if #available(iOS 15, *) {
                 section = dataSource.sectionIdentifier(for: indexPath.section)!
             } else {
@@ -285,7 +191,7 @@ open class EmojiPickerViewController: UIViewController {
             supplementaryView.headerLabel.text = section.localizedSectionName
         }
 
-        dataSource = UICollectionViewDiffableDataSource<Section, Emoji>(collectionView: collectionView, cellProvider: { collectionView, indexPath, emoji in
+        dataSource = UICollectionViewDiffableDataSource<EmojiPickerSection, Emoji>(collectionView: collectionView, cellProvider: { collectionView, indexPath, emoji in
             return collectionView.dequeueConfiguredReusableCell(using: emojiCellRegistration, for: indexPath, item: emoji)
         })
 
@@ -299,7 +205,7 @@ open class EmojiPickerViewController: UIViewController {
 
     private func applyData() {
 
-        var snapshot: NSDiffableDataSourceSnapshot<Section, Emoji> = .init()
+        var snapshot: NSDiffableDataSourceSnapshot<EmojiPickerSection, Emoji> = .init()
 
         // TODO: recently used should be considered later.
 
@@ -340,7 +246,7 @@ open class EmojiPickerViewController: UIViewController {
             // define enum Item: Identifiable { case recentlyUsed, case searchResult, case emoji } 
          
             if snapshot.indexOfSection(.searchResult) == nil {
-                snapshot.appendSections([.searchResult])
+                snapshot.insertSections([.searchResult], beforeSection: .smileysPeople)
                 snapshot.appendItems(searchResults, toSection: .searchResult)
                 dataSource.apply(snapshot)
 
