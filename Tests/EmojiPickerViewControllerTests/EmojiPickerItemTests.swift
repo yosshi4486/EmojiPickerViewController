@@ -39,41 +39,54 @@ class EmojiPickerItemTests: XCTestCase {
     func testItemIdentityWhenSameCharacter() throws {
 
         let emoji = Emoji("😊")
-        let recentlyUsed = EmojiPickerItem(emoji: emoji, itemType: .recentlyUsed)
-        let searchResult = EmojiPickerItem(emoji: emoji, itemType: .searchResult)
-        let labeled = EmojiPickerItem(emoji: emoji, itemType: .labeled)
+        let recentlyUsed = EmojiPickerItem.recentlyUsed(emoji)
+        let searchResult = EmojiPickerItem.searchResult(emoji)
+        let labeled = EmojiPickerItem.labeled(emoji)
+        let empty = EmojiPickerItem.empty
 
         XCTAssertNotEqual(recentlyUsed, searchResult)
         XCTAssertNotEqual(recentlyUsed, labeled)
+        XCTAssertNotEqual(recentlyUsed, empty)
         XCTAssertNotEqual(searchResult, labeled)
+        XCTAssertNotEqual(searchResult, empty)
+        XCTAssertNotEqual(labeled, empty)
 
-        let recentlyUsed2 = EmojiPickerItem(emoji: emoji, itemType: .recentlyUsed)
-        let searchResult2 = EmojiPickerItem(emoji: emoji, itemType: .searchResult)
-        let labeled2 = EmojiPickerItem(emoji: emoji, itemType: .labeled)
+        let recentlyUsed2 = EmojiPickerItem.recentlyUsed(emoji)
+        let searchResult2 = EmojiPickerItem.searchResult(emoji)
+        let labeled2 = EmojiPickerItem.labeled(emoji)
+        let empty2 = EmojiPickerItem.empty
 
         XCTAssertEqual(recentlyUsed, recentlyUsed2)
         XCTAssertEqual(searchResult, searchResult2)
         XCTAssertEqual(labeled, labeled2)
+        XCTAssertEqual(empty, empty2)
 
     }
 
     func testItemIdentityWhenDifferenceCharacter() throws {
 
-        let recentlyUsed = EmojiPickerItem(emoji: Emoji("😍"), itemType: .recentlyUsed)
-        let searchResult = EmojiPickerItem(emoji: Emoji("🍎"), itemType: .searchResult)
-        let labeled = EmojiPickerItem(emoji: Emoji("🚜"), itemType: .labeled)
+        let recentlyUsed = EmojiPickerItem.recentlyUsed(Emoji("😍"))
+        let searchResult = EmojiPickerItem.searchResult(Emoji("🍎"))
+        let labeled = EmojiPickerItem.labeled(Emoji("🚜"))
+        let empty = EmojiPickerItem.empty // It doesn't have an emoji.
 
         XCTAssertNotEqual(recentlyUsed, searchResult)
         XCTAssertNotEqual(recentlyUsed, labeled)
+        XCTAssertNotEqual(recentlyUsed, empty)
         XCTAssertNotEqual(searchResult, labeled)
+        XCTAssertNotEqual(searchResult, empty)
+        XCTAssertNotEqual(labeled, empty)
 
-        let recentlyUsed2 = EmojiPickerItem(emoji: Emoji("❤️"), itemType: .recentlyUsed)
-        let searchResult2 = EmojiPickerItem(emoji: Emoji("💾"), itemType: .searchResult)
-        let labeled2 = EmojiPickerItem(emoji: Emoji("📊"), itemType: .labeled)
+        let recentlyUsed2 = EmojiPickerItem.recentlyUsed(Emoji("❤️"))
+        let searchResult2 = EmojiPickerItem.searchResult(Emoji("💾"))
+        let labeled2 = EmojiPickerItem.labeled(Emoji("📊"))
+        let empty2 = EmojiPickerItem.empty // It doesn't have an emoji.
+
 
         XCTAssertNotEqual(recentlyUsed, recentlyUsed2)
         XCTAssertNotEqual(searchResult, searchResult2)
         XCTAssertNotEqual(labeled, labeled2)
+        XCTAssertEqual(empty, empty2)
 
     }
 

@@ -107,7 +107,7 @@ open class EmojiPickerViewController: UIViewController {
 
         Task {
             let results = await emojiContainer.searchEmojisForKeyboard(from: keyboard)
-            let items = results.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) })
+            let items = results.map({ EmojiPickerItem.labeled($0) })
             DispatchQueue.main.async {
                 self.searchResults = items
             }
@@ -130,8 +130,6 @@ open class EmojiPickerViewController: UIViewController {
     }
 
     private func setupView() {
-
-        // The layout is very simple so that we don't have to use compositional layout.
 
         flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 5
@@ -178,27 +176,51 @@ open class EmojiPickerViewController: UIViewController {
 
     private func setupDataSource() {
 
-        let emojiCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, EmojiPickerItem> { [unowned self] cell, indexPath, item in
-            let index = (self.diffableDataSource.snapshot().indexOfItem(item) ?? 0) + 1
-            var contentConfiguration = EmojiContentConfiguration(emoji: item.emoji)
-            contentConfiguration.accessibilityIndexOfEmoji = index
-            cell.contentConfiguration = contentConfiguration
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, EmojiPickerItem> { [unowned self] cell, indexPath, item in
+
+            if let emoji = item.emoji {
+
+                let index = (self.diffableDataSource.snapshot().indexOfItem(item) ?? 0) + 1
+                var contentConfiguration = LabelContentConfiguration()
+                contentConfiguration.text = String(emoji.character)
+                contentConfiguration.font = UIFont.preferredFont(forTextStyle: .headline)
+                contentConfiguration.textAlighment = .center
+
+                cell.contentConfiguration = contentConfiguration
+
+                cell.isAccessibilityElement = true
+                cell.accessibilityElements = []
+                cell.accessibilityTraits = .button
+                cell.accessibilityLabel = "\(emoji.textToSpeach), \(index)"
+
+            } else {
+
+                var contentConfiguration = LabelContentConfiguration()
+                contentConfiguration.text = NSLocalizedString("no_results", bundle: .module, comment: "Empty state text: feedbacks no-results to the user.")
+                contentConfiguration.font = UIFont.preferredFont(forTextStyle: .title2)
+                contentConfiguration.textColor = .secondaryLabel
+                contentConfiguration.textAlighment = .center
+
+                cell.contentConfiguration = contentConfiguration
+
+                cell.isAccessibilityElement = true
+                cell.accessibilityElements = []
+                cell.accessibilityTraits = .none
+                cell.accessibilityLabel = contentConfiguration.text
+
+            }
+
         }
 
         let headerCellRegistration = UICollectionView.SupplementaryRegistration<EmojiCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { [unowned self] supplementaryView, elementKind, indexPath in
 
-            let section: EmojiPickerSection
-            if #available(iOS 15, *) {
-                section = diffableDataSource.sectionIdentifier(for: indexPath.section)!
-            } else {
-                section = self.diffableDataSource.snapshot().sectionIdentifiers[indexPath.section]
-            }
-
+            let section = self.section(for: indexPath)!
             supplementaryView.headerLabel.text = section.localizedSectionName
+
         }
 
         diffableDataSource = UICollectionViewDiffableDataSource<EmojiPickerSection, EmojiPickerItem>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
-            return collectionView.dequeueConfiguredReusableCell(using: emojiCellRegistration, for: indexPath, item: item)
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         })
 
         diffableDataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
@@ -216,14 +238,14 @@ open class EmojiPickerViewController: UIViewController {
         // TODO: recently used should be considered later.
 
         snapshot.appendSections([.smileysPeople, .animalsNature, .foodDrink, .travelPlaces, .activities, .objects, .symbols, .flags])
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.smileysPeople]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .smileysPeople)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.animalsNature]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .animalsNature)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.foodDrink]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .foodDrink)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.travelPlaces]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .travelPlaces)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.activities]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .activities)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.objects]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .objects)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.symbols]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .symbols)
-        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.flags]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .flags)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.smileysPeople]!.map({ EmojiPickerItem.labeled($0) }), toSection: .smileysPeople)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.animalsNature]!.map({ EmojiPickerItem.labeled($0) }), toSection: .animalsNature)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.foodDrink]!.map({ EmojiPickerItem.labeled($0) }), toSection: .foodDrink)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.travelPlaces]!.map({ EmojiPickerItem.labeled($0) }), toSection: .travelPlaces)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.activities]!.map({ EmojiPickerItem.labeled($0) }), toSection: .activities)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.objects]!.map({ EmojiPickerItem.labeled($0) }), toSection: .objects)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.symbols]!.map({ EmojiPickerItem.labeled($0) }), toSection: .symbols)
+        snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.flags]!.map({ EmojiPickerItem.labeled($0) }), toSection: .flags)
 
         // `animatingDifferences` is false at first time.
         diffableDataSource.apply(snapshot, animatingDifferences: false)
@@ -242,11 +264,21 @@ open class EmojiPickerViewController: UIViewController {
 
             } else {
 
-                // Using section snapshot to repalce the section data.
-                let sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
-                diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: animatingChanges)
+                if snapshot.indexOfSection(.searchResult) == nil {
 
-                #warning("TODO: Show empty state. No Results")
+                    snapshot.insertSections([.searchResult], beforeSection: .smileysPeople)
+                    snapshot.appendItems([.empty], toSection: .searchResult)
+                    diffableDataSource.apply(snapshot, animatingDifferences: animatingChanges)
+
+                } else {
+
+                    // Using section snapshot to repalce the section data.
+                    var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
+                    sectionSnapshot.append([.empty], to: nil)
+                    diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: animatingChanges)
+
+                }
+
             }
 
         } else {
@@ -270,15 +302,49 @@ open class EmojiPickerViewController: UIViewController {
 
     }
 
+    private func section(for indexPath: IndexPath) -> EmojiPickerSection? {
+
+        let section: EmojiPickerSection?
+        if #available(iOS 15, *) {
+            section = diffableDataSource.sectionIdentifier(for: indexPath.section)
+        } else {
+            section = self.diffableDataSource.snapshot().sectionIdentifiers[indexPath.section]
+        }
+
+        return section
+
+    }
+
 }
 
 extension EmojiPickerViewController: UICollectionViewDelegate {
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        let cell = collectionView.cellForItem(at: indexPath)
-        let emojiContentConfiguration = cell!.contentConfiguration as! EmojiContentConfiguration
-        delegate?.emojiPickerViewController(self, didPick: emojiContentConfiguration.emoji)
+        guard let item = diffableDataSource.itemIdentifier(for: indexPath), let emoji = item.emoji else {
+            return
+        }
+
+        delegate?.emojiPickerViewController(self, didPick: emoji)
+
+    }
+
+}
+
+extension EmojiPickerViewController: UICollectionViewDelegateFlowLayout {
+
+    /*
+     This implementation is to provide empty state experience.
+     */
+
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        guard let item = diffableDataSource.itemIdentifier(for: indexPath), item == .empty else {
+            return flowLayout.itemSize
+        }
+
+        // The size for empty state cell.
+        return CGSize(width: collectionView.bounds.width, height: flowLayout.itemSize.height)
 
     }
 

@@ -30,38 +30,51 @@ import Foundation
 
  Since `UICollectionViewDiffableDataSource` detects the data identity using the id property, a raw `Emoji` object that wants to appear in several sections is recognized as the same item. The purpose of this type is to give the ability for an emoji to appear in several sections.
  */
-struct EmojiPickerItem {
+enum EmojiPickerItem {
+    
 
     /**
-     A type for emoji picker item.
+     The item type for  a `.recentlyUsed` section.
      */
-    enum ItemType: Int {
+    case recentlyUsed(Emoji)
 
-        /**
-         The item type for  a `.recentlyUsed` section.
-         */
-        case recentlyUsed
+    /**
+     The item type for  a `.searchResult` section.
+     */
+    case searchResult(Emoji)
 
-        /**
-         The item type for  a `.searchResult` section.
-         */
-        case searchResult
+    /**
+     The item type for  a `.smileysPeople`, `.animalsNature`, `.foodDrink`, `.travelPlaces`,  `.activities`, `.objects`, `.symbols` or `.flags` section.
+     */
+    case labeled(Emoji)
 
-        /**
-         The item type for  a `.smileysPeople`, `.animalsNature`, `.foodDrink`, `.travelPlaces`,  `.activities`, `.objects`, `.symbols` or `.flags` section.
-         */
-        case labeled
+    /**
+     The item type for empty section.
+     */
+    case empty
+
+    /**
+     The emoji that is associated with this item. Returns non-nil value if the case is `.recentlyUsed`, `.searchResult` or `.labeled`. Otherwise; returns `nil`.
+     */
+    var emoji: Emoji? {
+
+        switch self {
+
+        case .recentlyUsed(let emoji):
+            return emoji
+
+        case .searchResult(let emoji):
+            return emoji
+
+        case .labeled(let emoji):
+            return emoji
+
+        case .empty:
+            return nil
+            
+        }
+
     }
-
-    /**
-     The emoji which is shown in a cell.
-     */
-    let emoji: Emoji
-
-    /**
-     The item type of this picker item.
-     */
-    let itemType: ItemType
 
 }
 
@@ -79,7 +92,21 @@ extension EmojiPickerItem: Identifiable {
      - An emoji appears several times in a section.
      */
     var id: String {
-        return "\(itemType.rawValue)_\(emoji.id)"
+
+        switch self {
+        case .recentlyUsed(let emoji):
+            return "0_\(emoji.id)"
+
+        case .searchResult(let emoji):
+            return "1_\(emoji.id)"
+
+        case .labeled(let emoji):
+            return "2_\(emoji.id)"
+
+        case .empty:
+            return "3"
+        }
+
     }
 
 }
