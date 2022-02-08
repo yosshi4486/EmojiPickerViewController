@@ -118,8 +118,8 @@ open class EmojiPickerViewController: UIViewController {
             UIImage(systemName: "face.smiling")!,
             UIImage(systemName: "leaf")!,
             UIImage(systemName: "fork.knife")!,
-            UIImage(systemName: "paintpalette")!,
             UIImage(systemName: "airplane")!,
+            UIImage(systemName: "paintpalette")!,
             UIImage(systemName: "lightbulb")!,
             UIImage(systemName: "number")!,
             UIImage(systemName: "flag")!
