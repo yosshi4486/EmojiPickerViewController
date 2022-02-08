@@ -183,9 +183,9 @@ open class EmojiPickerViewController: UIViewController {
 
     }
 
-    @objc func scrollToSelectedSection(sender: UISegmentedControl) {
+    @objc func scrollToSelectedSection(sender: Any?) {
 
-        collectionView.scrollToSection(sender.selectedSegmentIndex, position: .top, animated: false)
+        collectionView.scrollToSection(segmentedControl.selectedSegmentIndex, position: .top, animated: false)
         collectionView.flashScrollIndicators()
 
     }
@@ -419,6 +419,8 @@ extension EmojiPickerViewController: UISearchBarDelegate {
 
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         search(from: searchText)
+        segmentedControl.selectedSegmentIndex = 0
+        scrollToSelectedSection(sender: nil)
     }
 
     public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
