@@ -134,7 +134,6 @@ open class EmojiPickerViewController: UIViewController {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
         self.searchBar.delegate = self
-        self.flowLayout.headerReferenceSize = .init(width: view.bounds.width, height: 50)
         self.segmentedControl.addTarget(self, action: #selector(scrollToSelectedSection(sender:)), for: .valueChanged)
         self.collectionView.delegate = self
 
@@ -158,6 +157,19 @@ open class EmojiPickerViewController: UIViewController {
         super.viewDidAppear(animated)
 
         collectionView.flashScrollIndicators()
+
+    }
+
+    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if #available(iOS 15.0, *) {
+            var snapshot = diffableDataSource.snapshot()
+            snapshot.reconfigureItems(snapshot.itemIdentifiers)
+            diffableDataSource.apply(snapshot, animatingDifferences: false)
+        } else {
+            // How to reload the collection view without using this newest API?
+        }
 
     }
 
@@ -392,9 +404,22 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
 extension EmojiPickerViewController: UICollectionViewDelegateFlowLayout {
 
     /*
+     This implementation is to adopt size category changes.
+     */
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+
+        guard let header = diffableDataSource.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: IndexPath(row: 0, section: section)) as? LabelCollectionHeaderView else {
+            return CGSize(width: collectionView.bounds.width, height: 50) // Default size
+        }
+
+        let sizeForAdoptingTraitChanges = header.systemLayoutSizeFitting(.init(width: collectionView.bounds.width, height: UIView.layoutFittingExpandedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+
+        return sizeForAdoptingTraitChanges
+    }
+
+    /*
      This implementation is to provide empty state experience.
      */
-
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         guard let item = diffableDataSource.itemIdentifier(for: indexPath), item == .empty else {

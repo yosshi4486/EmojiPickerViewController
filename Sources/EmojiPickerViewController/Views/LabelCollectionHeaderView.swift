@@ -45,6 +45,7 @@ class LabelCollectionHeaderView: UICollectionReusableView {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .headline)
         label.adjustsFontForContentSizeCategory = true
+        label.numberOfLines = 0
         label.textColor = .label
         return label
     }()
