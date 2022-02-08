@@ -43,24 +43,4 @@ public protocol EmojiPickerViewControllerDelegate: AnyObject {
      */
     func emojiPickerViewController(_ emojiPickerViewController: EmojiPickerViewController, didPick emoji: Emoji)
 
-    /**
-     Notifies the delegate that the emoji picker view controller receives error.
-
-     The view controller doesn't dismiss automatically after this delegate event. The owner should explicitly call `emojiPickerViewController.dismiss()`.
-
-     - Parameters:
-       - emojiPickerViewController: The view controller that is presenting the emoji picker.
-       - error: The error that is raised in the emoji picker view controller.
-     */
-    func emojiPickerViewController(_ emojiPickerViewController: EmojiPickerViewController, didReceiveError error: Error)
-
-}
-
-public extension EmojiPickerViewController {
-
-    /**
-     The default implementation provided. It does nothing.
-     */
-    func emojiPickerViewController(_ emojiPickerViewController: EmojiPickerViewController, didReceiveError error: Error) { }
-
 }

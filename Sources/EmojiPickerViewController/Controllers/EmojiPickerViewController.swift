@@ -49,7 +49,7 @@ open class EmojiPickerViewController: UIViewController {
     /**
      The collection view for which shows emojis.
      */
-    private(set) open var collectionView: UICollectionView!
+    public let collectionView: UICollectionView
 
     /**
      The layout object that `collectionView` uses.
@@ -67,6 +67,11 @@ open class EmojiPickerViewController: UIViewController {
      This view controller uses `UISearchBar` instead of using with `UISearchController`, because showing the results in anothoer view controller is redundant.
      */
     public let searchBar: UISearchBar
+
+    /**
+     The segmented control for which jumps curren section to the selected section.
+     */
+    public let segmentedControl: UISegmentedControl
 
     /**
      The container that loads entire information for emoji.
@@ -104,10 +109,31 @@ open class EmojiPickerViewController: UIViewController {
         self.searchBar.searchTextField.clearButtonMode = .whileEditing
         self.searchBar.searchBarStyle = .minimal
 
+        /*
+         Using SFSymbols might not be the best idea.
+         */
+
+        let images: [UIImage] = [
+            UIImage(systemName: "face.smiling")!,
+            UIImage(systemName: "leaf")!,
+            UIImage(systemName: "fork.knife")!,
+            UIImage(systemName: "paintpalette")!,
+            UIImage(systemName: "airplane")!,
+            UIImage(systemName: "lightbulb")!,
+            UIImage(systemName: "number")!,
+            UIImage(systemName: "flag")!
+        ]
+
+        self.segmentedControl = UISegmentedControl(items: images)
+        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.flowLayout)
+        self.collectionView.backgroundColor = .clear
+
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
         self.searchBar.delegate = self
         self.flowLayout.headerReferenceSize = .init(width: view.bounds.width, height: 50)
+        self.segmentedControl.addTarget(self, action: #selector(scrollToSelectedSection(sender:)), for: .valueChanged)
+        self.collectionView.delegate = self
 
     }
 
@@ -148,33 +174,29 @@ open class EmojiPickerViewController: UIViewController {
 
     }
 
+    @objc func scrollToSelectedSection(sender: UISegmentedControl) {
+
+    }
+
     private func loadEmojiSet() {
 
         if !emojiContainer.isLoaded {
-
-            do {
-                try emojiContainer.load()
-            } catch {
-                delegate?.emojiPickerViewController(self, didReceiveError: error)
-            }
-
+            emojiContainer.load()
         }
 
     }
 
     private func setupView() {
 
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.delegate = self
-
         view.addSubview(visualEffectView)
         visualEffectView.contentView.addSubview(searchBar)
         visualEffectView.contentView.addSubview(collectionView)
+        visualEffectView.contentView.addSubview(segmentedControl)
 
         visualEffectView.translatesAutoresizingMaskIntoConstraints = false
         searchBar.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .clear
 
         NSLayoutConstraint.activate([
             visualEffectView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -187,7 +209,10 @@ open class EmojiPickerViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: searchBar.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: searchBar.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: visualEffectView.contentView.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: visualEffectView.contentView.bottomAnchor),
+            segmentedControl.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
+            segmentedControl.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+            segmentedControl.bottomAnchor.constraint(equalTo: visualEffectView.safeAreaLayoutGuide.bottomAnchor)
         ])
         
 
