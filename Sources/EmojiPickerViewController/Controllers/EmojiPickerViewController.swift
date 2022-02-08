@@ -235,23 +235,31 @@ open class EmojiPickerViewController: UIViewController {
 
         if searchResults.isEmpty {
 
-            if navigationItem.searchController?.searchBar.text?.isEmpty == true {
+            if searchBar.text?.isEmpty == true {
+
                 snapshot.deleteSections([.searchResult])
+                diffableDataSource.apply(snapshot)
+
             } else {
+
+                // Using section snapshot to repalce the section data.
+                let sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
+                diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: animatingChanges)
+
                 #warning("TODO: Show empty state. No Results")
             }
-
-            diffableDataSource.apply(snapshot)
 
         } else {
          
             if snapshot.indexOfSection(.searchResult) == nil {
+
                 snapshot.insertSections([.searchResult], beforeSection: .smileysPeople)
                 snapshot.appendItems(searchResults, toSection: .searchResult)
                 diffableDataSource.apply(snapshot, animatingDifferences: animatingChanges)
 
             } else {
-                // Using section snapshot makes the datasource repalces the data.
+
+                // Using section snapshot to repalce the section data.
                 var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
                 sectionSnapshot.append(searchResults, to: nil)
                 diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: animatingChanges)
@@ -281,14 +289,6 @@ extension EmojiPickerViewController: UISearchBarDelegate {
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         search(from: searchText)
-
-    }
-
-    public func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-
-    }
-
-    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
     }
 
