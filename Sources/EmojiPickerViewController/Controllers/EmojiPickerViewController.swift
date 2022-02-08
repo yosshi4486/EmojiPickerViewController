@@ -32,6 +32,11 @@ import Collections
 open class EmojiPickerViewController: UIViewController {
 
     /**
+     The boolean value indicating whether the collectionview animates changes.
+     */
+    open var animatingChanges: Bool = true
+
+    /**
      The picker’s delegate object.
      */
     open weak var delegate: EmojiPickerViewControllerDelegate?
@@ -40,6 +45,11 @@ open class EmojiPickerViewController: UIViewController {
      The collection view for which shows emojis.
      */
     private(set) open var collectionView: UICollectionView!
+
+    /**
+     The layout object that `collectionView` uses.
+     */
+    private(set) open var flowLayout: UICollectionViewFlowLayout!
 
     /**
      The visual effect view that adds blur effect.
@@ -52,11 +62,6 @@ open class EmojiPickerViewController: UIViewController {
      This view controller uses `UISearchBar` instead of using with `UISearchController`, because showing the results in anothoer view controller is redundant.
      */
     public let searchBar: UISearchBar = .init(frame: .zero)
-
-    /**
-     The layout object that `collectionView` uses.
-     */
-    private(set) open var flowLayout: UICollectionViewFlowLayout!
 
     /**
      The container that loads entire information for emoji.
@@ -220,7 +225,8 @@ open class EmojiPickerViewController: UIViewController {
         snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.symbols]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .symbols)
         snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.flags]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .flags)
 
-        diffableDataSource.apply(snapshot)
+        // `animatingDifferences` is false at first time.
+        diffableDataSource.apply(snapshot, animatingDifferences: false)
     }
 
     private func updateSearchResultSection() {
@@ -242,13 +248,13 @@ open class EmojiPickerViewController: UIViewController {
             if snapshot.indexOfSection(.searchResult) == nil {
                 snapshot.insertSections([.searchResult], beforeSection: .smileysPeople)
                 snapshot.appendItems(searchResults, toSection: .searchResult)
-                diffableDataSource.apply(snapshot, animatingDifferences: false)
+                diffableDataSource.apply(snapshot, animatingDifferences: animatingChanges)
 
             } else {
                 // Using section snapshot makes the datasource repalces the data.
                 var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
                 sectionSnapshot.append(searchResults, to: nil)
-                diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: false)
+                diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: animatingChanges)
 
             }
 
