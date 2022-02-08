@@ -287,6 +287,10 @@ open class EmojiPickerViewController: UIViewController {
             supplementaryView.headerLabel.text = section.localizedSectionName
             supplementaryView.appearance = self.headerAppearance
 
+            supplementaryView.isAccessibilityElement = true
+            supplementaryView.accessibilityTraits = .header
+            supplementaryView.accessibilityElements = []
+            supplementaryView.accessibilityLabel = section.localizedSectionName
         }
 
         diffableDataSource = UICollectionViewDiffableDataSource<EmojiPickerSection, EmojiPickerItem>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
