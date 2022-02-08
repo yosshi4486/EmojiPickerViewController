@@ -80,7 +80,7 @@ class EmojiAnnotationLoader: Loader {
     /**
      Loads an annotations data file for setting each emoji's annotation and tts property.
      */
-    @MainActor func load() throws {
+    @MainActor func load() {
 
         for resourceURL in resourceURLs {
 

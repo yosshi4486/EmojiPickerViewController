@@ -92,7 +92,7 @@ import XCTest
         // Preparation
         let container = EmojiContainer()
         container.emojiLocale = EmojiLocale(localeIdentifier: "ja")!
-        try container.load()
+        container.load()
 
         // Precheck
         XCTAssertEqual(container.entireEmojiSet.count, emojiCountsListedInEmojiTest)
@@ -114,7 +114,7 @@ import XCTest
 
         // Execute
         container.emojiLocale = EmojiLocale(localeIdentifier: "en")!
-        try container.loadAnnotations()
+        container.loadAnnotations()
 
         // Postcheck
         XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.character, "😀")
@@ -138,7 +138,7 @@ import XCTest
         // Preparation
         let container = EmojiContainer()
         container.emojiLocale = EmojiLocale(localeIdentifier: "en")!
-        try container.load()
+        container.load()
 
         // Search "frog"
         let frogs = container.searchEmojisForKeyboard(from: "frog")
@@ -161,7 +161,7 @@ import XCTest
         // Preparation
         let container = EmojiContainer()
         container.emojiLocale = EmojiLocale(localeIdentifier: "en")!
-        try container.load()
+        container.load()
 
         // Search "frog"
         let frogs = await container.searchEmojisForKeyboard(from: "frog")
@@ -185,7 +185,7 @@ import XCTest
         let container = EmojiContainer()
         container.emojiLocale = EmojiLocale(localeIdentifier: "en")!
         container.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
-        try container.load()
+        container.load()
 
         let grinningFace = try XCTUnwrap(container.labeledEmojisForKeyboard[.smileysPeople]?.first)
         XCTAssertEqual(grinningFace.character, "😀")
@@ -243,7 +243,7 @@ import XCTest
 
         let container = EmojiContainer()
         container.emojiLocale = EmojiLocale(localeIdentifier: "en")!
-        try container.load()
+        container.load()
 
         measure {
             _ = container.searchEmojisForKeyboard(from: "cop")
@@ -256,7 +256,7 @@ import XCTest
 
         let container = EmojiContainer()
         container.emojiLocale = EmojiLocale(localeIdentifier: "en")!
-        try container.load()
+        container.load()
 
         // Even if we adopt regex for searching emojis, we have to search two files, which the one is annotations and the other is annotationsDerived, moreover we have to care about status of emojis in the implementation.
         // We think that the time difference is not big, so we decided to use array search for providing search API.

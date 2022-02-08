@@ -97,10 +97,10 @@ public class EmojiContainer: Loader {
 
      After an initial call of this method, you should use `loadAnnotations()` rather than calling `load()`  again,  because this method replaces both cached `emojiDictionary` and `orderedEmojisForKeyboard`.
      */
-    @MainActor public func load() throws {
+    @MainActor public func load() {
 
         emojiLoader.load()
-        try loadAnnotations()
+        loadAnnotations()
 
     }
 
@@ -110,15 +110,15 @@ public class EmojiContainer: Loader {
      - Precondition:
      This method should be called when the emoji-set is loaded.
      */
-    @MainActor public func loadAnnotations() throws {
+    @MainActor public func loadAnnotations() {
 
         precondition(!entireEmojiSet.isEmpty && !labeledEmojisForKeyboard.isEmpty, "Logical Failure, `load()` should be called before `loadAnnotations()`.")
 
         let annotationLoader = EmojiAnnotationLoader(emojiDictionary: entireEmojiSet, emojiLocale: emojiLocale)
-        try annotationLoader.load()
+        annotationLoader.load()
 
         let annotationDerivedLoader = EmojiAnnotationDerivedLoader(emojiDictionary: entireEmojiSet, emojiLocale: emojiLocale)
-        try annotationDerivedLoader.load()
+        annotationDerivedLoader.load()
 
     }
 
@@ -171,8 +171,7 @@ public class EmojiContainer: Loader {
         }
 
         emojiLocale = autoUpdatingResource
-
-        try? loadAnnotations()
+        loadAnnotations()
 
         NotificationCenter.default.post(name: EmojiContainer.currentAnnotationDidChangeNotification, object: autoUpdatingResource)
         

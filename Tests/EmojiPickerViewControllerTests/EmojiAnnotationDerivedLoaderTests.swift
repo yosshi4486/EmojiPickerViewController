@@ -52,7 +52,7 @@ import XCTest
         ]
 
         let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, emojiLocale: EmojiLocale(localeIdentifier: "ja")!)
-        XCTAssertNoThrow(try loader.load())
+        loader.load()
 
         XCTAssertEqual(emojiDictionary["👋🏾"]?.annotation, "バイバイ | やや濃い肌色 | 手 | 手を振る", "Failed to load `ja` annotations.")
         XCTAssertEqual(emojiDictionary["👋🏾"]?.textToSpeach, "手を振る: やや濃い肌色", "Failed to load `ja` textToSpeach.")
@@ -68,7 +68,7 @@ import XCTest
         ]
 
         let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, emojiLocale: EmojiLocale(localeIdentifier: "ja")!)
-        XCTAssertNoThrow(try loader.load())
+        loader.load()
 
         XCTAssertEqual(emojiDictionary["😀"]?.annotation, "")
         XCTAssertEqual(emojiDictionary["😀"]?.textToSpeach, "")
