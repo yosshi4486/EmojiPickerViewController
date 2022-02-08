@@ -126,6 +126,7 @@ open class EmojiPickerViewController: UIViewController {
         ]
 
         self.segmentedControl = UISegmentedControl(items: images)
+        self.segmentedControl.tintColor = .label
         self.segmentedControl.selectedSegmentIndex = 0
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.flowLayout)
         self.collectionView.backgroundColor = .clear
