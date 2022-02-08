@@ -54,7 +54,7 @@ open class EmojiPickerViewController: UIViewController {
     /**
      The layout object that `collectionView` uses.
      */
-    public let flowLayout: UICollectionViewFlowLayout = .init()
+    public var flowLayout: UICollectionViewFlowLayout = .init()
 
     /**
      The visual effect view that adds blur effect.
@@ -66,7 +66,7 @@ open class EmojiPickerViewController: UIViewController {
 
      This view controller uses `UISearchBar` instead of using with `UISearchController`, because showing the results in anothoer view controller is redundant.
      */
-    public let searchBar: UISearchBar = .init(frame: .zero)
+    public let searchBar: UISearchBar
 
     /**
      The container that loads entire information for emoji.
@@ -86,6 +86,34 @@ open class EmojiPickerViewController: UIViewController {
      The diffable data source of the `collectionView`.
      */
     var diffableDataSource: UICollectionViewDiffableDataSource<EmojiPickerSection, EmojiPickerItem>!
+
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+
+        /*
+         Initialize with default settings.
+         */
+        self.flowLayout = UICollectionViewFlowLayout()
+        self.flowLayout.minimumLineSpacing = 5
+        self.flowLayout.minimumInteritemSpacing = 5
+        self.flowLayout.itemSize = .init(width: 50, height: 50)
+
+        self.searchBar = UISearchBar(frame: .zero)
+        self.searchBar.autocapitalizationType = .none
+        self.searchBar.searchTextField.placeholder = NSLocalizedString("search_emoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
+        self.searchBar.returnKeyType = .search
+        self.searchBar.searchTextField.clearButtonMode = .whileEditing
+        self.searchBar.searchBarStyle = .minimal
+
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+
+        self.searchBar.delegate = self
+        self.flowLayout.headerReferenceSize = .init(width: view.bounds.width, height: 50)
+
+    }
+
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,21 +164,8 @@ open class EmojiPickerViewController: UIViewController {
 
     private func setupView() {
 
-        flowLayout.minimumLineSpacing = 5
-        flowLayout.minimumInteritemSpacing = 5
-        flowLayout.itemSize = .init(width: 50, height: 50)
-        flowLayout.headerReferenceSize = .init(width: view.bounds.width, height: 50)
-
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.delegate = self
-
-        searchBar.autocapitalizationType = .none
-        searchBar.searchTextField.placeholder = NSLocalizedString("search_emoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
-        searchBar.returnKeyType = .search
-        searchBar.searchTextField.clearButtonMode = .whileEditing
-        searchBar.delegate = self
-        searchBar.searchBarStyle = .minimal
-        searchBar.isUserInteractionEnabled = true
 
         view.addSubview(visualEffectView)
         visualEffectView.contentView.addSubview(searchBar)

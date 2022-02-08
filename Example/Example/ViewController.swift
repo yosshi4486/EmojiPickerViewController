@@ -36,13 +36,60 @@ class ViewController: UIViewController {
     func showPicker() {
 
         let emojiPicker = EmojiPickerViewController()
+
+        /*
+         Receiveing events from the picker view controller.
+         */
         emojiPicker.delegate = self
 
         /*
-         You can specify a language for searching and voiceover.
+         Disabling changes animation.
+         */
+        emojiPicker.animatingChanges = false
+
+        /*
+         Customizing the collectionview layout via `UICollectionViewFlowLayout` object.
+         */
+        emojiPicker.flowLayout.itemSize = .init(width: 60, height: 60)
+
+        /*
+         Customizing the searchbar appearances.
+         */
+        emojiPicker.searchBar.searchTextField.textColor = .blue
+
+        /*
+         Customizing the visual effect.
+         */
+        emojiPicker.visualEffectView.effect = UIBlurEffect(style: .systemUltraThinMaterial)
+
+        /*
+         Specifying the language for searching and voiceover.
          */
         emojiPicker.emojiContainer.emojiLocale = EmojiLocale(localeIdentifier: "ja")!
 
+        /*
+         Activating an automatic-annotations-update option.
+         */
+        emojiPicker.emojiContainer.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
+
+        /*
+         Getting the loaded emoji.
+         */
+
+        // Getting the emoji via the emoji picker, or
+        let bouncingBall = emojiPicker.emojiContainer.entireEmojiSet["⛹🏿‍♀"]!
+        print(bouncingBall)
+
+        // singleton main container.
+        let grapes = EmojiContainer.main.entireEmojiSet["🍇"]!
+        print(grapes)
+
+        // You can also run load() at any time earlier, such as UIApplicationDelegate, UISceneDelegate and so on.
+        // EmojiContainer.main.load()
+        
+        /*
+         This is recommented implementation. In iPad, presents the picker as a popover, otherwise presents it as a sheet.
+         */
         if traitCollection.userInterfaceIdiom == .pad {
 
             emojiPicker.modalPresentationStyle = .popover
@@ -76,6 +123,7 @@ class ViewController: UIViewController {
 extension ViewController: EmojiPickerViewControllerDelegate {
 
     func emojiPickerViewController(_ emojiPickerViewController: EmojiPickerViewController, didPick emoji: Emoji) {
+
         print("The user picked \(emoji)")
         resultLabel.text!.append(emoji.character)
 
