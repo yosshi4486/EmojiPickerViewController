@@ -32,9 +32,9 @@ import Collections
 open class EmojiPickerViewController: UIViewController {
 
     /**
-     The boolean value indicating whether the collectionview animates changes.
+     The boolean value indicating whether the collectionview animates changes. The default value is `false`.
      */
-    open var animatingChanges: Bool = true
+    open var animatingChanges: Bool = false
 
     /**
      The appearance of the collection header.
@@ -317,7 +317,7 @@ open class EmojiPickerViewController: UIViewController {
             if searchBar.text?.isEmpty == true {
 
                 snapshot.deleteSections([.searchResult])
-                diffableDataSource.apply(snapshot)
+                diffableDataSource.apply(snapshot, animatingDifferences: animatingChanges)
 
             } else {
 

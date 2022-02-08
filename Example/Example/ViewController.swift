@@ -43,9 +43,9 @@ class ViewController: UIViewController {
         emojiPicker.delegate = self
 
         /*
-         Disabling changes animation.
+         Enabling changes animation.
          */
-        // emojiPicker.animatingChanges = false
+        // emojiPicker.animatingChanges = true
 
         /*
          Customizing the collectionview layout via `UICollectionViewFlowLayout` object.
