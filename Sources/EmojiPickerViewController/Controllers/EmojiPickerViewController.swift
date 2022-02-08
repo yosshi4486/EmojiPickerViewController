@@ -37,6 +37,11 @@ open class EmojiPickerViewController: UIViewController {
     open var animatingChanges: Bool = true
 
     /**
+     The appearance of the collection header.
+     */
+    open var headerAppearance: HeaderAppearance = HeaderAppearance()
+
+    /**
      The picker’s delegate object.
      */
     open weak var delegate: EmojiPickerViewControllerDelegate?
@@ -212,10 +217,11 @@ open class EmojiPickerViewController: UIViewController {
 
         }
 
-        let headerCellRegistration = UICollectionView.SupplementaryRegistration<EmojiCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { [unowned self] supplementaryView, elementKind, indexPath in
+        let headerCellRegistration = UICollectionView.SupplementaryRegistration<LabelCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { [unowned self] supplementaryView, elementKind, indexPath in
 
             let section = self.section(for: indexPath)!
             supplementaryView.headerLabel.text = section.localizedSectionName
+            supplementaryView.appearance = self.headerAppearance
 
         }
 

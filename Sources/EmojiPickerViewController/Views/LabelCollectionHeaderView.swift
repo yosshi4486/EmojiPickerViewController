@@ -1,5 +1,5 @@
 //
-//  EmojiCollectionHeaderView.swift
+//  LabelCollectionHeaderView.swift
 //
 //  EmojiPickerViewController
 //  https://github.com/yosshi4486/EmojiPickerViewController
@@ -25,7 +25,21 @@
 
 import UIKit
 
-class EmojiCollectionHeaderView: UICollectionReusableView {
+public struct HeaderAppearance {
+
+    public var font: UIFont = UIFont.preferredFont(forTextStyle: .headline)
+
+    public var textColor: UIColor = .label
+
+    public var textAlignment: NSTextAlignment = .natural
+
+}
+
+/*
+ We don't have to implement the redundant subclass if `UICollectionReusableView` were configuable view which has `contentConfiguration` property 😞
+ */
+
+class LabelCollectionHeaderView: UICollectionReusableView {
 
     let headerLabel: UILabel = {
         let label = UILabel()
@@ -34,6 +48,12 @@ class EmojiCollectionHeaderView: UICollectionReusableView {
         label.textColor = .label
         return label
     }()
+
+    var appearance: HeaderAppearance! {
+        didSet {
+            configureAppearance()
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,6 +79,14 @@ class EmojiCollectionHeaderView: UICollectionReusableView {
             headerLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
         ])
         
+    }
+
+    private func configureAppearance() {
+
+        headerLabel.font = appearance.font
+        headerLabel.textColor = appearance.textColor
+        headerLabel.textAlignment = appearance.textAlignment
+
     }
 
 }

@@ -57,7 +57,7 @@ class LabelContentView: UIView, UIContentView {
 
     var configuration: UIContentConfiguration {
         didSet {
-            configure(from: configuration)
+            configure()
         }
     }
 
@@ -70,14 +70,14 @@ class LabelContentView: UIView, UIContentView {
         super.init(frame: .zero)
 
         commonInit()
-        configure(from: configuration)
+        configure()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(from configuration: UIContentConfiguration) {
+    func configure() {
 
         guard let configuration = configuration as? LabelContentConfiguration else {
             label.text = ""
