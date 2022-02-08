@@ -54,7 +54,7 @@ open class EmojiPickerViewController: UIViewController {
     /**
      The layout object that `collectionView` uses.
      */
-    private(set) open var flowLayout: UICollectionViewFlowLayout!
+    public let flowLayout: UICollectionViewFlowLayout = .init()
 
     /**
      The visual effect view that adds blur effect.
@@ -136,7 +136,6 @@ open class EmojiPickerViewController: UIViewController {
 
     private func setupView() {
 
-        flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 5
         flowLayout.minimumInteritemSpacing = 5
         flowLayout.itemSize = .init(width: 50, height: 50)
@@ -358,10 +357,22 @@ extension EmojiPickerViewController: UICollectionViewDelegateFlowLayout {
 
 extension EmojiPickerViewController: UISearchBarDelegate {
 
+    public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+
+    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
         search(from: searchText)
+    }
 
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        searchResults = []
     }
 
 }
