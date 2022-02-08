@@ -39,10 +39,10 @@ open class EmojiPickerViewController: UIViewController {
     /**
      The collection view for which shows emojis.
      */
-    open var collectionView: UICollectionView!
+    private(set) open var collectionView: UICollectionView!
 
     /**
-     The visual effect view that adds blur effect. You can customize the effect by accessing the properties.
+     The visual effect view that adds blur effect.
      */
     public let visualEffectView: UIVisualEffectView = .init(effect: UIBlurEffect(style: .systemMaterial))
 
@@ -54,28 +54,28 @@ open class EmojiPickerViewController: UIViewController {
     public let searchBar: UISearchBar = .init(frame: .zero)
 
     /**
-     The data source of the `collectionView`.
-     */
-    open var dataSource: UICollectionViewDiffableDataSource<EmojiPickerSection, EmojiPickerItem>!
-
-    /**
      The layout object that `collectionView` uses.
      */
-    open var flowLayout: UICollectionViewFlowLayout!
+    private(set) open var flowLayout: UICollectionViewFlowLayout!
 
     /**
-     The container that loads emoji set and annotations.
+     The container that loads entire information for emoji.
      */
     public let emojiContainer: EmojiContainer = .main
 
     /**
      The emoji search results. The initial value is empty.
      */
-    open var searchResults: [EmojiPickerItem] = [] {
+    var searchResults: [EmojiPickerItem] = [] {
         didSet {
             updateSearchResultSection()
         }
     }
+
+    /**
+     The diffable data source of the `collectionView`.
+     */
+    var diffableDataSource: UICollectionViewDiffableDataSource<EmojiPickerSection, EmojiPickerItem>!
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,7 +174,7 @@ open class EmojiPickerViewController: UIViewController {
     private func setupDataSource() {
 
         let emojiCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, EmojiPickerItem> { [unowned self] cell, indexPath, item in
-            let index = (self.dataSource.snapshot().indexOfItem(item) ?? 0) + 1
+            let index = (self.diffableDataSource.snapshot().indexOfItem(item) ?? 0) + 1
             var contentConfiguration = EmojiContentConfiguration(emoji: item.emoji)
             contentConfiguration.accessibilityIndexOfEmoji = index
             cell.contentConfiguration = contentConfiguration
@@ -184,23 +184,23 @@ open class EmojiPickerViewController: UIViewController {
 
             let section: EmojiPickerSection
             if #available(iOS 15, *) {
-                section = dataSource.sectionIdentifier(for: indexPath.section)!
+                section = diffableDataSource.sectionIdentifier(for: indexPath.section)!
             } else {
-                section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
+                section = self.diffableDataSource.snapshot().sectionIdentifiers[indexPath.section]
             }
 
             supplementaryView.headerLabel.text = section.localizedSectionName
         }
 
-        dataSource = UICollectionViewDiffableDataSource<EmojiPickerSection, EmojiPickerItem>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
+        diffableDataSource = UICollectionViewDiffableDataSource<EmojiPickerSection, EmojiPickerItem>(collectionView: collectionView, cellProvider: { collectionView, indexPath, item in
             return collectionView.dequeueConfiguredReusableCell(using: emojiCellRegistration, for: indexPath, item: item)
         })
 
-        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+        diffableDataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
             return collectionView.dequeueConfiguredReusableSupplementary(using: headerCellRegistration, for: indexPath)
         }
         
-        collectionView.dataSource = dataSource
+        collectionView.dataSource = diffableDataSource
 
     }
 
@@ -220,14 +220,12 @@ open class EmojiPickerViewController: UIViewController {
         snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.symbols]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .symbols)
         snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.flags]!.map({ EmojiPickerItem(emoji: $0, itemType: .labeled) }), toSection: .flags)
 
-        dataSource.apply(snapshot)
+        diffableDataSource.apply(snapshot)
     }
 
     private func updateSearchResultSection() {
 
-        #warning("うまく動かない")
-
-        var snapshot = dataSource.snapshot()
+        var snapshot = diffableDataSource.snapshot()
 
         if searchResults.isEmpty {
 
@@ -237,20 +235,20 @@ open class EmojiPickerViewController: UIViewController {
                 #warning("TODO: Show empty state. No Results")
             }
 
-            dataSource.apply(snapshot)
+            diffableDataSource.apply(snapshot)
 
         } else {
          
             if snapshot.indexOfSection(.searchResult) == nil {
                 snapshot.insertSections([.searchResult], beforeSection: .smileysPeople)
                 snapshot.appendItems(searchResults, toSection: .searchResult)
-                dataSource.apply(snapshot, animatingDifferences: false)
+                diffableDataSource.apply(snapshot, animatingDifferences: false)
 
             } else {
                 // Using section snapshot makes the datasource repalces the data.
                 var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
                 sectionSnapshot.append(searchResults, to: nil)
-                dataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: false)
+                diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: false)
 
             }
 

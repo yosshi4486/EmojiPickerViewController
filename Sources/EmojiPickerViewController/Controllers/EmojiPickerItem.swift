@@ -30,12 +30,12 @@ import Foundation
 
  Since `UICollectionViewDiffableDataSource` detects the data identity using the id property, a raw `Emoji` object that wants to appear in several sections is recognized as the same item. The purpose of this type is to give the ability for an emoji to appear in several sections.
  */
-public struct EmojiPickerItem {
+struct EmojiPickerItem {
 
     /**
      A type for emoji picker item.
      */
-    public enum ItemType: Int {
+    enum ItemType: Int {
 
         /**
          The item type for  a `.recentlyUsed` section.
@@ -56,12 +56,12 @@ public struct EmojiPickerItem {
     /**
      The emoji which is shown in a cell.
      */
-    public let emoji: Emoji
+    let emoji: Emoji
 
     /**
      The item type of this picker item.
      */
-    public let itemType: ItemType
+    let itemType: ItemType
 
 }
 
@@ -78,7 +78,7 @@ extension EmojiPickerItem: Identifiable {
      This doesn't allows:
      - An emoji appears several times in a section.
      */
-    public var id: String {
+    var id: String {
         return "\(itemType.rawValue)_\(emoji.id)"
     }
 

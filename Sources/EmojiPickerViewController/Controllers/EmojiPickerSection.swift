@@ -29,7 +29,7 @@ import Foundation
  An section of emoji picker.
 
  */
-public enum EmojiPickerSection: Int, CaseIterable {
+enum EmojiPickerSection: Int, CaseIterable {
 
     /**
      The section for emojis that the user recently used.
@@ -124,7 +124,7 @@ public enum EmojiPickerSection: Int, CaseIterable {
 
      The property to be used as section header title.
      */
-    public var localizedSectionName: String {
+    var localizedSectionName: String {
 
         switch self {
 
