@@ -114,6 +114,7 @@ open class EmojiPickerViewController: UIViewController {
          */
 
         let images: [UIImage] = [
+//            UIImage(systemName: "clock")!,
             UIImage(systemName: "face.smiling")!,
             UIImage(systemName: "leaf")!,
             UIImage(systemName: "fork.knife")!,
@@ -125,6 +126,7 @@ open class EmojiPickerViewController: UIViewController {
         ]
 
         self.segmentedControl = UISegmentedControl(items: images)
+        self.segmentedControl.selectedSegmentIndex = 0
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.flowLayout)
         self.collectionView.backgroundColor = .clear
 
@@ -148,6 +150,13 @@ open class EmojiPickerViewController: UIViewController {
         setupView()
         setupDataSource()
         applyData()
+
+    }
+
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        collectionView.flashScrollIndicators()
 
     }
 
@@ -175,6 +184,9 @@ open class EmojiPickerViewController: UIViewController {
     }
 
     @objc func scrollToSelectedSection(sender: UISegmentedControl) {
+
+        collectionView.scrollToSection(sender.selectedSegmentIndex, position: .top, animated: false)
+        collectionView.flashScrollIndicators()
 
     }
 
@@ -209,7 +221,7 @@ open class EmojiPickerViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: searchBar.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: searchBar.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: visualEffectView.contentView.bottomAnchor),
+            segmentedControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
             segmentedControl.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
             segmentedControl.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
             segmentedControl.bottomAnchor.constraint(equalTo: visualEffectView.safeAreaLayoutGuide.bottomAnchor)
@@ -413,6 +425,20 @@ extension EmojiPickerViewController: UISearchBarDelegate {
         searchBar.text = ""
         searchBar.resignFirstResponder()
         searchResults = []
+    }
+
+}
+
+extension UICollectionView {
+
+    func scrollToSection(_ section: Int, position: UICollectionView.ScrollPosition, animated: Bool) {
+
+        guard let attributes = collectionViewLayout.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: section)) else {
+            return
+        }
+
+        setContentOffset(CGPoint(x: 0, y: attributes.frame.origin.y - contentInset.top), animated: animated)
+
     }
 
 }
