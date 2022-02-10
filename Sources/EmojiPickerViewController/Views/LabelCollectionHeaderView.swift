@@ -35,16 +35,14 @@ public struct HeaderAppearance {
 
     public var backgroundColor: UIColor = .systemBackground
 
-}
+    public var labelPadding: UIEdgeInsets = .init(top: 8, left: 8, bottom: 8, right: 8)
 
-/*
- We don't have to implement the redundant subclass if `UICollectionReusableView` were configuable view which has `contentConfiguration` property 😞
- */
+}
 
 class LabelCollectionHeaderView: UICollectionReusableView {
 
-    let headerLabel: UILabel = {
-        let label = UILabel()
+    let headerLabel: PaddingLabel = {
+        let label = PaddingLabel()
         label.font = .preferredFont(forTextStyle: .headline)
         label.adjustsFontForContentSizeCategory = true
         label.adjustsFontSizeToFitWidth = true
@@ -71,19 +69,6 @@ class LabelCollectionHeaderView: UICollectionReusableView {
         commonInit()
     }
 
-    /*
-     We have several tricks to supress autolayout warnings. The warnings appears when deleting the search or recently section because zero height is given to this header temporary and the given height makes conflicts with vertical constraints of layoutMarginGuide.
-     */
-
-    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
-
-        let size = super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
-        let topAndBottomSpacing: CGFloat = 16
-
-        return CGSize(width: size.width, height: size.height + topAndBottomSpacing)
-
-    }
-
     private func commonInit() {
 
         addSubview(headerLabel)
@@ -91,11 +76,11 @@ class LabelCollectionHeaderView: UICollectionReusableView {
 
         NSLayoutConstraint.activate([
             headerLabel.topAnchor.constraint(equalTo: topAnchor),
-            headerLabel.leadingAnchor.constraint(lessThanOrEqualTo: layoutMarginsGuide.leadingAnchor),
+            headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             headerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            headerLabel.trailingAnchor.constraint(lessThanOrEqualTo: layoutMarginsGuide.trailingAnchor)
+            headerLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
-        
+
     }
 
     private func configureAppearance() {
@@ -103,7 +88,27 @@ class LabelCollectionHeaderView: UICollectionReusableView {
         headerLabel.font = appearance.font
         headerLabel.textColor = appearance.textColor
         headerLabel.textAlignment = appearance.textAlignment
+        headerLabel.padding = appearance.labelPadding
         backgroundColor = appearance.backgroundColor
+
+    }
+
+}
+
+class PaddingLabel: UILabel {
+
+    var padding: UIEdgeInsets = .zero
+
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: padding))
+    }
+
+    override var intrinsicContentSize: CGSize {
+
+        var anIntrinsicContentSize = super.intrinsicContentSize
+        anIntrinsicContentSize.height += padding.top + padding.bottom
+        anIntrinsicContentSize.width += padding.left + padding.right
+        return anIntrinsicContentSize
 
     }
 
