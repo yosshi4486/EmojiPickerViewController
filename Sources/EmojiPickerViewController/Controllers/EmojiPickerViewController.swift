@@ -449,7 +449,7 @@ extension EmojiPickerViewController: UICollectionViewDelegateFlowLayout {
         }
 
         // The size for empty state cell.
-        return CGSize(width: collectionView.bounds.width, height: flowLayout.itemSize.height)
+        return CGSize(width: collectionView.bounds.width - (flowLayout.sectionInset.left + flowLayout.sectionInset.right), height: flowLayout.itemSize.height)
 
     }
 
