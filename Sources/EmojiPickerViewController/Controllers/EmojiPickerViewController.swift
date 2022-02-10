@@ -115,13 +115,9 @@ open class EmojiPickerViewController: UIViewController {
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
-        if #available(iOS 15.0, *) {
-            var snapshot = diffableDataSource.snapshot()
-            snapshot.reconfigureItems(snapshot.itemIdentifiers)
-            diffableDataSource.apply(snapshot, animatingDifferences: false)
-        } else {
-            // How to reload the collection view without using this newest API?
-        }
+        var snapshot = diffableDataSource.snapshot()
+        snapshot.reconfigureItems(snapshot.itemIdentifiers)
+        diffableDataSource.apply(snapshot, animatingDifferences: false)
 
     }
 
@@ -276,7 +272,7 @@ open class EmojiPickerViewController: UIViewController {
 
         let headerCellRegistration = UICollectionView.SupplementaryRegistration<LabelCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { [unowned self] supplementaryView, elementKind, indexPath in
 
-            let section = self.section(for: indexPath)!
+            let section = self.diffableDataSource.sectionIdentifier(for: indexPath.section)!
             supplementaryView.headerLabel.text = section.localizedSectionName
             supplementaryView.appearance = self.headerAppearance
 
@@ -366,19 +362,6 @@ open class EmojiPickerViewController: UIViewController {
             }
 
         }
-
-    }
-
-    private func section(for indexPath: IndexPath) -> EmojiPickerSection? {
-
-        let section: EmojiPickerSection?
-        if #available(iOS 15, *) {
-            section = diffableDataSource.sectionIdentifier(for: indexPath.section)
-        } else {
-            section = diffableDataSource.snapshot().sectionIdentifiers[indexPath.section]
-        }
-
-        return section
 
     }
 
