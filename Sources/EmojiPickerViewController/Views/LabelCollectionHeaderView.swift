@@ -70,16 +70,29 @@ class LabelCollectionHeaderView: UICollectionReusableView {
         commonInit()
     }
 
+    /*
+     We have several tricks to supress autolayout warnings. The warnings appears when deleting the search or recently section because zero height is given to this header temporary and the given height makes conflicts with vertical constraints of layoutMarginGuide.
+     */
+
+    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+
+        let size = super.systemLayoutSizeFitting(targetSize, withHorizontalFittingPriority: horizontalFittingPriority, verticalFittingPriority: verticalFittingPriority)
+        let topAndBottomSpacing: CGFloat = 16
+
+        return CGSize(width: size.width, height: size.height + topAndBottomSpacing)
+
+    }
+
     private func commonInit() {
 
         addSubview(headerLabel)
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            headerLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            headerLabel.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            headerLabel.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            headerLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+            headerLabel.topAnchor.constraint(equalTo: topAnchor),
+            headerLabel.leadingAnchor.constraint(lessThanOrEqualTo: layoutMarginsGuide.leadingAnchor),
+            headerLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            headerLabel.trailingAnchor.constraint(lessThanOrEqualTo: layoutMarginsGuide.trailingAnchor)
         ])
         
     }
