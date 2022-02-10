@@ -150,7 +150,7 @@ open class EmojiPickerViewController: UIViewController {
 
     @objc func scrollToSelectedSection(sender: Any?) {
 
-        collectionView.scrollToSection(segmentedControl.selectedSegmentIndex, position: .top, animated: false)
+        collectionView.scrollToSectionTop(segmentedControl.selectedSegmentIndex, animated: false)
         collectionView.flashScrollIndicators()
 
     }
@@ -476,13 +476,16 @@ extension EmojiPickerViewController: UISearchBarDelegate {
 
 extension UICollectionView {
 
-    func scrollToSection(_ section: Int, position: UICollectionView.ScrollPosition, animated: Bool) {
+    func scrollToSectionTop(_ section: Int, animated: Bool) {
 
-        guard let attributes = collectionViewLayout.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: section)) else {
+        guard
+            let cellAttribute = collectionViewLayout.layoutAttributesForItem(at: IndexPath(item: 0, section: section)),
+            let headerAttributes = collectionViewLayout.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: section))
+        else {
             return
         }
 
-        setContentOffset(CGPoint(x: 0, y: attributes.frame.origin.y - contentInset.top), animated: animated)
+        setContentOffset(CGPoint(x: 0, y: cellAttribute.frame.minY - headerAttributes.frame.height), animated: animated)
 
     }
 
