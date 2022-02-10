@@ -125,18 +125,6 @@ open class EmojiPickerViewController: UIViewController {
 
     }
 
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-        /*
-         Consider the top section as the selected segment if multiple sections appear.
-         */
-        let indexPathsForVisibleHeaders = collectionView.indexPathsForVisibleSupplementaryElements(ofKind: UICollectionView.elementKindSectionHeader).sorted(by: { $0.section < $1.section })
-        if let indexPathForVisibleTopSectionHeader = indexPathsForVisibleHeaders.first {
-            segmentedControl.selectedSegmentIndex = indexPathForVisibleTopSectionHeader.section
-        }
-
-    }
-
     /**
      Searchs emojis by the given keywork. This method updates triggers `collectionView` update for presenting the search results.
 
@@ -401,6 +389,7 @@ open class EmojiPickerViewController: UIViewController {
 
 }
 
+
 extension EmojiPickerViewController: UICollectionViewDelegate {
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -410,6 +399,25 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
         }
 
         delegate?.emojiPickerViewController(self, didPick: emoji)
+
+    }
+
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        /*
+         `setContentOffset` triggers this method, but it doesn't trigger dragging.
+         */
+        guard scrollView.isDragging else {
+            return
+        }
+
+        /*
+         Consider the top section as the selected segment if multiple sections appear.
+         */
+        let indexPathsForVisibleHeaders = collectionView.indexPathsForVisibleSupplementaryElements(ofKind: UICollectionView.elementKindSectionHeader).sorted(by: { $0.section < $1.section })
+        if let indexPathForVisibleTopSectionHeader = indexPathsForVisibleHeaders.first {
+            segmentedControl.selectedSegmentIndex = indexPathForVisibleTopSectionHeader.section
+        }
 
     }
 
