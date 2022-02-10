@@ -190,7 +190,7 @@ open class EmojiPickerViewController: UIViewController {
 
         Task {
             let results = await emojiContainer.searchEmojisForKeyboard(from: keyboard)
-            let items = results.map({ EmojiPickerItem.labeled($0) })
+            let items = results.map({ EmojiPickerItem.searchResult($0) })
             DispatchQueue.main.async {
                 self.searchResults = items
             }
