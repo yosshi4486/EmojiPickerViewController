@@ -33,6 +33,8 @@ public struct HeaderAppearance {
 
     public var textAlignment: NSTextAlignment = .natural
 
+    public var backgroundColor: UIColor = .systemBackground
+
 }
 
 /*
@@ -87,6 +89,7 @@ class LabelCollectionHeaderView: UICollectionReusableView {
         headerLabel.font = appearance.font
         headerLabel.textColor = appearance.textColor
         headerLabel.textAlignment = appearance.textAlignment
+        backgroundColor = appearance.backgroundColor
 
     }
 

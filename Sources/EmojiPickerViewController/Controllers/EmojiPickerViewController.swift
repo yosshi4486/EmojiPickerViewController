@@ -57,16 +57,16 @@ open class EmojiPickerViewController: UIViewController {
     public var flowLayout: UICollectionViewFlowLayout = .init()
 
     /**
-     The visual effect view that adds blur effect.
-     */
-    public let visualEffectView: UIVisualEffectView = .init(effect: UIBlurEffect(style: .systemMaterial))
-
-    /**
      The search bar that the user enters tett for searching emojis.
 
      This view controller uses `UISearchBar` instead of using with `UISearchController`, because showing the results in anothoer view controller is redundant.
      */
     public let searchBar: UISearchBar
+
+    /**
+     The visual effect view that adds blur effect for segmented control.
+     */
+    private let segmentedControlContainerVisualEffectView: UIVisualEffectView = .init(effect: UIBlurEffect(style: .systemMaterial))
 
     /**
      The segmented control for which jumps curren section to the selected section.
@@ -101,6 +101,7 @@ open class EmojiPickerViewController: UIViewController {
         self.flowLayout.minimumLineSpacing = 5
         self.flowLayout.minimumInteritemSpacing = 5
         self.flowLayout.itemSize = .init(width: 50, height: 50)
+        self.flowLayout.sectionHeadersPinToVisibleBounds = true
 
         self.searchBar = UISearchBar(frame: .zero)
         self.searchBar.autocapitalizationType = .none
@@ -129,10 +130,10 @@ open class EmojiPickerViewController: UIViewController {
         self.segmentedControl.tintColor = .label
         self.segmentedControl.selectedSegmentIndex = 0
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.flowLayout)
-        self.collectionView.backgroundColor = .clear
 
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
+        self.view.backgroundColor = .systemBackground
         self.searchBar.delegate = self
         self.segmentedControl.addTarget(self, action: #selector(scrollToSelectedSection(sender:)), for: .valueChanged)
         self.collectionView.delegate = self
@@ -213,34 +214,35 @@ open class EmojiPickerViewController: UIViewController {
 
     private func setupView() {
 
-        view.addSubview(visualEffectView)
-        visualEffectView.contentView.addSubview(searchBar)
-        visualEffectView.contentView.addSubview(collectionView)
-        visualEffectView.contentView.addSubview(segmentedControl)
+        view.addSubview(searchBar)
+        view.addSubview(collectionView)
+        view.addSubview(segmentedControlContainerVisualEffectView)
+        segmentedControlContainerVisualEffectView.contentView.addSubview(segmentedControl)
 
-        visualEffectView.translatesAutoresizingMaskIntoConstraints = false
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControlContainerVisualEffectView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            visualEffectView.topAnchor.constraint(equalTo: view.topAnchor),
-            visualEffectView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            visualEffectView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            visualEffectView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             searchBar.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 5),
-            searchBar.leadingAnchor.constraint(equalTo: visualEffectView.layoutMarginsGuide.leadingAnchor),
-            searchBar.trailingAnchor.constraint(equalTo: visualEffectView.layoutMarginsGuide.trailingAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: searchBar.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: searchBar.trailingAnchor),
-            segmentedControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 5),
-            segmentedControl.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
-            segmentedControl.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
-            segmentedControl.bottomAnchor.constraint(equalTo: visualEffectView.safeAreaLayoutGuide.bottomAnchor, constant: -5)
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            segmentedControlContainerVisualEffectView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            segmentedControlContainerVisualEffectView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            segmentedControlContainerVisualEffectView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
+            segmentedControl.topAnchor.constraint(equalTo: segmentedControlContainerVisualEffectView.contentView.topAnchor),
+            segmentedControl.leadingAnchor.constraint(equalTo: segmentedControlContainerVisualEffectView.contentView.leadingAnchor),
+            segmentedControl.trailingAnchor.constraint(equalTo: segmentedControlContainerVisualEffectView.contentView.trailingAnchor),
+            segmentedControl.bottomAnchor.constraint(equalTo: segmentedControlContainerVisualEffectView.contentView.bottomAnchor),
         ])
-        
 
+        segmentedControlContainerVisualEffectView.clipsToBounds = true
+        segmentedControlContainerVisualEffectView.layer.cornerRadius = segmentedControl.layer.cornerRadius
     }
 
     private func setupDataSource() {
