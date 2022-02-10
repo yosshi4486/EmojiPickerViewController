@@ -47,6 +47,8 @@ public struct EmojiLocale {
 
     /**
      The comprehensive list of available identifiers.
+
+     Since the `annotations` directory contains files which the `annotationDerived` doesn't contain, `availableIdentifiers` returns identifiers of files in the `annotationDerived` directory.
      */
     static let availableIdentifiers: [String] = {
 
@@ -99,7 +101,6 @@ public struct EmojiLocale {
             "gl",
             "gu",
             "ha",
-            "ha_NE",
             "he",
             "hi",
             "hr",
@@ -116,12 +117,10 @@ public struct EmojiLocale {
             "ka",
             "kab",
             "kk",
-            "kl",
             "km",
             "kn",
             "ko",
             "kok",
-            "ku",
             "ky",
             "lb",
             "lo",
@@ -143,7 +142,6 @@ public struct EmojiLocale {
             "no",
             "or",
             "pa",
-            "pa_Arab",
             "pcm",
             "pl",
             "ps",
@@ -154,7 +152,6 @@ public struct EmojiLocale {
             "ro",
             "root",
             "ru",
-            "rw",
             "sa",
             "sat",
             "sc",
@@ -188,7 +185,6 @@ public struct EmojiLocale {
             "uz",
             "vi",
             "wo",
-            "xh",
             "yo",
             "yo_BJ",
             "yue",

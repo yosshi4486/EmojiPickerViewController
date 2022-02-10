@@ -174,6 +174,7 @@ class EmojiLocaleTests: XCTestCase {
 
         for identifier in EmojiLocale.availableIdentifiers {
             XCTAssertNotNil(Bundle.module.url(forResource: identifier, withExtension: "xml"))
+            XCTAssertNotNil(Bundle.module.url(forResource: "\(identifier)_derived", withExtension: "xml"))
         }
 
     }
