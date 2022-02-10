@@ -137,6 +137,7 @@ open class EmojiPickerViewController: UIViewController {
         self.searchBar.delegate = self
         self.segmentedControl.addTarget(self, action: #selector(scrollToSelectedSection(sender:)), for: .valueChanged)
         self.collectionView.delegate = self
+        self.flowLayout.headerReferenceSize = .init(width: self.view.bounds.width, height: 50)
 
     }
 
