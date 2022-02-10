@@ -234,10 +234,10 @@ open class EmojiPickerViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: searchBar.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: searchBar.trailingAnchor),
-            segmentedControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
+            segmentedControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 5),
             segmentedControl.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
             segmentedControl.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
-            segmentedControl.bottomAnchor.constraint(equalTo: visualEffectView.safeAreaLayoutGuide.bottomAnchor)
+            segmentedControl.bottomAnchor.constraint(equalTo: visualEffectView.safeAreaLayoutGuide.bottomAnchor, constant: -5)
         ])
         
 
