@@ -170,4 +170,12 @@ class EmojiLocaleTests: XCTestCase {
 
     }
 
+    func testAvailableIdentifier() throws {
+
+        for identifier in EmojiLocale.availableIdentifiers {
+            XCTAssertNotNil(Bundle.module.url(forResource: identifier, withExtension: "xml"))
+        }
+
+    }
+
 }
