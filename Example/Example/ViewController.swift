@@ -31,6 +31,8 @@ class ViewController: UIViewController {
             self.showPicker()
         }))
 
+        EmojiContainer.main.load()
+        
     }
 
     func showPicker() {
@@ -46,21 +48,6 @@ class ViewController: UIViewController {
          Enabling changes animation.
          */
         // emojiPicker.animatingChanges = true
-
-        /*
-         Customizing the collectionview layout via `UICollectionViewFlowLayout` object.
-         */
-        // emojiPicker.flowLayout.itemSize = .init(width: 60, height: 60)
-
-        /*
-         Customizing the searchbar appearances.
-         */
-        // emojiPicker.searchBar.searchTextField.textColor = .blue
-
-        /*
-         Customizing the visual effect.
-         */
-        // emojiPicker.visualEffectView.effect = UIBlurEffect(style: .systemUltraThinMaterial)
 
         /*
          Specifying the language for searching and voiceover.

@@ -28,6 +28,9 @@ import Collections
 
 /**
  A *View Controller* for picking an emoji.
+
+ # Sizing Emojis
+ The emoji is sized as same as the cell size, so you can change the emoji size and the number of emojis in each row by changing `flowLayout.itemSize`.
  */
 open class EmojiPickerViewController: UIViewController {
 
@@ -45,33 +48,6 @@ open class EmojiPickerViewController: UIViewController {
      The picker’s delegate object.
      */
     open weak var delegate: EmojiPickerViewControllerDelegate?
-
-    /**
-     The collection view for which shows emojis.
-     */
-    public let collectionView: UICollectionView
-
-    /**
-     The layout object that `collectionView` uses.
-     */
-    public var flowLayout: UICollectionViewFlowLayout = .init()
-
-    /**
-     The search bar that the user enters tett for searching emojis.
-
-     This view controller uses `UISearchBar` instead of using with `UISearchController`, because showing the results in anothoer view controller is redundant.
-     */
-    public let searchBar: UISearchBar
-
-    /**
-     The visual effect view that adds blur effect for segmented control.
-     */
-    private let segmentedControlContainerVisualEffectView: UIVisualEffectView = .init(effect: UIBlurEffect(style: .systemMaterial))
-
-    /**
-     The segmented control for which jumps curren section to the selected section.
-     */
-    public let segmentedControl: UISegmentedControl
 
     /**
      The container that loads entire information for emoji.
@@ -92,58 +68,32 @@ open class EmojiPickerViewController: UIViewController {
      */
     var diffableDataSource: UICollectionViewDiffableDataSource<EmojiPickerSection, EmojiPickerItem>!
 
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    /**
+     The collection view for which shows emojis.
+     */
+    var collectionView: UICollectionView!
 
-        /*
-         Initialize with default settings.
-         */
-        self.flowLayout = UICollectionViewFlowLayout()
-        self.flowLayout.minimumLineSpacing = 5
-        self.flowLayout.minimumInteritemSpacing = 5
-        self.flowLayout.itemSize = .init(width: 50, height: 50)
-        self.flowLayout.sectionHeadersPinToVisibleBounds = true
+    /**
+     The layout object that `collectionView` uses.
+     */
+    var flowLayout: UICollectionViewFlowLayout = .init()
 
-        self.searchBar = UISearchBar(frame: .zero)
-        self.searchBar.autocapitalizationType = .none
-        self.searchBar.searchTextField.placeholder = NSLocalizedString("search_emoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
-        self.searchBar.returnKeyType = .search
-        self.searchBar.searchTextField.clearButtonMode = .whileEditing
-        self.searchBar.searchBarStyle = .minimal
+    /**
+     The search bar that the user enters tett for searching emojis.
 
-        /*
-         Using SFSymbols might not be the best idea.
-         */
+     This view controller uses `UISearchBar` instead of using with `UISearchController`, because showing the results in anothoer view controller is redundant.
+     */
+    var searchBar: UISearchBar!
 
-        let images: [UIImage] = [
-//            UIImage(systemName: "clock")!,
-            UIImage(systemName: "face.smiling")!,
-            UIImage(systemName: "leaf")!,
-            UIImage(systemName: "fork.knife")!,
-            UIImage(systemName: "airplane")!,
-            UIImage(systemName: "paintpalette")!,
-            UIImage(systemName: "lightbulb")!,
-            UIImage(systemName: "number")!,
-            UIImage(systemName: "flag")!
-        ]
+    /**
+     The visual effect view that adds blur effect for segmented control.
+     */
+    let segmentedControlContainerVisualEffectView: UIVisualEffectView = .init(effect: UIBlurEffect(style: .systemMaterial))
 
-        self.segmentedControl = UISegmentedControl(items: images)
-        self.segmentedControl.tintColor = .label
-        self.segmentedControl.selectedSegmentIndex = 0
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.flowLayout)
-
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-
-        self.view.backgroundColor = .systemBackground
-        self.searchBar.delegate = self
-        self.segmentedControl.addTarget(self, action: #selector(scrollToSelectedSection(sender:)), for: .valueChanged)
-        self.collectionView.delegate = self
-        self.flowLayout.headerReferenceSize = .init(width: self.view.bounds.width, height: 50)
-
-    }
-
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    /**
+     The segmented control for which jumps curren section to the selected section.
+     */
+    var segmentedControl: UISegmentedControl!
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -227,6 +177,51 @@ open class EmojiPickerViewController: UIViewController {
 
     private func setupView() {
 
+        /*
+         Initialize with default settings.
+         */
+        flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumInteritemSpacing = 5
+        flowLayout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 10)
+        flowLayout.itemSize = .init(width: 50, height: 50)
+        flowLayout.sectionHeadersPinToVisibleBounds = true
+        flowLayout.headerReferenceSize = .init(width: view.bounds.width, height: 50)
+
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.delegate = self
+
+        searchBar = UISearchBar(frame: .zero)
+        searchBar.autocapitalizationType = .none
+        searchBar.searchTextField.placeholder = NSLocalizedString("search_emoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
+        searchBar.returnKeyType = .search
+        searchBar.searchTextField.clearButtonMode = .whileEditing
+        searchBar.searchBarStyle = .minimal
+        searchBar.delegate = self
+
+        /*
+         Using SFSymbols might not be the best idea.
+         */
+
+        let images: [UIImage] = [
+//            UIImage(systemName: "clock")!,
+            UIImage(systemName: "face.smiling")!,
+            UIImage(systemName: "leaf")!,
+            UIImage(systemName: "fork.knife")!,
+            UIImage(systemName: "airplane")!,
+            UIImage(systemName: "paintpalette")!,
+            UIImage(systemName: "lightbulb")!,
+            UIImage(systemName: "number")!,
+            UIImage(systemName: "flag")!
+        ]
+
+        segmentedControl = UISegmentedControl(items: images)
+        segmentedControl.tintColor = .label
+        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(scrollToSelectedSection(sender:)), for: .valueChanged)
+
+        view.backgroundColor = .systemBackground
+
         view.addSubview(searchBar)
         view.addSubview(collectionView)
         view.addSubview(segmentedControlContainerVisualEffectView)
@@ -267,7 +262,7 @@ open class EmojiPickerViewController: UIViewController {
                 let index = (self.diffableDataSource.snapshot().indexOfItem(item) ?? 0) + 1
                 var contentConfiguration = LabelContentConfiguration()
                 contentConfiguration.text = String(emoji.character)
-                contentConfiguration.font = UIFont.preferredFont(forTextStyle: .headline)
+                contentConfiguration.font = UIFont.systemFont(ofSize: cell.bounds.height) // Presents the emoji as equal size as the parent cell.
                 contentConfiguration.textAlighment = .center
 
                 cell.contentConfiguration = contentConfiguration
