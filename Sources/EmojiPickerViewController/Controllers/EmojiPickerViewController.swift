@@ -478,6 +478,27 @@ extension UICollectionView {
 
     func scrollToSectionTop(_ section: Int, animated: Bool) {
 
+        /*
+         `layoutAttributesForSupplementaryView` is very useful API, however the `headerAttributes.frame.origin.x(or frame.minY)` returns the bottom frame of the section when the flowLayout.sectionHeadersPinToVisibleBounds is `true`, like this:
+
+         # Expected
+
+         |      Scrolled top header    | ← top
+         | cell0,0 | cell0,1 | cell0,2 |
+         | cell0,3 | cell0,4 | cell0,5 |
+         | cell0,6 | cell0,7 | cell0,8 |
+         |         Next Header         |
+
+
+         # Unexpected
+         |      Scrolled top header    | ← top, but the position is bottom of the section
+         |         Next Header         |
+
+         # Conclusion
+         we can get `expected` by calculating `cellAttribute.frame.minY - headerAttributes.frame.height` and get `unexpected` by using `headerAttributes.frame.height`
+
+         */
+
         guard
             let cellAttribute = collectionViewLayout.layoutAttributesForItem(at: IndexPath(item: 0, section: section)),
             let headerAttributes = collectionViewLayout.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: section))
