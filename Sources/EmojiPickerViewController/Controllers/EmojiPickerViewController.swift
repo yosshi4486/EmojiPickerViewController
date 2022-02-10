@@ -175,6 +175,18 @@ open class EmojiPickerViewController: UIViewController {
 
     }
 
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        /*
+         Consider the top section as the selected segment if multiple sections appear.
+         */
+        let indexPathsForVisibleHeaders = collectionView.indexPathsForVisibleSupplementaryElements(ofKind: UICollectionView.elementKindSectionHeader).sorted(by: { $0.section < $1.section })
+        if let indexPathForVisibleTopSectionHeader = indexPathsForVisibleHeaders.first {
+            segmentedControl.selectedSegmentIndex = indexPathForVisibleTopSectionHeader.section
+        }
+
+    }
+
     /**
      Searchs emojis by the given keywork. This method updates triggers `collectionView` update for presenting the search results.
 
