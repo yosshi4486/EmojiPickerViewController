@@ -165,32 +165,7 @@ open class EmojiPickerViewController: UIViewController {
 
     private func setupView() {
 
-        /*
-         Initialize with default settings.
-         */
-        flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 5
-        flowLayout.minimumInteritemSpacing = 5
-        flowLayout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 10)
-        flowLayout.itemSize = .init(width: 50, height: 50)
-        flowLayout.sectionHeadersPinToVisibleBounds = true
-        flowLayout.headerReferenceSize = .init(width: view.bounds.width, height: 50)
-
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
-        collectionView.delegate = self
-
-        searchBar = UISearchBar(frame: .zero)
-        searchBar.autocapitalizationType = .none
-        searchBar.searchTextField.placeholder = NSLocalizedString("search_emoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
-        searchBar.returnKeyType = .search
-        searchBar.searchTextField.clearButtonMode = .whileEditing
-        searchBar.searchBarStyle = .minimal
-        searchBar.delegate = self
-
-        /*
-         Using SFSymbols might not be the best idea.
-         */
-
+        // Using SFSymbols might not be the best idea.
         let images: [UIImage] = [
 //            UIImage(systemName: "clock")!,
             UIImage(systemName: "face.smiling")!,
@@ -207,6 +182,26 @@ open class EmojiPickerViewController: UIViewController {
         segmentedControl.tintColor = .label
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(scrollToSelectedSection(sender:)), for: .valueChanged)
+
+        flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumInteritemSpacing = 5
+        flowLayout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 10)
+        flowLayout.itemSize = .init(width: 50, height: 50)
+        flowLayout.sectionHeadersPinToVisibleBounds = true
+        flowLayout.headerReferenceSize = .init(width: view.bounds.width, height: 50)
+
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView.delegate = self
+        collectionView.contentInset.bottom = view.safeAreaInsets.bottom + segmentedControl.intrinsicContentSize.height + 15 // 15 is spacer.
+
+        searchBar = UISearchBar(frame: .zero)
+        searchBar.autocapitalizationType = .none
+        searchBar.searchTextField.placeholder = NSLocalizedString("search_emoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
+        searchBar.returnKeyType = .search
+        searchBar.searchTextField.clearButtonMode = .whileEditing
+        searchBar.searchBarStyle = .minimal
+        searchBar.delegate = self
 
         view.backgroundColor = .systemBackground
 
