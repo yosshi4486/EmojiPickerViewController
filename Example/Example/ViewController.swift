@@ -85,20 +85,25 @@ class ViewController: UIViewController {
             popover.barButtonItem = navigationItem.rightBarButtonItem
             popover.delegate = self
 
-            let sheet = popover.adaptiveSheetPresentationController
-            sheet.delegate = self
-            sheet.detents = [.medium(), .large()]
-            sheet.prefersGrabberVisible = true
+            if #available(iOS 15.0, *) {
+                let sheet = popover.adaptiveSheetPresentationController
+                sheet.delegate = self
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+            }
 
         } else {
 
             emojiPicker.modalPresentationStyle = .pageSheet
 
-            let sheet = emojiPicker.sheetPresentationController!
-            sheet.delegate = self
-            sheet.detents = [.medium(), .large()]
-            sheet.prefersGrabberVisible = true
+            if #available(iOS 15.0, *) {
+                let sheet = emojiPicker.sheetPresentationController!
+                sheet.delegate = self
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
 
+            }
+            
         }
 
         present(emojiPicker, animated: true)
