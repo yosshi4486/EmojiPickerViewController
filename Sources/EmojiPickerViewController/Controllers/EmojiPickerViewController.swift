@@ -382,7 +382,7 @@ open class EmojiPickerViewController: UIViewController {
         if #available(iOS 15, *) {
             section = diffableDataSource.sectionIdentifier(for: indexPath.section)
         } else {
-            section = self.diffableDataSource.snapshot().sectionIdentifiers[indexPath.section]
+            section = diffableDataSource.snapshot().sectionIdentifiers[indexPath.section]
         }
 
         return section
