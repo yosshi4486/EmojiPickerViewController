@@ -364,6 +364,44 @@ open class EmojiPickerViewController: UIViewController {
 
     }
 
+    @objc private func updateSelectedSegmentIndexToTopSection() {
+
+        let indexPathsForVisibleHeaders = collectionView.indexPathsForVisibleSupplementaryElements(ofKind: UICollectionView.elementKindSectionHeader).sorted(by: { $0.section < $1.section })
+        if let indexPathForVisibleTopSectionHeader = indexPathsForVisibleHeaders.first {
+            segmentedControl.selectedSegmentIndex = indexPathForVisibleTopSectionHeader.section
+        }
+
+    }
+
+}
+
+extension EmojiPickerViewController: UIScrollViewAccessibilityDelegate {
+
+    public func accessibilityScrollStatus(for scrollView: UIScrollView) -> String? {
+
+        /*
+         `accessibilityScrollStatus(for:)` is called **after** the accessibility scrolling.
+         `accessibilityScroll(_:)` is called before the accessibility scrolling.
+
+         This method is appropriate for updating the currently selected segment index.
+         */
+        updateSelectedSegmentIndexToTopSection()
+
+        // Floor decimals.
+        let pageHeight = collectionView.bounds.height
+        let currentPage = Int(collectionView.contentOffset.y / pageHeight) + 1 // the value is zero until collectinView.contentOffset.y becomes equal to pageHeight, however the user counts from 1.
+        let wholePages = Int(collectionView.contentSize.height / pageHeight)
+
+        let sectionStatus: String = collectionView
+            .indexPathsForVisibleSupplementaryElements(ofKind: UICollectionView.elementKindSectionHeader)
+            .sorted(by: { $0.section < $1.section })
+            .compactMap({ [unowned self] in self.diffableDataSource.sectionIdentifier(for: $0.section) })
+            .reduce(into: "", { $0 += ",\($1.localizedSectionName)" })
+
+        // TODO: Localize the value. Maybe we should prefer to `accessibilityAttributedScrollStatus(for:)` for localization.
+        return "Page \(currentPage) of \(wholePages)\(sectionStatus)"
+    }
+
 }
 
 
@@ -388,13 +426,7 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
             return
         }
 
-        /*
-         Consider the top section as the selected segment if multiple sections appear.
-         */
-        let indexPathsForVisibleHeaders = collectionView.indexPathsForVisibleSupplementaryElements(ofKind: UICollectionView.elementKindSectionHeader).sorted(by: { $0.section < $1.section })
-        if let indexPathForVisibleTopSectionHeader = indexPathsForVisibleHeaders.first {
-            segmentedControl.selectedSegmentIndex = indexPathForVisibleTopSectionHeader.section
-        }
+        updateSelectedSegmentIndexToTopSection()
 
     }
 
