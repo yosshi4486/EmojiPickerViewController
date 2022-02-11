@@ -26,3 +26,25 @@
 "search_emoji" = "絵文字を検索";
 
 "no_results" = "結果なし";
+
+// Accessibility
+
+"ax_segmented_control_recently_used" = "よく利用する絵文字のカテゴリ";
+
+"ax_segmented_control_search_result" = "よく利用する絵文字のカテゴリ";
+
+"ax_segmented_control_smileys_people" = "スマイリーと人々のカテゴリ";
+
+"ax_segmented_control_animals_nature" = "動物と自然のカテゴリ";
+
+"ax_segmented_control_food_drink" = "食べ物と飲み物のカテゴリ";
+
+"ax_segmented_control_travel_places" = "旅行と場所のカテゴリ";
+
+"ax_segmented_control_activities" = "アクティビティのカテゴリ";
+
+"ax_segmented_control_objects" = "物のカテゴリ";
+
+"ax_segmented_control_symbols" = "記号のカテゴリ";
+
+"ax_segmented_control_flags" = "旗のカテゴリ";

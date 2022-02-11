@@ -30,3 +30,24 @@
 
 "no_results" = "No Results";
 
+// Accessibility
+
+"ax_segmented_control_recently_used" = "Frequently Used category";
+
+"ax_segmented_control_search_result" = "Frequently Used category";
+
+"ax_segmented_control_smileys_people" = "Smileys & People category";
+
+"ax_segmented_control_animals_nature" = "Animals & Nature category";
+
+"ax_segmented_control_food_drink" = "Food & Drink category";
+
+"ax_segmented_control_travel_places" = "Travel & Places category";
+
+"ax_segmented_control_activities" = "Activity category";
+
+"ax_segmented_control_objects" = "Objects category";
+
+"ax_segmented_control_symbols" = "Symbols category";
+
+"ax_segmented_control_flags" = "Flags category";

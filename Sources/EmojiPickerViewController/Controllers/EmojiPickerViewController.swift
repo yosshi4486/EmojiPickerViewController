@@ -162,19 +162,18 @@ open class EmojiPickerViewController: UIViewController {
     private func setupView() {
 
         // Using SFSymbols might not be the best idea.
-        let images: [UIImage] = [
-//            UIImage(systemName: "clock")!,
-            UIImage(systemName: "face.smiling")!,
-            UIImage(systemName: "leaf")!,
-            UIImage(systemName: "fork.knife")!,
-            UIImage(systemName: "airplane")!,
-            UIImage(systemName: "paintpalette")!,
-            UIImage(systemName: "lightbulb")!,
-            UIImage(systemName: "number")!,
-            UIImage(systemName: "flag")!
-        ]
 
-        segmentedControl = UISegmentedControl(items: images)
+        segmentedControl = UISegmentedControl(items: [
+            EmojiPickerSection.smileysPeople.imageForSegmentedControlElement,
+            EmojiPickerSection.animalsNature.imageForSegmentedControlElement,
+            EmojiPickerSection.foodDrink.imageForSegmentedControlElement,
+            EmojiPickerSection.travelPlaces.imageForSegmentedControlElement,
+            EmojiPickerSection.activities.imageForSegmentedControlElement,
+            EmojiPickerSection.objects.imageForSegmentedControlElement,
+            EmojiPickerSection.symbols.imageForSegmentedControlElement,
+            EmojiPickerSection.flags.imageForSegmentedControlElement
+        ])
+
         segmentedControl.tintColor = .label
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(scrollToSelectedSection(sender:)), for: .valueChanged)
