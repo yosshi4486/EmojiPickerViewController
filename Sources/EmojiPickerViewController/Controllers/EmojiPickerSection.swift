@@ -130,34 +130,34 @@ enum EmojiPickerSection: Int, CaseIterable {
         switch self {
 
         case .recentlyUsed:
-            return NSLocalizedString("recently_used", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+            return String(localized:"recently_used", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         case .searchResult:
-            return NSLocalizedString("search_result", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+            return String(localized:"search_result", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         case .smileysPeople:
-            return NSLocalizedString("smileys_people", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+            return String(localized:"smileys_people", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         case .animalsNature:
-            return NSLocalizedString("animals_nature", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+            return String(localized:"animals_nature", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         case .foodDrink:
-            return NSLocalizedString("food_drink", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+            return String(localized:"food_drink", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         case .travelPlaces:
-            return NSLocalizedString("travel_places", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+            return String(localized:"travel_places", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         case .activities:
-            return NSLocalizedString("activities", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+            return String(localized:"activities", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         case .objects:
-            return NSLocalizedString("objects", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+            return String(localized:"objects", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         case .symbols:
-            return NSLocalizedString("symbols", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+            return String(localized:"symbols", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         case .flags:
-            return NSLocalizedString("flags", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
+            return String(localized:"flags", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         }
 
@@ -175,60 +175,60 @@ enum EmojiPickerSection: Int, CaseIterable {
         case .recentlyUsed:
 
             let image = UIImage(systemName: "clock")!
-            image.accessibilityLabel = NSLocalizedString("ax_segmented_control_recently_used", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            image.accessibilityLabel = String(localized:"ax_segmented_control_recently_used", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
             return image
 
         case .searchResult:
 
             let image = UIImage(systemName: "clock")!
-            image.accessibilityLabel = NSLocalizedString("ax_segmented_control_search_result", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            image.accessibilityLabel = String(localized:"ax_segmented_control_search_result", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
             return image
 
         case .smileysPeople:
 
             let image = UIImage(systemName: "face.smiling")!
-            image.accessibilityLabel = NSLocalizedString("ax_segmented_control_smileys_people", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            image.accessibilityLabel = String(localized:"ax_segmented_control_smileys_people", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
             return image
 
         case .animalsNature:
 
             let image = UIImage(systemName: "leaf")!
-            image.accessibilityLabel = NSLocalizedString("ax_segmented_control_animals_nature", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            image.accessibilityLabel = String(localized:"ax_segmented_control_animals_nature", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
             return image
 
         case .foodDrink:
 
             let image = UIImage(systemName: "fork.knife")!
-            image.accessibilityLabel = NSLocalizedString("ax_segmented_control_food_drink", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            image.accessibilityLabel = String(localized:"ax_segmented_control_food_drink", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
             return image
 
         case .travelPlaces:
 
             let image = UIImage(systemName: "airplane")!
-            image.accessibilityLabel = NSLocalizedString("ax_segmented_control_travel_places", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            image.accessibilityLabel = String(localized:"ax_segmented_control_travel_places", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
             return image
 
         case .activities:
 
             let image = UIImage(systemName: "paintpalette")!
-            image.accessibilityLabel = NSLocalizedString("ax_segmented_control_activities", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            image.accessibilityLabel = String(localized:"ax_segmented_control_activities", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
             return image
 
         case .objects:
 
             let image = UIImage(systemName: "lightbulb")!
-            image.accessibilityLabel = NSLocalizedString("ax_segmented_control_objects", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            image.accessibilityLabel = String(localized:"ax_segmented_control_objects", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
             return image
 
         case .symbols:
             let image = UIImage(systemName: "number")!
-            image.accessibilityLabel = NSLocalizedString("ax_segmented_control_symbols", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            image.accessibilityLabel = String(localized:"ax_segmented_control_symbols", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
             return image
 
         case .flags:
 
             let image = UIImage(systemName: "flag")!
-            image.accessibilityLabel = NSLocalizedString("ax_segmented_control_flags", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            image.accessibilityLabel = String(localized:"ax_segmented_control_flags", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
             return image
 
         }

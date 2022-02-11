@@ -192,12 +192,12 @@ open class EmojiPickerViewController: UIViewController {
 
         searchBar = UISearchBar(frame: .zero)
         searchBar.autocapitalizationType = .none
-        searchBar.searchTextField.placeholder = NSLocalizedString("search_emoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
+        searchBar.searchTextField.placeholder = String(localized: "search_emoji", bundle: .module, comment: "SearchBar placeholder text: hints what the user should enter in.")
         searchBar.returnKeyType = .search
         searchBar.searchTextField.clearButtonMode = .whileEditing
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
-        searchBar.accessibilityLabel = NSLocalizedString("ax_searchbar_label", bundle: .module, comment: "Accessibility label: speaks what the purpose of the search field.")
+        searchBar.accessibilityLabel = String(localized: "ax_searchbar_label", bundle: .module, comment: "Accessibility label: speaks what the purpose of the search field.")
 
         view.backgroundColor = .systemBackground
 
@@ -254,7 +254,7 @@ open class EmojiPickerViewController: UIViewController {
             } else {
 
                 var contentConfiguration = LabelContentConfiguration()
-                contentConfiguration.text = NSLocalizedString("no_results", bundle: .module, comment: "Empty state text: feedbacks no-results to the user.")
+                contentConfiguration.text = String(localized: "no_results", bundle: .module, comment: "Empty state text: feedbacks no-results to the user.")
                 contentConfiguration.font = UIFont.preferredFont(forTextStyle: .title2)
                 contentConfiguration.textColor = .secondaryLabel
                 contentConfiguration.textAlighment = .center
@@ -400,7 +400,7 @@ extension EmojiPickerViewController: UIScrollViewAccessibilityDelegate {
             .reduce(into: "", { $0 += ",\($1.localizedSectionName)" })
 
         // Should we prefer to use `accessibilityAttributedScrollStatus(for:)`?
-        return String(format: NSLocalizedString("ax_collection_view_scroll_status", bundle: .module, comment:  "Accessibility scroll status: speaks the current page index and the visible section labels."), currentPage as NSNumber, totalPages as NSNumber, visibleSectionsLabel as NSString)
+        return String(format: String(localized: "ax_collection_view_scroll_status", bundle: .module, comment:  "Accessibility scroll status: speaks the current page index and the visible section labels."), currentPage as NSNumber, totalPages as NSNumber, visibleSectionsLabel as NSString)
     }
 
 }
