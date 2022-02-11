@@ -56,3 +56,5 @@
 // $1: total pages count
 // $2: visible sections label
 "ax_collection_view_scroll_status" = "Page %@ of %@%@";
+
+"ax_searchbar_label" = "Search Emoji";

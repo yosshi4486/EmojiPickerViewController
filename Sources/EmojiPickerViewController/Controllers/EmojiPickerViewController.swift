@@ -197,6 +197,7 @@ open class EmojiPickerViewController: UIViewController {
         searchBar.searchTextField.clearButtonMode = .whileEditing
         searchBar.searchBarStyle = .minimal
         searchBar.delegate = self
+        searchBar.accessibilityLabel = NSLocalizedString("ax_searchbar_label", bundle: .module, comment: "Accessibility label: speaks what the purpose of the search field.")
 
         view.backgroundColor = .systemBackground
 
