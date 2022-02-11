@@ -51,3 +51,8 @@
 "ax_segmented_control_symbols" = "Symbols category";
 
 "ax_segmented_control_flags" = "Flags category";
+
+// $0: current page index
+// $1: total pages count
+// $2: visible sections label
+"ax_collection_view_scroll_status" = "Page %@ of %@%@";

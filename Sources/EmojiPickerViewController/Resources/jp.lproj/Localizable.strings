@@ -48,3 +48,8 @@
 "ax_segmented_control_symbols" = "記号のカテゴリ";
 
 "ax_segmented_control_flags" = "旗のカテゴリ";
+
+// $0: current page index
+// $1: total pages count
+// $2: visible sections label
+"ax_collection_view_scroll_status" = "全%@ページ中%@ページ目%@";
