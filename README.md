@@ -44,7 +44,7 @@ emojiPicker.delegate = self
 You can specify the annotation's locale manually:
 
 ```swift
-if EmojiLocale.availableIdentifiers.contain("ja") {
+if EmojiLocale.availableIdentifiers.contains("ja") {
     EmojiContainer.main.emojiLocale = EmojiLocale(localeIdentifier: "ja")!
 }
 ```
@@ -67,7 +67,7 @@ let bouncingBall = EmojiContainer.main.entireEmojiSet["⛹🏿‍♀"]!
 print(bouncingBall)
 // Prints "character: ⛹🏿‍♀, status: minimallyQualified, group: People & Body, subgroup: person-sport, cldrOrder: 2360, annotation: ball | dark skin tone | woman | woman bouncing ball, textToSpeach: woman bouncing ball: dark skin tone"
 
-let grape = EmojiContainer.main.labeledEmojisForKeyboard["🍇"]!
+let grape = EmojiContainer.main.labeledEmojisForKeyboard[.foodDrink]![0]
 print(grape)
 // Prints "character: 🍇, status: fullyQualified, group: Food & Drink, subgroup: food-fruit, cldrOrder: 3323, annotation: fruit | grape | grapes, textToSpeach: grapes"
 ```
