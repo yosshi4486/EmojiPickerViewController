@@ -83,6 +83,16 @@ Install this package from via swift package manager. Add EmojiPickerViewControll
 -   iOS 15.0+
 -   Xcode 13.0+
 
+## Localizations
+
+### For User Interfaces
+
+["en", "ja"]
+
+### For Annotations
+
+`EmojiLocale.availableIdentifiers`
+
 ## Contribution
 
 I'm looking forward for your issues or pull requests😊
