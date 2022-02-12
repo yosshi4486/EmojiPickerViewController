@@ -137,6 +137,22 @@ open class EmojiPickerViewController: UIViewController {
 
     }
 
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        /*
+         Adjust bottom layout.
+
+         0 is good if safearea appears, on the other hand, 15 is good if safearea doesn't appears.
+
+         https://developer.apple.com/documentation/uikit/uiview/positioning_content_relative_to_the_safe_area
+         */
+        if view.safeAreaInsets.bottom == 0 {
+            additionalSafeAreaInsets.bottom = 15
+        }
+
+    }
+
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
@@ -257,7 +273,7 @@ open class EmojiPickerViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             segmentedControlContainerVisualEffectView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             segmentedControlContainerVisualEffectView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            segmentedControlContainerVisualEffectView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5),
+            segmentedControlContainerVisualEffectView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             segmentedControl.topAnchor.constraint(equalTo: segmentedControlContainerVisualEffectView.contentView.topAnchor),
             segmentedControl.leadingAnchor.constraint(equalTo: segmentedControlContainerVisualEffectView.contentView.leadingAnchor),
             segmentedControl.trailingAnchor.constraint(equalTo: segmentedControlContainerVisualEffectView.contentView.trailingAnchor),
@@ -266,6 +282,7 @@ open class EmojiPickerViewController: UIViewController {
 
         segmentedControlContainerVisualEffectView.clipsToBounds = true
         segmentedControlContainerVisualEffectView.layer.cornerRadius = segmentedControl.layer.cornerRadius
+
     }
 
     private func setupDataSource() {
