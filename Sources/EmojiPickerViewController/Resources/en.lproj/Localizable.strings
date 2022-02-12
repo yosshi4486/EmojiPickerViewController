@@ -1,0 +1,60 @@
+
+// Sections
+
+// All sections should be capitilized style.
+
+"recently_used" = "RECENTLY USED";
+
+"search_result" = "RESULTS";
+
+"smileys_people" = "SMILEYS & PEOPLE";
+
+"animals_nature" = "ANIMALS & NATURE";
+
+"food_drink" = "FOOD & DRINK";
+
+"travel_places" = "TRAVEL & PLACES";
+
+"activities" = "ACTIVITIES";
+
+"objects" = "OBJECTS";
+
+"symbols" = "SYMBOLS";
+
+"flags" = "FLAGS";
+
+// UI
+
+// Title style
+"search_emoji" = "Search Emoji";
+
+"no_results" = "No Results";
+
+// Accessibility
+
+"ax_segmented_control_recently_used" = "Frequently Used category";
+
+"ax_segmented_control_search_result" = "Frequently Used category";
+
+"ax_segmented_control_smileys_people" = "Smileys & People category";
+
+"ax_segmented_control_animals_nature" = "Animals & Nature category";
+
+"ax_segmented_control_food_drink" = "Food & Drink category";
+
+"ax_segmented_control_travel_places" = "Travel & Places category";
+
+"ax_segmented_control_activities" = "Activity category";
+
+"ax_segmented_control_objects" = "Objects category";
+
+"ax_segmented_control_symbols" = "Symbols category";
+
+"ax_segmented_control_flags" = "Flags category";
+
+// $0: current page index
+// $1: total pages count
+// $2: visible sections label
+"ax_collection_view_scroll_status" = "Page %@ of %@%@";
+
+"ax_searchbar_label" = "Search Emoji";

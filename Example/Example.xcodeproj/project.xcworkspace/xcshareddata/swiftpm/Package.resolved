@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "swift-collections",
+        "repositoryURL": "https://github.com/apple/swift-collections.git",
+        "state": {
+          "branch": null,
+          "revision": "48254824bb4248676bf7ce56014ff57b142b77eb",
+          "version": "1.0.2"
+        }
+      },
+      {
+        "package": "SwiftyXMLParser",
+        "repositoryURL": "https://github.com/yahoojapan/SwiftyXMLParser.git",
+        "state": {
+          "branch": null,
+          "revision": "d7a1d23f04c86c1cd2e8f19247dd15d74e0ea8be",
+          "version": "5.6.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

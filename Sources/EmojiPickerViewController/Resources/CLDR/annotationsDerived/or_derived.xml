@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2021 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="or"/>
+	</identity>
+	<annotations>
+		<annotation cp="¤" type="tts">ଅଜଣା ମୁଦ୍ରା</annotation>
+		<annotation cp="֏" type="tts">ଅର୍ମେନୀୟ ଡ୍ରାମ୍</annotation>
+		<annotation cp="؋" type="tts">ଆଫଗାନ ଆଫଗାନି</annotation>
+		<annotation cp="৳" type="tts">ବଙ୍ଗଳାଦେଶୀ ଟାକା</annotation>
+		<annotation cp="฿" type="tts">ଥାଇ ଭାଟ୍</annotation>
+		<annotation cp="៛" type="tts">କାମ୍ଵୋଡିୟ ରିଏଲ୍</annotation>
+		<annotation cp="₡" type="tts">କୋଷ୍ଟା ରିକୀୟ କୋଲୋନ୍</annotation>
+		<annotation cp="₦" type="tts">ନାଇଜେରିଆଇ ନାଇରା</annotation>
+		<annotation cp="₪" type="tts">ଇସ୍ରାଇଲି ନ୍ୟୁ ଶେକେଲ୍</annotation>
+		<annotation cp="₫" type="tts">ଭୀଏତନାମୀୟ ଡଙ୍ଗ</annotation>
+		<annotation cp="₭" type="tts">ଲାଓଟିୟ କିପ୍</annotation>
+		<annotation cp="₮" type="tts">ମଙ୍ଗୋଲିୟ ତୁଗ୍ରିକ୍</annotation>
+		<annotation cp="₲" type="tts">ପାରାଗୁଆୟାନ୍ ଗୁଆରାନି</annotation>
+		<annotation cp="₴" type="tts">ୟୁକ୍ରେନୀୟ ହ୍ରାଇଭନିଆ</annotation>
+		<annotation cp="₵" type="tts">ଘାନିୟ ସେଡି</annotation>
+		<annotation cp="₸" type="tts">କାଜାକସ୍ତାନୀ ତେଙ୍ଗେ</annotation>
+		<annotation cp="₺" type="tts">ତୁର୍କିୟ ଲିରା</annotation>
+		<annotation cp="₼" type="tts">ଆଜେରବାଇଜାନି ମନତ୍</annotation>
+		<annotation cp="₾" type="tts">ଜର୍ଜିୟ ଲାରି</annotation>
+	</annotations>
+</ldml>
