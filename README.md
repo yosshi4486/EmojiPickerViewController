@@ -21,7 +21,7 @@ A picker view controller for emoji.
 
 ```swift
 
-import EmojiPicker
+import EmojiPickerViewController
 
 var configuration = EmojiPickerConfiguration()
 
@@ -34,10 +34,12 @@ configuration.headerAppearance.textAlignment = .center
 // Changing each cell appeanrance.
 configuration.cellAppearance.size = .init(width: 30, height: 30)
 
-let emojiPickerViewController = EmojiPickerViewController
+let emojiPickerViewController = EmojiPickerViewController(configuration: configuration)
 
 // Receiveing events from the picker view controller.
-emojiPicker.delegate = self
+emojiPickerViewController.delegate = self
+
+vc.present(emojiPickerViewController, animated: true)
 
 ```
 
