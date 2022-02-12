@@ -118,11 +118,24 @@ extension ViewController: EmojiPickerViewControllerDelegate {
          Dismiss the `emojiPickerViewController` here if you don't want to allow multiple picking.
          */
 
-        // emojiPickerViewController.dismiss(animated: true, completion: nil)
+         emojiPickerViewController.dismiss(animated: true, completion: nil)
     }
 
-    func emojiPickerViewController(_ emojiPickerViewController: EmojiPickerViewController, didReceiveError error: Error) {
-        print(error)
+    func emojiPickerViewControllerDidEndSearching(_ emojiPickerViewController: EmojiPickerViewController) {
+
+        if traitCollection.userInterfaceIdiom == .pad {
+
+            let popover = emojiPickerViewController.popoverPresentationController!
+            let sheet = popover.adaptiveSheetPresentationController
+            sheet.selectedDetentIdentifier = .medium
+
+        } else {
+
+            let sheet = emojiPickerViewController.sheetPresentationController!
+            sheet.selectedDetentIdentifier = .medium
+
+        }
+
     }
 
 }

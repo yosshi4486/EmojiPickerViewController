@@ -469,10 +469,12 @@ extension EmojiPickerViewController: UISearchBarDelegate {
 
     public func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
+        delegate?.emojiPickerViewControllerDidBeginSearching(self)
     }
 
     public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
+        delegate?.emojiPickerViewControllerDidEndSearching(self)
     }
 
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

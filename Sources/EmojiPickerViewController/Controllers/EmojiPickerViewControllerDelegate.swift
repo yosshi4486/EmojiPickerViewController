@@ -30,10 +30,10 @@ import Foundation
 
  `UIAdaptivePresentationControllerDelegate` can be used to detect dismissing of *Emoji Picker View Controller*.
  */
-public protocol EmojiPickerViewControllerDelegate: AnyObject {
+@MainActor public protocol EmojiPickerViewControllerDelegate: AnyObject {
 
     /**
-     Notifies the delegate that the user completed a picking.
+     Tells the delegate that the user completed a picking.
 
      The view controller doesn't dismiss automatically after this delegate event. The owner should explicitly call `emojiPickerViewController.dismiss()`.
 
@@ -42,5 +42,33 @@ public protocol EmojiPickerViewControllerDelegate: AnyObject {
        - emoji: The emoji that is picked by the user.
      */
     func emojiPickerViewController(_ emojiPickerViewController: EmojiPickerViewController, didPick emoji: Emoji)
+
+    /**
+     Tells the delegate that the user begins searching emojis.
+
+     The default implementation does nothing.
+
+     - Parameters:
+       - emojiPickerViewController: The view controller that is presenting the emoji picker.
+     */
+    func emojiPickerViewControllerDidBeginSearching(_ emojiPickerViewController: EmojiPickerViewController)
+
+    /**
+     Tells the delegate that the user ends searching emojis.
+
+     The default implementation does nothing.
+
+     - Parameters:
+       - emojiPickerViewController: The view controller that is presenting the emoji picker.
+     */
+    func emojiPickerViewControllerDidEndSearching(_ emojiPickerViewController: EmojiPickerViewController)
+
+}
+
+public extension EmojiPickerViewControllerDelegate {
+
+    func emojiPickerViewControllerDidBeginSearching(_ emojiPickerViewController: EmojiPickerViewController) { }
+
+    func emojiPickerViewControllerDidEndSearching(_ emojiPickerViewController: EmojiPickerViewController) { }
 
 }
