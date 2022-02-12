@@ -12,6 +12,7 @@ A picker view controller for emoji.
 -   [x] Segmented control for jumping an emoji section
 -   [x] Seach bar and search results
 -   [x] Fully accessible
+-   [x] Dark mode
 -   [ ] Recently used
 -   [ ] Select skin tones from popup
 
