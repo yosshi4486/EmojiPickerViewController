@@ -26,6 +26,7 @@
 import XCTest
 @testable import EmojiPickerViewController
 
+#if os(iOS)
 class EmojiPickerSectionTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -64,3 +65,4 @@ class EmojiPickerSectionTests: XCTestCase {
     }
 
 }
+#endif

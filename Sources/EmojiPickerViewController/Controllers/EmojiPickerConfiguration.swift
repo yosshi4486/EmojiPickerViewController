@@ -23,6 +23,7 @@
 //  limitations under the License.
 //  
 
+#if os(iOS)
 import UIKit
 
 /**
@@ -97,3 +98,4 @@ public struct EmojiPickerConfiguration {
     public init() {}
     
 }
+#endif

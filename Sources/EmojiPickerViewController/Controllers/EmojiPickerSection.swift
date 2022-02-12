@@ -23,9 +23,9 @@
 //  limitations under the License.
 //
 
+#if os(iOS)
 import Foundation
 import UIKit
-
 /**
  An section of emoji picker.
 
@@ -235,3 +235,4 @@ enum EmojiPickerSection: Int, CaseIterable {
     }
 
 }
+#endif

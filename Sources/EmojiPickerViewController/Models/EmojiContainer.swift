@@ -21,10 +21,13 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-//  
+//
+
+#if canImport(UIKit)
+import UIKit
+#endif
 
 import Foundation
-import UIKit
 import Collections
 
 /**
@@ -82,13 +85,17 @@ public class EmojiContainer: Loader {
 
     init() {
 
+#if os(iOS)
         NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotationsAutomatically(_:)), name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)
+#endif
 
     }
 
     deinit {
 
+#if os(iOS)
         NotificationCenter.default.removeObserver(self, name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)
+#endif
 
     }
 
@@ -160,6 +167,7 @@ public class EmojiContainer: Loader {
     }
 
 
+#if os(iOS)
     @MainActor @objc private func updateAnnotationsAutomatically(_ notification: Notification) {
 
         guard automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange, let primaryLanguage = (notification.object as? UITextInputMode)?.primaryLanguage else {
@@ -176,5 +184,6 @@ public class EmojiContainer: Loader {
         NotificationCenter.default.post(name: EmojiContainer.currentAnnotationDidChangeNotification, object: autoUpdatingResource)
         
     }
+#endif
 
 }

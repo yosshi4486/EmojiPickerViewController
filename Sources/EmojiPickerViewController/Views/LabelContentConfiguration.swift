@@ -23,6 +23,7 @@
 //  limitations under the License.
 //  
 
+#if !os(macOS)
 import UIKit
 
 /**
@@ -108,4 +109,4 @@ class LabelContentView: UIView, UIContentView {
     }
 
 }
-
+#endif

@@ -25,6 +25,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 /**
  A protocol the picker uses to communicate user selections.
 
@@ -72,3 +74,4 @@ public extension EmojiPickerViewControllerDelegate {
     func emojiPickerViewControllerDidEndSearching(_ emojiPickerViewController: EmojiPickerViewController) { }
 
 }
+#endif

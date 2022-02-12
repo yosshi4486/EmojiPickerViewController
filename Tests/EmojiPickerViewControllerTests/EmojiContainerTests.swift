@@ -36,14 +36,6 @@ import XCTest
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    class StubTextInputMode: UITextInputMode {
-        var textLanguage: String?
-
-        override var primaryLanguage: String? {
-            return textLanguage
-        }
-    }
-
     func testLoad() throws {
 
         let container = EmojiContainer()
@@ -179,6 +171,16 @@ import XCTest
 
     }
 
+#if os(iOS)
+
+    class StubTextInputMode: UITextInputMode {
+        var textLanguage: String?
+
+        override var primaryLanguage: String? {
+            return textLanguage
+        }
+    }
+
     func testContainerUpdatesAnnotationsWhenReceivingNotifications() throws {
 
         // Preparation
@@ -236,6 +238,7 @@ import XCTest
         }
 
     }
+#endif
 
 
 

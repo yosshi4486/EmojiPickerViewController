@@ -23,6 +23,7 @@
 //  limitations under the License.
 //
 
+#if os(iOS)
 import UIKit
 import Collections
 
@@ -581,3 +582,4 @@ extension UICollectionView {
     }
 
 }
+#endif

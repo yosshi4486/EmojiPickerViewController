@@ -23,6 +23,7 @@
 //  limitations under the License.
 //  
 
+#if !os(macOS)
 import UIKit
 
 class LabelCollectionHeaderView: UICollectionReusableView {
@@ -97,3 +98,4 @@ class PaddingLabel: UILabel {
     }
 
 }
+#endif
