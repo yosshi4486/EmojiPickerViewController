@@ -37,17 +37,29 @@ class ViewController: UIViewController {
 
     func showPicker() {
 
-        let emojiPicker = EmojiPickerViewController()
+        var configuration = EmojiPickerConfiguration()
+
+        /*
+         Enabling changes animation.
+         */
+        // configuration.animatingChanges = true
+
+        /*
+         Changing each header appearance.
+         */
+        // configuration.headerAppearance.textAlignment = .center
+
+        /*
+         Changing each cell appeanrance.
+         */
+        // configuration.cellAppearance.size = .init(width: 30, height: 30)
+
+        let emojiPicker = EmojiPickerViewController(configuration: configuration)
 
         /*
          Receiveing events from the picker view controller.
          */
         emojiPicker.delegate = self
-
-        /*
-         Enabling changes animation.
-         */
-        // emojiPicker.animatingChanges = true
 
         /*
          Specifying the language for searching and voiceover.

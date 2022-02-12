@@ -25,33 +25,17 @@
 
 import UIKit
 
-public struct HeaderAppearance {
-
-    public var font: UIFont = UIFont.preferredFont(forTextStyle: .headline)
-
-    public var textColor: UIColor = .label
-
-    public var textAlignment: NSTextAlignment = .natural
-
-    public var backgroundColor: UIColor = .systemBackground
-
-    public var labelPadding: UIEdgeInsets = .init(top: 8, left: 8, bottom: 8, right: 8)
-
-}
-
 class LabelCollectionHeaderView: UICollectionReusableView {
 
     let headerLabel: PaddingLabel = {
         let label = PaddingLabel()
-        label.font = .preferredFont(forTextStyle: .headline)
         label.adjustsFontForContentSizeCategory = true
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 1
-        label.textColor = .label
         return label
     }()
 
-    var appearance: HeaderAppearance! {
+    var appearance: EmojiPickerConfiguration.HeaderAppearance! {
         didSet {
             configureAppearance()
         }

@@ -31,23 +31,26 @@ import Collections
 
  # Sizing Emojis
  The emoji is sized as same as the cell size, so you can change the emoji size and the number of emojis in each row by changing `flowLayout.itemSize`.
+
+ # Design
+ The basic design and relationship refers `PHPickerViewController` and `PHPickerConfiguration`.
+
  */
 open class EmojiPickerViewController: UIViewController {
-
-    /**
-     The boolean value indicating whether the collectionview animates changes. The default value is `false`.
-     */
-    open var animatingChanges: Bool = false
-
-    /**
-     The appearance of the collection header.
-     */
-    open var headerAppearance: HeaderAppearance = HeaderAppearance()
 
     /**
      The picker’s delegate object.
      */
     open weak var delegate: EmojiPickerViewControllerDelegate?
+
+    /**
+     The object that contains information about how to configure a emoji picker view controller.
+     */
+    open var configuration: EmojiPickerConfiguration {
+        didSet {
+            flowLayout.itemSize = configuration.cellAppearance.size
+        }
+    }
 
     /**
      The container that loads entire information for emoji.
@@ -95,6 +98,28 @@ open class EmojiPickerViewController: UIViewController {
      */
     var segmentedControl: UISegmentedControl!
 
+    /**
+     Creates a new emoji picker view controller with the configuration you specify.
+
+     - Parameters:
+       - configuration
+       The configuration with which to initialize the view controller.
+     */
+    public init(configuration: EmojiPickerConfiguration) {
+        self.configuration = configuration
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable, message: "Must use init(configuration:)")
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        fatalError("")
+    }
+
+    @available(*, unavailable, message: "Must use init(configuration:)")
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     open override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -114,6 +139,17 @@ open class EmojiPickerViewController: UIViewController {
 
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
+
+        reloadCollectionView()
+
+    }
+
+    /**
+     Reloads the entire collectionview information.
+
+     The system calls this method automatically when the picker's trailtCollection changes. You can call this method after you assign a new object to `pickerViewController.configuration`.
+     */
+    open func reloadCollectionView() {
 
         var snapshot = diffableDataSource.snapshot()
         snapshot.reconfigureItems(snapshot.itemIdentifiers)
@@ -182,7 +218,7 @@ open class EmojiPickerViewController: UIViewController {
         flowLayout.minimumLineSpacing = 5
         flowLayout.minimumInteritemSpacing = 5
         flowLayout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 10)
-        flowLayout.itemSize = .init(width: 50, height: 50)
+        flowLayout.itemSize = configuration.cellAppearance.size
         flowLayout.sectionHeadersPinToVisibleBounds = true
         flowLayout.headerReferenceSize = .init(width: view.bounds.width, height: 50)
 
@@ -274,7 +310,7 @@ open class EmojiPickerViewController: UIViewController {
 
             let section = self.diffableDataSource.sectionIdentifier(for: indexPath.section)!
             supplementaryView.headerLabel.text = section.localizedSectionName
-            supplementaryView.appearance = self.headerAppearance
+            supplementaryView.appearance = self.configuration.headerAppearance
 
             supplementaryView.isAccessibilityElement = true
             supplementaryView.accessibilityTraits = .header
@@ -323,7 +359,7 @@ open class EmojiPickerViewController: UIViewController {
             if searchBar.text?.isEmpty == true {
 
                 snapshot.deleteSections([.searchResult])
-                diffableDataSource.apply(snapshot, animatingDifferences: animatingChanges)
+                diffableDataSource.apply(snapshot, animatingDifferences: configuration.animatingChanges)
 
             } else {
 
@@ -331,14 +367,14 @@ open class EmojiPickerViewController: UIViewController {
 
                     snapshot.insertSections([.searchResult], beforeSection: .smileysPeople)
                     snapshot.appendItems([.empty], toSection: .searchResult)
-                    diffableDataSource.apply(snapshot, animatingDifferences: animatingChanges)
+                    diffableDataSource.apply(snapshot, animatingDifferences: configuration.animatingChanges)
 
                 } else {
 
                     // Using section snapshot to repalce the section data.
                     var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
                     sectionSnapshot.append([.empty], to: nil)
-                    diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: animatingChanges)
+                    diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: configuration.animatingChanges)
 
                 }
 
@@ -350,14 +386,14 @@ open class EmojiPickerViewController: UIViewController {
 
                 snapshot.insertSections([.searchResult], beforeSection: .smileysPeople)
                 snapshot.appendItems(searchResults, toSection: .searchResult)
-                diffableDataSource.apply(snapshot, animatingDifferences: animatingChanges)
+                diffableDataSource.apply(snapshot, animatingDifferences: configuration.animatingChanges)
 
             } else {
 
                 // Using section snapshot to repalce the section data.
                 var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
                 sectionSnapshot.append(searchResults, to: nil)
-                diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: animatingChanges)
+                diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: configuration.animatingChanges)
 
             }
 

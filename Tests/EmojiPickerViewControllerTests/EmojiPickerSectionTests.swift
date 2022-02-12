@@ -1,7 +1,7 @@
 //
 //  EmojiPickerSectionTests.swift
 //
-//  Example
+//  EmojiPickerViewController
 //  https://github.com/yosshi4486/EmojiPickerViewController
 // 
 //  Created by yosshi4486 on 2022/02/08.
