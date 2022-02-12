@@ -9,7 +9,7 @@ A picker view controller for emoji.
 ## Features
 
 -   [x] Emoji picker following [UTS#51 Specification](https://unicode.org/reports/tr51/)
--   [x] Segmented control for jumping a emoji section
+-   [x] Segmented control for jumping an emoji section
 -   [x] Seach bar and search results
 -   [x] Fully accessible
 -   [ ] Recently used
