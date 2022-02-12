@@ -38,11 +38,13 @@ class EmojiLocaleTests: XCTestCase {
 
     func testInit() throws {
 
-        let resourceBaseURL = Bundle.module.resourceURL!
-
         let notexistValidFormLanguageCode = "zz"
         let notexistValidFormScriptCode = "Abcd"
         let notexistValidFormRegionCode = "ABC"
+
+        /*
+         Since the actual location depends on the platform and its fragile, we asserts only `lastPathComponent`
+         */
 
         XCTContext.runActivity(named: "language-script_region") { _ in
 
@@ -50,16 +52,16 @@ class EmojiLocaleTests: XCTestCase {
                 let locale = EmojiLocale(localeIdentifier: "sr-Cyrl_BA")
                 XCTAssertNotNil(locale)
                 XCTAssertEqual(locale?.localeIdentifier, "sr-Cyrl_BA")
-                XCTAssertEqual(locale?.annotationFileURLs, [resourceBaseURL.appendingPathComponent("sr_Cyrl.xml"), resourceBaseURL.appendingPathComponent("sr_Cyrl_BA.xml")])
-                XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("sr_Cyrl_derived.xml"), resourceBaseURL.appendingPathComponent("sr_Cyrl_BA_derived.xml")])
+                XCTAssertEqual(locale?.annotationFileURLs.map(\.lastPathComponent), ["sr_Cyrl.xml", "sr_Cyrl_BA.xml"])
+                XCTAssertEqual(locale?.annotationDerivedFileURLs.map(\.lastPathComponent), ["sr_Cyrl_derived.xml", "sr_Cyrl_BA_derived.xml"])
             }
 
             XCTContext.runActivity(named: "exist-exist_notexist") { _ in
                 let locale = EmojiLocale(localeIdentifier: "sr-Cyrl_\(notexistValidFormRegionCode)")
                 XCTAssertNotNil(locale)
                 XCTAssertEqual(locale?.localeIdentifier, "sr-Cyrl_\(notexistValidFormRegionCode)")
-                XCTAssertEqual(locale?.annotationFileURLs, [resourceBaseURL.appendingPathComponent("sr_Cyrl.xml")])
-                XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("sr_Cyrl_derived.xml")])
+                XCTAssertEqual(locale?.annotationFileURLs.map(\.lastPathComponent), ["sr_Cyrl.xml"])
+                XCTAssertEqual(locale?.annotationDerivedFileURLs.map(\.lastPathComponent), ["sr_Cyrl_derived.xml"])
             }
 
             XCTContext.runActivity(named: "exist-notexist_exist") { _ in
@@ -100,8 +102,8 @@ class EmojiLocaleTests: XCTestCase {
                 let locale = EmojiLocale(localeIdentifier: "zh-Hant")
                 XCTAssertNotNil(locale)
                 XCTAssertEqual(locale?.localeIdentifier, "zh-Hant")
-                XCTAssertEqual(locale?.annotationFileURLs, [resourceBaseURL.appendingPathComponent("zh_Hant.xml")])
-                XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("zh_Hant_derived.xml")])
+                XCTAssertEqual(locale?.annotationFileURLs.map(\.lastPathComponent), ["zh_Hant.xml"])
+                XCTAssertEqual(locale?.annotationDerivedFileURLs.map(\.lastPathComponent), ["zh_Hant_derived.xml"])
             }
 
             XCTContext.runActivity(named: "exist-notexist") { _ in
@@ -127,16 +129,16 @@ class EmojiLocaleTests: XCTestCase {
                 let locale = EmojiLocale(localeIdentifier: "en_IN")
                 XCTAssertNotNil(locale)
                 XCTAssertEqual(locale?.localeIdentifier, "en_IN")
-                XCTAssertEqual(locale?.annotationFileURLs, [resourceBaseURL.appendingPathComponent("en.xml"), resourceBaseURL.appendingPathComponent("en_IN.xml")])
-                XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("en_derived.xml"), resourceBaseURL.appendingPathComponent("en_IN_derived.xml")])
+                XCTAssertEqual(locale?.annotationFileURLs.map(\.lastPathComponent), ["en.xml", "en_IN.xml"])
+                XCTAssertEqual(locale?.annotationDerivedFileURLs.map(\.lastPathComponent), ["en_derived.xml", "en_IN_derived.xml"])
             }
 
             XCTContext.runActivity(named: "exist_notexist") { _ in
                 let locale = EmojiLocale(localeIdentifier: "en_\(notexistValidFormRegionCode)")
                 XCTAssertNotNil(locale)
                 XCTAssertEqual(locale?.localeIdentifier, "en_\(notexistValidFormRegionCode)")
-                XCTAssertEqual(locale?.annotationFileURLs, [resourceBaseURL.appendingPathComponent("en.xml")])
-                XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("en_derived.xml")])
+                XCTAssertEqual(locale?.annotationFileURLs.map(\.lastPathComponent), ["en.xml"])
+                XCTAssertEqual(locale?.annotationDerivedFileURLs.map(\.lastPathComponent), ["en_derived.xml"])
             }
 
             XCTContext.runActivity(named: "notexist_exist") { _ in
@@ -157,8 +159,8 @@ class EmojiLocaleTests: XCTestCase {
                 let locale = EmojiLocale(localeIdentifier: "bg")
                 XCTAssertNotNil(locale)
                 XCTAssertEqual(locale?.localeIdentifier, "bg")
-                XCTAssertEqual(locale?.annotationFileURLs, [resourceBaseURL.appendingPathComponent("bg.xml")])
-                XCTAssertEqual(locale?.annotationDerivedFileURLs, [resourceBaseURL.appendingPathComponent("bg_derived.xml")])
+                XCTAssertEqual(locale?.annotationFileURLs.map(\.lastPathComponent), ["bg.xml"])
+                XCTAssertEqual(locale?.annotationDerivedFileURLs.map(\.lastPathComponent), ["bg_derived.xml"])
             }
 
             XCTContext.runActivity(named: "notexist") { _ in

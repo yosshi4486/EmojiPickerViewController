@@ -38,9 +38,8 @@ import XCTest
 
     func testResourceURL() throws {
 
-        let baseURL = Bundle.module.resourceURL!
         let loader = EmojiAnnotationDerivedLoader(emojiDictionary: [:], emojiLocale: EmojiLocale(localeIdentifier: "zh-Hant-HK")!)
-        XCTAssertEqual(loader.resourceURLs, [baseURL.appendingPathComponent("zh_Hant_derived.xml"), baseURL.appendingPathComponent("zh_Hant_HK_derived.xml")], "Failed to replace the hyphen separated language code with underscore.")
+        XCTAssertEqual(loader.resourceURLs.map(\.lastPathComponent), ["zh_Hant_derived.xml", "zh_Hant_HK_derived.xml"], "Failed to replace the hyphen separated language code with underscore.")
 
     }
 
