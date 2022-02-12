@@ -76,12 +76,12 @@ class ViewController: UIViewController {
          */
 
         // Getting the emoji via the emoji picker, or
-        // let bouncingBall = emojiPicker.emojiContainer.entireEmojiSet["⛹🏿‍♀"]!
-        // print(bouncingBall)
+        let bouncingBall = emojiPicker.emojiContainer.entireEmojiSet["⛹🏿‍♀"]!
+        print(bouncingBall)
 
         // singleton main container.
-        // let grapes = EmojiContainer.main.entireEmojiSet["🍇"]!
-        // print(grapes)
+        let grape = EmojiContainer.main.labeledEmojisForKeyboard[.foodDrink]![0]
+        print(grape)
 
         // You can also run load() at any time earlier, such as UIApplicationDelegate, UISceneDelegate and so on.
         // EmojiContainer.main.load()

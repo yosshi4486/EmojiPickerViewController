@@ -8,7 +8,7 @@ A picker view controller for emoji.
 
 ## Features
 
--   [x] Emoji picker
+-   [x] Emoji picker following [UTS#51 Specification](https://unicode.org/reports/tr51/)
 -   [x] Segmented control for jumping a emoji section
 -   [x] Seach bar and search results
 -   [x] Fully accessible
@@ -17,7 +17,60 @@ A picker view controller for emoji.
 
 ## Usege
 
-TBD
+```swift
+
+import EmojiPicker
+
+var configuration = EmojiPickerConfiguration()
+
+// Enabling changes animation.
+configuration.animatingChanges = true
+
+// Changing each header appearance.
+configuration.headerAppearance.textAlignment = .center
+
+// Changing each cell appeanrance.
+configuration.cellAppearance.size = .init(width: 30, height: 30)
+
+let emojiPickerViewController = EmojiPickerViewController
+
+// Receiveing events from the picker view controller.
+emojiPicker.delegate = self
+
+```
+
+You can specify the annotation's locale manually:
+
+```swift
+if EmojiLocale.availableIdentifiers.contain("ja") {
+    EmojiContainer.main.emojiLocale = EmojiLocale(localeIdentifier: "ja")!
+}
+```
+
+or enable an automatic update option:
+
+```swift
+EmojiContainer.main.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
+
+// Disable
+// EmojiContainer.main.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = false
+```
+
+The option is `true` by default.
+
+You can get an `Emoji` object by accessing a singleton `EmojiContainer` instance if you need them:
+
+```swift
+let bouncingBall = EmojiContainer.main.entireEmojiSet["⛹🏿‍♀"]!
+print(bouncingBall)
+// Prints "character: ⛹🏿‍♀, status: minimallyQualified, group: People & Body, subgroup: person-sport, cldrOrder: 2360, annotation: ball | dark skin tone | woman | woman bouncing ball, textToSpeach: woman bouncing ball: dark skin tone"
+
+let grape = EmojiContainer.main.labeledEmojisForKeyboard["🍇"]!
+print(grape)
+// Prints "character: 🍇, status: fullyQualified, group: Food & Drink, subgroup: food-fruit, cldrOrder: 3323, annotation: fruit | grape | grapes, textToSpeach: grapes"
+```
+
+See and run [Example](./Example/) for checking usages.
 
 ## Installation
 
