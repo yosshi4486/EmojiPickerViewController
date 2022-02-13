@@ -82,7 +82,7 @@ class EmojiTests: XCTestCase {
         emoji.textToSpeach = "woman bouncing ball: dark skin tone"
 
         let expectedText = """
-        <Emoji:\(Unmanaged.passUnretained(emoji).toOpaque()) character=⛹🏿‍♀ status=minimallyQualified cldrOrder=2360 group=People & Body subgroup=person-sport annotation=ball | dark skin tone | woman | woman bouncing ball textToSpeach=woman bouncing ball: dark skin tone orderedSkinToneEmojis=[] genericSkinToneEmoji=nil minimallyQualifiedOrUnqualifiedVersions=[] fullyQualifiedVersion=nil>
+        <Emoji: character=⛹🏿‍♀ status=minimallyQualified cldrOrder=2360 group=People & Body subgroup=person-sport annotation=ball | dark skin tone | woman | woman bouncing ball textToSpeach=woman bouncing ball: dark skin tone orderedSkinToneEmojis=[] genericSkinToneEmoji=nil minimallyQualifiedOrUnqualifiedVersions=[] fullyQualifiedVersion=nil>
         """
         XCTAssertEqual(emoji.description, expectedText)
 

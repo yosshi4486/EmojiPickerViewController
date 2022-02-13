@@ -28,12 +28,14 @@ import XCTest
 
 @MainActor class EmojiContainerTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var userDefaults: UserDefaults!
+
+    @MainActor override func setUpWithError() throws {
+        userDefaults = UserDefaults(suiteName: "test")!
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    @MainActor override func tearDownWithError() throws {
+        userDefaults.removePersistentDomain(forName: "test")
     }
 
     func testLoad() throws {
@@ -47,7 +49,7 @@ import XCTest
 
         // Execute
         container.emojiLocale = EmojiLocale(localeIdentifier: "ja")!
-        try container.load()
+        container.load()
 
         // Postcheck
         XCTAssertEqual(container.entireEmojiSet.count, emojiCountsListedInEmojiTest)
@@ -170,6 +172,43 @@ import XCTest
         XCTAssertEqual(cop[3].character, "©️")
 
     }
+
+    func testRecentlyUsed() throws {
+
+        let container = EmojiContainer()
+        container.userDefaults = userDefaults
+        container.load()
+        container.maximumNumberOfItemsForRecentlyUsed = 3
+
+        XCTAssertEqual(container.recentlyUsedEmojis, [])
+        container.saveRecentlyUsedEmoji(Emoji("👌"))
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), ["👌"])
+        container.saveRecentlyUsedEmoji(Emoji("😵‍💫"))
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), ["👌", "😵‍💫"])
+        container.saveRecentlyUsedEmoji(Emoji("🍇"))
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), ["👌", "😵‍💫", "🍇"])
+        container.saveRecentlyUsedEmoji(Emoji("🛫"))
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), ["😵‍💫", "🍇", "🛫"])
+
+    }
+
+    func testRecentlyUsedWhenNotLoaded() throws {
+
+        let container = EmojiContainer()
+        container.userDefaults = userDefaults
+        container.maximumNumberOfItemsForRecentlyUsed = 3
+
+        XCTAssertEqual(container.recentlyUsedEmojis, [])
+        container.saveRecentlyUsedEmoji(Emoji("👌"))
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), [])
+        container.saveRecentlyUsedEmoji(Emoji("😵‍💫"))
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), [])
+        container.saveRecentlyUsedEmoji(Emoji("🍇"))
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), [])
+        container.saveRecentlyUsedEmoji(Emoji("🛫"))
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), [])
+    }
+
 
 #if os(iOS)
 

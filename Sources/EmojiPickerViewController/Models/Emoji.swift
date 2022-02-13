@@ -247,7 +247,7 @@ extension Emoji: CustomStringConvertible {
     public var description: String {
 
         """
-        <Emoji:\(Unmanaged.passUnretained(self).toOpaque()) character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup) annotation=\(annotation) textToSpeach=\(textToSpeach) orderedSkinToneEmojis=\(orderedSkinToneEmojis) genericSkinToneEmoji=\(String(describing: genericSkinToneEmoji)) minimallyQualifiedOrUnqualifiedVersions=\(minimallyQualifiedOrUnqualifiedVersions) fullyQualifiedVersion=\(String(describing: fullyQualifiedVersion))>
+        <Emoji: character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup) annotation=\(annotation) textToSpeach=\(textToSpeach) orderedSkinToneEmojis=\(orderedSkinToneEmojis.map(\.character)) genericSkinToneEmoji=\(String(describing: genericSkinToneEmoji?.character)) minimallyQualifiedOrUnqualifiedVersions=\(minimallyQualifiedOrUnqualifiedVersions.map(\.character)) fullyQualifiedVersion=\(String(describing: fullyQualifiedVersion?.character))>
         """
 
     }

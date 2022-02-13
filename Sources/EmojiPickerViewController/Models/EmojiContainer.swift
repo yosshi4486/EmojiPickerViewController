@@ -40,12 +40,27 @@ public class EmojiContainer: Loader {
 
      The posting object is a EmojiLocale instance.
      */
-    static let currentAnnotationDidChangeNotification = Notification.Name(rawValue: "_currentAnnotationDidChangeNotification")
+    public static let currentAnnotationDidChangeNotification = Notification.Name(rawValue: "_currentAnnotationDidChangeNotification")
+
+    /**
+     The key for which stores recently used emojis.
+     */
+    public static let recentlyUsedEmojiKey: String = "_emojiPickerViewController_recentlyUsedEmojiKey"
 
     /**
      The `main` container instance for operating emojis. You can only access to `main`.
      */
     public static let main = EmojiContainer()
+
+    /**
+     The number of items that the system stores and presents as `recentlyUsed`. The default value is `30`.
+     */
+    public var maximumNumberOfItemsForRecentlyUsed: Int = 30
+
+    /**
+     The key-value storage for which stores recently used emojis. The default value is `.standard`.
+     */
+    public var userDefaults: UserDefaults = .standard
 
     /**
      The boolean value indicating whether this container automatically updates annotations following `UITextInputMode.currentInputModeDidChangeNotification`. The default value is `false`.
@@ -81,6 +96,16 @@ public class EmojiContainer: Loader {
      */
     public var isLoaded: Bool {
         return !entireEmojiSet.isEmpty
+    }
+
+    /**
+     The emojis which are recently used by the user.
+
+     Although the recently used emojis have already save, the value returns empty array if the `entireEmojiSet` has not loaded yet, so please call `load()` before getting this property.
+     */
+    var recentlyUsedEmojis: [Emoji] {
+        let internalStrings: [String] = (userDefaults.array(forKey: EmojiContainer.recentlyUsedEmojiKey) as? [String]) ?? []
+        return internalStrings.compactMap({ entireEmojiSet[$0[$0.startIndex]] })
     }
 
     init() {
@@ -163,6 +188,39 @@ public class EmojiContainer: Loader {
                 continuation.resume(returning: searchResults)
             }
         })
+
+    }
+
+    /**
+     Stores the given emoji as recently used. Actually, this method only saves its `id` property as `String`.
+
+     The head element is poped if the number of recently used emoji exceeds `maximumNumberOfItemsForRecentlyUsed`.
+
+     For example:
+     ```swift
+     EmojiContainer.main.load()
+
+     EmojiContainer.main.maximumNumberOfItemsForRecentlyUsed = 3
+     EmojiContainer.main.saveRecentlyUsedEmoji(Emoji("👌"))
+     EmojiContainer.main.saveRecentlyUsedEmoji(Emoji("😵‍💫"))
+     EmojiContainer.main.saveRecentlyUsedEmoji(Emoji("🍇"))
+
+     print(EmojiContainer.main.recentlyUsedEmoji.map(\.character)
+     Print ["👌", "😵‍💫", "🍇"]
+
+     EmojiContainer.main.saveRecentlyUsedEmoji(Emoji("🛫"))
+     print(EmojiContainer.main.recentlyUsedEmoji.map(\.character)
+     Print ["😵‍💫", "🍇", "🛫"]
+     ```
+     */
+    func saveRecentlyUsedEmoji(_ emoji: Emoji) {
+
+        var internalStrings: [String] = (userDefaults.array(forKey: EmojiContainer.recentlyUsedEmojiKey) as? [String]) ?? []
+        if internalStrings.count >= maximumNumberOfItemsForRecentlyUsed {
+            internalStrings.removeFirst()
+        }
+        internalStrings.append(String(emoji.character))
+        userDefaults.set(internalStrings, forKey: EmojiContainer.recentlyUsedEmojiKey)
 
     }
 
