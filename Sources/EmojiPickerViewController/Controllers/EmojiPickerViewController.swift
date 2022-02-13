@@ -368,6 +368,8 @@ open class EmojiPickerViewController: UIViewController {
         diffableDataSource.apply(snapshot, animatingDifferences: false)
     }
 
+    // TODO: I think that the implementations around diffable data source are too complex. It should be refactored if there is a better idea.
+
     private func updateRecentlyUsedSection(animate: Bool) {
 
         var snapshot = diffableDataSource.snapshot()
@@ -489,7 +491,16 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
         guard let item = diffableDataSource.itemIdentifier(for: indexPath), let emoji = item.emoji else {
             return
         }
+
         emojiContainer.saveRecentlyUsedEmoji(emoji)
+
+        // Update `recently used` section if it exists.
+        if diffableDataSource.snapshot().indexOfSection(.frequentlyUsed(.recentlyUsed)) != nil {
+            var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
+            sectionSnapshot.append(emojiContainer.recentlyUsedEmojis.map({ .recentlyUsed($0) }), to: nil)
+            diffableDataSource.apply(sectionSnapshot, to: .frequentlyUsed(.recentlyUsed), animatingDifferences: configuration.animatingChanges)
+        }
+
         delegate?.emojiPickerViewController(self, didPick: emoji)
 
     }
