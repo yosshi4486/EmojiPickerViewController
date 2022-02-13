@@ -27,23 +27,36 @@ import Foundation
 
 /**
  An section of emoji picker.
-
  */
-enum EmojiPickerSection: Int, CaseIterable {
+enum EmojiPickerSection {
 
     /**
-     The section for emojis that the user recently used.
+     A type for a `.frequentlyUsed` section.
 
-     This section should not appear while `.searchResult` is appeared.
+     The `.frequentlyUsed` section appears either `.recentlyUsed` or `searchResult`.
      */
-    case recentlyUsed
+    enum FrequentyUsedSection: Int, CaseIterable {
+
+        /**
+         The section for emojis that the user recently used.
+
+         This section should not appear while `.searchResult` is appeared.
+         */
+        case recentlyUsed
+
+        /**
+         The section for emojis that the user recently used.
+
+         This section should not appear while `.searchResult` is appeared.
+         */
+        case searchResult
+
+    }
 
     /**
-     The section for the search result's emoji.
-
-     This section should not appear while `.recentlyUsed` is appeared.
+     The section for the frequentry used emoji.
      */
-    case searchResult
+    case frequentlyUsed(FrequentyUsedSection)
 
     /**
      The section for emojis which the label is `Smileys & People`.
@@ -86,7 +99,58 @@ enum EmojiPickerSection: Int, CaseIterable {
     case flags
 
     /**
-     Creates an *Emoji Label* instance by the ginve `emojiLabel`.
+     Creates an *Emoji Picker Section* instance by the given index.
+
+     The section starts from:
+     0: frequentlyUsed(.recentlyUsed)
+     1: frequentlyUsed(.searchResult)
+     2: smileysPeople...
+
+     - Parameters:
+       - index: The index of the section.
+     */
+    init?(index: Int) {
+
+        switch index {
+
+        case 0:
+            self = .frequentlyUsed(.recentlyUsed)
+
+        case 1:
+            self = .frequentlyUsed(.searchResult)
+
+        case 2:
+            self = .smileysPeople
+
+        case 3:
+            self = .animalsNature
+
+        case 4:
+            self = .foodDrink
+
+        case 5:
+            self = .travelPlaces
+
+        case 6:
+            self = .activities
+
+        case 7:
+            self = .objects
+
+        case 8:
+            self = .symbols
+
+        case 9:
+            self = .flags
+
+        default:
+            return nil
+
+        }
+    }
+
+    /**
+     Creates an *Emoji Picker Section* instance by the given `emojiLabel`.
 
      - Parameters:
        - emojiLabel: The label of the emoji.
@@ -128,10 +192,10 @@ enum EmojiPickerSection: Int, CaseIterable {
 
         switch self {
 
-        case .recentlyUsed:
+        case .frequentlyUsed(.recentlyUsed):
             return String(localized:"recently_used", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
-        case .searchResult:
+        case .frequentlyUsed(.searchResult):
             return String(localized:"search_result", bundle: .module, comment: "Collection header title: indicates in which the emojis is categorized.")
 
         case .smileysPeople:
@@ -164,6 +228,8 @@ enum EmojiPickerSection: Int, CaseIterable {
 
 
 }
+
+extension EmojiPickerSection: Equatable { }
 
 #if os(iOS)
 import UIKit

@@ -36,6 +36,21 @@ class EmojiPickerSectionTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func testInitFromIndex() throws {
+        XCTAssertNil(EmojiPickerSection(index: -1))
+        XCTAssertEqual(EmojiPickerSection(index: 0), .frequentlyUsed(.recentlyUsed))
+        XCTAssertEqual(EmojiPickerSection(index: 1), .frequentlyUsed(.searchResult))
+        XCTAssertEqual(EmojiPickerSection(index: 2), .smileysPeople)
+        XCTAssertEqual(EmojiPickerSection(index: 3), .animalsNature)
+        XCTAssertEqual(EmojiPickerSection(index: 4), .foodDrink)
+        XCTAssertEqual(EmojiPickerSection(index: 5), .travelPlaces)
+        XCTAssertEqual(EmojiPickerSection(index: 6), .activities)
+        XCTAssertEqual(EmojiPickerSection(index: 7), .objects)
+        XCTAssertEqual(EmojiPickerSection(index: 8), .symbols)
+        XCTAssertEqual(EmojiPickerSection(index: 9), .flags)
+        XCTAssertNil(EmojiPickerSection(index: 10))
+    }
+
     func testInitFromLabel() throws {
 
         XCTAssertEqual(EmojiPickerSection(emojiLabel: .smileysPeople), .smileysPeople)
@@ -51,8 +66,9 @@ class EmojiPickerSectionTests: XCTestCase {
     func testLocalizedSectionName() throws {
 
         // Tests boolean whether the returned string is not equal to the key, if it is equal key, the implementation or localization file has miss.
-        XCTAssertNotEqual(EmojiPickerSection.recentlyUsed.localizedSectionName, "recently_used")
-        XCTAssertNotEqual(EmojiPickerSection.searchResult.localizedSectionName, "search_result")
+        XCTAssertNotEqual(EmojiPickerSection.frequentlyUsed(.recentlyUsed).localizedSectionName, "recently_used")
+        XCTAssertNotEqual(EmojiPickerSection.frequentlyUsed(.searchResult).localizedSectionName, "search_result")
+        XCTAssertNotEqual(EmojiPickerSection.frequentlyUsed(.recentlyUsed).localizedSectionName, EmojiPickerSection.frequentlyUsed(.searchResult).localizedSectionName)
         XCTAssertNotEqual(EmojiPickerSection.smileysPeople.localizedSectionName, "smileys_people")
         XCTAssertNotEqual(EmojiPickerSection.foodDrink.localizedSectionName, "food_drink")
         XCTAssertNotEqual(EmojiPickerSection.travelPlaces.localizedSectionName, "travel_places")
