@@ -9,15 +9,16 @@ on:
 jobs:
   build:
 
-# The latest macos version on GithubAction runner is macOS-11, but it fails xctests that contains swift.concurrency(linking issue?)
-# ubuntu is stable for testing.
-    runs-on: ubuntu-latest
+# There is a linking issue at Xcode13.2 and macOS11, it fails xctests that contains swift.concurrency(linking issue?)
+# https://forums.swift.org/t/swift-5-5-2-xcode-13-2-beta-fails-to-link-libswift-concurrency-dylib/53263
+# Specifies the workwround xcode version for avoiding the problem.
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v2
-    - uses: fwal/setup-swift@v1
-      with:
-        swift-version: "5.5.2"
+     - uses: maxim-lobanov/setup-xcode@v1
+       with:
+         xcode-version: '13.1'
     - name: Build
       run: swift build -v
     - name: Run tests
