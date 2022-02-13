@@ -13,7 +13,7 @@ A picker view controller for emoji.
 -   [x] Seach bar and search results
 -   [x] Fully accessible
 -   [x] Dark mode
--   [ ] Recently used
+-   [x] Recently used
 -   [ ] Select skin tones from popup
 -   [ ] State Restoration
 
