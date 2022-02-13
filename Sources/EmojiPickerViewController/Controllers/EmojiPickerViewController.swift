@@ -47,11 +47,7 @@ open class EmojiPickerViewController: UIViewController {
     /**
      The object that contains information about how to configure a emoji picker view controller.
      */
-    open var configuration: EmojiPickerConfiguration {
-        didSet {
-            flowLayout.itemSize = configuration.cellAppearance.size
-        }
-    }
+    public let configuration: EmojiPickerConfiguration
 
     /**
      The container that loads entire information for emoji.
