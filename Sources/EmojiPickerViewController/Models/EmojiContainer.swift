@@ -102,6 +102,7 @@ public class EmojiContainer: Loader {
      The emojis which are recently used by the user.
 
      Although the recently used emojis have already save, the value returns empty array if the `entireEmojiSet` has not loaded yet, so please call `load()` before getting this property.
+     The reason that uses `id` property instead of using the whole `Emoji` object, is for adopting changes of `annotation`. If `saveRecentlyUsedEmoji(_:)` encodes and saves an emoji, the reference is not shared to `entireEmojiSet` elements.
      */
     var recentlyUsedEmojis: [Emoji] {
         let internalStrings: [String] = (userDefaults.array(forKey: EmojiContainer.recentlyUsedEmojiKey) as? [String]) ?? []
@@ -219,7 +220,7 @@ public class EmojiContainer: Loader {
         if internalStrings.count >= maximumNumberOfItemsForRecentlyUsed {
             internalStrings.removeFirst()
         }
-        internalStrings.append(String(emoji.character))
+        internalStrings.append(String(emoji.id))
         userDefaults.set(internalStrings, forKey: EmojiContainer.recentlyUsedEmojiKey)
 
     }
