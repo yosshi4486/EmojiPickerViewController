@@ -398,7 +398,7 @@ open class EmojiPickerViewController: UIViewController {
                 if snapshot.indexOfSection(.frequentlyUsed(.recentlyUsed)) == nil { /* Insert recently used section */
                     snapshot.deleteSections([.frequentlyUsed(.searchResult)])
 
-                    let recentlyUsedItems: [EmojiPickerItem] = emojiContainer.recentlyUsedEmojis.suffix(configuration.maximumNumberOfItemsForRecentlyUsed).map({ .recentlyUsed($0 )})
+                    let recentlyUsedItems: [EmojiPickerItem] = emojiContainer.recentlyUsedEmojis.suffix(configuration.numberOfItemsInRecentlyUsedSection).map({ .recentlyUsed($0 )})
                     if !recentlyUsedItems.isEmpty {
                         snapshot.insertSections([.frequentlyUsed(.recentlyUsed)], beforeSection: .smileysPeople)
                         snapshot.appendItems(recentlyUsedItems, toSection: .frequentlyUsed(.recentlyUsed))
@@ -408,7 +408,7 @@ open class EmojiPickerViewController: UIViewController {
 
                 } else { /* Replace recently used section */
 
-                    let recentlyUsedItems: [EmojiPickerItem] = emojiContainer.recentlyUsedEmojis.suffix(configuration.maximumNumberOfItemsForRecentlyUsed).map({ .recentlyUsed($0 )})
+                    let recentlyUsedItems: [EmojiPickerItem] = emojiContainer.recentlyUsedEmojis.suffix(configuration.numberOfItemsInRecentlyUsedSection).map({ .recentlyUsed($0 )})
                     if recentlyUsedItems.isEmpty {
                         snapshot.deleteSections([.frequentlyUsed(.recentlyUsed)])
                         diffableDataSource.apply(snapshot, animatingDifferences: animate)
@@ -497,7 +497,7 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
         // Update `recently used` section if it exists.
         if diffableDataSource.snapshot().indexOfSection(.frequentlyUsed(.recentlyUsed)) != nil {
             var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
-            sectionSnapshot.append(emojiContainer.recentlyUsedEmojis.suffix(configuration.maximumNumberOfItemsForRecentlyUsed).map({ .recentlyUsed($0) }), to: nil)
+            sectionSnapshot.append(emojiContainer.recentlyUsedEmojis.suffix(configuration.numberOfItemsInRecentlyUsedSection).map({ .recentlyUsed($0) }), to: nil)
             diffableDataSource.apply(sectionSnapshot, to: .frequentlyUsed(.recentlyUsed), animatingDifferences: configuration.animatingChanges)
         }
 

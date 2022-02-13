@@ -23,13 +23,16 @@ A picker view controller for emoji.
 
 import EmojiPickerViewController
 
+// Specifying the maximum storage amount for recently used emoji.
+EmojiContainer.main.storageAmountForRecentlyUsedEmoji = 30
+
 var configuration = EmojiPickerConfiguration()
 
 // Enabling changes animation.
 configuration.animatingChanges = true
 
 // Specifying the maximum number of recently used emojis.
-configuration.maximumNumberOfItemsForRecentlyUsed = 30
+configuration.numberOfItemsInRecentlyUsedSection = 30
 
 // Changing each header appearance.
 configuration.headerAppearance.textAlignment = .center
