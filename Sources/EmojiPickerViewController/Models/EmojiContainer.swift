@@ -213,13 +213,33 @@ public class EmojiContainer: Loader {
      print(EmojiContainer.main.recentlyUsedEmoji.map(\.character)
      Print ["😵‍💫", "🍇", "🛫"]
      ```
+
+     If a duplicated emoji is given, the previous one is removed, like this:
+     ```swift
+     print(EmojiContainer.main.recentlyUsedEmoji.map(\.character)
+     Print ["📫", "🏀", "🈵"]
+
+     EmojiContainer.main.saveRecentlyUsedEmoji(Emoji("📫"))
+     print(EmojiContainer.main.recentlyUsedEmoji.map(\.character)
+     Print ["🏀", "🈵", "📫"]
+     ```
+
      */
     func saveRecentlyUsedEmoji(_ emoji: Emoji) {
 
         var internalStrings: [String] = (userDefaults.array(forKey: EmojiContainer.recentlyUsedEmojiKey) as? [String]) ?? []
-        if internalStrings.count >= maximumNumberOfItemsForRecentlyUsed {
+
+        // Removes the emoji if it has already exist.
+        if let firstIndexOfDuplicatedEmoji = internalStrings.firstIndex(of: String(emoji.character)) {
+
+            internalStrings.remove(at: firstIndexOfDuplicatedEmoji)
+
+        } else if internalStrings.count >= maximumNumberOfItemsForRecentlyUsed {
+
             internalStrings.removeFirst()
+            
         }
+        
         internalStrings.append(String(emoji.id))
         userDefaults.set(internalStrings, forKey: EmojiContainer.recentlyUsedEmojiKey)
 

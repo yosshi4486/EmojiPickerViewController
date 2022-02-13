@@ -209,6 +209,23 @@ import XCTest
         XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), [])
     }
 
+    func testRecentlyUsedWhenDuplicatedEmojiIsGiven() throws {
+
+        let container = EmojiContainer()
+        container.userDefaults = userDefaults
+        container.load()
+        container.maximumNumberOfItemsForRecentlyUsed = 3
+
+        XCTAssertEqual(container.recentlyUsedEmojis, [])
+        container.saveRecentlyUsedEmoji(Emoji("📫"))
+        container.saveRecentlyUsedEmoji(Emoji("🏀"))
+        container.saveRecentlyUsedEmoji(Emoji("🈵"))
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), ["📫", "🏀", "🈵"])
+
+        container.saveRecentlyUsedEmoji(Emoji("📫"))
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), ["🏀", "🈵", "📫"])
+    }
+
 
 #if os(iOS)
 
