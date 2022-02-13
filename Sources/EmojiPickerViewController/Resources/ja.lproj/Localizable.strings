@@ -29,9 +29,7 @@
 
 // Accessibility
 
-"ax_segmented_control_recently_used" = "よく利用する絵文字のカテゴリ";
-
-"ax_segmented_control_search_result" = "よく利用する絵文字のカテゴリ";
+"ax_segmented_control_frequently_used" = "よく利用する絵文字のカテゴリ";
 
 "ax_segmented_control_smileys_people" = "スマイリーと人々のカテゴリ";
 

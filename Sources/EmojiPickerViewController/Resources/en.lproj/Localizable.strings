@@ -32,9 +32,7 @@
 
 // Accessibility
 
-"ax_segmented_control_recently_used" = "Frequently Used category";
-
-"ax_segmented_control_search_result" = "Frequently Used category";
+"ax_segmented_control_frequently_used" = "Frequently Used category";
 
 "ax_segmented_control_smileys_people" = "Smileys & People category";
 

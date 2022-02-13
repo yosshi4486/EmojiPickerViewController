@@ -63,7 +63,7 @@ open class EmojiPickerViewController: UIViewController {
      */
     var searchResults: [EmojiPickerItem] = [] {
         didSet {
-            updateSearchResultSection()
+            updateRecentlyUsedSection(animate: configuration.animatingChanges)
         }
     }
 
@@ -128,6 +128,7 @@ open class EmojiPickerViewController: UIViewController {
         setupView()
         setupDataSource()
         applyData()
+        updateRecentlyUsedSection(animate: false)
 
     }
 
@@ -217,14 +218,15 @@ open class EmojiPickerViewController: UIViewController {
         // Using SFSymbols might not be the best idea.
 
         segmentedControl = UISegmentedControl(items: [
-            UIImage(emojiPickerSection: EmojiPickerSection.smileysPeople),
-            UIImage(emojiPickerSection: EmojiPickerSection.animalsNature),
-            UIImage(emojiPickerSection: EmojiPickerSection.foodDrink),
-            UIImage(emojiPickerSection: EmojiPickerSection.travelPlaces),
-            UIImage(emojiPickerSection: EmojiPickerSection.activities),
-            UIImage(emojiPickerSection: EmojiPickerSection.objects),
-            UIImage(emojiPickerSection: EmojiPickerSection.symbols),
-            UIImage(emojiPickerSection: EmojiPickerSection.flags)
+            UIImage(emojiPickerSection: .frequentlyUsed(.recentlyUsed)),
+            UIImage(emojiPickerSection: .smileysPeople),
+            UIImage(emojiPickerSection: .animalsNature),
+            UIImage(emojiPickerSection: .foodDrink),
+            UIImage(emojiPickerSection: .travelPlaces),
+            UIImage(emojiPickerSection: .activities),
+            UIImage(emojiPickerSection: .objects),
+            UIImage(emojiPickerSection: .symbols),
+            UIImage(emojiPickerSection: .flags)
         ])
 
         segmentedControl.tintColor = .label
@@ -352,8 +354,6 @@ open class EmojiPickerViewController: UIViewController {
 
         var snapshot: NSDiffableDataSourceSnapshot<EmojiPickerSection, EmojiPickerItem> = .init()
 
-        // TODO: recently used should be considered later.
-
         snapshot.appendSections([.smileysPeople, .animalsNature, .foodDrink, .travelPlaces, .activities, .objects, .symbols, .flags])
         snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.smileysPeople]!.map({ EmojiPickerItem.labeled($0) }), toSection: .smileysPeople)
         snapshot.appendItems(emojiContainer.labeledEmojisForKeyboard[.animalsNature]!.map({ EmojiPickerItem.labeled($0) }), toSection: .animalsNature)
@@ -368,50 +368,72 @@ open class EmojiPickerViewController: UIViewController {
         diffableDataSource.apply(snapshot, animatingDifferences: false)
     }
 
-    private func updateSearchResultSection() {
+    private func updateRecentlyUsedSection(animate: Bool) {
 
         var snapshot = diffableDataSource.snapshot()
 
-        if searchResults.isEmpty {
+        if searchResults.isEmpty { /* Recently used or empty state */
 
-            if searchBar.text?.isEmpty == true {
+            if searchBar.isFirstResponder { /* Empty state */
 
-                snapshot.deleteSections([.searchResult])
-                diffableDataSource.apply(snapshot, animatingDifferences: configuration.animatingChanges)
+                if snapshot.indexOfSection(.frequentlyUsed(.searchResult)) == nil { /* Insert search result section */
+                    snapshot.deleteSections([.frequentlyUsed(.recentlyUsed)])
+                    snapshot.insertSections([.frequentlyUsed(.searchResult)], beforeSection: .smileysPeople)
+                    snapshot.appendItems([.empty], toSection: .frequentlyUsed(.searchResult))
+                    diffableDataSource.apply(snapshot, animatingDifferences: animate)
 
-            } else {
-
-                if snapshot.indexOfSection(.searchResult) == nil {
-
-                    snapshot.insertSections([.searchResult], beforeSection: .smileysPeople)
-                    snapshot.appendItems([.empty], toSection: .searchResult)
-                    diffableDataSource.apply(snapshot, animatingDifferences: configuration.animatingChanges)
-
-                } else {
+                } else { /* Replace search result section */
 
                     // Using section snapshot to repalce the section data.
                     var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
                     sectionSnapshot.append([.empty], to: nil)
-                    diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: configuration.animatingChanges)
+                    diffableDataSource.apply(sectionSnapshot, to: .frequentlyUsed(.searchResult), animatingDifferences: animate)
+
+                }
+
+            } else { /* Recently used */
+
+                if snapshot.indexOfSection(.frequentlyUsed(.recentlyUsed)) == nil { /* Insert recently used section */
+                    snapshot.deleteSections([.frequentlyUsed(.searchResult)])
+
+                    let recentlyUsedItems = emojiContainer.recentlyUsedEmojis.map({ EmojiPickerItem.recentlyUsed($0) })
+                    if !recentlyUsedItems.isEmpty {
+                        snapshot.insertSections([.frequentlyUsed(.recentlyUsed)], beforeSection: .smileysPeople)
+                        snapshot.appendItems(emojiContainer.recentlyUsedEmojis.map({ EmojiPickerItem.recentlyUsed($0) }), toSection: .frequentlyUsed(.recentlyUsed))
+                    }
+
+                    diffableDataSource.apply(snapshot, animatingDifferences: animate)
+
+                } else { /* Replace recently used section */
+
+                    let recentlyUsedItems = emojiContainer.recentlyUsedEmojis.map({ EmojiPickerItem.recentlyUsed($0) })
+                    if recentlyUsedItems.isEmpty {
+                        snapshot.deleteSections([.frequentlyUsed(.recentlyUsed)])
+                        diffableDataSource.apply(snapshot, animatingDifferences: animate)
+                    } else {
+                        var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
+                        sectionSnapshot.append(recentlyUsedItems, to: nil)
+                        diffableDataSource.apply(sectionSnapshot, to: .frequentlyUsed(.recentlyUsed), animatingDifferences: animate)
+                    }
 
                 }
 
             }
 
-        } else {
+        } else { /* Search results */
          
-            if snapshot.indexOfSection(.searchResult) == nil {
+            if snapshot.indexOfSection(.frequentlyUsed(.searchResult)) == nil { /* Insert search result section */
+                snapshot.deleteSections([.frequentlyUsed(.recentlyUsed)])
+                snapshot.insertSections([.frequentlyUsed(.searchResult)], beforeSection: .smileysPeople)
+                snapshot.appendItems(searchResults, toSection: .frequentlyUsed(.searchResult))
+                diffableDataSource.apply(snapshot, animatingDifferences: animate)
 
-                snapshot.insertSections([.searchResult], beforeSection: .smileysPeople)
-                snapshot.appendItems(searchResults, toSection: .searchResult)
-                diffableDataSource.apply(snapshot, animatingDifferences: configuration.animatingChanges)
-
-            } else {
+            } else { /* Replace search result section */
 
                 // Using section snapshot to repalce the section data.
                 var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
                 sectionSnapshot.append(searchResults, to: nil)
-                diffableDataSource.apply(sectionSnapshot, to: .searchResult, animatingDifferences: configuration.animatingChanges)
+                diffableDataSource.apply(sectionSnapshot, to: .frequentlyUsed(.searchResult), animatingDifferences: animate)
 
             }
 

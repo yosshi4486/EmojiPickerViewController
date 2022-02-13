@@ -113,40 +113,20 @@ enum EmojiPickerSection {
 
         switch index {
 
-        case 0:
-            self = .frequentlyUsed(.recentlyUsed)
-
-        case 1:
-            self = .frequentlyUsed(.searchResult)
-
-        case 2:
-            self = .smileysPeople
-
-        case 3:
-            self = .animalsNature
-
-        case 4:
-            self = .foodDrink
-
-        case 5:
-            self = .travelPlaces
-
-        case 6:
-            self = .activities
-
-        case 7:
-            self = .objects
-
-        case 8:
-            self = .symbols
-
-        case 9:
-            self = .flags
-
-        default:
-            return nil
+        case 0: self = .frequentlyUsed(.recentlyUsed)
+        case 1: self = .frequentlyUsed(.searchResult)
+        case 2: self = .smileysPeople
+        case 3: self = .animalsNature
+        case 4: self = .foodDrink
+        case 5: self = .travelPlaces
+        case 6: self = .activities
+        case 7: self = .objects
+        case 8: self = .symbols
+        case 9: self = .flags
+        default: return nil
 
         }
+
     }
 
     /**
@@ -230,6 +210,14 @@ enum EmojiPickerSection {
 }
 
 extension EmojiPickerSection: Equatable { }
+
+extension EmojiPickerSection: Hashable {
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(String(describing: type(of: self)))
+    }
+
+}
 
 #if os(iOS)
 import UIKit
