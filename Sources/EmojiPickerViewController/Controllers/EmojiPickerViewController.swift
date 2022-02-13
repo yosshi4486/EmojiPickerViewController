@@ -59,7 +59,8 @@ open class EmojiPickerViewController: UIViewController {
      */
     var searchResults: [EmojiPickerItem] = [] {
         didSet {
-            updateRecentlyUsedSection(animate: configuration.animatingChanges)
+            updateFrequentlyUsedSection(animate: configuration.animatingChanges)
+            updateSegmentedControlElements()
         }
     }
 
@@ -124,7 +125,8 @@ open class EmojiPickerViewController: UIViewController {
         setupView()
         setupDataSource()
         applyData()
-        updateRecentlyUsedSection(animate: false)
+        updateFrequentlyUsedSection(animate: false)
+        updateSegmentedControlElements()
 
     }
 
@@ -154,7 +156,9 @@ open class EmojiPickerViewController: UIViewController {
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
-        reloadCollectionView()
+        if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
+            reloadCollectionView()
+        }
 
     }
 
@@ -213,17 +217,34 @@ open class EmojiPickerViewController: UIViewController {
 
         // Using SFSymbols might not be the best idea.
 
-        segmentedControl = UISegmentedControl(items: [
-            UIImage(emojiPickerSection: .frequentlyUsed(.recentlyUsed)),
-            UIImage(emojiPickerSection: .smileysPeople),
-            UIImage(emojiPickerSection: .animalsNature),
-            UIImage(emojiPickerSection: .foodDrink),
-            UIImage(emojiPickerSection: .travelPlaces),
-            UIImage(emojiPickerSection: .activities),
-            UIImage(emojiPickerSection: .objects),
-            UIImage(emojiPickerSection: .symbols),
-            UIImage(emojiPickerSection: .flags)
-        ])
+        let items: [UIImage] = {
+            if emojiContainer.recentlyUsedEmojis.isEmpty {
+                return [
+                    UIImage(emojiPickerSection: .smileysPeople),
+                    UIImage(emojiPickerSection: .animalsNature),
+                    UIImage(emojiPickerSection: .foodDrink),
+                    UIImage(emojiPickerSection: .travelPlaces),
+                    UIImage(emojiPickerSection: .activities),
+                    UIImage(emojiPickerSection: .objects),
+                    UIImage(emojiPickerSection: .symbols),
+                    UIImage(emojiPickerSection: .flags)
+                ]
+            } else {
+                return [
+                    UIImage(emojiPickerSection: .frequentlyUsed(.recentlyUsed)),
+                    UIImage(emojiPickerSection: .smileysPeople),
+                    UIImage(emojiPickerSection: .animalsNature),
+                    UIImage(emojiPickerSection: .foodDrink),
+                    UIImage(emojiPickerSection: .travelPlaces),
+                    UIImage(emojiPickerSection: .activities),
+                    UIImage(emojiPickerSection: .objects),
+                    UIImage(emojiPickerSection: .symbols),
+                    UIImage(emojiPickerSection: .flags)
+                ]
+            }
+        }()
+
+        segmentedControl = UISegmentedControl(items: items)
 
         segmentedControl.tintColor = .label
         segmentedControl.selectedSegmentIndex = 0
@@ -366,7 +387,7 @@ open class EmojiPickerViewController: UIViewController {
 
     // TODO: I think that the implementations around diffable data source are too complex. It should be refactored if there is a better idea.
 
-    private func updateRecentlyUsedSection(animate: Bool) {
+    private func updateFrequentlyUsedSection(animate: Bool) {
 
         var snapshot = diffableDataSource.snapshot()
 
@@ -435,6 +456,29 @@ open class EmojiPickerViewController: UIViewController {
 
             }
 
+        }
+
+    }
+
+    private func updateSegmentedControlElements() {
+
+        var hasChanges: Bool = false
+
+        let snapshot = diffableDataSource.snapshot()
+        if snapshot.indexOfSection(.frequentlyUsed(.recentlyUsed)) == nil && snapshot.indexOfSection(.frequentlyUsed(.searchResult)) == nil {
+            if segmentedControl.numberOfSegments > EmojiLabel.allCases.count {
+                segmentedControl.removeSegment(at: 0, animated: false)
+                hasChanges = true
+            }
+        } else {
+            if segmentedControl.numberOfSegments == EmojiLabel.allCases.count {
+                segmentedControl.insertSegment(with: UIImage(emojiPickerSection: .frequentlyUsed(.recentlyUsed)), at: 0, animated: false)
+                hasChanges = true
+            }
+        }
+
+        if hasChanges {
+            updateSelectedSegmentIndexToTopSection()
         }
 
     }
