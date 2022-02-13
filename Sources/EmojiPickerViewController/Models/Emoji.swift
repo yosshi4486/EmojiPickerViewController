@@ -229,16 +229,7 @@ extension Emoji: Identifiable {
 extension Emoji: Equatable {
 
     public static func == (lhs: Emoji, rhs: Emoji) -> Bool {
-
-        // Now, the implementation doesn't considier bidi references.
-        return lhs.character == rhs.character &&
-        lhs.status == rhs.status &&
-        lhs.group == rhs.group &&
-        lhs.subgroup == rhs.subgroup &&
-        lhs.cldrOrder == rhs.cldrOrder &&
-        lhs.annotation == rhs.annotation &&
-        lhs.textToSpeach == rhs.textToSpeach
-
+        return lhs.character == rhs.character
     }
 
 }
@@ -247,12 +238,6 @@ extension Emoji: Hashable {
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(character)
-        hasher.combine(status)
-        hasher.combine(group)
-        hasher.combine(subgroup)
-        hasher.combine(cldrOrder)
-        hasher.combine(annotation)
-        hasher.combine(textToSpeach)
     }
 
 }
@@ -262,7 +247,7 @@ extension Emoji: CustomStringConvertible {
     public var description: String {
 
         """
-        character: \(character), status: \(status), group: \(group), subgroup: \(subgroup), cldrOrder: \(cldrOrder), annotation: \(annotation), textToSpeach: \(textToSpeach)
+        <Emoji:\(Unmanaged.passUnretained(self).toOpaque()) character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup) annotation=\(annotation) textToSpeach=\(textToSpeach) genericSkinToneEmoji=\(String(describing: genericSkinToneEmoji)) orderedSkinToneEmojis=\(orderedSkinToneEmojis) fullyQualifiedVersion=\(String(describing: fullyQualifiedVersion)) minimallyQualifiedOrUnqualifiedVersions=\(minimallyQualifiedOrUnqualifiedVersions)>
         """
 
     }
