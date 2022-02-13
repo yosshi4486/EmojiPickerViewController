@@ -2,9 +2,10 @@
 
 A picker view controller for emoji.
 
-![iPhone Example](./samplegif_iphone.gif)
-
-![iPad Example](./samplegif_ipad.gif)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/yosshi4486/EmojiPickerViewController/main/samplegif_iphone.gif" alt="iPhone Example" />
+  <img src="https://raw.githubusercontent.com/yosshi4486/EmojiPickerViewController/main/samplegif_ipad.gif" alt="iPad Example" />
+</p>
 
 ## Features
 
