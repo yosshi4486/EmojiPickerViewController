@@ -83,6 +83,13 @@ public struct EmojiPickerConfiguration {
     public var animatingChanges: Bool = false
 
     /**
+     The number of items that the system stores and presents as `recentlyUsed`. The default value is `30`.
+
+     The picker view controller doesn't present recently used section if the value is `zero`.
+     */
+    public var maximumNumberOfItemsForRecentlyUsed: Int = 30
+
+    /**
      The appearance for each emoji category section header.
      */
     public var headerAppearance: HeaderAppearance = .init()

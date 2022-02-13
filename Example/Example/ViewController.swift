@@ -45,6 +45,11 @@ class ViewController: UIViewController {
         // configuration.animatingChanges = true
 
         /*
+         Specifying the maximum number of recently used emojis.
+         */
+        configuration.maximumNumberOfItemsForRecentlyUsed = 10
+
+        /*
          Changing each header appearance.
          */
         // configuration.headerAppearance.textAlignment = .center

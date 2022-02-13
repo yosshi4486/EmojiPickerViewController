@@ -28,6 +28,9 @@ var configuration = EmojiPickerConfiguration()
 // Enabling changes animation.
 configuration.animatingChanges = true
 
+// Specifying the maximum number of recently used emojis.
+configuration.maximumNumberOfItemsForRecentlyUsed = 30
+
 // Changing each header appearance.
 configuration.headerAppearance.textAlignment = .center
 

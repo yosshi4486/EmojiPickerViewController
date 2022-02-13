@@ -178,7 +178,6 @@ import XCTest
         let container = EmojiContainer()
         container.userDefaults = userDefaults
         container.load()
-        container.maximumNumberOfItemsForRecentlyUsed = 3
 
         XCTAssertEqual(container.recentlyUsedEmojis, [])
         container.saveRecentlyUsedEmoji(Emoji("👌"))
@@ -188,7 +187,7 @@ import XCTest
         container.saveRecentlyUsedEmoji(Emoji("🍇"))
         XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), ["👌", "😵‍💫", "🍇"])
         container.saveRecentlyUsedEmoji(Emoji("🛫"))
-        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), ["😵‍💫", "🍇", "🛫"])
+        XCTAssertEqual(container.recentlyUsedEmojis.map(\.character), ["👌", "😵‍💫", "🍇", "🛫"])
 
     }
 
@@ -196,7 +195,6 @@ import XCTest
 
         let container = EmojiContainer()
         container.userDefaults = userDefaults
-        container.maximumNumberOfItemsForRecentlyUsed = 3
 
         XCTAssertEqual(container.recentlyUsedEmojis, [])
         container.saveRecentlyUsedEmoji(Emoji("👌"))
@@ -214,7 +212,6 @@ import XCTest
         let container = EmojiContainer()
         container.userDefaults = userDefaults
         container.load()
-        container.maximumNumberOfItemsForRecentlyUsed = 3
 
         XCTAssertEqual(container.recentlyUsedEmojis, [])
         container.saveRecentlyUsedEmoji(Emoji("📫"))

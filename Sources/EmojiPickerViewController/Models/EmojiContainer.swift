@@ -53,11 +53,6 @@ public class EmojiContainer: Loader {
     public static let main = EmojiContainer()
 
     /**
-     The number of items that the system stores and presents as `recentlyUsed`. The default value is `30`.
-     */
-    public var maximumNumberOfItemsForRecentlyUsed: Int = 30
-
-    /**
      The key-value storage for which stores recently used emojis. The default value is `.standard`.
      */
     public var userDefaults: UserDefaults = .standard
@@ -195,25 +190,6 @@ public class EmojiContainer: Loader {
     /**
      Stores the given emoji as recently used. Actually, this method only saves its `id` property as `String`.
 
-     The head element is poped if the number of recently used emoji exceeds `maximumNumberOfItemsForRecentlyUsed`.
-
-     For example:
-     ```swift
-     EmojiContainer.main.load()
-
-     EmojiContainer.main.maximumNumberOfItemsForRecentlyUsed = 3
-     EmojiContainer.main.saveRecentlyUsedEmoji(Emoji("👌"))
-     EmojiContainer.main.saveRecentlyUsedEmoji(Emoji("😵‍💫"))
-     EmojiContainer.main.saveRecentlyUsedEmoji(Emoji("🍇"))
-
-     print(EmojiContainer.main.recentlyUsedEmoji.map(\.character)
-     Print ["👌", "😵‍💫", "🍇"]
-
-     EmojiContainer.main.saveRecentlyUsedEmoji(Emoji("🛫"))
-     print(EmojiContainer.main.recentlyUsedEmoji.map(\.character)
-     Print ["😵‍💫", "🍇", "🛫"]
-     ```
-
      If a duplicated emoji is given, the previous one is removed, like this:
      ```swift
      print(EmojiContainer.main.recentlyUsedEmoji.map(\.character)
@@ -223,7 +199,6 @@ public class EmojiContainer: Loader {
      print(EmojiContainer.main.recentlyUsedEmoji.map(\.character)
      Print ["🏀", "🈵", "📫"]
      ```
-
      */
     func saveRecentlyUsedEmoji(_ emoji: Emoji) {
 
@@ -231,15 +206,9 @@ public class EmojiContainer: Loader {
 
         // Removes the emoji if it has already exist.
         if let firstIndexOfDuplicatedEmoji = internalStrings.firstIndex(of: String(emoji.character)) {
-
             internalStrings.remove(at: firstIndexOfDuplicatedEmoji)
-
-        } else if internalStrings.count >= maximumNumberOfItemsForRecentlyUsed {
-
-            internalStrings.removeFirst()
-            
         }
-        
+
         internalStrings.append(String(emoji.id))
         userDefaults.set(internalStrings, forKey: EmojiContainer.recentlyUsedEmojiKey)
 
