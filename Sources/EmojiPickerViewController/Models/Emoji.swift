@@ -93,6 +93,11 @@ public class Emoji {
     public let status: Emoji.Status
 
     /**
+     The emoji order which unicode-org/cldr provides.  The emojis in `Resources/emoji-test.txt` are following CLDR order.
+     */
+    public let cldrOrder: Int
+
+    /**
      The group name where the emoji belongs. This property is set following `Resources/emoji-test.txt`. Ex.) Smileys & Emotion, People & Body
      */
     public let group: String
@@ -101,11 +106,6 @@ public class Emoji {
      The subgroup name where the emoji belongs. This property is set following `Resources/emoji-test.txt`. Ex.) face-smiling, hand-fingers-open
      */
     public let subgroup: String
-
-    /**
-     The emoji order which unicode-org/cldr provides.  The emojis in `Resources/emoji-test.txt` are following CLDR order.
-     */
-    public let cldrOrder: Int
 
     /**
      The annotation for searching emojis. The value includes multiple annotation which are separated by vertical line "|",  such as `face | geek | nerd`. This property is set following`Resources/CLDR/annotation` and `Resources/CLDR/annotationsDerived` .
@@ -247,7 +247,7 @@ extension Emoji: CustomStringConvertible {
     public var description: String {
 
         """
-        <Emoji:\(Unmanaged.passUnretained(self).toOpaque()) character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup) annotation=\(annotation) textToSpeach=\(textToSpeach) genericSkinToneEmoji=\(String(describing: genericSkinToneEmoji)) orderedSkinToneEmojis=\(orderedSkinToneEmojis) fullyQualifiedVersion=\(String(describing: fullyQualifiedVersion)) minimallyQualifiedOrUnqualifiedVersions=\(minimallyQualifiedOrUnqualifiedVersions)>
+        <Emoji:\(Unmanaged.passUnretained(self).toOpaque()) character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup) annotation=\(annotation) textToSpeach=\(textToSpeach) orderedSkinToneEmojis=\(orderedSkinToneEmojis) genericSkinToneEmoji=\(String(describing: genericSkinToneEmoji)) minimallyQualifiedOrUnqualifiedVersions=\(minimallyQualifiedOrUnqualifiedVersions) fullyQualifiedVersion=\(String(describing: fullyQualifiedVersion))>
         """
 
     }
