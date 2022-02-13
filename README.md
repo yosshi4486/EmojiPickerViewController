@@ -13,7 +13,7 @@ A picker view controller for emoji.
 -   [x] Seach bar and search results
 -   [x] Fully accessible
 -   [x] Dark mode
--   [ ] Recently used
+-   [x] Recently used
 -   [ ] Select skin tones from popup
 -   [ ] State Restoration
 
@@ -23,10 +23,16 @@ A picker view controller for emoji.
 
 import EmojiPickerViewController
 
+// Specifying the maximum storage amount for recently used emoji.
+EmojiContainer.main.storageAmountForRecentlyUsedEmoji = 30
+
 var configuration = EmojiPickerConfiguration()
 
 // Enabling changes animation.
 configuration.animatingChanges = true
+
+// Specifying the maximum number of recently used emojis.
+configuration.numberOfItemsInRecentlyUsedSection = 30
 
 // Changing each header appearance.
 configuration.headerAppearance.textAlignment = .center

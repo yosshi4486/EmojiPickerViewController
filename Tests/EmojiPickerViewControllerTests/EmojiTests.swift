@@ -36,6 +36,58 @@ class EmojiTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    func testID() throws {
+
+        let emoji = Emoji("👌🏼")
+        XCTAssertEqual(emoji.id, "👌🏼")
+
+    }
+
+    func testEqual() throws {
+
+        XCTContext.runActivity(named: "Equal") { _ in
+            let emojiA = Emoji("👌", status: .fullyQualified, cldrOrder: 0, group: "A", subgroup: "A")
+            let emojiB = Emoji("👌", status: .unqualified, cldrOrder: 10, group: "B", subgroup: "B")
+            XCTAssertEqual(emojiA, emojiB)
+        }
+
+        XCTContext.runActivity(named: "Not Equal") { _ in
+            let emojiA = Emoji("👌", status: .fullyQualified, cldrOrder: 0, group: "Dif", subgroup: "Dif")
+            let emojiB = Emoji("😵‍💫", status: .fullyQualified, cldrOrder: 0, group: "Dif", subgroup: "Dif")
+            XCTAssertNotEqual(emojiA, emojiB)
+        }
+
+    }
+
+    func testHash() throws {
+
+        XCTContext.runActivity(named: "Same hash") { _ in
+            let emojiA = Emoji("👌", status: .fullyQualified, cldrOrder: 0, group: "A", subgroup: "A")
+            let emojiB = Emoji("👌", status: .unqualified, cldrOrder: 10, group: "B", subgroup: "B")
+            XCTAssertEqual(emojiA.hashValue, emojiB.hashValue)
+        }
+
+        XCTContext.runActivity(named: "Different hash") { _ in
+            let emojiA = Emoji("👌", status: .fullyQualified, cldrOrder: 0, group: "Dif", subgroup: "Dif")
+            let emojiB = Emoji("😵‍💫", status: .fullyQualified, cldrOrder: 0, group: "Dif", subgroup: "Dif")
+            XCTAssertNotEqual(emojiA.hashValue, emojiB.hashValue)
+        }
+
+    }
+
+    func testDescription() throws {
+
+        let emoji = Emoji("⛹🏿‍♀", status: .minimallyQualified, cldrOrder: 2360, group: "People & Body", subgroup: "person-sport")
+        emoji.annotation = "ball | dark skin tone | woman | woman bouncing ball"
+        emoji.textToSpeach = "woman bouncing ball: dark skin tone"
+
+        let expectedText = """
+        <Emoji: character=⛹🏿‍♀ status=minimallyQualified cldrOrder=2360 group=People & Body subgroup=person-sport annotation=ball | dark skin tone | woman | woman bouncing ball textToSpeach=woman bouncing ball: dark skin tone orderedSkinToneEmojis=[] genericSkinToneEmoji=nil minimallyQualifiedOrUnqualifiedVersions=[] fullyQualifiedVersion=nil>
+        """
+        XCTAssertEqual(emoji.description, expectedText)
+
+    }
+
     func testIsEmojiModifierSequence() throws {
 
         XCTContext.runActivity(named: "Singleton Emoji") { _ in

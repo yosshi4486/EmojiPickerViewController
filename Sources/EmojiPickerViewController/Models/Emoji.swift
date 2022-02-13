@@ -93,6 +93,11 @@ public class Emoji {
     public let status: Emoji.Status
 
     /**
+     The emoji order which unicode-org/cldr provides.  The emojis in `Resources/emoji-test.txt` are following CLDR order.
+     */
+    public let cldrOrder: Int
+
+    /**
      The group name where the emoji belongs. This property is set following `Resources/emoji-test.txt`. Ex.) Smileys & Emotion, People & Body
      */
     public let group: String
@@ -101,11 +106,6 @@ public class Emoji {
      The subgroup name where the emoji belongs. This property is set following `Resources/emoji-test.txt`. Ex.) face-smiling, hand-fingers-open
      */
     public let subgroup: String
-
-    /**
-     The emoji order which unicode-org/cldr provides.  The emojis in `Resources/emoji-test.txt` are following CLDR order.
-     */
-    public let cldrOrder: Int
 
     /**
      The annotation for searching emojis. The value includes multiple annotation which are separated by vertical line "|",  such as `face | geek | nerd`. This property is set following`Resources/CLDR/annotation` and `Resources/CLDR/annotationsDerived` .
@@ -229,16 +229,7 @@ extension Emoji: Identifiable {
 extension Emoji: Equatable {
 
     public static func == (lhs: Emoji, rhs: Emoji) -> Bool {
-
-        // Now, the implementation doesn't considier bidi references.
-        return lhs.character == rhs.character &&
-        lhs.status == rhs.status &&
-        lhs.group == rhs.group &&
-        lhs.subgroup == rhs.subgroup &&
-        lhs.cldrOrder == rhs.cldrOrder &&
-        lhs.annotation == rhs.annotation &&
-        lhs.textToSpeach == rhs.textToSpeach
-
+        return lhs.character == rhs.character
     }
 
 }
@@ -247,12 +238,6 @@ extension Emoji: Hashable {
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(character)
-        hasher.combine(status)
-        hasher.combine(group)
-        hasher.combine(subgroup)
-        hasher.combine(cldrOrder)
-        hasher.combine(annotation)
-        hasher.combine(textToSpeach)
     }
 
 }
@@ -262,7 +247,7 @@ extension Emoji: CustomStringConvertible {
     public var description: String {
 
         """
-        character: \(character), status: \(status), group: \(group), subgroup: \(subgroup), cldrOrder: \(cldrOrder), annotation: \(annotation), textToSpeach: \(textToSpeach)
+        <Emoji: character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup) annotation=\(annotation) textToSpeach=\(textToSpeach) orderedSkinToneEmojis=\(orderedSkinToneEmojis.map(\.character)) genericSkinToneEmoji=\(String(describing: genericSkinToneEmoji?.character)) minimallyQualifiedOrUnqualifiedVersions=\(minimallyQualifiedOrUnqualifiedVersions.map(\.character)) fullyQualifiedVersion=\(String(describing: fullyQualifiedVersion?.character))>
         """
 
     }
