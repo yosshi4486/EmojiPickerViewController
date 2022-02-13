@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         /*
          Specifying the maximum number of recently used emojis.
          */
-        configuration.maximumNumberOfItemsForRecentlyUsed = 10
+        configuration.numberOfItemsInRecentlyUsedSection = 10
 
         /*
          Changing each header appearance.
