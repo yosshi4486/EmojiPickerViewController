@@ -9,7 +9,9 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+# The latest macos version on GithubAction runner is macOS-11, but it fails xctests that contains swift.concurrency(linking issue?)
+# ubuntu is stable for testing.
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
