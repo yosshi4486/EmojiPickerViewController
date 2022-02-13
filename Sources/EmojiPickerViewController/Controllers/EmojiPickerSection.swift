@@ -23,9 +23,8 @@
 //  limitations under the License.
 //
 
-#if os(iOS)
 import Foundation
-import UIKit
+
 /**
  An section of emoji picker.
 
@@ -163,76 +162,80 @@ enum EmojiPickerSection: Int, CaseIterable {
 
     }
 
+
+}
+
+#if os(iOS)
+import UIKit
+
+extension UIImage {
+
     /**
-     The image for segmented control.
+     Creates an image object that represents the given `EmojiPickerSection` instance.
 
-     # Accessibility
-     UISegmentedControl speak its accessibilityLabel like a "Smileys & People category, 1 of 8", which the "8" is the number of the segments and the "1" is the index of the focused segment.
+     - Parameters:
+       - emojiPickerSection: The section for which shows the image.
      */
-    var imageForSegmentedControlElement: UIImage {
+    convenience init(emojiPickerSection: EmojiPickerSection) {
 
-        switch self {
+        /*
+         UISegmentedControl speak its accessibilityLabel like a "Smileys & People category, 1 of 8", which the "8" is the number of the segments and the "1" is the index of the focused segment.
+         */
+
+        switch emojiPickerSection {
         case .recentlyUsed:
 
-            let image = UIImage(systemName: "clock")!
-            image.accessibilityLabel = String(localized:"ax_segmented_control_recently_used", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-            return image
+            self.init(systemName: "clock")!
+            accessibilityLabel = String(localized:"ax_segmented_control_recently_used", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .searchResult:
 
-            let image = UIImage(systemName: "clock")!
-            image.accessibilityLabel = String(localized:"ax_segmented_control_search_result", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-            return image
+            self.init(systemName: "clock")!
+            accessibilityLabel = String(localized:"ax_segmented_control_search_result", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .smileysPeople:
 
-            let image = UIImage(systemName: "face.smiling")!
-            image.accessibilityLabel = String(localized:"ax_segmented_control_smileys_people", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-            return image
+            self.init(systemName: "face.smiling")!
+            accessibilityLabel = String(localized:"ax_segmented_control_smileys_people", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .animalsNature:
 
-            let image = UIImage(systemName: "leaf")!
-            image.accessibilityLabel = String(localized:"ax_segmented_control_animals_nature", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-            return image
+            self.init(systemName: "leaf")!
+            accessibilityLabel = String(localized:"ax_segmented_control_animals_nature", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .foodDrink:
 
-            let image = UIImage(systemName: "fork.knife")!
-            image.accessibilityLabel = String(localized:"ax_segmented_control_food_drink", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-            return image
+            self.init(systemName: "fork.knife")!
+            accessibilityLabel = String(localized:"ax_segmented_control_food_drink", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .travelPlaces:
 
-            let image = UIImage(systemName: "airplane")!
-            image.accessibilityLabel = String(localized:"ax_segmented_control_travel_places", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-            return image
+            self.init(systemName: "airplane")!
+            accessibilityLabel = String(localized:"ax_segmented_control_travel_places", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .activities:
 
-            let image = UIImage(systemName: "paintpalette")!
-            image.accessibilityLabel = String(localized:"ax_segmented_control_activities", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-            return image
+            self.init(systemName: "paintpalette")!
+            accessibilityLabel = String(localized:"ax_segmented_control_activities", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .objects:
 
-            let image = UIImage(systemName: "lightbulb")!
-            image.accessibilityLabel = String(localized:"ax_segmented_control_objects", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-            return image
+            self.init(systemName: "lightbulb")!
+            accessibilityLabel = String(localized:"ax_segmented_control_objects", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .symbols:
-            let image = UIImage(systemName: "number")!
-            image.accessibilityLabel = String(localized:"ax_segmented_control_symbols", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-            return image
+            self.init(systemName: "number")!
+            accessibilityLabel = String(localized:"ax_segmented_control_symbols", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .flags:
 
-            let image = UIImage(systemName: "flag")!
-            image.accessibilityLabel = String(localized:"ax_segmented_control_flags", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-            return image
+            self.init(systemName: "flag")!
+            accessibilityLabel = String(localized:"ax_segmented_control_flags", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         }
+
     }
 
 }
+
 #endif

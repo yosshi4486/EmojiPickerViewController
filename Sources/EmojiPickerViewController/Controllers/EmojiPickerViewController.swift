@@ -217,14 +217,14 @@ open class EmojiPickerViewController: UIViewController {
         // Using SFSymbols might not be the best idea.
 
         segmentedControl = UISegmentedControl(items: [
-            EmojiPickerSection.smileysPeople.imageForSegmentedControlElement,
-            EmojiPickerSection.animalsNature.imageForSegmentedControlElement,
-            EmojiPickerSection.foodDrink.imageForSegmentedControlElement,
-            EmojiPickerSection.travelPlaces.imageForSegmentedControlElement,
-            EmojiPickerSection.activities.imageForSegmentedControlElement,
-            EmojiPickerSection.objects.imageForSegmentedControlElement,
-            EmojiPickerSection.symbols.imageForSegmentedControlElement,
-            EmojiPickerSection.flags.imageForSegmentedControlElement
+            UIImage(emojiPickerSection: EmojiPickerSection.smileysPeople),
+            UIImage(emojiPickerSection: EmojiPickerSection.animalsNature),
+            UIImage(emojiPickerSection: EmojiPickerSection.foodDrink),
+            UIImage(emojiPickerSection: EmojiPickerSection.travelPlaces),
+            UIImage(emojiPickerSection: EmojiPickerSection.activities),
+            UIImage(emojiPickerSection: EmojiPickerSection.objects),
+            UIImage(emojiPickerSection: EmojiPickerSection.symbols),
+            UIImage(emojiPickerSection: EmojiPickerSection.flags)
         ])
 
         segmentedControl.tintColor = .label
@@ -467,7 +467,7 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
         guard let item = diffableDataSource.itemIdentifier(for: indexPath), let emoji = item.emoji else {
             return
         }
-
+        emojiContainer.saveRecentlyUsedEmoji(emoji)
         delegate?.emojiPickerViewController(self, didPick: emoji)
 
     }
