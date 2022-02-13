@@ -249,15 +249,10 @@ extension UIImage {
          */
 
         switch emojiPickerSection {
-        case .recentlyUsed:
+        case .frequentlyUsed:
 
             self.init(systemName: "clock")!
-            accessibilityLabel = String(localized:"ax_segmented_control_recently_used", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
-
-        case .searchResult:
-
-            self.init(systemName: "clock")!
-            accessibilityLabel = String(localized:"ax_segmented_control_search_result", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
+            accessibilityLabel = String(localized:"ax_segmented_control_frequently_used", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .smileysPeople:
 
