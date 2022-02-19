@@ -61,10 +61,10 @@ if EmojiLocale.availableIdentifiers.contains("ja") {
 or enable an automatic update option:
 
 ```swift
-EmojiContainer.main.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
+configuration.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
 
 // Disable
-// EmojiContainer.main.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = false
+// configuration.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = false
 ```
 
 The option is `true` by default.
