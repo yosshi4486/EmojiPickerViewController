@@ -38,9 +38,6 @@ import Foundation
  - SeeAlso:
   - [LSDM](https://unicode.org/reports/tr35/)
 
- - TODO:
- This class is not thread safe, it doesn't do anything about data race. Implements as `actor`?
-
  */
 class EmojiAnnotationDerivedLoader: EmojiAnnotationLoader {
 

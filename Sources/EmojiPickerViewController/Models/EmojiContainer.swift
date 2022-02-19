@@ -32,6 +32,8 @@ import Collections
 
 /**
  A container object for loading, storing and updating stored emojis.
+
+ This object is not protected from data race and race condition, the developer have the responsibility to avoid them.
 */
 public class EmojiContainer: Loader {
 
@@ -61,11 +63,6 @@ public class EmojiContainer: Loader {
      The key-value storage for which stores recently used emojis. The default value is `.standard`.
      */
     public var userDefaults: UserDefaults = .standard
-
-    /**
-     The boolean value indicating whether this container automatically updates annotations following `UITextInputMode.currentInputModeDidChangeNotification`. The default value is `false`.
-     */
-    public var automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange: Bool = false
 
     /**
      The locale which specifies the emoji locale information for the loading.
@@ -109,28 +106,13 @@ public class EmojiContainer: Loader {
         return internalStrings.compactMap({ entireEmojiSet[$0[$0.startIndex]] })
     }
 
-    init() {
-
-#if os(iOS)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotationsAutomatically(_:)), name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)
-#endif
-
-    }
-
-    deinit {
-
-#if os(iOS)
-        NotificationCenter.default.removeObserver(self, name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)
-#endif
-
-    }
 
     /**
      Loads emojis and annotations.
 
      After an initial call of this method, you should use `loadAnnotations()` rather than calling `load()`  again,  because this method replaces both cached `emojiDictionary` and `orderedEmojisForKeyboard`.
      */
-    @MainActor public func load() {
+    public func load() {
 
         emojiLoader.load()
         loadAnnotations()
@@ -143,7 +125,7 @@ public class EmojiContainer: Loader {
      - Precondition:
      This method should be called when the emoji-set is loaded.
      */
-    @MainActor public func loadAnnotations() {
+    public func loadAnnotations() {
 
         precondition(!entireEmojiSet.isEmpty && !labeledEmojisForKeyboard.isEmpty, "Logical Failure, `load()` should be called before `loadAnnotations()`.")
 
@@ -244,25 +226,5 @@ public class EmojiContainer: Loader {
         userDefaults.set(internalStrings, forKey: EmojiContainer.recentlyUsedEmojiKey)
 
     }
-
-
-#if os(iOS)
-    @MainActor @objc private func updateAnnotationsAutomatically(_ notification: Notification) {
-
-        guard automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange, let primaryLanguage = (notification.object as? UITextInputMode)?.primaryLanguage else {
-            return
-        }
-
-        guard let autoUpdatingResource = EmojiLocale(localeIdentifier: primaryLanguage) else {
-            return
-        }
-
-        emojiLocale = autoUpdatingResource
-        loadAnnotations()
-
-        NotificationCenter.default.post(name: EmojiContainer.currentAnnotationDidChangeNotification, object: autoUpdatingResource)
-        
-    }
-#endif
 
 }
