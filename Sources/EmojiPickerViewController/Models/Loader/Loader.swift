@@ -37,10 +37,8 @@ protocol Loader {
 
     /**
      Loads data.
-
-     Since `load` should be ensured to be executed synchronously, marks `@MainActor`. An actor in swift dispatches muttations into its private serial-access queue, similarly `@MainActor` dispatches an execution into main queue. It can protect data from race and ensure main thread.
      */
-    @MainActor func load()
+    func load()
 
 }
 

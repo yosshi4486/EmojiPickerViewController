@@ -39,9 +39,6 @@ import SwiftyXMLParser
  - SeeAlso:
   - [LSDM](https://unicode.org/reports/tr35/)
 
- - TODO:
- This class is not thread safe, it doesn't do anything about data race. Implements as `actor`?
-
  */
 class EmojiAnnotationLoader: Loader {
 
@@ -79,7 +76,7 @@ class EmojiAnnotationLoader: Loader {
     /**
      Loads an annotations data file for setting each emoji's annotation and tts property.
      */
-    @MainActor func load() {
+    func load() {
 
         for resourceURL in resourceURLs {
 

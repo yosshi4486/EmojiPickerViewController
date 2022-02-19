@@ -32,6 +32,8 @@ import Collections
 
 /**
  A container object for loading, storing and updating stored emojis.
+
+ This object is not protected from data race and race condition, the developer have the responsibility to avoid them.
 */
 public class EmojiContainer: Loader {
 
@@ -110,7 +112,7 @@ public class EmojiContainer: Loader {
 
      After an initial call of this method, you should use `loadAnnotations()` rather than calling `load()`  again,  because this method replaces both cached `emojiDictionary` and `orderedEmojisForKeyboard`.
      */
-    @MainActor public func load() {
+    public func load() {
 
         emojiLoader.load()
         loadAnnotations()
@@ -123,7 +125,7 @@ public class EmojiContainer: Loader {
      - Precondition:
      This method should be called when the emoji-set is loaded.
      */
-    @MainActor public func loadAnnotations() {
+    public func loadAnnotations() {
 
         precondition(!entireEmojiSet.isEmpty && !labeledEmojisForKeyboard.isEmpty, "Logical Failure, `load()` should be called before `loadAnnotations()`.")
 
