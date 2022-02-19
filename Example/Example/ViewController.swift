@@ -67,14 +67,14 @@ class ViewController: UIViewController {
         emojiPicker.delegate = self
 
         /*
-         Specifying the language for searching and voiceover.
-         */
-        // emojiPicker.emojiContainer.emojiLocale = EmojiLocale(localeIdentifier: "ja")!
-
-        /*
          Activating an automatic-annotations-update option.
          */
-        // emojiPicker.emojiContainer.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
+        // emojiPicker.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange = true
+
+        /*
+         Specifying the language for searching and voiceover.
+         */
+        // emojiPicker.emojiLocale = EmojiLocale(localeIdentifier: "ja")!
 
         /*
          Getting the loaded emoji.

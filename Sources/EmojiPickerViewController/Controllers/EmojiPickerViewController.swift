@@ -55,6 +55,24 @@ open class EmojiPickerViewController: UIViewController {
     public let emojiContainer: EmojiContainer = .main
 
     /**
+     The locale which specifies the emoji locale information for the loading.
+
+     Assigning a new emoji locale causes `loadAnnotations()` of the emoji container. You can assign it to `emojiContainer.emojiLocale` if you want to avoid the automatic loading.
+     */
+    public var emojiLocale: EmojiLocale {
+
+        get {
+            return emojiContainer.emojiLocale
+        }
+
+        set {
+            emojiContainer.emojiLocale = newValue
+            emojiContainer.loadAnnotations()
+        }
+
+    }
+
+    /**
      The emoji search results. The initial value is empty.
      */
     var searchResults: [EmojiPickerItem] = [] {
@@ -509,8 +527,7 @@ open class EmojiPickerViewController: UIViewController {
             return
         }
 
-        emojiContainer.emojiLocale = autoUpdatingResource
-        emojiContainer.loadAnnotations()
+        emojiLocale = autoUpdatingResource
 
         NotificationCenter.default.post(name: EmojiContainer.currentAnnotationDidChangeNotification, object: autoUpdatingResource)
 
