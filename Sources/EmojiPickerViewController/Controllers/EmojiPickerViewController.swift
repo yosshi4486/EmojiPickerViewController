@@ -106,6 +106,9 @@ open class EmojiPickerViewController: UIViewController {
     public init(configuration: EmojiPickerConfiguration) {
         self.configuration = configuration
         super.init(nibName: nil, bundle: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotationsAutomatically(_:)), name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)
+
     }
 
     @available(*, unavailable, message: "Must use init(configuration:)")
@@ -116,6 +119,10 @@ open class EmojiPickerViewController: UIViewController {
     @available(*, unavailable, message: "Must use init(configuration:)")
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)
     }
 
     open override func viewDidLoad() {
@@ -491,6 +498,24 @@ open class EmojiPickerViewController: UIViewController {
         }
 
     }
+
+    @objc private func updateAnnotationsAutomatically(_ notification: Notification) {
+
+        guard configuration.automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange, let primaryLanguage = (notification.object as? UITextInputMode)?.primaryLanguage else {
+            return
+        }
+
+        guard let autoUpdatingResource = EmojiLocale(localeIdentifier: primaryLanguage) else {
+            return
+        }
+
+        emojiContainer.emojiLocale = autoUpdatingResource
+        emojiContainer.loadAnnotations()
+
+        NotificationCenter.default.post(name: EmojiContainer.currentAnnotationDidChangeNotification, object: autoUpdatingResource)
+
+    }
+
 
 }
 

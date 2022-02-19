@@ -63,11 +63,6 @@ public class EmojiContainer: Loader {
     public var userDefaults: UserDefaults = .standard
 
     /**
-     The boolean value indicating whether this container automatically updates annotations following `UITextInputMode.currentInputModeDidChangeNotification`. The default value is `false`.
-     */
-    public var automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange: Bool = false
-
-    /**
      The locale which specifies the emoji locale information for the loading.
      */
     public var emojiLocale: EmojiLocale = .default
@@ -109,21 +104,6 @@ public class EmojiContainer: Loader {
         return internalStrings.compactMap({ entireEmojiSet[$0[$0.startIndex]] })
     }
 
-    init() {
-
-#if os(iOS)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateAnnotationsAutomatically(_:)), name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)
-#endif
-
-    }
-
-    deinit {
-
-#if os(iOS)
-        NotificationCenter.default.removeObserver(self, name: UITextInputMode.currentInputModeDidChangeNotification, object: nil)
-#endif
-
-    }
 
     /**
      Loads emojis and annotations.
@@ -244,25 +224,5 @@ public class EmojiContainer: Loader {
         userDefaults.set(internalStrings, forKey: EmojiContainer.recentlyUsedEmojiKey)
 
     }
-
-
-#if os(iOS)
-    @MainActor @objc private func updateAnnotationsAutomatically(_ notification: Notification) {
-
-        guard automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange, let primaryLanguage = (notification.object as? UITextInputMode)?.primaryLanguage else {
-            return
-        }
-
-        guard let autoUpdatingResource = EmojiLocale(localeIdentifier: primaryLanguage) else {
-            return
-        }
-
-        emojiLocale = autoUpdatingResource
-        loadAnnotations()
-
-        NotificationCenter.default.post(name: EmojiContainer.currentAnnotationDidChangeNotification, object: autoUpdatingResource)
-        
-    }
-#endif
 
 }

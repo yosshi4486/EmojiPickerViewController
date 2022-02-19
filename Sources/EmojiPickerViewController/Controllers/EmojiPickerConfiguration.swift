@@ -78,6 +78,11 @@ public struct EmojiPickerConfiguration {
     }
 
     /**
+     The boolean value indicating whether the `EmojiPickerViewController` automatically updates annotations following `UITextInputMode.currentInputModeDidChangeNotification` changes. The default value is `false`.
+     */
+    public var automaticallyUpdatingAnnotationsFollowingCurrentInputModeChange: Bool = false
+
+    /**
      The boolean value indicating whether the collectionview animates changes. The default value is `false`.
      */
     public var animatingChanges: Bool = false
