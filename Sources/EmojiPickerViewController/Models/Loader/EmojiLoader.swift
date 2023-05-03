@@ -1,6 +1,6 @@
 //
 //  EmojiLoader.swift
-//  
+//
 //  EmojiPickerViewController
 //  https://github.com/yosshi4486/EmojiPickerViewController
 //
@@ -28,23 +28,22 @@ import Foundation
 import Collections
 
 /**
- A type that loads all possible emoji that are defined in Unicode v14.0.
+ A type that loads available emoji defined in the `Resources` file `emoji-test.txt`.
 
- The resource which this object loads is located at  https://www.unicode.org/Public/emoji/14.0/emoji-test.txt, this loader loads data following the format.
+ The latest `emoji-test.txt` file is available from `https://www.unicode.org/Public/emoji/latest/`.
 
- This object loads and stores emojis into two properties, the one is `entireEmojiSet` and the other is `labeledEmojisForKeyboard`.
+ This object loads and stores emoji into two properties, one is `entireEmojiSet` and the other is `labeledEmojisForKeyboard`.
 
- `entireEmojiSet` is the dictionary which the key is the `Character` and the value is `Emoji`. It contains entire emoji-set are listed in `emoji-test.txt`.
+ `entireEmojiSet` is a dictionary which the key is the `Character` and the value is `Emoji`. It contains entire emoji-set are listed in `emoji-test.txt`.
 
- `labeledEmojisForKeyboard` is also the dictionary which the key is the `EmojiLabel` and the value is `[Emoji]`. Because the dictionary is provided for ordering them on a keybobard or picker, `labeledEmojisForKeyboard` doesn't contain some types of emoji.
+ `labeledEmojisForKeyboard` is also the dictionary in which the key is the `EmojiLabel` and the value is `[Emoji]`. Because the dictionary is provided for ordering the emoji for a keyboard or picker, `labeledEmojisForKeyboard` doesn't contain some types of emoji.
 
- The excluded emojis from `labeledEmojisForKeyboard`are:
- - minimally-qualified emojis
- - unqualified emojis
- - E 14.0 emojis
+ The excluded emoji from `labeledEmojisForKeyboard`are:
+ - minimally-qualified emoji
+ - unqualified emoji
  - emoji modifier sequences( because showing a generic-skin-toned emojis on a keyboard, and selecting a skin-tone valiation in the variations selector view, is a well-known experience in iOS and macOS)
 
- The value of `labeledEmojisForKeyboard` is stored following an order's rule of  [Emoji Ordering, v14.0](https://unicode.org/emoji/charts/emoji-ordering.html), and the type of `labeledEmojisForKeyboard` is `OrderedDictionary` which can ensure the orders of keys, so you can get complete labled and ordered emojis by enumerating the dictionay like this:
+ The values for `labeledEmojisForKeyboard` are stored in the order shown at  [Emoji Ordering](https://unicode.org/emoji/charts/emoji-ordering.html), and the type of `labeledEmojisForKeyboard` is an `OrderedDictionary` which can ensure the order of keys, so you can get complete labled and ordered emojis by enumerating the dictionay like this:
 
  ```swift
  for (label, orderedEmojis) in labeledEmojisForKeyboard {
@@ -54,13 +53,15 @@ import Collections
  ```
 
  - Note:
- `Loader` is designed rather than using `TopLevelDecoder` protocol, because `emoji-test` is NOT data format. It's an only semi-colon separated plain text.
+  This `Loader` does not use the `TopLevelDecoder` protocol, because `emoji-test` is NOT data format. It's an only semi-colon separated plain text.
 
  */
 class EmojiLoader: Loader {
 
     /**
      A row of `emoji-test.txt`.
+     
+     A row represents a single line of text from the `emoji-test.txt` file.
      */
     enum Row<S: StringProtocol>: Equatable {
 
@@ -243,7 +244,7 @@ class EmojiLoader: Loader {
          1. fully-qualified and non emoji modiifier sequence, which we name "variation base" is located at head. This is a separater of the variations of the emoji.
          2. minimally-qualified or unqualified emojis are listed next of 1.
          3. modifier sequences(skintoned emoji) are listed next of 2.
-         NOTE: modifier sequences may have its monimally-qualified or unqualified variations.
+         NOTE: modifier sequences may have its minimally-qualified or unqualified variations.
 
          Ex)
          1F575 FE0F 200D 2642 FE0F                              ; fully-qualified     # 🕵️‍♂️ E4.0 man detective                             <VARIATION BASE>
@@ -290,7 +291,7 @@ class EmojiLoader: Loader {
                 label = EmojiLabel(group: String(group))
 
                 if let label = label, labeledEmojisForKeyboard[label] == nil {
-                    labeledEmojisForKeyboard[label] = [] // Initilize an empty arran.
+                    labeledEmojisForKeyboard[label] = [] // Initilize an empty array.
                 }
 
             case .subgroupHeader(let suggroupName):
@@ -319,22 +320,16 @@ class EmojiLoader: Loader {
 
                     } else {
 
-                        // Normally, a keyboard should present only variation base emojis, and present modifier sequences(skintoned) by long-pressing the key.
+                        // Normally, a keyboard should present only variation base emoji, and present modifier sequences(skintoned) by long-pressing the key.
                         variationBaseEmoji = emoji
 
-                        /*
-                         Since Apple hasn't accepted E14.0 emojis yet, emojis for keyboard have to take the newest emojis off.
-                         Please inform or make a pull request if you have notices the platform has already accepted E14.0 emojis.
-
-                         Date: 2022/02/06
-                         Version: iOS15.3, macOS12.1
-                         */
-
-                        // Unicode.Scalar.Properties.age is nil when the scalar is unsupported. The step bellow understands it as a newest version.
-                        if (unicodeScalars[0].properties.age?.major ?? 14) < 14, let label = label {
+                        let properties = unicodeScalars[0].properties
+                                                
+                        // Unicode.Scalar.Properties.age is nil when the scalar is unsupported.
+                        if (unicodeScalars[0].properties.age?.major != nil), let label = label {
                             labeledEmojisForKeyboard[label]?.append(emoji)
                         }
-
+                        
                     }
 
                 case .minimallyQualified, .unqualified:
