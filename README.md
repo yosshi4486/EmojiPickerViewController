@@ -18,7 +18,7 @@ A picker view controller for emoji.
 -   [ ] Select skin tones from popup
 -   [ ] State Restoration
 
-## Usege
+## Usage
 
 ```swift
 
@@ -29,21 +29,21 @@ EmojiContainer.main.storageAmountForRecentlyUsedEmoji = 30
 
 var configuration = EmojiPickerConfiguration()
 
-// Enabling changes animation.
+// Enabling animation changes.
 configuration.animatingChanges = true
 
 // Specifying the maximum number of recently used emojis.
 configuration.numberOfItemsInRecentlyUsedSection = 30
 
-// Changing each header appearance.
+// Changing header appearance.
 configuration.headerAppearance.textAlignment = .center
 
-// Changing each cell appeanrance.
+// Changing cell appearance.
 configuration.cellAppearance.size = .init(width: 30, height: 30)
 
 let emojiPickerViewController = EmojiPickerViewController(configuration: configuration)
 
-// Receiveing events from the picker view controller.
+// Receiving events from the picker view controller.
 emojiPickerViewController.delegate = self
 
 vc.present(emojiPickerViewController, animated: true)
@@ -85,7 +85,7 @@ See and run [Example](./Example/) for checking usages.
 
 ## Installation
 
-Install this package from via swift package manager. Add EmojiPickerViewController as a dependency to your `Package.swift`:
+Install this package via swift package manager. Add EmojiPickerViewController as a dependency to your `Package.swift`:
 
 `.package(url: "https://github.com/yosshi4486/EmojiPickerViewController", from: "1.0.0")`
 
