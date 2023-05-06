@@ -323,8 +323,6 @@ class EmojiLoader: Loader {
                         // Normally, a keyboard should present only variation base emoji, and present modifier sequences(skintoned) by long-pressing the key.
                         variationBaseEmoji = emoji
 
-                        let properties = unicodeScalars[0].properties
-                                                
                         // Unicode.Scalar.Properties.age is nil when the scalar is unsupported.
                         if (unicodeScalars[0].properties.age?.major != nil), let label = label {
                             labeledEmojisForKeyboard[label]?.append(emoji)
