@@ -305,6 +305,13 @@ class EmojiLoader: Loader {
                 let character = Character(String(unicodeScalarView))
 
                 let emoji = Emoji(character: character, status: data.status, cldrOrder: emojiOrder, group: String(group), subgroup: String(subgroup))
+                
+                var isValid: Bool {
+                    guard let scalar = emoji.character.unicodeScalars.first else { return false }
+                    return scalar.properties.isEmoji
+                }
+                
+                guard isValid else { continue }
 
                 entireEmojiSet[character] = emoji
 
@@ -322,9 +329,8 @@ class EmojiLoader: Loader {
 
                         // Normally, a keyboard should present only variation base emoji, and present modifier sequences(skintoned) by long-pressing the key.
                         variationBaseEmoji = emoji
-
-                        // Unicode.Scalar.Properties.age is nil when the scalar is unsupported.
-                        if (unicodeScalars[0].properties.age?.major != nil), let label = label {
+                        
+                        if let label {
                             labeledEmojisForKeyboard[label]?.append(emoji)
                         }
                         
