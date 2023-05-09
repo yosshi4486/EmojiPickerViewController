@@ -83,6 +83,11 @@ let emojiCountsListedInEmojiTest = 4702
         let entireEmojiSet = loader.entireEmojiSet
         let labeledEmojisForKeyboard = loader.labeledEmojisForKeyboard
 
+        XCTContext.runActivity(named: "Test: The dictionary and array only include emoji which are valid on the system") { _ in
+            XCTAssertTrue(entireEmojiSet.values.allSatisfy({ $0.character.unicodeScalars.first?.properties.isEmoji == true }))
+            XCTAssertTrue(labeledEmojisForKeyboard.values.joined().allSatisfy({ $0.character.unicodeScalars.first?.properties.isEmoji == true }))
+        }
+
         XCTContext.runActivity(named: "Test: The dictionary and array has expected number of emoji") { _ in
             XCTAssertEqual(entireEmojiSet.count, emojiCountsListedInEmojiTest)
             XCTAssertEqual(labeledEmojisForKeyboard.values.joined().count, emojiCountsForShowingInKeyboard)
