@@ -42,11 +42,8 @@ final class EmojiUpdateTests: XCTestCase {
         let latestGenEmoji = Character("🫠")
         let nextGenEmoji = Character("🫨")
         
-        XCTContext.runActivity(named: "") { _ in
-            
-            XCTAssertTrue(latestGenEmoji.unicodeScalars.first!.properties.isEmoji)
-            XCTAssertFalse(nextGenEmoji.unicodeScalars.first!.properties.isEmoji, "Time to upgrade to latest emoji standard, and change this test!")
-        }
+        XCTAssertTrue(latestGenEmoji.unicodeScalars.first!.properties.isEmoji)
+        XCTAssertFalse(nextGenEmoji.unicodeScalars.first!.properties.isEmoji, "Time to upgrade to latest emoji standard, and change this test!")
         
     }
 
