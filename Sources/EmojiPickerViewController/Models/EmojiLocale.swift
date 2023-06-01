@@ -48,7 +48,7 @@ public struct EmojiLocale {
     /**
      The comprehensive list of available identifiers.
 
-     Since the `annotations` directory contains files which the `annotationDerived` doesn't contain, `availableIdentifiers` returns identifiers of files in the `annotationDerived` directory.
+     The `annotations` directory now contains two more files (namely `ha_NE` and `ku`)  than the `annotationDerived` directory. `availableIdentifiers` returns the identifiers of al files in the `annotation` directory.
      */
     static let availableIdentifiers: [String] = {
 

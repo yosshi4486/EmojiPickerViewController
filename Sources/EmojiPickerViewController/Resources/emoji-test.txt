@@ -23,7 +23,7 @@
 #   • This includes the emoji components that need emoji presentation (skin tone and hair)
 #     when isolated, but omits the components that need not have an emoji
 #     presentation when isolated.
-#   • The RGI set is covered by the listed fully-qualified emoji. 
+#   • The RGI set is covered by the listed fully-qualified emoji.
 #   • The listed minimally-qualified and unqualified cover all cases where an
 #     element of the RGI set is missing one or more emoji presentation selectors.
 #   • The file is in CLDR order, not codepoint order. This is recommended (but not required!) for keyboard palettes.
@@ -239,8 +239,8 @@
 1F4AD                                                  ; fully-qualified     # 💭 E1.0 thought balloon
 1F4A4                                                  ; fully-qualified     # 💤 E0.6 zzz
 
-# Smileys & Emotion subtotal:		177
-# Smileys & Emotion subtotal:		177	w/o modifiers
+# Smileys & Emotion subtotal:        177
+# Smileys & Emotion subtotal:        177    w/o modifiers
 
 # group: People & Body
 
@@ -3262,8 +3262,8 @@
 1FAC2                                                  ; fully-qualified     # 🫂 E13.0 people hugging
 1F463                                                  ; fully-qualified     # 👣 E0.6 footprints
 
-# People & Body subtotal:		2986
-# People & Body subtotal:		506	w/o modifiers
+# People & Body subtotal:        2986
+# People & Body subtotal:        506    w/o modifiers
 
 # group: Component
 
@@ -3280,8 +3280,8 @@
 1F9B3                                                  ; component           # 🦳 E11.0 white hair
 1F9B2                                                  ; component           # 🦲 E11.0 bald
 
-# Component subtotal:		9
-# Component subtotal:		4	w/o modifiers
+# Component subtotal:        9
+# Component subtotal:        4    w/o modifiers
 
 # group: Animals & Nature
 
@@ -3452,8 +3452,8 @@
 1FAB9                                                  ; fully-qualified     # 🪹 E14.0 empty nest
 1FABA                                                  ; fully-qualified     # 🪺 E14.0 nest with eggs
 
-# Animals & Nature subtotal:		151
-# Animals & Nature subtotal:		151	w/o modifiers
+# Animals & Nature subtotal:        151
+# Animals & Nature subtotal:        151    w/o modifiers
 
 # group: Food & Drink
 
@@ -3607,8 +3607,8 @@
 1FAD9                                                  ; fully-qualified     # 🫙 E14.0 jar
 1F3FA                                                  ; fully-qualified     # 🏺 E1.0 amphora
 
-# Food & Drink subtotal:		134
-# Food & Drink subtotal:		134	w/o modifiers
+# Food & Drink subtotal:        134
+# Food & Drink subtotal:        134    w/o modifiers
 
 # group: Travel & Places
 
@@ -3901,8 +3901,8 @@
 1F4A7                                                  ; fully-qualified     # 💧 E0.6 droplet
 1F30A                                                  ; fully-qualified     # 🌊 E0.6 water wave
 
-# Travel & Places subtotal:		267
-# Travel & Places subtotal:		267	w/o modifiers
+# Travel & Places subtotal:        267
+# Travel & Places subtotal:        267    w/o modifiers
 
 # group: Activities
 
@@ -4013,8 +4013,8 @@
 1F9F6                                                  ; fully-qualified     # 🧶 E11.0 yarn
 1FAA2                                                  ; fully-qualified     # 🪢 E13.0 knot
 
-# Activities subtotal:		97
-# Activities subtotal:		97	w/o modifiers
+# Activities subtotal:        97
+# Activities subtotal:        97    w/o modifiers
 
 # group: Objects
 
@@ -4358,8 +4358,8 @@
 1FAA7                                                  ; fully-qualified     # 🪧 E13.0 placard
 1FAAA                                                  ; fully-qualified     # 🪪 E14.0 identification card
 
-# Objects subtotal:		304
-# Objects subtotal:		304	w/o modifiers
+# Objects subtotal:        304
+# Objects subtotal:        304    w/o modifiers
 
 # group: Symbols
 
@@ -4693,8 +4693,8 @@
 1F533                                                  ; fully-qualified     # 🔳 E0.6 white square button
 1F532                                                  ; fully-qualified     # 🔲 E0.6 black square button
 
-# Symbols subtotal:		302
-# Symbols subtotal:		302	w/o modifiers
+# Symbols subtotal:        302
+# Symbols subtotal:        302    w/o modifiers
 
 # group: Flags
 
@@ -4979,8 +4979,8 @@
 1F3F4 E0067 E0062 E0073 E0063 E0074 E007F              ; fully-qualified     # 🏴󠁧󠁢󠁳󠁣󠁴󠁿 E5.0 flag: Scotland
 1F3F4 E0067 E0062 E0077 E006C E0073 E007F              ; fully-qualified     # 🏴󠁧󠁢󠁷󠁬󠁳󠁿 E5.0 flag: Wales
 
-# Flags subtotal:		275
-# Flags subtotal:		275	w/o modifiers
+# Flags subtotal:        275
+# Flags subtotal:        275    w/o modifiers
 
 # Status Counts
 # fully-qualified : 3624

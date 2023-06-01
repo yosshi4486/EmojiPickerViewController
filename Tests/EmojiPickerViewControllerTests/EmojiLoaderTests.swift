@@ -28,25 +28,23 @@ import XCTest
 
 // Emoji Counts: https://unicode.org/emoji/charts/emoji-counts.html
 
-let totalEmojiCounts =            3633
-let cEmojiCounts =                1354
-let cSkinTonedEmojiCounts =       645
-let zHairEmojiCounts =            12
-let zHairSkinTonedEmojiCounts =   60
-let zGenderEmojiCounts =          102
-let zGenderSkinTonedEmojiCounts = 470
-let zRoleEmojiCounts =            60
-let zRoleSkinTonedEmojiCounts =   300
-let zFamilyEmojiCounts =          32
-let zFamilySkinTonedEmojiCounts = 235
-let zSkinTonedEmojiCounts =       65
-let zcEmojiCounts =               13
-let emojiKeycapSequenceCounts =   12
-let emojiFlagSequenceCounts =     258
-let emojiTagSequenceCounts =      3
-let componentCounts =             9
-
-let e14EmojisExclusionCounts =    37
+let totalEmojiCounts =            3633 // Structure
+let cEmojiCounts =                1354 // Ⓒ
+let cSkinTonedEmojiCounts =       645  // Ⓒ ‧ 🟫
+let zHairEmojiCounts =            12   // Ⓩ ‧ 🦰
+let zHairSkinTonedEmojiCounts =   60   // Ⓩ ‧ 🦰 ‧ 🟫
+let zGenderEmojiCounts =          102  // Ⓩ ‧ ♀
+let zGenderSkinTonedEmojiCounts = 470  // Ⓩ ‧ ♀ ‧ 🟫
+let zRoleEmojiCounts =            60   // Ⓩ ‧ 👩
+let zRoleSkinTonedEmojiCounts =   300  // Ⓩ ‧ 👩 ‧ 🟫
+let zFamilyEmojiCounts =          32   // Ⓩ ‧ 👪
+let zFamilySkinTonedEmojiCounts = 235  // Ⓩ ‧ 👪 ‧ 🟫
+let zSkinTonedEmojiCounts =       65   // Ⓩ ‧ 🟫
+let zcEmojiCounts =               13   // Ⓩ ‧ Ⓒ
+let emojiKeycapSequenceCounts =   12   // #️⃣
+let emojiFlagSequenceCounts =     258  // 🏁
+let emojiTagSequenceCounts =      3    // 🏴
+let componentCounts =             9    // 🔗
 
 // SkinToned emojis are added in `orderedSkinToneEmojis` and will be shown in the emoji-variation popover.
 let emojiCountsForShowingInKeyboard = totalEmojiCounts
@@ -57,7 +55,6 @@ let emojiCountsForShowingInKeyboard = totalEmojiCounts
 - zFamilySkinTonedEmojiCounts
 - zSkinTonedEmojiCounts
 - componentCounts
-- e14EmojisExclusionCounts
 
 // grep \; PathToProject/EmojiPickerViewController/Sources/EmojiPickerViewController/Resources/emoji-test.txt | wc -l
 // > 4703
@@ -83,13 +80,14 @@ let emojiCountsListedInEmojiTest = 4702
         let entireEmojiSet = loader.entireEmojiSet
         let labeledEmojisForKeyboard = loader.labeledEmojisForKeyboard
 
+        XCTContext.runActivity(named: "Test: The dictionary and array only include emoji which are valid on the system") { _ in
+            XCTAssertTrue(entireEmojiSet.values.allSatisfy({ $0.character.unicodeScalars.first?.properties.isEmoji == true }))
+            XCTAssertTrue(labeledEmojisForKeyboard.values.joined().allSatisfy({ $0.character.unicodeScalars.first?.properties.isEmoji == true }))
+        }
+
         XCTContext.runActivity(named: "Test: The dictionary and array has expected number of emoji") { _ in
             XCTAssertEqual(entireEmojiSet.count, emojiCountsListedInEmojiTest)
             XCTAssertEqual(labeledEmojisForKeyboard.values.joined().count, emojiCountsForShowingInKeyboard)
-        }
-
-        XCTContext.runActivity(named: "Test: The array only include emojis which the version is under E 14.0") { _ in
-            XCTAssertTrue(labeledEmojisForKeyboard.values.joined().allSatisfy({ $0.character.unicodeScalars.first?.properties.age?.major ?? 14 < 14 }))
         }
 
         try XCTContext.runActivity(named: "Test: The reference of an emoji is shared both Array and Dictionary?") { _ in
