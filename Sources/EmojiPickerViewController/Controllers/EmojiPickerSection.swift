@@ -254,7 +254,11 @@ extension UIImage {
 
         case .foodDrink:
 
-            self.init(systemName: "fork.knife")!
+            if #unavailable(iOS 15.0) {
+                self.init(systemName: "fork.knife")!
+            } else {
+                self.init(systemName: "takeoutbag.and.cup.and.straw")!
+            }
             accessibilityLabel = String(localized:"ax_segmented_control_food_drink", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .travelPlaces:
