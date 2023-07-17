@@ -268,7 +268,11 @@ extension UIImage {
 
         case .activities:
 
-            self.init(systemName: "paintpalette")!
+            if #unavailable(iOS 16.0) {
+                self.init(systemName: "paintpalette")!
+            } else {
+                self.init(systemName: "soccerball")!
+            }
             accessibilityLabel = String(localized:"ax_segmented_control_activities", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .objects:
