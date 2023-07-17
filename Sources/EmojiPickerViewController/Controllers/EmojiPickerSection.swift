@@ -244,12 +244,12 @@ extension UIImage {
 
         case .smileysPeople:
 
-            self.init(systemName: "face.smiling")!
+            self.init(named: "emojipicker.smileys.and.people", in: .module, with: nil)!
             accessibilityLabel = String(localized:"ax_segmented_control_smileys_people", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .animalsNature:
 
-            self.init(systemName: "leaf")!
+            self.init(named: "emojipicker.animals.and.nature", in: .module, with: nil)!
             accessibilityLabel = String(localized:"ax_segmented_control_animals_nature", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .foodDrink:
@@ -259,7 +259,7 @@ extension UIImage {
 
         case .travelPlaces:
 
-            self.init(systemName: "airplane")!
+            self.init(named: "emojipicker.travel.and.places", in: .module, with: nil)!
             accessibilityLabel = String(localized:"ax_segmented_control_travel_places", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .activities:
