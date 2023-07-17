@@ -281,7 +281,7 @@ extension UIImage {
             accessibilityLabel = String(localized:"ax_segmented_control_objects", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .symbols:
-            self.init(systemName: "number")!
+            self.init(systemName: "number.square")!
             accessibilityLabel = String(localized:"ax_segmented_control_symbols", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .flags:
