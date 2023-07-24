@@ -244,27 +244,35 @@ extension UIImage {
 
         case .smileysPeople:
 
-            self.init(systemName: "face.smiling")!
+            self.init(named: "emojipicker.smileys.and.people", in: .module, with: nil)!
             accessibilityLabel = String(localized:"ax_segmented_control_smileys_people", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .animalsNature:
 
-            self.init(systemName: "leaf")!
+            self.init(named: "emojipicker.animals.and.nature", in: .module, with: nil)!
             accessibilityLabel = String(localized:"ax_segmented_control_animals_nature", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .foodDrink:
 
-            self.init(systemName: "fork.knife")!
+            if #unavailable(iOS 15.0) {
+                self.init(systemName: "fork.knife")!
+            } else {
+                self.init(systemName: "takeoutbag.and.cup.and.straw")!
+            }
             accessibilityLabel = String(localized:"ax_segmented_control_food_drink", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .travelPlaces:
 
-            self.init(systemName: "airplane")!
+            self.init(named: "emojipicker.travel.and.places", in: .module, with: nil)!
             accessibilityLabel = String(localized:"ax_segmented_control_travel_places", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .activities:
 
-            self.init(systemName: "paintpalette")!
+            if #unavailable(iOS 16.0) {
+                self.init(systemName: "paintpalette")!
+            } else {
+                self.init(systemName: "soccerball")!
+            }
             accessibilityLabel = String(localized:"ax_segmented_control_activities", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .objects:
@@ -273,7 +281,7 @@ extension UIImage {
             accessibilityLabel = String(localized:"ax_segmented_control_objects", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .symbols:
-            self.init(systemName: "number")!
+            self.init(systemName: "number.square")!
             accessibilityLabel = String(localized:"ax_segmented_control_symbols", bundle: .module, comment: "AX segmented control label: speaks which segment did select.")
 
         case .flags:
