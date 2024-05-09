@@ -98,7 +98,7 @@ Install this package via swift package manager. Add EmojiPickerViewController as
 
 ### For User Interfaces
 
-["en", "ja"]
+en, ja, da
 
 ### For Annotations
 
