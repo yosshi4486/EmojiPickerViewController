@@ -1,0 +1,61 @@
+// Sections
+
+// All sections should be capitilized style.
+
+"recently_used" = "NYLIGT BRUGT";
+
+"search_result" = "RESULTATER";
+
+"smileys_people" = "SMILEYS & PERSONER";
+
+"animals_nature" = "DYR & NATUR";
+
+"food_drink" = "MAD & DRIKKE";
+
+"travel_places" = "REJSE & STEDER";
+
+"activities" = "AKTIVITETER";
+
+"objects" = "OBJEKTER";
+
+"symbols" = "SYMBOLER";
+
+"flags" = "FLAG";
+
+// UI
+
+// Title style
+
+"search_emoji" = "Søg Emoji";
+
+"no_results" = "Ingen Resultater";
+
+// Accessibility
+
+"ax_segmented_control_frequently_used" = "Ofte Brugt kategori";
+
+"ax_segmented_control_smileys_people" = "Smileys & Personer kategori";
+
+"ax_segmented_control_animals_nature" = "Dyr & Natur kategori";
+
+"ax_segmented_control_food_drink" = "Mad & Drikke kategori";
+
+"ax_segmented_control_travel_places" = "Rejse & Steder kategori";
+
+"ax_segmented_control_activities" = "Aktiviteter kategori";
+
+"ax_segmented_control_objects" = "Objekter kategori";
+
+"ax_segmented_control_symbols" = "Symboler kategori";
+
+"ax_segmented_control_flags" = "Flag kategori";
+
+// $0: current page index
+
+// $1: total pages count
+
+// $2: visible sections label
+
+"ax_collection_view_scroll_status" = "Side %@ af %@%@";
+
+"ax_searchbar_label" = "Søg Emoji";
