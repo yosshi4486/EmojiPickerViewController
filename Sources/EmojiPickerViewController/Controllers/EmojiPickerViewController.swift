@@ -608,14 +608,25 @@ extension EmojiPickerViewController: UICollectionViewDelegateFlowLayout {
      This implementation is to adopt size category changes.
      */
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-
-        guard let header = diffableDataSource.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: IndexPath(row: 0, section: section)) as? LabelCollectionHeaderView else {
-            return CGSize(width: collectionView.bounds.width, height: 50) // Default size
-        }
-
-        let sizeForAdoptingTraitChanges = header.systemLayoutSizeFitting(.init(width: collectionView.bounds.width, height: UIView.layoutFittingExpandedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
-
-        return sizeForAdoptingTraitChanges
+        let temporaryHeaderView = LabelCollectionHeaderView(frame: CGRect(x: 0, y: 0, width: collectionView.bounds.width, height: 0))
+        
+        temporaryHeaderView.appearance = EmojiPickerConfiguration.HeaderAppearance(
+            font: UIFont.systemFont(ofSize: 16),
+            textColor: .label,
+            textAlignment: .center,
+            backgroundColor: .systemBackground,
+            labelPadding: UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        )
+        
+        temporaryHeaderView.headerLabel.text = " "
+        
+        let fittingSize = temporaryHeaderView.systemLayoutSizeFitting(
+            CGSize(width: collectionView.bounds.width, height: UIView.layoutFittingExpandedSize.height),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        )
+        
+        return fittingSize
     }
 
     /*
