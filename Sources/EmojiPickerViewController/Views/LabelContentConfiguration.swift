@@ -23,7 +23,7 @@
 //  limitations under the License.
 //  
 
-#if !os(macOS)
+#if os(iOS)
 import UIKit
 
 /**
