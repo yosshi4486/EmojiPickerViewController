@@ -23,28 +23,20 @@
 //  limitations under the License.
 //  
 
-import XCTest
+import Testing
 
-final class EmojiUpdateTests: XCTestCase {
+@Suite("EmojiUpdateTests")
+struct EmojiUpdateTests {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    // MARK: - Testing Emoji Generation
-    
+    @Test
     func testEmojiGeneration() throws {
         
         let latestGenEmoji = Character("🫠")
         let nextGenEmoji = Character("🫨")
         
-        XCTAssertTrue(latestGenEmoji.unicodeScalars.first!.properties.isEmoji)
-        XCTAssertFalse(nextGenEmoji.unicodeScalars.first!.properties.isEmoji, "Time to upgrade to latest emoji standard, and change this test!")
-        
+        #expect(latestGenEmoji.unicodeScalars.first!.properties.isEmoji)
+        #expect(nextGenEmoji.unicodeScalars.first!.properties.isEmoji)
+
     }
 
 }

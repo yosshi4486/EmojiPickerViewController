@@ -23,23 +23,17 @@
 //  limitations under the License.
 //  
 
-import XCTest
+import Testing
 
-class DictionaryFunctionalTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+@Suite("DictionaryFunctionalTests")
+struct DictionaryFunctionalTests {
 
     struct Object {
         var value: String
         var group: String
     }
 
+    @Test
     func testGroupingKeepsOrder() throws {
 
         let objects: [Object] = [
@@ -56,9 +50,9 @@ class DictionaryFunctionalTests: XCTestCase {
         let shy = dictionary["Shy"]!
         let powerful = dictionary["Powerful"]!
 
-        XCTAssertEqual(cool.map(\.value), ["A", "Z"])
-        XCTAssertEqual(shy.map(\.value), ["Y", "I"])
-        XCTAssertEqual(powerful.map(\.value), ["X", "J"])
+        #expect(cool.map(\.value) == ["A", "Z"])
+        #expect(shy.map(\.value) == ["Y", "I"])
+        #expect(powerful.map(\.value) == ["X", "J"])
 
     }
 

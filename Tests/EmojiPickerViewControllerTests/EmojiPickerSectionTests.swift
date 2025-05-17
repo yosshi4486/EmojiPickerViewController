@@ -23,59 +23,55 @@
 //  limitations under the License.
 //  
 
-import XCTest
+import Testing
 @testable import EmojiPickerViewController
 
-class EmojiPickerSectionTests: XCTestCase {
+@Suite("EmojiPickerSectionTests")
+struct EmojiPickerSectionTests {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
+    @Test
     func testInitFromIndex() throws {
-        XCTAssertNil(EmojiPickerSection(index: -1))
-        XCTAssertEqual(EmojiPickerSection(index: 0), .frequentlyUsed(.recentlyUsed))
-        XCTAssertEqual(EmojiPickerSection(index: 1), .frequentlyUsed(.searchResult))
-        XCTAssertEqual(EmojiPickerSection(index: 2), .smileysPeople)
-        XCTAssertEqual(EmojiPickerSection(index: 3), .animalsNature)
-        XCTAssertEqual(EmojiPickerSection(index: 4), .foodDrink)
-        XCTAssertEqual(EmojiPickerSection(index: 5), .travelPlaces)
-        XCTAssertEqual(EmojiPickerSection(index: 6), .activities)
-        XCTAssertEqual(EmojiPickerSection(index: 7), .objects)
-        XCTAssertEqual(EmojiPickerSection(index: 8), .symbols)
-        XCTAssertEqual(EmojiPickerSection(index: 9), .flags)
-        XCTAssertNil(EmojiPickerSection(index: 10))
+        #expect(EmojiPickerSection(index: -1) == nil)
+        #expect(EmojiPickerSection(index: 0) == .frequentlyUsed(.recentlyUsed))
+        #expect(EmojiPickerSection(index: 1) == .frequentlyUsed(.searchResult))
+        #expect(EmojiPickerSection(index: 2) == .smileysPeople)
+        #expect(EmojiPickerSection(index: 3) == .animalsNature)
+        #expect(EmojiPickerSection(index: 4) == .foodDrink)
+        #expect(EmojiPickerSection(index: 5) == .travelPlaces)
+        #expect(EmojiPickerSection(index: 6) == .activities)
+        #expect(EmojiPickerSection(index: 7) == .objects)
+        #expect(EmojiPickerSection(index: 8) == .symbols)
+        #expect(EmojiPickerSection(index: 9) == .flags)
+        #expect(EmojiPickerSection(index: 10) == nil)
     }
 
+    @Test
     func testInitFromLabel() throws {
 
-        XCTAssertEqual(EmojiPickerSection(emojiLabel: .smileysPeople), .smileysPeople)
-        XCTAssertEqual(EmojiPickerSection(emojiLabel: .foodDrink), .foodDrink)
-        XCTAssertEqual(EmojiPickerSection(emojiLabel: .travelPlaces), .travelPlaces)
-        XCTAssertEqual(EmojiPickerSection(emojiLabel: .activities), .activities)
-        XCTAssertEqual(EmojiPickerSection(emojiLabel: .objects), .objects)
-        XCTAssertEqual(EmojiPickerSection(emojiLabel: .symbols), .symbols)
-        XCTAssertEqual(EmojiPickerSection(emojiLabel: .flags), .flags)
+        #expect(EmojiPickerSection(emojiLabel: .smileysPeople) == .smileysPeople)
+        #expect(EmojiPickerSection(emojiLabel: .foodDrink) == .foodDrink)
+        #expect(EmojiPickerSection(emojiLabel: .travelPlaces) == .travelPlaces)
+        #expect(EmojiPickerSection(emojiLabel: .activities) == .activities)
+        #expect(EmojiPickerSection(emojiLabel: .objects) == .objects)
+        #expect(EmojiPickerSection(emojiLabel: .symbols) == .symbols)
+        #expect(EmojiPickerSection(emojiLabel: .flags) == .flags)
 
     }
 
+    @Test
     func testLocalizedSectionName() throws {
 
         // Tests boolean whether the returned string is not equal to the key, if it is equal key, the implementation or localization file has miss.
-        XCTAssertNotEqual(EmojiPickerSection.frequentlyUsed(.recentlyUsed).localizedSectionName, "recently_used")
-        XCTAssertNotEqual(EmojiPickerSection.frequentlyUsed(.searchResult).localizedSectionName, "search_result")
-        XCTAssertNotEqual(EmojiPickerSection.frequentlyUsed(.recentlyUsed).localizedSectionName, EmojiPickerSection.frequentlyUsed(.searchResult).localizedSectionName)
-        XCTAssertNotEqual(EmojiPickerSection.smileysPeople.localizedSectionName, "smileys_people")
-        XCTAssertNotEqual(EmojiPickerSection.foodDrink.localizedSectionName, "food_drink")
-        XCTAssertNotEqual(EmojiPickerSection.travelPlaces.localizedSectionName, "travel_places")
-        XCTAssertNotEqual(EmojiPickerSection.activities.localizedSectionName, "activities")
-        XCTAssertNotEqual(EmojiPickerSection.objects.localizedSectionName, "objects")
-        XCTAssertNotEqual(EmojiPickerSection.symbols.localizedSectionName, "symbols")
-        XCTAssertNotEqual(EmojiPickerSection.flags.localizedSectionName, "fllags")
+        #expect(EmojiPickerSection.frequentlyUsed(.recentlyUsed).localizedSectionName != "recently_used")
+        #expect(EmojiPickerSection.frequentlyUsed(.searchResult).localizedSectionName != "search_result")
+        #expect(EmojiPickerSection.frequentlyUsed(.recentlyUsed).localizedSectionName != EmojiPickerSection.frequentlyUsed(.searchResult).localizedSectionName)
+        #expect(EmojiPickerSection.smileysPeople.localizedSectionName != "smileys_people")
+        #expect(EmojiPickerSection.foodDrink.localizedSectionName != "food_drink")
+        #expect(EmojiPickerSection.travelPlaces.localizedSectionName != "travel_places")
+        #expect(EmojiPickerSection.activities.localizedSectionName != "activities")
+        #expect(EmojiPickerSection.objects.localizedSectionName != "objects")
+        #expect(EmojiPickerSection.symbols.localizedSectionName != "symbols")
+        #expect(EmojiPickerSection.flags.localizedSectionName != "fllags")
 
     }
 
