@@ -17,6 +17,9 @@ https://cldr.unicode.org/index/downloads
 
 Emoji 14.0
 
+# Emoji-text.txt
+[emoji-test.txt](https://www.unicode.org/Public/emoji/14.0/emoji-test.txt)
+
 ## Annotations
 All annotation files are located at: https://github.com/unicode-org/cldr/tree/main/common/annotations
 All derived annotation files are located at: https://github.com/unicode-org/cldr/tree/main/common/annotationsDerived
