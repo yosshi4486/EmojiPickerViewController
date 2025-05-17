@@ -31,14 +31,15 @@ import Foundation
 @MainActor class EmojiContainerTests {
 
     var userDefaults: UserDefaults!
-
-    func setUpWithError() throws {
+    
+    init() {
         userDefaults = UserDefaults(suiteName: "test")!
     }
 
-    func tearDownWithError() throws {
+    deinit {
         userDefaults.removePersistentDomain(forName: "test")
     }
+
 
     @Test
     func load() throws {
@@ -59,14 +60,14 @@ import Foundation
         #expect(container.labeledEmojisForKeyboard.values.joined().count == emojiCountsForShowingInKeyboard)
 
         let flagWales = Character("\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}")
-        #expect(container.entireEmojiSet[flagWales]?.character == "🏴")
+        #expect(container.entireEmojiSet[flagWales]?.character == "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
         #expect(container.entireEmojiSet[flagWales]?.cldrOrder == emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         #expect(container.entireEmojiSet[flagWales]?.group == "Flags")
         #expect(container.entireEmojiSet[flagWales]?.subgroup == "subdivision-flag")
         #expect(container.entireEmojiSet[flagWales]?.annotation == "旗")
         #expect(container.entireEmojiSet[flagWales]?.textToSpeech == "旗: ウェールズ")
 
-        #expect(container.labeledEmojisForKeyboard[.flags]?.last?.character == "🏴")
+        #expect(container.labeledEmojisForKeyboard[.flags]?.last?.character == "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.cldrOrder == emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.group == "Flags")
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.subgroup == "subdivision-flag")
@@ -103,7 +104,7 @@ import Foundation
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.annotation == "スマイル | にっこり | にっこり笑う | 笑う | 笑顔 | 顔")
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.textToSpeech == "にっこり笑う")
 
-        #expect(container.labeledEmojisForKeyboard[.flags]?.last?.character == "🏴")
+        #expect(container.labeledEmojisForKeyboard[.flags]?.last?.character == "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.cldrOrder == emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.group == "Flags")
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.subgroup == "subdivision-flag")
@@ -122,7 +123,7 @@ import Foundation
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.annotation == "face | grin | grinning face")
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.textToSpeech == "grinning face")
 
-        #expect(container.labeledEmojisForKeyboard[.flags]?.last?.character == "🏴")
+        #expect(container.labeledEmojisForKeyboard[.flags]?.last?.character == "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.cldrOrder == emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.group == "Flags")
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.subgroup == "subdivision-flag")
