@@ -23,27 +23,22 @@
 //  limitations under the License.
 //  
 
-import XCTest
+import Testing
 @testable import EmojiPickerViewController
 
-@MainActor class EmojiAnnotationDerivedLoaderTests: XCTestCase {
+@Suite
+@MainActor struct EmojiAnnotationDerivedLoaderTests {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testResourceURL() throws {
+    @Test
+    func resourceURL() throws {
 
         let loader = EmojiAnnotationDerivedLoader(emojiDictionary: [:], emojiLocale: EmojiLocale(localeIdentifier: "zh-Hant-HK")!)
-        XCTAssertEqual(loader.resourceURLs.map(\.lastPathComponent), ["zh_Hant_derived.xml", "zh_Hant_HK_derived.xml"], "Failed to replace the hyphen separated language code with underscore.")
+        #expect(loader.resourceURLs.map(\.lastPathComponent) == ["zh_Hant_derived.xml", "zh_Hant_HK_derived.xml"], "Failed to replace the hyphen separated language code with underscore.")
 
     }
 
-    func testLoadAnnotationsDerived() throws {
+    @Test
+    func loadAnnotationsDerived() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
             "👋🏾": Emoji("👋🏾"),
@@ -53,14 +48,15 @@ import XCTest
         let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, emojiLocale: EmojiLocale(localeIdentifier: "ja")!)
         loader.load()
 
-        XCTAssertEqual(emojiDictionary["👋🏾"]?.annotation, "バイバイ | やや濃い肌色 | 手 | 手を振る", "Failed to load `ja` annotations.")
-        XCTAssertEqual(emojiDictionary["👋🏾"]?.textToSpeech, "手を振る: やや濃い肌色", "Failed to load `ja` textToSpeech.")
-        XCTAssertEqual(emojiDictionary["🇲🇽"]?.annotation, "旗", "Failed to load `ja` annotations.")
-        XCTAssertEqual(emojiDictionary["🇲🇽"]?.textToSpeech, "旗: メキシコ", "Failed to load `ja` textToSpeech.")
+        #expect(emojiDictionary["👋🏾"]?.annotation == "バイバイ | やや濃い肌色 | 手 | 手を振る", "Failed to load `ja` annotations.")
+        #expect(emojiDictionary["👋🏾"]?.textToSpeech == "手を振る: やや濃い肌色", "Failed to load `ja` textToSpeech.")
+        #expect(emojiDictionary["🇲🇽"]?.annotation == "旗", "Failed to load `ja` annotations.")
+        #expect(emojiDictionary["🇲🇽"]?.textToSpeech == "旗: メキシコ", "Failed to load `ja` textToSpeech.")
 
     }
 
-    func testNotLoadAnnotations() throws {
+    @Test
+    func notLoadAnnotations() throws {
 
         let emojiDictionary: [Emoji.ID:Emoji] = [
             "😀": Emoji("😀")
@@ -69,8 +65,8 @@ import XCTest
         let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, emojiLocale: EmojiLocale(localeIdentifier: "ja")!)
         loader.load()
 
-        XCTAssertEqual(emojiDictionary["😀"]?.annotation, "")
-        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeech, "")
+        #expect(emojiDictionary["😀"]?.annotation == "")
+        #expect(emojiDictionary["😀"]?.textToSpeech == "")
 
     }
 
