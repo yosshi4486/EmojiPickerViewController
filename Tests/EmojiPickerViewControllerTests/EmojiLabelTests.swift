@@ -3,7 +3,7 @@
 //
 //  EmojiPickerViewController
 //  https://github.com/yosshi4486/EmojiPickerViewController
-// 
+//
 //  Created by yosshi4486 on 2022/02/05.
 //
 // ----------------------------------------------------------------------------
@@ -21,80 +21,41 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-//  
+//
 
-import XCTest
+import Testing
 @testable import EmojiPickerViewController
 
-class EmojiLabelTests: XCTestCase {
+@Suite
+class EmojiLabelTests {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    @Test
+    func localizedDescription() throws {
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        let label1 = EmojiLabel(group: "Smileys & Emotion")
+        #expect(label1 == .smileysPeople)
 
-    func testLocalizedDescription() throws {
+        let label2 = EmojiLabel(group: "People & Body")
+        #expect(label2 == .smileysPeople)
 
-        XCTContext.runActivity(named: "Group: Smileys & Emotion") { _ in
+        let label3 = EmojiLabel(group: "Food & Drink")
+        #expect(label3 == .foodDrink)
 
-            let label = EmojiLabel(group: "Smileys & Emotion")
-            XCTAssertEqual(label, .smileysPeople)
+        let label4 = EmojiLabel(group: "Travel & Places")
+        #expect(label4 == .travelPlaces)
 
-        }
+        let label5 = EmojiLabel(group: "Activities")
+        #expect(label5 == .activities)
 
-        XCTContext.runActivity(named: "Group: People & Body") { _ in
+        let label6 = EmojiLabel(group: "Objects")
+        #expect(label6 == .objects)
 
-            let label = EmojiLabel(group: "People & Body")
-            XCTAssertEqual(label, .smileysPeople)
-        }
+        let label7 = EmojiLabel(group: "Symbols")
+        #expect(label7 == .symbols)
 
-        XCTContext.runActivity(named: "Group: Food & Drink") { _ in
-
-            let label = EmojiLabel(group: "Food & Drink")
-            XCTAssertEqual(label, .foodDrink)
-        }
-
-        XCTContext.runActivity(named: "Group: Travel & Places") { _ in
-
-            let label = EmojiLabel(group: "Travel & Places")
-            XCTAssertEqual(label, .travelPlaces)
-
-        }
-
-        XCTContext.runActivity(named: "Group: Activities") { _ in
-
-            let label = EmojiLabel(group: "Activities")
-            XCTAssertEqual(label, .activities)
-
-
-        }
-
-        XCTContext.runActivity(named: "Group: Objects") { _ in
-
-            let label = EmojiLabel(group: "Objects")
-            XCTAssertEqual(label, .objects)
-
-        }
-
-        XCTContext.runActivity(named: "Group: Symbols") { _ in
-
-            let label = EmojiLabel(group: "Symbols")
-            XCTAssertEqual(label, .symbols)
-
-        }
-
-        XCTContext.runActivity(named: "Group: Flags") { _ in
-
-            let label = EmojiLabel(group: "Flags")
-            XCTAssertEqual(label, .flags)
-
-        }
-
+        let label8 = EmojiLabel(group: "Flags")
+        #expect(label8 == .flags)
 
     }
-
 
 }
