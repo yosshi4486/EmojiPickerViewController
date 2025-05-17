@@ -11,7 +11,7 @@ A picker view controller for emoji.
 
 -   [x] [UTS#51 Specification](https://unicode.org/reports/tr51/)-compliant Emoji Picker(Not Tested Yet)
 -   [x] Segmented control for jumping an emoji section
--   [x] Seach bar and search results
+-   [x] Search bar and search results.
 -   [x] Fully accessible
 -   [x] Dark mode
 -   [x] Recently used
