@@ -3,7 +3,7 @@
 //
 //  EmojiPickerViewController
 //  https://github.com/yosshi4486/EmojiPickerViewController
-// 
+//
 //  Created by yosshi4486 on 2022/02/01.
 //
 // ----------------------------------------------------------------------------
@@ -21,53 +21,43 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-//  
+//
 
-import XCTest
+import Testing
+import Foundation
 
-class LocaleFunctionalTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+@Suite
+struct LocaleFunctionalTests {
 
     /*
      Locale object can understand and store the given identifier regardless the format is hyphen or underscore.
      */
 
-    func testIdentifierHyphen() throws {
-
+    @Test
+    func identifierHyphen() {
         let locale = Locale(identifier: "de-CH")
-        XCTAssertEqual(locale.identifier, "de-CH")
-
+        #expect(locale.identifier == "de-CH")
     }
 
-    func testIdentifierUnderScore() throws {
-
+    @Test
+    func identifierUnderScore() {
         let locale = Locale(identifier: "de_CH")
-        XCTAssertEqual(locale.identifier, "de_CH")
-
+        #expect(locale.identifier == "de_CH")
     }
 
-    func testLocaleRoundIdentifer() throws {
-
+    @Test
+    func localeRoundIdentifier() {
         let langageCode = "sr"
         let scriptCode = "Cyrl"
         let regionCode = "BA"
 
         let identifier = "\(langageCode)-\(scriptCode)_\(regionCode)"
         let foundationLocale = Locale(identifier: identifier)
-        XCTAssertNotEqual(foundationLocale.identifier, identifier)
-        XCTAssertEqual(foundationLocale.identifier, "sr_BA")
-
-        XCTAssertEqual(foundationLocale.languageCode, "sr")
-        XCTAssertNil(foundationLocale.scriptCode)
-        XCTAssertEqual(foundationLocale.regionCode, "BA")
-
+        #expect(foundationLocale.identifier != identifier)
+        #expect(foundationLocale.identifier == "sr_BA")
+        #expect(foundationLocale.languageCode == "sr")
+        #expect(foundationLocale.scriptCode == nil)
+        #expect(foundationLocale.regionCode == "BA")
     }
 
 }
