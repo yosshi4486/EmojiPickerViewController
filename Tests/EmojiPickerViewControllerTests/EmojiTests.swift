@@ -23,60 +23,54 @@
 //  limitations under the License.
 //
 
-import XCTest
+import Testing
 @testable import EmojiPickerViewController
 
-class EmojiTests: XCTestCase {
+@Suite
+struct EmojiTests {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testID() throws {
-
+    @Test
+    func id() {
         let emoji = Emoji("👌🏼")
-        XCTAssertEqual(emoji.id, "👌🏼")
-
+        #expect(emoji.id == "👌🏼")
     }
 
-    func testEqual() throws {
-
-        XCTContext.runActivity(named: "Equal") { _ in
+    @Suite
+    struct EqualTests {
+        @Test
+        func equal() {
             let emojiA = Emoji("👌", status: .fullyQualified, cldrOrder: 0, group: "A", subgroup: "A")
             let emojiB = Emoji("👌", status: .unqualified, cldrOrder: 10, group: "B", subgroup: "B")
-            XCTAssertEqual(emojiA, emojiB)
+            #expect(emojiA == emojiB)
         }
 
-        XCTContext.runActivity(named: "Not Equal") { _ in
+        @Test
+        func notEqual() {
             let emojiA = Emoji("👌", status: .fullyQualified, cldrOrder: 0, group: "Dif", subgroup: "Dif")
             let emojiB = Emoji("😵‍💫", status: .fullyQualified, cldrOrder: 0, group: "Dif", subgroup: "Dif")
-            XCTAssertNotEqual(emojiA, emojiB)
+            #expect(emojiA != emojiB)
         }
-
     }
 
-    func testHash() throws {
-
-        XCTContext.runActivity(named: "Same hash") { _ in
+    @Suite
+    struct HashTests {
+        @Test
+        func sameHash() {
             let emojiA = Emoji("👌", status: .fullyQualified, cldrOrder: 0, group: "A", subgroup: "A")
             let emojiB = Emoji("👌", status: .unqualified, cldrOrder: 10, group: "B", subgroup: "B")
-            XCTAssertEqual(emojiA.hashValue, emojiB.hashValue)
+            #expect(emojiA.hashValue == emojiB.hashValue)
         }
 
-        XCTContext.runActivity(named: "Different hash") { _ in
+        @Test
+        func differentHash() {
             let emojiA = Emoji("👌", status: .fullyQualified, cldrOrder: 0, group: "Dif", subgroup: "Dif")
             let emojiB = Emoji("😵‍💫", status: .fullyQualified, cldrOrder: 0, group: "Dif", subgroup: "Dif")
-            XCTAssertNotEqual(emojiA.hashValue, emojiB.hashValue)
+            #expect(emojiA.hashValue != emojiB.hashValue)
         }
-
     }
 
-    func testDescription() throws {
-
+    @Test
+    func description() {
         let emoji = Emoji("⛹🏿‍♀", status: .minimallyQualified, cldrOrder: 2360, group: "People & Body", subgroup: "person-sport")
         emoji.annotation = "ball | dark skin tone | woman | woman bouncing ball"
         emoji.textToSpeech = "woman bouncing ball: dark skin tone"
@@ -84,70 +78,62 @@ class EmojiTests: XCTestCase {
         let expectedText = """
         <Emoji: character=⛹🏿‍♀ status=minimallyQualified cldrOrder=2360 group=People & Body subgroup=person-sport annotation=ball | dark skin tone | woman | woman bouncing ball textToSpeech=woman bouncing ball: dark skin tone orderedSkinToneEmojis=[] genericSkinToneEmoji=nil minimallyQualifiedOrUnqualifiedVersions=[] fullyQualifiedVersion=nil>
         """
-        XCTAssertEqual(emoji.description, expectedText)
-
+        #expect(emoji.description == expectedText)
     }
 
-    func testIsEmojiModifierSequence() throws {
-
-        XCTContext.runActivity(named: "Singleton Emoji") { _ in
-
-            // 1F44C
+    @Suite
+    struct IsEmojiModifierSequenceTests {
+        @Test
+        func singletonEmoji() {
             let emoji = Emoji("👌")
-            XCTAssertFalse(emoji.isEmojiModifierSequence)
-
+            #expect(emoji.isEmojiModifierSequence == false)
         }
 
-        XCTContext.runActivity(named: "Emoji ZWJ Sequence") { _ in
-
-            // 1F635 200D 1F4AB
+        @Test
+        func emojiZWJSequence() {
             let emoji = Emoji("😵‍💫")
-            XCTAssertFalse(emoji.isEmojiModifierSequence)
-
+            #expect(emoji.isEmojiModifierSequence == false)
         }
 
-        XCTContext.runActivity(named: "Single Person Skin Toned Emoji") { _ in
-
-            // 1F44C 1F3FC
+        @Test
+        func singlePersonSkinTonedEmoji() {
             let emoji = Emoji("👌🏼")
-            XCTAssertTrue(emoji.isEmojiModifierSequence)
-
+            #expect(emoji.isEmojiModifierSequence)
         }
 
-        XCTContext.runActivity(named: "Multiple Person Skin Toned Emoji") { _ in
-
-            // 1F9D1 1F3FB 200D 2764 FE0F 200D 1F48B 200D 1F9D1 1F3FC
+        @Test
+        func multiplePersonSkinTonedEmoji() {
             let emoji = Emoji("🧑🏻‍❤️‍💋‍🧑🏼")
-            XCTAssertTrue(emoji.isEmojiModifierSequence)
-
+            #expect(emoji.isEmojiModifierSequence)
         }
-
     }
 
-    // MARK: - Testing Emoji.Status
-
-    func testInitStatus() throws {
-
-        XCTContext.runActivity(named: "component") { _ in
-            XCTAssertEqual(Emoji.Status(rawValue: "component"), .component)
+    @Suite
+    struct InitStatusTests {
+        @Test
+        func component() {
+            #expect(Emoji.Status(rawValue: "component") == .component)
         }
 
-        XCTContext.runActivity(named: "fully qualified") { _ in
-            XCTAssertEqual(Emoji.Status(rawValue: "fully-qualified"), .fullyQualified)
+        @Test
+        func fullyQualified() {
+            #expect(Emoji.Status(rawValue: "fully-qualified") == .fullyQualified)
         }
 
-        XCTContext.runActivity(named: "minimally qualified") { _ in
-            XCTAssertEqual(Emoji.Status(rawValue: "minimally-qualified"), .minimallyQualified)
+        @Test
+        func minimallyQualified() {
+            #expect(Emoji.Status(rawValue: "minimally-qualified") == .minimallyQualified)
         }
 
-        XCTContext.runActivity(named: "unqualified") { _ in
-            XCTAssertEqual(Emoji.Status(rawValue: "unqualified"), .unqualified)
+        @Test
+        func unqualified() {
+            #expect(Emoji.Status(rawValue: "unqualified") == .unqualified)
         }
 
-        XCTContext.runActivity(named: "unknown") { _ in
-            XCTAssertNil(Emoji.Status(rawValue: "unknown"))
+        @Test
+        func unknown() {
+            #expect(Emoji.Status(rawValue: "unknown") == nil)
         }
-
     }
 
 
