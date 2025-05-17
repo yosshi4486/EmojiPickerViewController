@@ -61,21 +61,21 @@ import XCTest
         XCTAssertEqual(container.entireEmojiSet[flagWales]?.group, "Flags")
         XCTAssertEqual(container.entireEmojiSet[flagWales]?.subgroup, "subdivision-flag")
         XCTAssertEqual(container.entireEmojiSet[flagWales]?.annotation, "旗")
-        XCTAssertEqual(container.entireEmojiSet[flagWales]?.textToSpeach, "旗: ウェールズ")
+        XCTAssertEqual(container.entireEmojiSet[flagWales]?.textToSpeech, "旗: ウェールズ")
 
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.group, "Flags")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.subgroup, "subdivision-flag")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.annotation, "旗")
-        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.textToSpeach, "旗: ウェールズ")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.textToSpeech, "旗: ウェールズ")
 
         // Test all fully-qualified emojis have annotation and tts.
         for (_, emojis) in container.labeledEmojisForKeyboard {
             for emoji in emojis {
                 XCTAssertNotEqual(emoji.annotation, "")
-                XCTAssertNotEqual(emoji.textToSpeach, "")
-                XCTAssertTrue(emoji.orderedSkinToneEmojis.allSatisfy({ $0.annotation != "" && $0.textToSpeach != "" }))
+                XCTAssertNotEqual(emoji.textToSpeech, "")
+                XCTAssertTrue(emoji.orderedSkinToneEmojis.allSatisfy({ $0.annotation != "" && $0.textToSpeech != "" }))
             }
         }
 
@@ -97,14 +97,14 @@ import XCTest
         XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.group, "Smileys & Emotion")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.subgroup, "face-smiling")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.annotation, "スマイル | にっこり | にっこり笑う | 笑う | 笑顔 | 顔")
-        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.textToSpeach, "にっこり笑う")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.textToSpeech, "にっこり笑う")
 
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.group, "Flags")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.subgroup, "subdivision-flag")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.annotation, "旗")
-        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.textToSpeach, "旗: ウェールズ")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.textToSpeech, "旗: ウェールズ")
 
         // Execute
         container.emojiLocale = EmojiLocale(localeIdentifier: "en")!
@@ -116,14 +116,14 @@ import XCTest
         XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.group, "Smileys & Emotion")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.subgroup, "face-smiling")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.annotation, "face | grin | grinning face")
-        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.textToSpeach, "grinning face")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.textToSpeech, "grinning face")
 
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.character, "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.cldrOrder, emojiCountsListedInEmojiTest - 1) // the order starts from 0.
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.group, "Flags")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.subgroup, "subdivision-flag")
         XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.annotation, "flag")
-        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.textToSpeach, "flag: Wales")
+        XCTAssertEqual(container.labeledEmojisForKeyboard[.flags]?.last?.textToSpeech, "flag: Wales")
 
     }
 

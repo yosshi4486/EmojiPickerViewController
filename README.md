@@ -11,7 +11,7 @@ A picker view controller for emoji.
 
 -   [x] [UTS#51 Specification](https://unicode.org/reports/tr51/)-compliant Emoji Picker(Not Tested Yet)
 -   [x] Segmented control for jumping an emoji section
--   [x] Seach bar and search results
+-   [x] Search bar and search results
 -   [x] Fully accessible
 -   [x] Dark mode
 -   [x] Recently used
@@ -74,11 +74,11 @@ You can get an `Emoji` object by accessing a singleton `EmojiContainer` instance
 ```swift
 let bouncingBall = EmojiContainer.main.entireEmojiSet["⛹🏿‍♀"]!
 print(bouncingBall)
-// Prints "character: ⛹🏿‍♀, status: minimallyQualified, group: People & Body, subgroup: person-sport, cldrOrder: 2360, annotation: ball | dark skin tone | woman | woman bouncing ball, textToSpeach: woman bouncing ball: dark skin tone"
+// Prints "character: ⛹🏿‍♀, status: minimallyQualified, group: People & Body, subgroup: person-sport, cldrOrder: 2360, annotation: ball | dark skin tone | woman | woman bouncing ball, textToSpeech: woman bouncing ball: dark skin tone"
 
 let grape = EmojiContainer.main.labeledEmojisForKeyboard[.foodDrink]![0]
 print(grape)
-// Prints "character: 🍇, status: fullyQualified, group: Food & Drink, subgroup: food-fruit, cldrOrder: 3323, annotation: fruit | grape | grapes, textToSpeach: grapes"
+// Prints "character: 🍇, status: fullyQualified, group: Food & Drink, subgroup: food-fruit, cldrOrder: 3323, annotation: fruit | grape | grapes, textToSpeech: grapes"
 ```
 
 See and run [Example](./Example/) for checking usages.

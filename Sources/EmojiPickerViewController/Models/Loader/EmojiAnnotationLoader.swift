@@ -64,7 +64,7 @@ class EmojiAnnotationLoader: Loader {
 
      - Parameters:
        - emojiDictionary: The dictionary which the key is a `Character` and the value is a `Emoji`, for setting annotation and tts.
-       - emojiLocale:The locale which specifies the emoji locale information for the loading. `Emoji` annotation and textToSpeach are loaded following the given locale.
+       - emojiLocale:The locale which specifies the emoji locale information for the loading. `Emoji` annotation and textToSpeech are loaded following the given locale.
      */
     init(emojiDictionary: [Emoji.ID: Emoji], emojiLocale: EmojiLocale) {
 
@@ -98,8 +98,8 @@ class EmojiAnnotationLoader: Loader {
 
                 if annotation.attributes["type"] == "tts" {
 
-                    targetEmoji?.textToSpeach = annotation.text!
-                    targetEmoji?.fullyQualifiedVersion?.textToSpeach = annotation.text!
+                    targetEmoji?.textToSpeech = annotation.text!
+                    targetEmoji?.fullyQualifiedVersion?.textToSpeech = annotation.text!
 
                 } else {
 

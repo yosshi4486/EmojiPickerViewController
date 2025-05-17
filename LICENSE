@@ -222,7 +222,7 @@ Original Licence URL: https://github.com/unicode-org/cldr/blob/main/unicode-lice
 
 ## Changes in This Source:
 
-- Renames file names in `annotationsDerived` to `xxx_derived.xml`, because files in `annotations` have same names and swift package don't allow existance of same name.
+- Renames file names in `annotationsDerived` to `xxx_derived.xml`, because files in `annotations` have same names and swift package doesn't allow existence of same name.
 
 ## Text
 

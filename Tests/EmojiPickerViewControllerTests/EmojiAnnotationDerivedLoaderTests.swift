@@ -54,9 +54,9 @@ import XCTest
         loader.load()
 
         XCTAssertEqual(emojiDictionary["👋🏾"]?.annotation, "バイバイ | やや濃い肌色 | 手 | 手を振る", "Failed to load `ja` annotations.")
-        XCTAssertEqual(emojiDictionary["👋🏾"]?.textToSpeach, "手を振る: やや濃い肌色", "Failed to load `ja` textToSpeach.")
+        XCTAssertEqual(emojiDictionary["👋🏾"]?.textToSpeech, "手を振る: やや濃い肌色", "Failed to load `ja` textToSpeech.")
         XCTAssertEqual(emojiDictionary["🇲🇽"]?.annotation, "旗", "Failed to load `ja` annotations.")
-        XCTAssertEqual(emojiDictionary["🇲🇽"]?.textToSpeach, "旗: メキシコ", "Failed to load `ja` textToSpeach.")
+        XCTAssertEqual(emojiDictionary["🇲🇽"]?.textToSpeech, "旗: メキシコ", "Failed to load `ja` textToSpeech.")
 
     }
 
@@ -70,7 +70,7 @@ import XCTest
         loader.load()
 
         XCTAssertEqual(emojiDictionary["😀"]?.annotation, "")
-        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeach, "")
+        XCTAssertEqual(emojiDictionary["😀"]?.textToSpeech, "")
 
     }
 

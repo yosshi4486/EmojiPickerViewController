@@ -347,7 +347,7 @@ open class EmojiPickerViewController: UIViewController {
                 cell.isAccessibilityElement = true
                 cell.accessibilityElements = []
                 cell.accessibilityTraits = .button
-                cell.accessibilityLabel = "\(emoji.textToSpeach), \(index)"
+                cell.accessibilityLabel = "\(emoji.textToSpeech), \(index)"
 
             } else {
 

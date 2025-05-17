@@ -138,7 +138,7 @@ public class EmojiContainer: Loader {
     }
 
     /**
-     Returns emojis which contains the given keyword in `annotation` property. minimally-qualified emojis , unqualified emojis and emoji modifier sequences (skintoned emoji) are ignored from search targets.
+     Returns emojis which contain the given keyword in `annotation` property. Minimally-qualified emojis, unqualified emojis and emoji modifier sequences (skin-toned emoji) are ignored from search targets.
 
      - Precondition:
      This method should be called after an initial call of `load()`.
@@ -160,7 +160,7 @@ public class EmojiContainer: Loader {
     /**
      An async interface of `searchEmojisForKeyboard(from:)`.
 
-     Using this async interface is recommented for providing resut-set in picker or keyboard.
+     Using this async interface is recommended for providing result set in picker or keyboard.
      */
     public func searchEmojisForKeyboard(from keyboard: String) async -> [Emoji] {
         precondition(!entireEmojiSet.isEmpty && !labeledEmojisForKeyboard.isEmpty)

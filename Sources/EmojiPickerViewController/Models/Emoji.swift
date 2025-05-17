@@ -123,7 +123,7 @@ public class Emoji {
 
      - SeeAlso: [UITextInputMode.currentInputModeDidChangeNotification](https://developer.apple.com/documentation/uikit/uitextinputmode/1614517-currentinputmodedidchangenotific)
      */
-    internal(set) public var textToSpeach: String = ""
+    internal(set) public var textToSpeech: String = ""
 
     /**
      The skin-tone's variations of this emoji. The value is `empty` when the emoji is not emoji modifier base.
@@ -247,7 +247,7 @@ extension Emoji: CustomStringConvertible {
     public var description: String {
 
         """
-        <Emoji: character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup) annotation=\(annotation) textToSpeach=\(textToSpeach) orderedSkinToneEmojis=\(orderedSkinToneEmojis.map(\.character)) genericSkinToneEmoji=\(String(describing: genericSkinToneEmoji?.character)) minimallyQualifiedOrUnqualifiedVersions=\(minimallyQualifiedOrUnqualifiedVersions.map(\.character)) fullyQualifiedVersion=\(String(describing: fullyQualifiedVersion?.character))>
+        <Emoji: character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup) annotation=\(annotation) textToSpeech=\(textToSpeech) orderedSkinToneEmojis=\(orderedSkinToneEmojis.map(\.character)) genericSkinToneEmoji=\(String(describing: genericSkinToneEmoji?.character)) minimallyQualifiedOrUnqualifiedVersions=\(minimallyQualifiedOrUnqualifiedVersions.map(\.character)) fullyQualifiedVersion=\(String(describing: fullyQualifiedVersion?.character))>
         """
 
     }
