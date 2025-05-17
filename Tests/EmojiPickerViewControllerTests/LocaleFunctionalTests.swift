@@ -55,9 +55,9 @@ struct LocaleFunctionalTests {
         let foundationLocale = Locale(identifier: identifier)
         #expect(foundationLocale.identifier != identifier)
         #expect(foundationLocale.identifier == "sr_BA")
-        #expect(foundationLocale.languageCode == "sr")
-        #expect(foundationLocale.scriptCode == nil)
-        #expect(foundationLocale.regionCode == "BA")
+        #expect(foundationLocale.language.languageCode?.identifier == "sr")
+        #expect(foundationLocale.language.script?.identifier == "Cyrl")
+        #expect(foundationLocale.region!.identifier == "BA")
     }
 
 }
