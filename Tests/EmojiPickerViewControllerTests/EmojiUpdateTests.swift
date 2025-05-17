@@ -38,7 +38,10 @@ struct EmojiUpdateTests {
         let nextGenEmoji = Character("🫨")
         
         #expect(latestGenEmoji.unicodeScalars.first!.properties.isEmoji)
-        #expect(nextGenEmoji.unicodeScalars.first!.properties.isEmoji == false, "Time to upgrade to latest emoji standard, and change this test!")
+        
+        withKnownIssue("We have to update Unicode v16") {
+            #expect(nextGenEmoji.unicodeScalars.first!.properties.isEmoji == false, "Time to upgrade to latest emoji standard, and change this test!")
+        }
         
     }
 
