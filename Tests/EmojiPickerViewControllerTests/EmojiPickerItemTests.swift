@@ -23,72 +23,61 @@
 //  limitations under the License.
 //
 
-import XCTest
+import Testing
 @testable import EmojiPickerViewController
 
-class EmojiPickerItemTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testItemIdentityWhenSameCharacter() throws {
-
+@Suite
+struct EmojiPickerItemTests {
+    
+    @Test
+    func itemIdentityWhenSameCharater() {
         let emoji = Emoji("😊")
         let recentlyUsed = EmojiPickerItem.recentlyUsed(emoji)
         let searchResult = EmojiPickerItem.searchResult(emoji)
         let labeled = EmojiPickerItem.labeled(emoji)
         let empty = EmojiPickerItem.empty
-
-        XCTAssertNotEqual(recentlyUsed, searchResult)
-        XCTAssertNotEqual(recentlyUsed, labeled)
-        XCTAssertNotEqual(recentlyUsed, empty)
-        XCTAssertNotEqual(searchResult, labeled)
-        XCTAssertNotEqual(searchResult, empty)
-        XCTAssertNotEqual(labeled, empty)
-
+        
+        #expect(recentlyUsed != searchResult)
+        #expect(recentlyUsed != labeled)
+        #expect(recentlyUsed != empty)
+        #expect(searchResult != labeled)
+        #expect(searchResult != empty)
+        #expect(labeled != empty)
+        
         let recentlyUsed2 = EmojiPickerItem.recentlyUsed(emoji)
         let searchResult2 = EmojiPickerItem.searchResult(emoji)
         let labeled2 = EmojiPickerItem.labeled(emoji)
         let empty2 = EmojiPickerItem.empty
-
-        XCTAssertEqual(recentlyUsed, recentlyUsed2)
-        XCTAssertEqual(searchResult, searchResult2)
-        XCTAssertEqual(labeled, labeled2)
-        XCTAssertEqual(empty, empty2)
-
+        
+        #expect(recentlyUsed == recentlyUsed2)
+        #expect(searchResult == searchResult2)
+        #expect(labeled == labeled2)
+        #expect(empty == empty2)
     }
-
-    func testItemIdentityWhenDifferenceCharacter() throws {
-
+    
+    @Test
+    func itemIdentityWhenDifferenceCharater() {
         let recentlyUsed = EmojiPickerItem.recentlyUsed(Emoji("😍"))
         let searchResult = EmojiPickerItem.searchResult(Emoji("🍎"))
         let labeled = EmojiPickerItem.labeled(Emoji("🚜"))
         let empty = EmojiPickerItem.empty // It doesn't have an emoji.
-
-        XCTAssertNotEqual(recentlyUsed, searchResult)
-        XCTAssertNotEqual(recentlyUsed, labeled)
-        XCTAssertNotEqual(recentlyUsed, empty)
-        XCTAssertNotEqual(searchResult, labeled)
-        XCTAssertNotEqual(searchResult, empty)
-        XCTAssertNotEqual(labeled, empty)
-
+        
+        #expect(recentlyUsed != searchResult)
+        #expect(recentlyUsed != labeled)
+        #expect(recentlyUsed != empty)
+        #expect(searchResult != labeled)
+        #expect(searchResult != empty)
+        #expect(labeled != empty)
+        
         let recentlyUsed2 = EmojiPickerItem.recentlyUsed(Emoji("❤️"))
         let searchResult2 = EmojiPickerItem.searchResult(Emoji("💾"))
         let labeled2 = EmojiPickerItem.labeled(Emoji("📊"))
         let empty2 = EmojiPickerItem.empty // It doesn't have an emoji.
-
-
-        XCTAssertNotEqual(recentlyUsed, recentlyUsed2)
-        XCTAssertNotEqual(searchResult, searchResult2)
-        XCTAssertNotEqual(labeled, labeled2)
-        XCTAssertEqual(empty, empty2)
-
+        
+        #expect(recentlyUsed != recentlyUsed2)
+        #expect(searchResult != searchResult2)
+        #expect(labeled != labeled2)
+        #expect(empty == empty2)
     }
-
-
+    
 }

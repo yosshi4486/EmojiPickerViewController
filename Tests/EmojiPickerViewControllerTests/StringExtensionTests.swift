@@ -3,7 +3,7 @@
 //
 //  EmojiPickerViewController
 //  https://github.com/yosshi4486/EmojiPickerViewController
-// 
+//
 //  Created by yosshi4486 on 2022/02/06.
 //
 // ----------------------------------------------------------------------------
@@ -21,114 +21,119 @@
 //  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
-//  
+//
 
-import XCTest
+import Testing
 @testable import EmojiPickerViewController
 
-class StringExtensionTests: XCTestCase {
+@Suite
+struct StringExtensionTests {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    @Suite
+    struct IsISO639LanguageCodeFormTests {
+
+        @Test
+        func count2AsciiLowercase() {
+            #expect("ab".isISO639LanguageCodeForm)
+        }
+
+        @Test
+        func count2AsciiNotLowercase() {
+            #expect("aB".isISO639LanguageCodeForm == false)
+        }
+
+        @Test
+        func count2NonAsciiLowercase() {
+            #expect("éи".isISO639LanguageCodeForm == false)
+        }
+
+        @Test
+        func count2NonAsciiNotLowercase() {
+            #expect("空腹".isISO639LanguageCodeForm == false)
+        }
+
+        @Test
+        func count4AsciiLowercase() {
+            #expect("abzz".isISO639LanguageCodeForm == false)
+        }
+
+        @Test
+        func count4AsciiNotLowercase() {
+            #expect("abZz".isISO639LanguageCodeForm == false)
+        }
+
+        @Test
+        func count4NonAsciiLowercase() {
+            #expect("éиπé".isISO639LanguageCodeForm == false)
+        }
+
+        @Test
+        func count4NonAsciiNotLowercase() {
+            #expect("空腹限界".isISO639LanguageCodeForm == false)
+        }
+
+        @Test
+        func count3AsciiLowercase() {
+            #expect("abc".isISO639LanguageCodeForm)
+        }
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    @Suite
+    struct IsISO3166RegionCodeFormTests {
+
+        @Test
+        func count1AsciiUpper() {
+            #expect("Z".isISO3166RegionCodeForm == false)
+        }
+
+        @Test
+        func count3AsciiUpper() {
+            #expect("ABB".isISO3166RegionCodeForm)
+        }
+
+        @Test
+        func count3AsciiNotUpper() {
+            #expect("AbB".isISO3166RegionCodeForm == false)
+        }
+
+        @Test
+        func count3NonAsciiUpper() {
+            #expect("ÉИΠ".isISO3166RegionCodeForm == false)
+        }
+
+        @Test
+        func count3NonAsciiNotUpper() {
+            #expect("éиπ".isISO3166RegionCodeForm == false)
+        }
+
+        @Test
+        func count3AsciiNumber() {
+            #expect("001".isISO3166RegionCodeForm)
+        }
+
+        @Test
+        func count3NonAsciiNumber() {
+            #expect("㊈㊈㊈".isISO3166RegionCodeForm == false)
+        }
     }
 
-    func testIsISO639LanguageCodeForm() throws {
+    @Suite
+    struct IsISO15924ScriptCodeFormTests {
 
-        // whitebox testing: MCC
-
-        XCTContext.runActivity(named: "count:2, ascii, lowercase") { _ in
-            XCTAssertTrue("ab".isISO639LanguageCodeForm)
+        @Test
+        func count3Ull() {
+            #expect("Arb".isISO15924ScriptCodeForm == false)
         }
 
-        XCTContext.runActivity(named: "count:2, ascii, not-lowercase") { _ in
-            XCTAssertFalse("aB".isISO639LanguageCodeForm)
+        @Test
+        func count4Ulll() {
+            #expect("Arbb".isISO15924ScriptCodeForm)
         }
 
-        XCTContext.runActivity(named: "count:2, not-ascii, lowercase") { _ in
-            XCTAssertFalse("éи".isISO639LanguageCodeForm)
+        @Test
+        func count4Llll() {
+            #expect("arbb".isISO15924ScriptCodeForm == false)
         }
-
-        XCTContext.runActivity(named: "count:2, not-ascii, not-lowercase") { _ in
-            XCTAssertFalse("空腹".isISO639LanguageCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:4, ascii, lowercase") { _ in
-            XCTAssertFalse("abzz".isISO639LanguageCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:4, ascii, not-lowercase") { _ in
-            XCTAssertFalse("abZz".isISO639LanguageCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:4, not-ascii, lowercase") { _ in
-            XCTAssertFalse("éиπé".isISO639LanguageCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:4, not-ascii, not-lowercase") { _ in
-            XCTAssertFalse("空腹限界".isISO639LanguageCodeForm)
-        }
-
-        // additional
-
-        XCTContext.runActivity(named: "count:3, ascii, lowercase") { _ in
-            XCTAssertTrue("abc".isISO639LanguageCodeForm)
-        }
-
-    }
-
-    func testIsISO3166RegionCodeForm() throws {
-
-        // I'm writing very rough tests.
-
-        XCTContext.runActivity(named: "count:1, ascii, upper") { _ in
-            XCTAssertFalse("Z".isISO3166RegionCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:3, ascii, upper") { _ in
-            XCTAssertTrue("ABB".isISO3166RegionCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:3, ascii, not-upper") { _ in
-            XCTAssertFalse("AbB".isISO3166RegionCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:3, not-ascii, upper") { _ in
-            XCTAssertFalse("ÉИΠ".isISO3166RegionCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:3, not-ascii, not-upper") { _ in
-            XCTAssertFalse("éиπ".isISO3166RegionCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:3, ascii, number") { _ in
-            XCTAssertTrue("001".isISO3166RegionCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:3, not-ascii, number") { _ in
-            XCTAssertFalse("㊈㊈㊈".isISO3166RegionCodeForm)
-        }
-
-    }
-
-    func testIsISO15924ScriptCodeForm() throws {
-
-        // I'm writing very rough tests.
-        XCTContext.runActivity(named: "count:3, ull") { _ in
-            XCTAssertFalse("Arb".isISO15924ScriptCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:4, ulll") { _ in
-            XCTAssertTrue("Arbb".isISO15924ScriptCodeForm)
-        }
-
-        XCTContext.runActivity(named: "count:4, llll") { _ in
-            XCTAssertFalse("arbb".isISO15924ScriptCodeForm)
-        }
-
     }
 
 }
