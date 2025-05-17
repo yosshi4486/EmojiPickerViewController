@@ -55,14 +55,14 @@ class ViewController: UIViewController {
         // configuration.headerAppearance.textAlignment = .center
 
         /*
-         Changing each cell appeanrance.
+         Changing each cell appearance.
          */
         // configuration.cellAppearance.size = .init(width: 30, height: 30)
 
         let emojiPicker = EmojiPickerViewController(configuration: configuration)
 
         /*
-         Receiveing events from the picker view controller.
+         Receiving events from the picker view controller.
          */
         emojiPicker.delegate = self
 
@@ -92,7 +92,7 @@ class ViewController: UIViewController {
         // EmojiContainer.main.load()
         
         /*
-         This is recommented implementation. In iPad, presents the picker as a popover, otherwise presents it as a sheet.
+         This is recommended implementation. In iPad, presents the picker as a popover, otherwise presents it as a sheet.
          */
         if traitCollection.userInterfaceIdiom == .pad {
 

@@ -27,7 +27,7 @@ import Foundation
 /**
  A locale for which loads the associated language specific files.
 
- An `EmojiContainer`instance reads `annotations/{localeID}.xml` and `annotationsDerived/{localeID}.xml` to fill the emoji's `annotation` and `textToSpeach` properties. This object specified the locale information for which file should be loaded.
+ An `EmojiContainer`instance reads `annotations/{localeID}.xml` and `annotationsDerived/{localeID}.xml` to fill the emoji's `annotation` and `textToSpeech` properties. This object specified the locale information for which file should be loaded.
 
  # Reading Difference
  Please see `Resources/CLDR/annotations/af` and `Resources/CLDR/annotations/af_SA`, you can see the first one describes many emojis and the second one describes very few emojis. The rule is that an annotation file which has the region resignator only describes regional differences between the base annotation file. The base annotation is `af` in this case.

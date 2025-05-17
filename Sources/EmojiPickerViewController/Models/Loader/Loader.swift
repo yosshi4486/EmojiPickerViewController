@@ -31,7 +31,7 @@ import Foundation
 protocol Loader {
 
     /**
-     The bundle where the resouces are located.
+     The bundle where the resources are located.
      */
     var bundle: Bundle { get }
 
@@ -45,7 +45,7 @@ protocol Loader {
 extension Loader {
 
     /**
-     The bundle where the resouces are located. In swift package system, `.module` specifies the resource's bundle of the current module.
+     The bundle where the resources are located. In swift package system, `.module` specifies the resource's bundle of the current module.
      */
     var bundle: Bundle { .module }
 

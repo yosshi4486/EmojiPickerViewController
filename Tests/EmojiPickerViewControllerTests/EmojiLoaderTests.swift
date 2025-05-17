@@ -160,12 +160,12 @@ let emojiCountsListedInEmojiTest = 4702
             XCTAssertNil(victoryHandEmoji.genericSkinToneEmoji)
             XCTAssertEqual(victoryHandEmoji.orderedSkinToneEmojis.count, 5)
 
-            for (index, skintonedEmoji) in victoryHandEmoji.orderedSkinToneEmojis.enumerated() {
-                XCTAssertEqual(skintonedEmoji.character, expectedSkintoneVariations[index])
-                XCTAssertNil(skintonedEmoji.fullyQualifiedVersion)
-                XCTAssertTrue(skintonedEmoji.minimallyQualifiedOrUnqualifiedVersions.isEmpty)
-                XCTAssertEqual(skintonedEmoji.genericSkinToneEmoji, victoryHandEmoji)
-                XCTAssertTrue(skintonedEmoji.orderedSkinToneEmojis.isEmpty)
+            for (index, skinTonedEmoji) in victoryHandEmoji.orderedSkinToneEmojis.enumerated() {
+                XCTAssertEqual(skinTonedEmoji.character, expectedSkintoneVariations[index])
+                XCTAssertNil(skinTonedEmoji.fullyQualifiedVersion)
+                XCTAssertTrue(skinTonedEmoji.minimallyQualifiedOrUnqualifiedVersions.isEmpty)
+                XCTAssertEqual(skinTonedEmoji.genericSkinToneEmoji, victoryHandEmoji)
+                XCTAssertTrue(skinTonedEmoji.orderedSkinToneEmojis.isEmpty)
             }
 
         }

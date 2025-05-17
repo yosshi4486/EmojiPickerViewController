@@ -41,9 +41,9 @@ import Collections
  The excluded emoji from `labeledEmojisForKeyboard`are:
  - minimally-qualified emoji
  - unqualified emoji
- - emoji modifier sequences( because showing a generic-skin-toned emojis on a keyboard, and selecting a skin-tone valiation in the variations selector view, is a well-known experience in iOS and macOS)
+ - emoji modifier sequences( because showing a generic-skin-toned emoji on a keyboard, and selecting a skin-tone variation in the variations selector view, is a well-known experience in iOS and macOS)
 
- The values for `labeledEmojisForKeyboard` are stored in the order shown at  [Emoji Ordering](https://unicode.org/emoji/charts/emoji-ordering.html), and the type of `labeledEmojisForKeyboard` is an `OrderedDictionary` which can ensure the order of keys, so you can get complete labled and ordered emojis by enumerating the dictionay like this:
+ The values for `labeledEmojisForKeyboard` are stored in the order shown at  [Emoji Ordering](https://unicode.org/emoji/charts/emoji-ordering.html), and the type of `labeledEmojisForKeyboard` is an `OrderedDictionary` which can ensure the order of keys, so you can get complete labeled and ordered emojis by enumerating the dictionary like this:
 
  ```swift
  for (label, orderedEmojis) in labeledEmojisForKeyboard {
@@ -238,13 +238,13 @@ class EmojiLoader: Loader {
         var subgroup: Substring!
 
         /*
-         The local var are used for handling skin tones and minimally-qualified/unqualified versions.
+         The local variables are used for handling skin tones and minimally-qualified/unqualified versions.
 
          The most important expectation for combining variations is the orders of emojis in the `emoji-test.txt` file. The rules of the order are:
-         1. fully-qualified and non emoji modiifier sequence, which we name "variation base" is located at head. This is a separater of the variations of the emoji.
+         1. fully-qualified and non emoji modifier sequence, which we name "variation base" is located at head. This is a separator of the variations of the emoji.
          2. minimally-qualified or unqualified emojis are listed next of 1.
-         3. modifier sequences(skintoned emoji) are listed next of 2.
-         NOTE: modifier sequences may have its minimally-qualified or unqualified variations.
+         3. modifier sequences(skin-toned emoji) are listed next of 2.
+         NOTE: modifier sequences may have their minimally-qualified or unqualified variations.
 
          Ex)
          1F575 FE0F 200D 2642 FE0F                              ; fully-qualified     # 🕵️‍♂️ E4.0 man detective                             <VARIATION BASE>
@@ -265,10 +265,10 @@ class EmojiLoader: Loader {
          1F575 FE0F 200D 2640 FE0F                              ; fully-qualified     # 🕵️‍♀️ E4.0 woman detective                           <NEXT VARIATION BASE>
          */
 
-        // Variation base is fully-qualified and non emoji modiifier sequence.
+        // Variation base is fully-qualified and non emoji modifier sequence.
         var variationBaseEmoji:Emoji?
 
-        // FullyQualifiedEmoji is fully-qualified. It may be mofifier sequence.
+        // FullyQualifiedEmoji is fully-qualified. It may be modifier sequence.
         var fullyQualifiedEmoji: Emoji?
 
         var emojiOrder: Int = 0
@@ -327,7 +327,7 @@ class EmojiLoader: Loader {
 
                     } else {
 
-                        // Normally, a keyboard should present only variation base emoji, and present modifier sequences(skintoned) by long-pressing the key.
+                        // Normally, a keyboard should present only variation base emoji, and present modifier sequences(skin-toned) by long-pressing the key.
                         variationBaseEmoji = emoji
                         
                         if let label {
