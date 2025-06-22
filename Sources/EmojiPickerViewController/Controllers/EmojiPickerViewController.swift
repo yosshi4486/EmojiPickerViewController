@@ -640,6 +640,7 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
     }
     
     private func createTargetedPreview(for configuration: UIContextMenuConfiguration, in collectionView: UICollectionView) -> UITargetedPreview? {
+        
         guard let indexPath = configuration.identifier as? IndexPath,
               let cell = collectionView.cellForItem(at: indexPath) else {
             return nil
@@ -651,10 +652,7 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
         let cornerRadius: CGFloat = min(cell.bounds.width, cell.bounds.height) * 0.2
         let roundedPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cornerRadius)
         parameters.visiblePath = roundedPath
-        
-        // Set background color to transparent to avoid visual artifacts
-        parameters.backgroundColor = .clear
-        
+                
         return UITargetedPreview(view: cell, parameters: parameters)
     }
 
