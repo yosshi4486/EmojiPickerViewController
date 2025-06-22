@@ -29,7 +29,7 @@ import Testing
 @Suite
 class EmojiLabelTests {
 
-    @Test
+    @Test @MainActor
     func localizedDescription() throws {
 
         let label1 = EmojiLabel(group: "Smileys & Emotion")

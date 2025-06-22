@@ -56,6 +56,7 @@ import Collections
   This `Loader` does not use the `TopLevelDecoder` protocol, because `emoji-test` is NOT data format. It's an only semi-colon separated plain text.
 
  */
+@MainActor
 class EmojiLoader: Loader {
 
     /**

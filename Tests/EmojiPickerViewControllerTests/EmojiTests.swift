@@ -26,7 +26,7 @@
 import Testing
 @testable import EmojiPickerViewController
 
-@Suite
+@Suite @MainActor
 struct EmojiTests {
 
     @Test
@@ -35,7 +35,7 @@ struct EmojiTests {
         #expect(emoji.id == "👌🏼")
     }
 
-    @Suite
+    @Suite @MainActor
     struct EqualTests {
         @Test
         func equal() {
@@ -52,7 +52,7 @@ struct EmojiTests {
         }
     }
 
-    @Suite
+    @Suite @MainActor
     struct HashTests {
         @Test
         func sameHash() {
@@ -76,12 +76,12 @@ struct EmojiTests {
         emoji.textToSpeech = "woman bouncing ball: dark skin tone"
 
         let expectedText = """
-        <Emoji: character=⛹🏿‍♀ status=minimallyQualified cldrOrder=2360 group=People & Body subgroup=person-sport annotation=ball | dark skin tone | woman | woman bouncing ball textToSpeech=woman bouncing ball: dark skin tone orderedSkinToneEmojis=[] genericSkinToneEmoji=nil minimallyQualifiedOrUnqualifiedVersions=[] fullyQualifiedVersion=nil>
+        <Emoji: character=⛹🏿‍♀ status=minimallyQualified cldrOrder=2360 group=People & Body subgroup=person-sport>
         """
         #expect(emoji.description == expectedText)
     }
 
-    @Suite
+    @Suite @MainActor
     struct IsEmojiModifierSequenceTests {
         @Test
         func singletonEmoji() {

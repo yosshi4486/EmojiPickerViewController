@@ -36,6 +36,7 @@ import Foundation
 
  We can make all property changes to `let` by making a combined resource of all resources, but it may make other complications.
 */
+@MainActor
 public class Emoji {
 
     /**
@@ -43,7 +44,7 @@ public class Emoji {
 
      The specifications of this *Status* are defined in [UTS #51](https://unicode.org/reports/tr51/)
      */
-    public enum Status: String {
+    public enum Status: String, Sendable {
 
         /**
          The component status.
@@ -106,6 +107,10 @@ public class Emoji {
      The subgroup name where the emoji belongs. This property is set following `Resources/emoji-test.txt`. Ex.) face-smiling, hand-fingers-open
      */
     public let subgroup: String
+    
+    /*
+     Loading methods are executed in MainActor, so there methods are ensured thread-safe.
+     */
 
     /**
      The annotation for searching emojis. The value includes multiple annotation which are separated by vertical line "|",  such as `face | geek | nerd`. This property is set following`Resources/CLDR/annotation` and `Resources/CLDR/annotationsDerived` .
@@ -114,7 +119,7 @@ public class Emoji {
 
      - SeeAlso: [UITextInputMode.currentInputModeDidChangeNotification](https://developer.apple.com/documentation/uikit/uitextinputmode/1614517-currentinputmodedidchangenotific)
      */
-    internal(set) public var annotation: String = ""
+    nonisolated(unsafe) internal(set) public var annotation: String = ""
 
     /**
      The tts value for screen reader functionality. In Apple Platform, the value should be read by VoiceOver. This property is set following`Resources/CLDR/annotations` and `Resources/CLDR/annotationsDerived`
@@ -123,7 +128,7 @@ public class Emoji {
 
      - SeeAlso: [UITextInputMode.currentInputModeDidChangeNotification](https://developer.apple.com/documentation/uikit/uitextinputmode/1614517-currentinputmodedidchangenotific)
      */
-    internal(set) public var textToSpeech: String = ""
+    nonisolated(unsafe) internal(set) public var textToSpeech: String = ""
 
     /**
      The skin-tone's variations of this emoji. The value is `empty` when the emoji is not emoji modifier base.
@@ -220,7 +225,7 @@ extension Emoji: Identifiable {
     /**
      The identifier of `Emoji`. Each emoji is identifed by its codepoints.
      */
-    public var id: Character {
+    nonisolated public var id: Character {
         return character
     }
 
@@ -228,7 +233,7 @@ extension Emoji: Identifiable {
 
 extension Emoji: Equatable {
 
-    public static func == (lhs: Emoji, rhs: Emoji) -> Bool {
+    nonisolated public static func == (lhs: Emoji, rhs: Emoji) -> Bool {
         return lhs.character == rhs.character
     }
 
@@ -236,7 +241,7 @@ extension Emoji: Equatable {
 
 extension Emoji: Hashable {
 
-    public func hash(into hasher: inout Hasher) {
+    nonisolated public func hash(into hasher: inout Hasher) {
         hasher.combine(character)
     }
 
@@ -244,10 +249,10 @@ extension Emoji: Hashable {
 
 extension Emoji: CustomStringConvertible {
 
-    public var description: String {
+    nonisolated public var description: String {
 
         """
-        <Emoji: character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup) annotation=\(annotation) textToSpeech=\(textToSpeech) orderedSkinToneEmojis=\(orderedSkinToneEmojis.map(\.character)) genericSkinToneEmoji=\(String(describing: genericSkinToneEmoji?.character)) minimallyQualifiedOrUnqualifiedVersions=\(minimallyQualifiedOrUnqualifiedVersions.map(\.character)) fullyQualifiedVersion=\(String(describing: fullyQualifiedVersion?.character))>
+        <Emoji: character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup)>
         """
 
     }

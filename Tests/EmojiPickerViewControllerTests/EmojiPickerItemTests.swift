@@ -29,7 +29,7 @@ import Testing
 @Suite
 struct EmojiPickerItemTests {
     
-    @Test
+    @Test @MainActor
     func itemIdentityWhenSameCharater() {
         let emoji = Emoji("😊")
         let recentlyUsed = EmojiPickerItem.recentlyUsed(emoji)
@@ -55,7 +55,7 @@ struct EmojiPickerItemTests {
         #expect(empty == empty2)
     }
     
-    @Test
+    @Test @MainActor
     func itemIdentityWhenDifferenceCharater() {
         let recentlyUsed = EmojiPickerItem.recentlyUsed(Emoji("😍"))
         let searchResult = EmojiPickerItem.searchResult(Emoji("🍎"))

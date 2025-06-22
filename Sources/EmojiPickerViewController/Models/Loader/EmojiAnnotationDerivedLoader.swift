@@ -39,6 +39,7 @@ import Foundation
   - [LSDM](https://unicode.org/reports/tr35/)
 
  */
+@MainActor
 class EmojiAnnotationDerivedLoader: EmojiAnnotationLoader {
 
     override var resourceURLs: [URL] {

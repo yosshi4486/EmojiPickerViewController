@@ -38,6 +38,7 @@ import Foundation
  [Language and Locale IDs](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)
 
  */
+@MainActor
 public struct EmojiLocale {
 
     /**

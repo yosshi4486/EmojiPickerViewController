@@ -113,3 +113,8 @@ Proofreading is specifically welcome because I'm not a native English speaker, a
 ## Licence
 
 EmojiPickerViewController is released under the Apache License Version 2.0, and also uses some licensed OSSs such as "unicode-org/cldr". See [LICENSE](./LICENSE) for details.
+
+## Actor Design
+In this library, since there are no particularly lengthy operations, adopting the MainActor provides sufficient concurrency guarantees. Using dedicated actor types would introduce unnecessary complexity without meaningful performance gains, especially given that efficient multi-core utilization isn’t a requirement here. Considering this trade-off carefully, we chose this simpler, MainActor-based design.
+
+The longest time method is EmojiContainer.load, it takes at most 0.1sec.

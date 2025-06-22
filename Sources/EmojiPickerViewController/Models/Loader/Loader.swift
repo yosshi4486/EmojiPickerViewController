@@ -28,6 +28,7 @@ import Foundation
 /**
  An abstract loader type that loads data.
  */
+@MainActor
 protocol Loader {
 
     /**

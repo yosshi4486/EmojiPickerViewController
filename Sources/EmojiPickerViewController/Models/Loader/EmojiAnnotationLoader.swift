@@ -40,6 +40,7 @@ import SwiftyXMLParser
   - [LSDM](https://unicode.org/reports/tr35/)
 
  */
+@MainActor
 class EmojiAnnotationLoader: Loader {
 
     /**
