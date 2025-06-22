@@ -139,7 +139,7 @@ public class EmojiContainer: Loader {
     }
 
     /**
-     Returns emojis which contain the given keyword in `annotation` property. Minimally-qualified emojis, unqualified emojis and emoji modifier sequences (skin-toned emoji) are ignored from search targets.
+     Returns emojis asynchronously which contain the given keyword in `annotation` property. Minimally-qualified emojis, unqualified emojis and emoji modifier sequences (skin-toned emoji) are ignored from search targets.
 
      - Precondition:
      This method should be called after an initial call of `load()`.
@@ -147,9 +147,9 @@ public class EmojiContainer: Loader {
      - Complexity:
      O(n * m * o) where n is the number of elements in the ordered emoji array, m is the length of the annotation sequence and m is the length of the word in annotation, however we don't have to worry the cost too much, because the size of computation must be enough small (n is 1300~1400, m is 2~5, n is 3 ~15).
      */
-    public func searchEmojisForKeyboard(from keyword: String) -> [Emoji] {
-
-        precondition(!entireEmojiSet.isEmpty && !labeledEmojisForKeyboard.isEmpty)
+    @concurrent public func searchEmojisForKeyboard(from keyword: String) async -> [Emoji] {
+        let labeledEmojisForKeyboard = await self.labeledEmojisForKeyboard
+        precondition(!labeledEmojisForKeyboard.isEmpty)
 
         return labeledEmojisForKeyboard
             .values
@@ -157,22 +157,15 @@ public class EmojiContainer: Loader {
             .filter({ $0.annotation.split(separator: "|").contains(where: { $0.trimmingCharacters(in: .whitespaces).starts(with: keyword) }) })
 
     }
+    
+    // This is for performence test
+    func searchEmojisForKeyboard(from keyword: String) -> [Emoji] {
+        precondition(!labeledEmojisForKeyboard.isEmpty)
 
-    /**
-     An async interface of `searchEmojisForKeyboard(from:)`.
-
-     Using this async interface is recommended for providing result set in picker or keyboard.
-     */
-    public func searchEmojisForKeyboard(from keyboard: String) async -> [Emoji] {
-        precondition(!entireEmojiSet.isEmpty && !labeledEmojisForKeyboard.isEmpty)
-
-        return await withCheckedContinuation({ continuation in
-            DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
-                let searchResults = self.searchEmojisForKeyboard(from: keyboard)
-                continuation.resume(returning: searchResults)
-            }
-        })
-
+        return labeledEmojisForKeyboard
+            .values
+            .joined()
+            .filter({ $0.annotation.split(separator: "|").contains(where: { $0.trimmingCharacters(in: .whitespaces).starts(with: keyword) }) })
     }
 
     /**

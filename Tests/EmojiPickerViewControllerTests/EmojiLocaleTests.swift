@@ -181,7 +181,7 @@ struct EmojiLocaleTests {
         
     }
     
-    @Test
+    @Test @MainActor
     func availableIdentifier() {
         for identifier in EmojiLocale.availableIdentifiers {
             #expect(Bundle.module.url(forResource: identifier, withExtension: "xml") != nil)

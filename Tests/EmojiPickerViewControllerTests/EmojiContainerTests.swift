@@ -30,7 +30,7 @@ import Foundation
 @Suite
 @MainActor class EmojiContainerTests {
 
-    var userDefaults: UserDefaults!
+    nonisolated(unsafe) var userDefaults: UserDefaults!
     
     init() {
         userDefaults = UserDefaults(suiteName: "test")!
@@ -39,7 +39,6 @@ import Foundation
     deinit {
         userDefaults.removePersistentDomain(forName: "test")
     }
-
 
     @Test
     func load() throws {
@@ -133,7 +132,7 @@ import Foundation
     }
 
     @Test
-    func searchEmojisForKeyboard() throws {
+    func searchEmojisForKeyboard() async throws {
 
         // Preparation
         let container = EmojiContainer()
@@ -141,12 +140,12 @@ import Foundation
         container.load()
 
         // Search "frog"
-        let frogs = container.searchEmojisForKeyboard(from: "frog")
+        let frogs = await container.searchEmojisForKeyboard(from: "frog")
         #expect(frogs.count == 1)
         #expect(frogs.first?.character == "🐸")
 
         // Search "cop"
-        let cop = container.searchEmojisForKeyboard(from: "cop")
+        let cop = await container.searchEmojisForKeyboard(from: "cop")
         #expect(cop.count == 4)
 
         #expect(cop[0].character == "👮")
@@ -245,7 +244,7 @@ import XCTest
 @MainActor
 class EmojiContainerPerformanceTests : XCTestCase {
     
-    func testArraySearchPerformance() throws {
+    func testArraySearchPerformance() async throws {
 
         let container = EmojiContainer()
         container.emojiLocale = EmojiLocale(localeIdentifier: "en")!
@@ -253,7 +252,6 @@ class EmojiContainerPerformanceTests : XCTestCase {
 
         measure {
             _ = container.searchEmojisForKeyboard(from: "cop")
-
         }
 
     }

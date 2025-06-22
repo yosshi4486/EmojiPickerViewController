@@ -107,6 +107,10 @@ public class Emoji {
      The subgroup name where the emoji belongs. This property is set following `Resources/emoji-test.txt`. Ex.) face-smiling, hand-fingers-open
      */
     public let subgroup: String
+    
+    /*
+     Loading methods are executed in MainActor, so there methods are ensured thread-safe.
+     */
 
     /**
      The annotation for searching emojis. The value includes multiple annotation which are separated by vertical line "|",  such as `face | geek | nerd`. This property is set following`Resources/CLDR/annotation` and `Resources/CLDR/annotationsDerived` .
@@ -115,7 +119,7 @@ public class Emoji {
 
      - SeeAlso: [UITextInputMode.currentInputModeDidChangeNotification](https://developer.apple.com/documentation/uikit/uitextinputmode/1614517-currentinputmodedidchangenotific)
      */
-    internal(set) public var annotation: String = ""
+    nonisolated(unsafe) internal(set) public var annotation: String = ""
 
     /**
      The tts value for screen reader functionality. In Apple Platform, the value should be read by VoiceOver. This property is set following`Resources/CLDR/annotations` and `Resources/CLDR/annotationsDerived`
@@ -124,7 +128,7 @@ public class Emoji {
 
      - SeeAlso: [UITextInputMode.currentInputModeDidChangeNotification](https://developer.apple.com/documentation/uikit/uitextinputmode/1614517-currentinputmodedidchangenotific)
      */
-    internal(set) public var textToSpeech: String = ""
+    nonisolated(unsafe) internal(set) public var textToSpeech: String = ""
 
     /**
      The skin-tone's variations of this emoji. The value is `empty` when the emoji is not emoji modifier base.
