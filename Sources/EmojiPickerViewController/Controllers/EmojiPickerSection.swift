@@ -230,6 +230,7 @@ extension UIImage {
      - Parameters:
        - emojiPickerSection: The section for which shows the image.
      */
+    @MainActor
     convenience init(emojiPickerSection: EmojiPickerSection) {
 
         /*

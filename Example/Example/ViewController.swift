@@ -59,6 +59,12 @@ class ViewController: UIViewController {
          */
         // configuration.cellAppearance.size = .init(width: 30, height: 30)
 
+        /*
+         Enabling/disabling skin tone picker (enabled by default).
+         Long-press an emoji with skin tone variations to see the context menu.
+         */
+        // configuration.enableSkinTonePicker = false
+
         let emojiPicker = EmojiPickerViewController(configuration: configuration)
 
         /*

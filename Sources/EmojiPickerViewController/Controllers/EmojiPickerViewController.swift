@@ -586,6 +586,70 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
         delegate?.emojiPickerViewController(self, didPick: emoji)
 
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        guard let item = diffableDataSource.itemIdentifier(for: indexPath), let emoji = item.emoji, !emoji.orderedSkinToneEmojis.isEmpty else {
+            return nil
+        }
+        
+        return UIContextMenuConfiguration(identifier: indexPath as NSCopying, previewProvider: nil) { [weak self] _ in
+            guard let self = self else { return nil }
+            
+            let skinToneActions = emoji.orderedSkinToneEmojis.map { skinToneEmoji in
+                UIAction(title: String(skinToneEmoji.character),
+                         image: nil,
+                         identifier: nil,
+                         discoverabilityTitle: skinToneEmoji.textToSpeech.isEmpty ? nil : skinToneEmoji.textToSpeech,
+                         attributes: [],
+                         state: .off) { [weak self] _ in
+                    guard let self = self else { return }
+                    
+                    // Save the selected skin tone emoji
+                    self.emojiContainer.saveRecentlyUsedEmoji(skinToneEmoji)
+                    
+                    // Update recently used section if it exists
+                    if self.diffableDataSource.snapshot().indexOfSection(.frequentlyUsed(.recentlyUsed)) != nil {
+                        var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
+                        sectionSnapshot.append(self.emojiContainer.recentlyUsedEmojis.suffix(self.configuration.numberOfItemsInRecentlyUsedSection).map({ .recentlyUsed($0) }), to: nil)
+                        self.diffableDataSource.apply(sectionSnapshot, to: .frequentlyUsed(.recentlyUsed), animatingDifferences: self.configuration.animatingChanges)
+                    }
+                    
+                    // Notify delegate about the selection
+                    self.delegate?.emojiPickerViewController(self, didPick: skinToneEmoji)
+                }
+            }
+            
+            // Add the base emoji as the first option
+            let baseEmojiAction = UIAction(title: String(emoji.character),
+                                           image: nil,
+                                           identifier: nil,
+                                           discoverabilityTitle: emoji.textToSpeech.isEmpty ? nil : emoji.textToSpeech,
+                                           attributes: [],
+                                           state: .off) { [weak self] _ in
+                guard let self = self else { return }
+                
+                // This handles the same logic as didSelectItemAt
+                self.emojiContainer.saveRecentlyUsedEmoji(emoji)
+                
+                if self.diffableDataSource.snapshot().indexOfSection(.frequentlyUsed(.recentlyUsed)) != nil {
+                    var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
+                    sectionSnapshot.append(self.emojiContainer.recentlyUsedEmojis.suffix(self.configuration.numberOfItemsInRecentlyUsedSection).map({ .recentlyUsed($0) }), to: nil)
+                    self.diffableDataSource.apply(sectionSnapshot, to: .frequentlyUsed(.recentlyUsed), animatingDifferences: self.configuration.animatingChanges)
+                }
+                
+                self.delegate?.emojiPickerViewController(self, didPick: emoji)
+            }
+            
+            let allActions = [baseEmojiAction] + skinToneActions
+            
+            return UIMenu(title: "",
+                          image: nil,
+                          identifier: nil,
+                          options: [.displayAsPalette, .displayInline],
+                          children: allActions)
+        }
+    }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
