@@ -593,16 +593,19 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
             return nil
         }
         
+        let cell = collectionView.cellForItem(at: indexPath)
+        
         return UIContextMenuConfiguration(identifier: indexPath as NSCopying, previewProvider: nil) { [weak self] _ in
             guard let self = self else { return nil }
             
             let skinToneActions = emoji.orderedSkinToneEmojis.map { skinToneEmoji in
                 UIAction(title: String(skinToneEmoji.character),
-                         image: nil,
+                         image: skinToneEmoji.image(for: cell?.bounds.size ?? .init(width: 60, height: 60)),
                          identifier: nil,
                          discoverabilityTitle: skinToneEmoji.textToSpeech.isEmpty ? nil : skinToneEmoji.textToSpeech,
                          attributes: [],
                          state: .off) { [weak self] _ in
+                    
                     guard let self = self else { return }
                     
                     // Save the selected skin tone emoji
@@ -620,34 +623,11 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
                 }
             }
             
-            // Add the base emoji as the first option
-            let baseEmojiAction = UIAction(title: String(emoji.character),
-                                           image: nil,
-                                           identifier: nil,
-                                           discoverabilityTitle: emoji.textToSpeech.isEmpty ? nil : emoji.textToSpeech,
-                                           attributes: [],
-                                           state: .off) { [weak self] _ in
-                guard let self = self else { return }
-                
-                // This handles the same logic as didSelectItemAt
-                self.emojiContainer.saveRecentlyUsedEmoji(emoji)
-                
-                if self.diffableDataSource.snapshot().indexOfSection(.frequentlyUsed(.recentlyUsed)) != nil {
-                    var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
-                    sectionSnapshot.append(self.emojiContainer.recentlyUsedEmojis.suffix(self.configuration.numberOfItemsInRecentlyUsedSection).map({ .recentlyUsed($0) }), to: nil)
-                    self.diffableDataSource.apply(sectionSnapshot, to: .frequentlyUsed(.recentlyUsed), animatingDifferences: self.configuration.animatingChanges)
-                }
-                
-                self.delegate?.emojiPickerViewController(self, didPick: emoji)
-            }
-            
-            let allActions = [baseEmojiAction] + skinToneActions
-            
             return UIMenu(title: "",
                           image: nil,
                           identifier: nil,
                           options: [.displayAsPalette, .displayInline],
-                          children: allActions)
+                          children: skinToneActions)
         }
     }
 
@@ -664,6 +644,30 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
 
     }
 
+}
+
+private extension Emoji {
+    
+    func image(for size: CGSize) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: .init(width: size.width, height: size.height))
+        let image = renderer.image { _ in
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: size.width),
+                .backgroundColor: UIColor.clear
+            ]
+            let string = String(character)
+            let textSize = string.size(withAttributes: attributes)
+            let rect = CGRect(
+                x: (size.width - textSize.width) / 2,
+                y: (size.height - textSize.height) / 2,
+                width: textSize.width,
+                height: textSize.height
+            )
+            string.draw(in: rect, withAttributes: attributes)
+        }
+        return image
+    }
+    
 }
 
 extension EmojiPickerViewController: UICollectionViewDelegateFlowLayout {
