@@ -586,6 +586,75 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
         delegate?.emojiPickerViewController(self, didPick: emoji)
 
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        
+        guard let item = diffableDataSource.itemIdentifier(for: indexPath), let emoji = item.emoji, !emoji.orderedSkinToneEmojis.isEmpty else {
+            return nil
+        }
+        
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        return UIContextMenuConfiguration(identifier: indexPath as NSCopying, previewProvider: nil) { [weak self] _ in
+            guard let self = self else { return nil }
+            
+            let skinToneActions = emoji.orderedSkinToneEmojis.map { skinToneEmoji in
+                UIAction(title: String(skinToneEmoji.character),
+                         image: skinToneEmoji.image(for: cell?.bounds.size ?? .init(width: 60, height: 60)),
+                         identifier: nil,
+                         discoverabilityTitle: skinToneEmoji.textToSpeech.isEmpty ? nil : skinToneEmoji.textToSpeech,
+                         attributes: [],
+                         state: .off) { [weak self] _ in
+                    
+                    guard let self = self else { return }
+                    
+                    // Save the selected skin tone emoji
+                    self.emojiContainer.saveRecentlyUsedEmoji(skinToneEmoji)
+                    
+                    // Update recently used section if it exists
+                    if self.diffableDataSource.snapshot().indexOfSection(.frequentlyUsed(.recentlyUsed)) != nil {
+                        var sectionSnapshot: NSDiffableDataSourceSectionSnapshot<EmojiPickerItem> = .init()
+                        sectionSnapshot.append(self.emojiContainer.recentlyUsedEmojis.suffix(self.configuration.numberOfItemsInRecentlyUsedSection).map({ .recentlyUsed($0) }), to: nil)
+                        self.diffableDataSource.apply(sectionSnapshot, to: .frequentlyUsed(.recentlyUsed), animatingDifferences: self.configuration.animatingChanges)
+                    }
+                    
+                    // Notify delegate about the selection
+                    self.delegate?.emojiPickerViewController(self, didPick: skinToneEmoji)
+                }
+            }
+            
+            return UIMenu(title: "",
+                          image: nil,
+                          identifier: nil,
+                          options: [.displayAsPalette, .displayInline],
+                          children: skinToneActions)
+        }
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        return createTargetedPreview(for: configuration, in: collectionView)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        return createTargetedPreview(for: configuration, in: collectionView)
+    }
+    
+    private func createTargetedPreview(for configuration: UIContextMenuConfiguration, in collectionView: UICollectionView) -> UITargetedPreview? {
+        
+        guard let indexPath = configuration.identifier as? IndexPath,
+              let cell = collectionView.cellForItem(at: indexPath) else {
+            return nil
+        }
+        
+        let parameters = UIPreviewParameters()
+        
+        // Create a rounded rectangle path that matches the cell bounds
+        let cornerRadius: CGFloat = min(cell.bounds.width, cell.bounds.height) * 0.2
+        let roundedPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cornerRadius)
+        parameters.visiblePath = roundedPath
+                
+        return UITargetedPreview(view: cell, parameters: parameters)
+    }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
@@ -600,6 +669,30 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
 
     }
 
+}
+
+private extension Emoji {
+    
+    func image(for size: CGSize) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: .init(width: size.width, height: size.height))
+        let image = renderer.image { _ in
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: size.width),
+                .backgroundColor: UIColor.clear
+            ]
+            let string = String(character)
+            let textSize = string.size(withAttributes: attributes)
+            let rect = CGRect(
+                x: (size.width - textSize.width) / 2,
+                y: (size.height - textSize.height) / 2,
+                width: textSize.width,
+                height: textSize.height
+            )
+            string.draw(in: rect, withAttributes: attributes)
+        }
+        return image
+    }
+    
 }
 
 extension EmojiPickerViewController: UICollectionViewDelegateFlowLayout {

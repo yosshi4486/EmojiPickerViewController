@@ -104,6 +104,7 @@ public struct EmojiPickerConfiguration {
      */
     public var cellAppearance: CellAppearance = .init()
 
+
     /**
      Creates an *Emoji Picker Configuration* instance.
      */

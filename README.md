@@ -15,7 +15,7 @@ A picker view controller for emoji.
 -   [x] Fully accessible
 -   [x] Dark mode
 -   [x] Recently used
--   [ ] Select skin tones from popup
+-   [x] Select skin tones from popup
 -   [ ] State Restoration
 
 ## Usage
