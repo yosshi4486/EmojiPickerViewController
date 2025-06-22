@@ -630,6 +630,33 @@ extension EmojiPickerViewController: UICollectionViewDelegate {
                           children: skinToneActions)
         }
     }
+    
+    public func collectionView(_ collectionView: UICollectionView, previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        return createTargetedPreview(for: configuration, in: collectionView)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
+        return createTargetedPreview(for: configuration, in: collectionView)
+    }
+    
+    private func createTargetedPreview(for configuration: UIContextMenuConfiguration, in collectionView: UICollectionView) -> UITargetedPreview? {
+        guard let indexPath = configuration.identifier as? IndexPath,
+              let cell = collectionView.cellForItem(at: indexPath) else {
+            return nil
+        }
+        
+        let parameters = UIPreviewParameters()
+        
+        // Create a rounded rectangle path that matches the cell bounds
+        let cornerRadius: CGFloat = min(cell.bounds.width, cell.bounds.height) * 0.2
+        let roundedPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cornerRadius)
+        parameters.visiblePath = roundedPath
+        
+        // Set background color to transparent to avoid visual artifacts
+        parameters.backgroundColor = .clear
+        
+        return UITargetedPreview(view: cell, parameters: parameters)
+    }
 
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
