@@ -371,6 +371,8 @@ extension Character {
 
 #if !os(Linux)
 import XCTest
+
+@MainActor
 class EmojiLoaderPerformanceTests: XCTestCase {
     
     func testPerformanceLoad() throws {

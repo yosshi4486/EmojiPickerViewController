@@ -37,7 +37,7 @@ struct EmojiLocaleTests {
         static let notexistValidFormScriptCode = "Abcd"
         static let notexistValidFormRegionCode = "ABC"
 
-        @Suite
+        @Suite @MainActor
         struct LanguageScriptRegionTests {
 
             @Test
@@ -95,7 +95,7 @@ struct EmojiLocaleTests {
             }
         }
         
-        @Suite
+        @Suite @MainActor
         struct LanguageScriptTests {
 
             @Test
@@ -126,7 +126,7 @@ struct EmojiLocaleTests {
             }
         }
 
-        @Suite
+        @Suite @MainActor
         struct LanguageRegionTests {
 
             @Test
@@ -160,7 +160,7 @@ struct EmojiLocaleTests {
             }
         }
 
-        @Suite
+        @Suite @MainActor
         struct LanguageTests {
 
             @Test

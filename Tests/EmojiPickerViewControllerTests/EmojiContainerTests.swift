@@ -242,6 +242,7 @@ import Foundation
 #if !os(Linux)
 import XCTest
 
+@MainActor
 class EmojiContainerPerformanceTests : XCTestCase {
     
     func testArraySearchPerformance() throws {

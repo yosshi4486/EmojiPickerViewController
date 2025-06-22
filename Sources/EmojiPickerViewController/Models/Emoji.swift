@@ -36,6 +36,7 @@ import Foundation
 
  We can make all property changes to `let` by making a combined resource of all resources, but it may make other complications.
 */
+@MainActor
 public class Emoji {
 
     /**
@@ -43,7 +44,7 @@ public class Emoji {
 
      The specifications of this *Status* are defined in [UTS #51](https://unicode.org/reports/tr51/)
      */
-    public enum Status: String {
+    public enum Status: String, Sendable {
 
         /**
          The component status.
@@ -220,7 +221,7 @@ extension Emoji: Identifiable {
     /**
      The identifier of `Emoji`. Each emoji is identifed by its codepoints.
      */
-    public var id: Character {
+    nonisolated public var id: Character {
         return character
     }
 
@@ -228,7 +229,7 @@ extension Emoji: Identifiable {
 
 extension Emoji: Equatable {
 
-    public static func == (lhs: Emoji, rhs: Emoji) -> Bool {
+    nonisolated public static func == (lhs: Emoji, rhs: Emoji) -> Bool {
         return lhs.character == rhs.character
     }
 
@@ -236,7 +237,7 @@ extension Emoji: Equatable {
 
 extension Emoji: Hashable {
 
-    public func hash(into hasher: inout Hasher) {
+    nonisolated public func hash(into hasher: inout Hasher) {
         hasher.combine(character)
     }
 
@@ -244,10 +245,10 @@ extension Emoji: Hashable {
 
 extension Emoji: CustomStringConvertible {
 
-    public var description: String {
+    nonisolated public var description: String {
 
         """
-        <Emoji: character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup) annotation=\(annotation) textToSpeech=\(textToSpeech) orderedSkinToneEmojis=\(orderedSkinToneEmojis.map(\.character)) genericSkinToneEmoji=\(String(describing: genericSkinToneEmoji?.character)) minimallyQualifiedOrUnqualifiedVersions=\(minimallyQualifiedOrUnqualifiedVersions.map(\.character)) fullyQualifiedVersion=\(String(describing: fullyQualifiedVersion?.character))>
+        <Emoji: character=\(character) status=\(status) cldrOrder=\(cldrOrder) group=\(group) subgroup=\(subgroup)>
         """
 
     }

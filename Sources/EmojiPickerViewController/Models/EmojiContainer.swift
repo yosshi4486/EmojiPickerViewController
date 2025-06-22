@@ -35,6 +35,7 @@ import Collections
 
  This object is not protected from data race and race condition, the developer have the responsibility to avoid them.
 */
+@MainActor
 public class EmojiContainer: Loader {
 
     /**
