@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -15,15 +15,10 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 	</identity>
 	<annotations>
 		<annotation cp="🤚🏻">dorso | dorso de la mano | dorso de la mano alzado | mano | tono de piel claro</annotation>
-		<annotation cp="🤚🏻" type="tts">dorso de la mano: tono de piel claro</annotation>
 		<annotation cp="🤚🏼">dorso | dorso de la mano | dorso de la mano alzado | mano | tono de piel claro medio</annotation>
-		<annotation cp="🤚🏼" type="tts">dorso de la mano: tono de piel claro medio</annotation>
 		<annotation cp="🤚🏽">dorso | dorso de la mano | dorso de la mano alzado | mano | tono de piel medio</annotation>
-		<annotation cp="🤚🏽" type="tts">dorso de la mano: tono de piel medio</annotation>
 		<annotation cp="🤚🏾">dorso | dorso de la mano | dorso de la mano alzado | mano | tono de piel oscuro medio</annotation>
-		<annotation cp="🤚🏾" type="tts">dorso de la mano: tono de piel oscuro medio</annotation>
 		<annotation cp="🤚🏿">dorso | dorso de la mano | dorso de la mano alzado | mano | tono de piel oscuro</annotation>
-		<annotation cp="🤚🏿" type="tts">dorso de la mano: tono de piel oscuro</annotation>
 		<annotation cp="🖐🏻">dedos | mano | mano abierta | palma de la mano | tono de piel claro</annotation>
 		<annotation cp="🖐🏼">dedos | mano | mano abierta | palma de la mano | tono de piel claro medio</annotation>
 		<annotation cp="🖐🏽">dedos | mano | mano abierta | palma de la mano | tono de piel medio</annotation>
@@ -264,45 +259,45 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👱🏽">cara | persona adulta rubia | persona rubia | tono de piel medio</annotation>
 		<annotation cp="👱🏾">cara | persona adulta rubia | persona rubia | tono de piel oscuro medio</annotation>
 		<annotation cp="👱🏿">cara | persona adulta rubia | persona rubia | tono de piel oscuro</annotation>
-		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏼" type="tts">beso: persona, persona, tono de piel claro, tono de piel claro medio</annotation>
-		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏽" type="tts">beso: persona, persona, tono de piel claro, tono de piel medio</annotation>
-		<annotation cp="🧑🏻‍❤‍💋‍🧑🏾">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏻‍❤‍💋‍🧑🏾">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏾" type="tts">beso: persona, persona, tono de piel claro, tono de piel oscuro medio</annotation>
-		<annotation cp="🧑🏻‍❤‍💋‍🧑🏿">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏻‍❤‍💋‍🧑🏿">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏻‍❤‍💋‍🧑🏿" type="tts">beso: persona, persona, tono de piel claro, tono de piel oscuro</annotation>
-		<annotation cp="🧑🏼‍❤‍💋‍🧑🏻">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel claro medio</annotation>
+		<annotation cp="🧑🏼‍❤‍💋‍🧑🏻">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="🧑🏼‍❤‍💋‍🧑🏻" type="tts">beso: persona, persona, tono de piel claro medio, tono de piel claro</annotation>
-		<annotation cp="🧑🏼‍❤‍💋‍🧑🏽">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="🧑🏼‍❤‍💋‍🧑🏽">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="🧑🏼‍❤‍💋‍🧑🏽" type="tts">beso: persona, persona, tono de piel claro medio, tono de piel medio</annotation>
-		<annotation cp="🧑🏼‍❤‍💋‍🧑🏾">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏼‍❤‍💋‍🧑🏾">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏼‍❤‍💋‍🧑🏾" type="tts">beso: persona, persona, tono de piel claro medio, tono de piel oscuro medio</annotation>
-		<annotation cp="🧑🏼‍❤‍💋‍🧑🏿">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏼‍❤‍💋‍🧑🏿">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏼‍❤‍💋‍🧑🏿" type="tts">beso: persona, persona, tono de piel claro medio, tono de piel oscuro</annotation>
-		<annotation cp="🧑🏽‍❤‍💋‍🧑🏻">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel medio</annotation>
+		<annotation cp="🧑🏽‍❤‍💋‍🧑🏻">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel medio</annotation>
 		<annotation cp="🧑🏽‍❤‍💋‍🧑🏻" type="tts">beso: persona, persona, tono de piel medio, tono de piel claro</annotation>
-		<annotation cp="🧑🏽‍❤‍💋‍🧑🏼">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel medio</annotation>
+		<annotation cp="🧑🏽‍❤‍💋‍🧑🏼">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel medio</annotation>
 		<annotation cp="🧑🏽‍❤‍💋‍🧑🏼" type="tts">beso: persona, persona, tono de piel medio, tono de piel claro medio</annotation>
-		<annotation cp="🧑🏽‍❤‍💋‍🧑🏾">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏽‍❤‍💋‍🧑🏾">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏽‍❤‍💋‍🧑🏾" type="tts">beso: persona, persona, tono de piel medio, tono de piel oscuro medio</annotation>
-		<annotation cp="🧑🏽‍❤‍💋‍🧑🏿">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏽‍❤‍💋‍🧑🏿">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏽‍❤‍💋‍🧑🏿" type="tts">beso: persona, persona, tono de piel medio, tono de piel oscuro</annotation>
-		<annotation cp="🧑🏾‍❤‍💋‍🧑🏻">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍💋‍🧑🏻">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍💋‍🧑🏻" type="tts">beso: persona, persona, tono de piel oscuro medio, tono de piel claro</annotation>
-		<annotation cp="🧑🏾‍❤‍💋‍🧑🏼">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍💋‍🧑🏼">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍💋‍🧑🏼" type="tts">beso: persona, persona, tono de piel oscuro medio, tono de piel claro medio</annotation>
-		<annotation cp="🧑🏾‍❤‍💋‍🧑🏽">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel medio | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍💋‍🧑🏽">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel medio | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍💋‍🧑🏽" type="tts">beso: persona, persona, tono de piel oscuro medio, tono de piel medio</annotation>
-		<annotation cp="🧑🏾‍❤‍💋‍🧑🏿">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍❤‍💋‍🧑🏿">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏾‍❤‍💋‍🧑🏿" type="tts">beso: persona, persona, tono de piel oscuro medio, tono de piel oscuro</annotation>
-		<annotation cp="🧑🏿‍❤‍💋‍🧑🏻">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏿‍❤‍💋‍🧑🏻">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏻" type="tts">beso: persona, persona, tono de piel oscuro, tono de piel claro</annotation>
-		<annotation cp="🧑🏿‍❤‍💋‍🧑🏼">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏿‍❤‍💋‍🧑🏼">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel claro medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏼" type="tts">beso: persona, persona, tono de piel oscuro, tono de piel claro medio</annotation>
-		<annotation cp="🧑🏿‍❤‍💋‍🧑🏽">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel medio | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏿‍❤‍💋‍🧑🏽">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel medio | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏽" type="tts">beso: persona, persona, tono de piel oscuro, tono de piel medio</annotation>
-		<annotation cp="🧑🏿‍❤‍💋‍🧑🏾">beso | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel oscuro | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏿‍❤‍💋‍🧑🏾">amor | beso | beso de pareja | dos personas besándose | pareja | pareja besándose | persona | personas | romance | romántico | tono de piel oscuro | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏿‍❤‍💋‍🧑🏾" type="tts">beso: persona, persona, tono de piel oscuro, tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏼">hombre y mujer enamorados | persona | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="🧑🏻‍❤‍🧑🏼" type="tts">hombre y mujer enamorados: persona, persona, tono de piel claro, tono de piel claro medio</annotation>
@@ -677,35 +672,20 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙍🏾">cara | ceño | fruncido | persona frunciendo el ceño | tono de piel oscuro medio</annotation>
 		<annotation cp="🙍🏿">cara | ceño | fruncido | persona frunciendo el ceño | tono de piel oscuro</annotation>
 		<annotation cp="🙍🏻‍♀">cara | ceño | fruncido | mujer | mujer frunciendo el ceño | tono de piel claro</annotation>
-		<annotation cp="🙍🏻‍♀" type="tts">mujer frunciendo el ceño: tono de piel claro</annotation>
 		<annotation cp="🙍🏼‍♀">cara | ceño | fruncido | mujer | mujer frunciendo el ceño | tono de piel claro medio</annotation>
-		<annotation cp="🙍🏼‍♀" type="tts">mujer frunciendo el ceño: tono de piel claro medio</annotation>
 		<annotation cp="🙍🏽‍♀">cara | ceño | fruncido | mujer | mujer frunciendo el ceño | tono de piel medio</annotation>
-		<annotation cp="🙍🏽‍♀" type="tts">mujer frunciendo el ceño: tono de piel medio</annotation>
 		<annotation cp="🙍🏾‍♀">cara | ceño | fruncido | mujer | mujer frunciendo el ceño | tono de piel oscuro medio</annotation>
-		<annotation cp="🙍🏾‍♀" type="tts">mujer frunciendo el ceño: tono de piel oscuro medio</annotation>
 		<annotation cp="🙍🏿‍♀">cara | ceño | fruncido | mujer | mujer frunciendo el ceño | tono de piel oscuro</annotation>
-		<annotation cp="🙍🏿‍♀" type="tts">mujer frunciendo el ceño: tono de piel oscuro</annotation>
 		<annotation cp="🙅🏻">brazos | cruzados | gesto | gesto de no | persona | persona haciendo el gesto de &quot;no&quot; | prohibido | tono de piel claro</annotation>
-		<annotation cp="🙅🏻" type="tts">persona haciendo el gesto de &quot;no&quot;: tono de piel claro</annotation>
 		<annotation cp="🙅🏼">brazos | cruzados | gesto | gesto de no | persona | persona haciendo el gesto de &quot;no&quot; | prohibido | tono de piel claro medio</annotation>
-		<annotation cp="🙅🏼" type="tts">persona haciendo el gesto de &quot;no&quot;: tono de piel claro medio</annotation>
 		<annotation cp="🙅🏽">brazos | cruzados | gesto | gesto de no | persona | persona haciendo el gesto de &quot;no&quot; | prohibido | tono de piel medio</annotation>
-		<annotation cp="🙅🏽" type="tts">persona haciendo el gesto de &quot;no&quot;: tono de piel medio</annotation>
 		<annotation cp="🙅🏾">brazos | cruzados | gesto | gesto de no | persona | persona haciendo el gesto de &quot;no&quot; | prohibido | tono de piel oscuro medio</annotation>
-		<annotation cp="🙅🏾" type="tts">persona haciendo el gesto de &quot;no&quot;: tono de piel oscuro medio</annotation>
 		<annotation cp="🙅🏿">brazos | cruzados | gesto | gesto de no | persona | persona haciendo el gesto de &quot;no&quot; | prohibido | tono de piel oscuro</annotation>
-		<annotation cp="🙅🏿" type="tts">persona haciendo el gesto de &quot;no&quot;: tono de piel oscuro</annotation>
 		<annotation cp="🙆🏻">bien | gesto | ok | persona gesto de &quot;de acuerdo&quot; | persona haciendo el gesto de &quot;de acuerdo&quot; | tono de piel claro</annotation>
-		<annotation cp="🙆🏻" type="tts">persona haciendo el gesto de &quot;de acuerdo&quot;: tono de piel claro</annotation>
 		<annotation cp="🙆🏼">bien | gesto | ok | persona gesto de &quot;de acuerdo&quot; | persona haciendo el gesto de &quot;de acuerdo&quot; | tono de piel claro medio</annotation>
-		<annotation cp="🙆🏼" type="tts">persona haciendo el gesto de &quot;de acuerdo&quot;: tono de piel claro medio</annotation>
 		<annotation cp="🙆🏽">bien | gesto | ok | persona gesto de &quot;de acuerdo&quot; | persona haciendo el gesto de &quot;de acuerdo&quot; | tono de piel medio</annotation>
-		<annotation cp="🙆🏽" type="tts">persona haciendo el gesto de &quot;de acuerdo&quot;: tono de piel medio</annotation>
 		<annotation cp="🙆🏾">bien | gesto | ok | persona gesto de &quot;de acuerdo&quot; | persona haciendo el gesto de &quot;de acuerdo&quot; | tono de piel oscuro medio</annotation>
-		<annotation cp="🙆🏾" type="tts">persona haciendo el gesto de &quot;de acuerdo&quot;: tono de piel oscuro medio</annotation>
 		<annotation cp="🙆🏿">bien | gesto | ok | persona gesto de &quot;de acuerdo&quot; | persona haciendo el gesto de &quot;de acuerdo&quot; | tono de piel oscuro</annotation>
-		<annotation cp="🙆🏿" type="tts">persona haciendo el gesto de &quot;de acuerdo&quot;: tono de piel oscuro</annotation>
 		<annotation cp="💁🏻">información | mesa | persona | persona de mostrador de información | persona en mostrador de información | tono de piel claro</annotation>
 		<annotation cp="💁🏼">información | mesa | persona | persona de mostrador de información | persona en mostrador de información | tono de piel claro medio</annotation>
 		<annotation cp="💁🏽">información | mesa | persona | persona de mostrador de información | persona en mostrador de información | tono de piel medio</annotation>
@@ -941,16 +921,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👼🏽">ángel | bebé | cara | cara de ángel bebé | cuento de hadas | fantasía | tono de piel medio</annotation>
 		<annotation cp="👼🏾">ángel | bebé | cara | cara de ángel bebé | cuento de hadas | fantasía | tono de piel oscuro medio</annotation>
 		<annotation cp="👼🏿">ángel | bebé | cara | cara de ángel bebé | cuento de hadas | fantasía | tono de piel oscuro</annotation>
-		<annotation cp="🎅🏻">claus | Navidad | noel | papá | Papá Noel | santa | Santa Claus | tono de piel claro</annotation>
-		<annotation cp="🎅🏼">claus | Navidad | noel | papá | Papá Noel | santa | Santa Claus | tono de piel claro medio</annotation>
-		<annotation cp="🎅🏽">claus | Navidad | noel | papá | Papá Noel | santa | Santa Claus | tono de piel medio</annotation>
-		<annotation cp="🎅🏾">claus | Navidad | noel | papá | Papá Noel | santa | Santa Claus | tono de piel oscuro medio</annotation>
-		<annotation cp="🎅🏿">claus | Navidad | noel | papá | Papá Noel | santa | Santa Claus | tono de piel oscuro</annotation>
-		<annotation cp="🤶🏻">mamá | mamá noel | Mamá Noel | Navidad | señora Claus | tono de piel claro</annotation>
-		<annotation cp="🤶🏼">mamá | mamá noel | Mamá Noel | Navidad | señora Claus | tono de piel claro medio</annotation>
-		<annotation cp="🤶🏽">mamá | mamá noel | Mamá Noel | Navidad | señora Claus | tono de piel medio</annotation>
-		<annotation cp="🤶🏾">mamá | mamá noel | Mamá Noel | Navidad | señora Claus | tono de piel oscuro medio</annotation>
-		<annotation cp="🤶🏿">mamá | mamá noel | Mamá Noel | Navidad | señora Claus | tono de piel oscuro</annotation>
+		<annotation cp="🎅🏻">claus | Navidad | noel | papá | santa | tono de piel claro</annotation>
+		<annotation cp="🎅🏼">claus | Navidad | noel | papá | santa | tono de piel claro medio</annotation>
+		<annotation cp="🎅🏽">claus | Navidad | noel | papá | santa | tono de piel medio</annotation>
+		<annotation cp="🎅🏾">claus | Navidad | noel | papá | santa | tono de piel oscuro medio</annotation>
+		<annotation cp="🎅🏿">claus | Navidad | noel | papá | santa | tono de piel oscuro</annotation>
+		<annotation cp="🤶🏻">mamá | Mamá Noel | Navidad | señora Claus | tono de piel claro</annotation>
+		<annotation cp="🤶🏼">mamá | Mamá Noel | Navidad | señora Claus | tono de piel claro medio</annotation>
+		<annotation cp="🤶🏽">mamá | Mamá Noel | Navidad | señora Claus | tono de piel medio</annotation>
+		<annotation cp="🤶🏾">mamá | Mamá Noel | Navidad | señora Claus | tono de piel oscuro medio</annotation>
+		<annotation cp="🤶🏿">mamá | Mamá Noel | Navidad | señora Claus | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏻‍🎄">Claus | Navidad | papá noel | Santa Claus | tono de piel claro</annotation>
 		<annotation cp="🧑🏼‍🎄">Claus | Navidad | papá noel | Santa Claus | tono de piel claro medio</annotation>
 		<annotation cp="🧑🏽‍🎄">Claus | Navidad | papá noel | Santa Claus | tono de piel medio</annotation>
@@ -1066,15 +1046,49 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦯" type="tts">Persona con bastón blanco: tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏿‍🦯">Persona con bastón blanco | tono de piel oscuro</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">Persona con bastón blanco: tono de piel oscuro</annotation>
+		<annotation cp="🧑‍🦯‍➡">derecha | hacia | la | Persona con bastón blanco</annotation>
+		<annotation cp="🧑‍🦯‍➡" type="tts">Persona con bastón blanco: hacia la derecha</annotation>
+		<annotation cp="🧑🏻‍🦯‍➡">derecha | hacia | la | Persona con bastón blanco | tono de piel claro</annotation>
+		<annotation cp="🧑🏻‍🦯‍➡" type="tts">Persona con bastón blanco: tono de piel claro y hacia la derecha</annotation>
+		<annotation cp="🧑🏼‍🦯‍➡">derecha | hacia | la | Persona con bastón blanco | tono de piel claro medio</annotation>
+		<annotation cp="🧑🏼‍🦯‍➡" type="tts">Persona con bastón blanco: tono de piel claro medio y hacia la derecha</annotation>
+		<annotation cp="🧑🏽‍🦯‍➡">derecha | hacia | la | Persona con bastón blanco | tono de piel medio</annotation>
+		<annotation cp="🧑🏽‍🦯‍➡" type="tts">Persona con bastón blanco: tono de piel medio y hacia la derecha</annotation>
+		<annotation cp="🧑🏾‍🦯‍➡">derecha | hacia | la | Persona con bastón blanco | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏾‍🦯‍➡" type="tts">Persona con bastón blanco: tono de piel oscuro medio y hacia la derecha</annotation>
+		<annotation cp="🧑🏿‍🦯‍➡">derecha | hacia | la | Persona con bastón blanco | tono de piel oscuro</annotation>
+		<annotation cp="🧑🏿‍🦯‍➡" type="tts">Persona con bastón blanco: tono de piel oscuro y hacia la derecha</annotation>
 		<annotation cp="🧑🏻‍🦽">persona en silla de ruedas manual | tono de piel claro</annotation>
 		<annotation cp="🧑🏼‍🦽">persona en silla de ruedas manual | tono de piel claro medio</annotation>
 		<annotation cp="🧑🏽‍🦽">persona en silla de ruedas manual | tono de piel medio</annotation>
 		<annotation cp="🧑🏾‍🦽">persona en silla de ruedas manual | tono de piel oscuro medio</annotation>
 		<annotation cp="🧑🏿‍🦽">persona en silla de ruedas manual | tono de piel oscuro</annotation>
+		<annotation cp="🧑‍🦽‍➡">derecha | hacia | la | persona en silla de ruedas manual</annotation>
+		<annotation cp="🧑🏻‍🦽‍➡">derecha | hacia | la | persona en silla de ruedas manual | tono de piel claro</annotation>
+		<annotation cp="🧑🏼‍🦽‍➡">derecha | hacia | la | persona en silla de ruedas manual | tono de piel claro medio</annotation>
+		<annotation cp="🧑🏽‍🦽‍➡">derecha | hacia | la | persona en silla de ruedas manual | tono de piel medio</annotation>
+		<annotation cp="🧑🏾‍🦽‍➡">derecha | hacia | la | persona en silla de ruedas manual | tono de piel oscuro medio</annotation>
+		<annotation cp="🧑🏿‍🦽‍➡">derecha | hacia | la | persona en silla de ruedas manual | tono de piel oscuro</annotation>
+		<annotation cp="🏃🏻">carrera | corredor | correr | deporte | deportista | hombre corriendo | maratón | maratonista | persona | persona corriendo | tono de piel claro</annotation>
+		<annotation cp="🏃🏼">carrera | corredor | correr | deporte | deportista | hombre corriendo | maratón | maratonista | persona | persona corriendo | tono de piel claro medio</annotation>
+		<annotation cp="🏃🏽">carrera | corredor | correr | deporte | deportista | hombre corriendo | maratón | maratonista | persona | persona corriendo | tono de piel medio</annotation>
+		<annotation cp="🏃🏾">carrera | corredor | correr | deporte | deportista | hombre corriendo | maratón | maratonista | persona | persona corriendo | tono de piel oscuro medio</annotation>
+		<annotation cp="🏃🏿">carrera | corredor | correr | deporte | deportista | hombre corriendo | maratón | maratonista | persona | persona corriendo | tono de piel oscuro</annotation>
+		<annotation cp="🏃‍➡">carrera | corredor | correr | deporte | deportista | derecha | hacia | hombre corriendo | la | maratón | maratonista | persona | persona corriendo</annotation>
+		<annotation cp="🏃🏻‍➡">carrera | corredor | correr | deporte | deportista | derecha | hacia | hombre corriendo | la | maratón | maratonista | persona | persona corriendo | tono de piel claro</annotation>
+		<annotation cp="🏃🏼‍➡">carrera | corredor | correr | deporte | deportista | derecha | hacia | hombre corriendo | la | maratón | maratonista | persona | persona corriendo | tono de piel claro medio</annotation>
+		<annotation cp="🏃🏽‍➡">carrera | corredor | correr | deporte | deportista | derecha | hacia | hombre corriendo | la | maratón | maratonista | persona | persona corriendo | tono de piel medio</annotation>
+		<annotation cp="🏃🏾‍➡">carrera | corredor | correr | deporte | deportista | derecha | hacia | hombre corriendo | la | maratón | maratonista | persona | persona corriendo | tono de piel oscuro medio</annotation>
+		<annotation cp="🏃🏿‍➡">carrera | corredor | correr | deporte | deportista | derecha | hacia | hombre corriendo | la | maratón | maratonista | persona | persona corriendo | tono de piel oscuro</annotation>
+		<annotation cp="💃🏻">bailar | bailarín | bailarina | baile | flamenca | flamenco | mujer | mujer bailando | persona | salsa | tono de piel claro</annotation>
 		<annotation cp="💃🏻" type="tts">bailarina: tono de piel claro</annotation>
+		<annotation cp="💃🏼">bailar | bailarín | bailarina | baile | flamenca | flamenco | mujer | mujer bailando | persona | salsa | tono de piel claro medio</annotation>
 		<annotation cp="💃🏼" type="tts">bailarina: tono de piel claro medio</annotation>
+		<annotation cp="💃🏽">bailar | bailarín | bailarina | baile | flamenca | flamenco | mujer | mujer bailando | persona | salsa | tono de piel medio</annotation>
 		<annotation cp="💃🏽" type="tts">bailarina: tono de piel medio</annotation>
+		<annotation cp="💃🏾">bailar | bailarín | bailarina | baile | flamenca | flamenco | mujer | mujer bailando | persona | salsa | tono de piel oscuro medio</annotation>
 		<annotation cp="💃🏾" type="tts">bailarina: tono de piel oscuro medio</annotation>
+		<annotation cp="💃🏿">bailar | bailarín | bailarina | baile | flamenca | flamenco | mujer | mujer bailando | persona | salsa | tono de piel oscuro</annotation>
 		<annotation cp="💃🏿" type="tts">bailarina: tono de piel oscuro</annotation>
 		<annotation cp="🕺🏻">bailar | bailarín | baile | hombre | hombre bailando | tono de piel claro</annotation>
 		<annotation cp="🕺🏻" type="tts">bailarín: tono de piel claro</annotation>
@@ -1117,25 +1131,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧖🏿‍♀">mujer en sauna | mujer en una sauna | sauna | tono de piel oscuro | vapor</annotation>
 		<annotation cp="🧖🏿‍♀" type="tts">mujer en sauna: tono de piel oscuro</annotation>
 		<annotation cp="🏌🏻">persona jugando al golf | tono de piel claro</annotation>
-		<annotation cp="🏌🏻" type="tts">persona jugando al golf: tono de piel claro</annotation>
 		<annotation cp="🏌🏼">persona jugando al golf | tono de piel claro medio</annotation>
-		<annotation cp="🏌🏼" type="tts">persona jugando al golf: tono de piel claro medio</annotation>
 		<annotation cp="🏌🏽">persona jugando al golf | tono de piel medio</annotation>
-		<annotation cp="🏌🏽" type="tts">persona jugando al golf: tono de piel medio</annotation>
 		<annotation cp="🏌🏾">persona jugando al golf | tono de piel oscuro medio</annotation>
-		<annotation cp="🏌🏾" type="tts">persona jugando al golf: tono de piel oscuro medio</annotation>
 		<annotation cp="🏌🏿">persona jugando al golf | tono de piel oscuro</annotation>
-		<annotation cp="🏌🏿" type="tts">persona jugando al golf: tono de piel oscuro</annotation>
 		<annotation cp="🏄🏻">deporte | persona haciendo surf | surf | surfista | tono de piel claro</annotation>
-		<annotation cp="🏄🏻" type="tts">persona haciendo surf: tono de piel claro</annotation>
 		<annotation cp="🏄🏼">deporte | persona haciendo surf | surf | surfista | tono de piel claro medio</annotation>
-		<annotation cp="🏄🏼" type="tts">persona haciendo surf: tono de piel claro medio</annotation>
 		<annotation cp="🏄🏽">deporte | persona haciendo surf | surf | surfista | tono de piel medio</annotation>
-		<annotation cp="🏄🏽" type="tts">persona haciendo surf: tono de piel medio</annotation>
 		<annotation cp="🏄🏾">deporte | persona haciendo surf | surf | surfista | tono de piel oscuro medio</annotation>
-		<annotation cp="🏄🏾" type="tts">persona haciendo surf: tono de piel oscuro medio</annotation>
 		<annotation cp="🏄🏿">deporte | persona haciendo surf | surf | surfista | tono de piel oscuro</annotation>
-		<annotation cp="🏄🏿" type="tts">persona haciendo surf: tono de piel oscuro</annotation>
 		<annotation cp="🚣🏻‍♂">hombre remando | tono de piel claro</annotation>
 		<annotation cp="🚣🏻‍♂" type="tts">hombre remando: tono de piel claro</annotation>
 		<annotation cp="🚣🏼‍♂">hombre remando | tono de piel claro medio</annotation>
@@ -1221,6 +1225,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤽🏽">deporte acuático | deportista | persona | persona jugando al waterpolo | tono de piel medio | waterpolo</annotation>
 		<annotation cp="🤽🏾">deporte acuático | deportista | persona | persona jugando al waterpolo | tono de piel oscuro medio | waterpolo</annotation>
 		<annotation cp="🤽🏿">deporte acuático | deportista | persona | persona jugando al waterpolo | tono de piel oscuro | waterpolo</annotation>
+		<annotation cp="🤾🏻">atlético | balón | balonmano | deporte | handball | lanzamiento | mano | pelota | persona | persona jugando handball | tono de piel claro</annotation>
+		<annotation cp="🤾🏼">atlético | balón | balonmano | deporte | handball | lanzamiento | mano | pelota | persona | persona jugando handball | tono de piel claro medio</annotation>
+		<annotation cp="🤾🏽">atlético | balón | balonmano | deporte | handball | lanzamiento | mano | pelota | persona | persona jugando handball | tono de piel medio</annotation>
+		<annotation cp="🤾🏾">atlético | balón | balonmano | deporte | handball | lanzamiento | mano | pelota | persona | persona jugando handball | tono de piel oscuro medio</annotation>
+		<annotation cp="🤾🏿">atlético | balón | balonmano | deporte | handball | lanzamiento | mano | pelota | persona | persona jugando handball | tono de piel oscuro</annotation>
 		<annotation cp="🤹🏻">malabarista | tono de piel claro</annotation>
 		<annotation cp="🤹🏻" type="tts">malabarista: tono de piel claro</annotation>
 		<annotation cp="🤹🏼">malabarista | tono de piel claro medio</annotation>
@@ -1241,6 +1250,11 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🛀🏾" type="tts">persona en tina: tono de piel oscuro medio</annotation>
 		<annotation cp="🛀🏿">persona en tina | tono de piel oscuro</annotation>
 		<annotation cp="🛀🏿" type="tts">persona en tina: tono de piel oscuro</annotation>
+		<annotation cp="🛌🏻">a dormir | buenas noches | cama | cansancio | descansar | dormir | hotel | noche | persona | persona durmiendo | tono de piel claro</annotation>
+		<annotation cp="🛌🏼">a dormir | buenas noches | cama | cansancio | descansar | dormir | hotel | noche | persona | persona durmiendo | tono de piel claro medio</annotation>
+		<annotation cp="🛌🏽">a dormir | buenas noches | cama | cansancio | descansar | dormir | hotel | noche | persona | persona durmiendo | tono de piel medio</annotation>
+		<annotation cp="🛌🏾">a dormir | buenas noches | cama | cansancio | descansar | dormir | hotel | noche | persona | persona durmiendo | tono de piel oscuro medio</annotation>
+		<annotation cp="🛌🏿">a dormir | buenas noches | cama | cansancio | descansar | dormir | hotel | noche | persona | persona durmiendo | tono de piel oscuro</annotation>
 		<annotation cp="👭🏻">amor | gemelas | mujeres | mujeres de la mano | pareja | tono de piel claro</annotation>
 		<annotation cp="👩🏻‍🤝‍👩🏼">amor | gemelas | mujeres | mujeres de la mano | pareja | tono de piel claro | tono de piel claro medio</annotation>
 		<annotation cp="👩🏻‍🤝‍👩🏽">amor | gemelas | mujeres | mujeres de la mano | pareja | tono de piel claro | tono de piel medio</annotation>
@@ -1349,16 +1363,9 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇧🇦" type="tts">bandera: Bosnia y Herzegovina</annotation>
 		<annotation cp="🇨🇮" type="tts">bandera: Côte d’Ivoire</annotation>
 		<annotation cp="🇬🇬" type="tts">bandera: Guernsey</annotation>
-		<annotation cp="🇷🇴" type="tts">bandera: Rumania</annotation>
-		<annotation cp="🇸🇦" type="tts">bandera: Arabia Saudita</annotation>
 		<annotation cp="🇸🇿" type="tts">bandera: Eswatini</annotation>
-		<annotation cp="🇹🇦" type="tts">bandera: Tristán de Acuña</annotation>
 		<annotation cp="🇺🇲" type="tts">bandera: Islas menores alejadas de EE. UU.</annotation>
-		<annotation cp="৳" type="tts">taka bangladesí</annotation>
 		<annotation cp="฿" type="tts">baht tailandés</annotation>
-		<annotation cp="៛" type="tts">riel camboyano</annotation>
-		<annotation cp="₫" type="tts">dong vietnamita</annotation>
-		<annotation cp="₭" type="tts">kip laosiano</annotation>
 		<annotation cp="0⃣">tecla</annotation>
 		<annotation cp="0⃣" type="tts">tecla: 0</annotation>
 		<annotation cp="1⃣">tecla</annotation>

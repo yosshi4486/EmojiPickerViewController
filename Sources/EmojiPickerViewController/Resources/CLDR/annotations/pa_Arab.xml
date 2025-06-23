@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -774,14 +774,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💏" type="tts">چومنا</annotation>
 		<annotation cp="💑">پریم | جوڑا | دل نال جوڑا</annotation>
 		<annotation cp="💑" type="tts">دل نال جوڑا</annotation>
-		<annotation cp="👪">ٹبّر</annotation>
-		<annotation cp="👪" type="tts">ٹبّر</annotation>
 		<annotation cp="🗣">بولن آلا سر | بولنا | تصویری خاکہ | دی شکل | سر</annotation>
 		<annotation cp="🗣" type="tts">بولن آلا سر</annotation>
 		<annotation cp="👤">تصویری خاکہ | خاکے وچ زنانی دی چھاتی | زنانی دی چھاتی</annotation>
 		<annotation cp="👤" type="tts">خاکے وچ زنانی دی چھاتی</annotation>
 		<annotation cp="👥">تصویری خاکہ | خاکے وچ زنانیاں دیاں چھاتیاں | زنانی دی چھاتی</annotation>
 		<annotation cp="👥" type="tts">خاکے وچ زنانیاں دیاں چھاتیاں</annotation>
+		<annotation cp="👪">ٹبّر</annotation>
+		<annotation cp="👪" type="tts">ٹبّر</annotation>
 		<annotation cp="👣">پرنٹ | پیر دا نشان | پیرا دے نشان | کپڑے</annotation>
 		<annotation cp="👣" type="tts">پیرا دے نشان</annotation>
 		<annotation cp="🐵">باندر | باندر دی شکل | دی شکل</annotation>
@@ -940,6 +940,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">اکٹوپس</annotation>
 		<annotation cp="🐚">خول | مرغولے دار | مرغولے دی شکل آلا شیل</annotation>
 		<annotation cp="🐚" type="tts">مرغولے دی شکل آلا شیل</annotation>
+		<annotation cp="🦀">اخبوط | بُرج | بُرج سرطان</annotation>
+		<annotation cp="🦀" type="tts">اخبوط</annotation>
+		<annotation cp="🦐">جھینگا | خود غرض | خوراک | نیکا</annotation>
+		<annotation cp="🦐" type="tts">جھینگا</annotation>
+		<annotation cp="🦑">پلپلے جانور | خوراک | قیر ماہی</annotation>
+		<annotation cp="🦑" type="tts">قیر ماہی</annotation>
 		<annotation cp="🐌">گھونگا</annotation>
 		<annotation cp="🐌" type="tts">گھونگا</annotation>
 		<annotation cp="🦋">تتلی | حشرات | سوہنا</annotation>
@@ -1142,12 +1148,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">فارچیون کُکی</annotation>
 		<annotation cp="🥡">اویسٹر پیل | ٹیک آؤٹ باکس</annotation>
 		<annotation cp="🥡" type="tts">ٹیک آؤٹ باکس</annotation>
-		<annotation cp="🦀">اخبوط | بُرج | بُرج سرطان</annotation>
-		<annotation cp="🦀" type="tts">اخبوط</annotation>
-		<annotation cp="🦐">جھینگا | خود غرض | خوراک | نیکا</annotation>
-		<annotation cp="🦐" type="tts">جھینگا</annotation>
-		<annotation cp="🦑">پلپلے جانور | خوراک | قیر ماہی</annotation>
-		<annotation cp="🦑" type="tts">قیر ماہی</annotation>
 		<annotation cp="🍦">آئس کریم | برف | کریم | میٹھائی | میٹھی شے | نرم | نرم آئس کریم</annotation>
 		<annotation cp="🍦" type="tts">نرم آئس کریم</annotation>
 		<annotation cp="🍧">برف | داڑھی مونڈنا | منڈوی برف | میٹھائی | میٹھی شے</annotation>

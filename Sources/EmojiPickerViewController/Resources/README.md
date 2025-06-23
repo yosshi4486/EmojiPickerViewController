@@ -15,10 +15,10 @@ Other resources must be declared in `Package.swift`
 Dev No.40.
 https://cldr.unicode.org/index/downloads
 
-Emoji 14.0
+Emoji 16.0
 
 # Emoji-text.txt
-https://www.unicode.org/Public/emoji/14.0/emoji-test.txt
+https://www.unicode.org/Public/emoji/16.0/emoji-test.txt
 
 If you update the unicode emoji's version, the version path should be updated to the version. e.g. https://www.unicode.org/Public/emoji/16.0/emoji-test.txt
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -91,7 +91,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇧🇻">𞤼𞤵𞤼𞤢𞤱𞤢𞤤</annotation>
 		<annotation cp="🇧🇻" type="tts">𞤼𞤵𞤼𞤢𞤱𞤢𞤤: 𞤅𞤵𞤪𞤭𞥅𞤪𞤫 𞤄𞤵𞥅𞤾𞤫𞥅</annotation>
 		<annotation cp="🇧🇼">𞤼𞤵𞤼𞤢𞤱𞤢𞤤</annotation>
-		<annotation cp="🇧🇼" type="tts">𞤼𞤵𞤼𞤢𞤱𞤢𞤤: ‮𞤄𞤮𞤼𞤧𞤵𞤱𞤢𞥄𞤲𞤢</annotation>
+		<annotation cp="🇧🇼" type="tts">𞤼𞤵𞤼𞤢𞤱𞤢𞤤: 𞤄𞤮𞤼𞤧𞤵𞤱𞤢𞥄𞤲𞤢</annotation>
 		<annotation cp="🇧🇾">𞤼𞤵𞤼𞤢𞤱𞤢𞤤</annotation>
 		<annotation cp="🇧🇾" type="tts">𞤼𞤵𞤼𞤢𞤱𞤢𞤤: 𞤄𞤫𞤤𞤢𞤪𞤵𞥅𞤧</annotation>
 		<annotation cp="🇧🇿">𞤼𞤵𞤼𞤢𞤱𞤢𞤤</annotation>

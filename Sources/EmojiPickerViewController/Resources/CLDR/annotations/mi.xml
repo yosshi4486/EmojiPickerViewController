@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -781,14 +781,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💏" type="tts">kihi</annotation>
 		<annotation cp="💑">aroha | tokorua | tokorua me te manawa</annotation>
 		<annotation cp="💑" type="tts">tokorua me te manawa</annotation>
-		<annotation cp="👪">whānau</annotation>
-		<annotation cp="👪" type="tts">whānau</annotation>
 		<annotation cp="🗣">ataata | kanohi | kōrero | kōrero ana | upoko</annotation>
 		<annotation cp="🗣" type="tts">upoko kōrero</annotation>
 		<annotation cp="👤">ataata | poho | poho rō ataata</annotation>
 		<annotation cp="👤" type="tts">poho rō ataata</annotation>
 		<annotation cp="👥">ataata | ngā poho rō ataata | poho</annotation>
 		<annotation cp="👥" type="tts">ngā poho rō ataata</annotation>
+		<annotation cp="👪">whānau</annotation>
+		<annotation cp="👪" type="tts">whānau</annotation>
 		<annotation cp="👣">kākahu | ngā tapuwae | tā | tapuwae</annotation>
 		<annotation cp="👣" type="tts">ngā tapuwae</annotation>
 		<annotation cp="🐵">kanohi | makimaki</annotation>
@@ -947,6 +947,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">wheke</annotation>
 		<annotation cp="🐚">anga | tōrino</annotation>
 		<annotation cp="🐚" type="tts">anga tōrino</annotation>
+		<annotation cp="🦀">Cancer | pāpaka | poutiriao</annotation>
+		<annotation cp="🦀" type="tts">pāpaka</annotation>
+		<annotation cp="🦐">kai | kōuraura | mātaitai | ririki</annotation>
+		<annotation cp="🦐" type="tts">kōuraura</annotation>
+		<annotation cp="🦑">kai | kota | ngū</annotation>
+		<annotation cp="🦑" type="tts">ngū</annotation>
 		<annotation cp="🐌">hātaretare</annotation>
 		<annotation cp="🐌" type="tts">hātaretare</annotation>
 		<annotation cp="🦋">ātaahua | pēpeke | pūrerehua</annotation>
@@ -1149,12 +1155,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">pihikete matapae</annotation>
 		<annotation cp="🥡">paepae tio | pouaka kaweatu</annotation>
 		<annotation cp="🥡" type="tts">pouaka kaweatu</annotation>
-		<annotation cp="🦀">Cancer | pāpaka | poutiriao</annotation>
-		<annotation cp="🦀" type="tts">pāpaka</annotation>
-		<annotation cp="🦐">kai | kōuraura | mātaitai | ririki</annotation>
-		<annotation cp="🦐" type="tts">kōuraura</annotation>
-		<annotation cp="🦑">kai | kota | ngū</annotation>
-		<annotation cp="🦑" type="tts">ngū</annotation>
 		<annotation cp="🍦">aihikirīmi | huka | kirīmi | ngohengohe | puruni | reka</annotation>
 		<annotation cp="🍦" type="tts">aihikirīmi ngohengohe</annotation>
 		<annotation cp="🍧">heua | huka | huka heuheu | puruni | reka</annotation>
@@ -1969,7 +1969,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏷" type="tts">tapanga</annotation>
 		<annotation cp="💰">moni | pēke | tāra</annotation>
 		<annotation cp="💰" type="tts">pēke moni</annotation>
-		<annotation cp="💴">momo moni | moni | monipepa | monipepa Yen | pēke | pepa | pire | yen</annotation>
+		<annotation cp="💴">momo moni | moni | monipepa | pēke | pepa | pire | yen</annotation>
 		<annotation cp="💴" type="tts">monipepa Yen</annotation>
 		<annotation cp="💵">momo moni | moni | monipepa | pēke | pepa | pire | tāra</annotation>
 		<annotation cp="💵" type="tts">monipepa tāra</annotation>
@@ -2231,15 +2231,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔃" type="tts">pere poutū whakatekaraka</annotation>
 		<annotation cp="🔄">kōaro | pātene pere kōaro | pere</annotation>
 		<annotation cp="🔄" type="tts">pātene pere kōaro</annotation>
-		<annotation cp="🔙">hoki | pere | pere HOKI</annotation>
+		<annotation cp="🔙">hoki | pere</annotation>
 		<annotation cp="🔙" type="tts">pere HOKI</annotation>
-		<annotation cp="🔚">mutunga | pere | pere MUTUNGA</annotation>
+		<annotation cp="🔚">mutunga | pere</annotation>
 		<annotation cp="🔚" type="tts">pere MUTUNGA</annotation>
 		<annotation cp="🔛">kā | pere | pere KĀ! | tohu</annotation>
 		<annotation cp="🔛" type="tts">pere KĀ!</annotation>
-		<annotation cp="🔜">ākuanei | pere | pere ĀKUANEI</annotation>
+		<annotation cp="🔜">ākuanei | pere</annotation>
 		<annotation cp="🔜" type="tts">pere ĀKUANEI</annotation>
-		<annotation cp="🔝">ake | pere | pere RUNGA | runga</annotation>
+		<annotation cp="🔝">ake | pere | runga</annotation>
 		<annotation cp="🔝" type="tts">pere RUNGA</annotation>
 		<annotation cp="🛐">karakia | momo karakia | wāhi karakia</annotation>
 		<annotation cp="🛐" type="tts">wāhi karakia</annotation>
@@ -2303,7 +2303,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⏩" type="tts">pātene tere whakamua</annotation>
 		<annotation cp="⏭">pātene riu panuku | pere | riu panuku | tapatoru | tironga panuku</annotation>
 		<annotation cp="⏭" type="tts">pātene riu panuku</annotation>
-		<annotation cp="⏯">matau | pātene purei, taihoa rānei | pere | purei | taihoa | tapatoru</annotation>
+		<annotation cp="⏯">matau | pātene purei | pātene purei, taihoa rānei | pere | purei | taihoa | taihoa rānei | tapatoru</annotation>
 		<annotation cp="⏯" type="tts">pātene purei, taihoa rānei</annotation>
 		<annotation cp="◀">mauī | pātene whakamuri | pere | tapatoru | whakamuri</annotation>
 		<annotation cp="◀" type="tts">pātene whakamuri</annotation>
@@ -2543,5 +2543,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">kara mā</annotation>
 		<annotation cp="🏳‍🌈">kahukura | kara kahukura</annotation>
 		<annotation cp="🏳‍🌈" type="tts">kara kahukura</annotation>
+		<annotation cp="0⃣" type="tts">uhi pātuhi: 0</annotation>
+		<annotation cp="1⃣" type="tts">uhi pātuhi: 1</annotation>
+		<annotation cp="2⃣" type="tts">uhi pātuhi: 2</annotation>
+		<annotation cp="3⃣" type="tts">uhi pātuhi: 3</annotation>
+		<annotation cp="4⃣" type="tts">uhi pātuhi: 4</annotation>
+		<annotation cp="5⃣" type="tts">uhi pātuhi: 5</annotation>
+		<annotation cp="6⃣" type="tts">uhi pātuhi: 6</annotation>
+		<annotation cp="7⃣" type="tts">uhi pātuhi: 7</annotation>
+		<annotation cp="8⃣" type="tts">uhi pātuhi: 8</annotation>
+		<annotation cp="9⃣" type="tts">uhi pātuhi: 9</annotation>
 	</annotations>
 </ldml>

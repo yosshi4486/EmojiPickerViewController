@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Science Association http://ukij.org
@@ -775,14 +775,14 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 		<annotation cp="💏" type="tts">سۆيۈش</annotation>
 		<annotation cp="💑">جۈپ | سۆيگۈ | مۇھەببەت | يۈرەكلىك جۈپلەر</annotation>
 		<annotation cp="💑" type="tts">يۈرەكلىك جۈپلەر</annotation>
-		<annotation cp="👪">ئائىلە</annotation>
-		<annotation cp="👪" type="tts">ئائىلە</annotation>
 		<annotation cp="🗣">باش | چىراي | سايە | سۆزلەش | سۆزلەۋاتقان باش | گەپ</annotation>
 		<annotation cp="🗣" type="tts">سۆزلەۋاتقان باش</annotation>
 		<annotation cp="👤">سايە | كىشى سايىسى | ھەيكەل</annotation>
 		<annotation cp="👤" type="tts">كىشى سايىسى</annotation>
 		<annotation cp="👥">سايە | كىشىلەرنىڭ سايىسى | ھەيكەل</annotation>
 		<annotation cp="👥" type="tts">كىشىلەرنىڭ سايىسى</annotation>
+		<annotation cp="👪">ئائىلە</annotation>
+		<annotation cp="👪" type="tts">ئائىلە</annotation>
 		<annotation cp="👣">ئاياغ ئىزى | ئىز | كىيىم</annotation>
 		<annotation cp="👣" type="tts">ئاياغ ئىزى</annotation>
 		<annotation cp="🐵">چىراي | مايمۇن</annotation>
@@ -941,6 +941,12 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 		<annotation cp="🐙" type="tts">سەككىز ئاياغ</annotation>
 		<annotation cp="🐚">قاپ | قاسراق | قۇلۇلە قېپى</annotation>
 		<annotation cp="🐚" type="tts">قۇلۇلە قېپى</annotation>
+		<annotation cp="🦀">سەرەتان | قىسقۇچپاقا | مۆچەل</annotation>
+		<annotation cp="🦀" type="tts">قىسقۇچپاقا</annotation>
+		<annotation cp="🦐">راك | قاسراقلىق بېلىق | كىچىك | يېمەكلىك</annotation>
+		<annotation cp="🦐" type="tts">راك</annotation>
+		<annotation cp="🦑">سىياھ | قاراقچىبېلىق | يۇمشاق | يېمەكلىك</annotation>
+		<annotation cp="🦑" type="tts">قاراقچىبېلىق</annotation>
 		<annotation cp="🐌">قۇلۇلە</annotation>
 		<annotation cp="🐌" type="tts">قۇلۇلە</annotation>
 		<annotation cp="🦋">چىرايلىق | قۇرت | كېپىنەك | ھاشارات</annotation>
@@ -1143,12 +1149,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 		<annotation cp="🥠" type="tts">تەلەي پىشۇرقى</annotation>
 		<annotation cp="🥡">قەغەز قاپ | قۇلۇلە قاپ</annotation>
 		<annotation cp="🥡" type="tts">قەغەز قاپ</annotation>
-		<annotation cp="🦀">سەرەتان | قىسقۇچپاقا | مۆچەل</annotation>
-		<annotation cp="🦀" type="tts">قىسقۇچپاقا</annotation>
-		<annotation cp="🦐">راك | قاسراقلىق بېلىق | كىچىك | يېمەكلىك</annotation>
-		<annotation cp="🦐" type="tts">راك</annotation>
-		<annotation cp="🦑">سىياھ | قاراقچىبېلىق | يۇمشاق | يېمەكلىك</annotation>
-		<annotation cp="🦑" type="tts">قاراقچىبېلىق</annotation>
 		<annotation cp="🍦">پىشۇرۇق | تاتلىق | قايماق | مۇز | مۇزقايماق | يۇمشاق</annotation>
 		<annotation cp="🍦" type="tts">يۇمشاق مۇزقايماق</annotation>
 		<annotation cp="🍧">پىشۇرۇق | تاتلىق | قىرغان مۇز | قىرىش | مۇز</annotation>

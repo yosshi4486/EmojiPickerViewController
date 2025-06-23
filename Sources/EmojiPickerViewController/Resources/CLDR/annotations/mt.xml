@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -573,7 +573,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤱" type="tts">irdigħ</annotation>
 		<annotation cp="👼">anġlu | fantasija | ħrafa | tarbija | wiċċ</annotation>
 		<annotation cp="👼" type="tts">anġlu tarbija</annotation>
-		<annotation cp="🎅">ċelebarazzjoni | klaws | Milied | missier | santa | Santa Klaws</annotation>
+		<annotation cp="🎅">ċelebarazzjoni | klaws | Milied | missier | santa</annotation>
 		<annotation cp="🎅" type="tts">Santa Klaws</annotation>
 		<annotation cp="🤶">ċelebarazzjoni | il-Milied | Is-Sinjura | Klaws | omm</annotation>
 		<annotation cp="🤶" type="tts">Is-Sinjura Klaws</annotation>
@@ -773,14 +773,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💏" type="tts">bewsa</annotation>
 		<annotation cp="💑">imħabba | koppja | koppja b’qalb</annotation>
 		<annotation cp="💑" type="tts">koppja b’qalb</annotation>
-		<annotation cp="👪">familja</annotation>
-		<annotation cp="👪" type="tts">familja</annotation>
 		<annotation cp="🗣">jitkellmu | ras | silwett | titkellem | wiċċ</annotation>
 		<annotation cp="🗣" type="tts">titkellem ras</annotation>
 		<annotation cp="👤">bust | bust f’silwett | silwett</annotation>
 		<annotation cp="👤" type="tts">bust f’silwett</annotation>
 		<annotation cp="👥">bust | busti f’silwett | silwett</annotation>
 		<annotation cp="👥" type="tts">busti f’silwett</annotation>
+		<annotation cp="👪">familja</annotation>
+		<annotation cp="👪" type="tts">familja</annotation>
 		<annotation cp="👣">ħwejjeġ | impronta | ipprintja | marki tas-saqajn</annotation>
 		<annotation cp="👣" type="tts">marki tas-saqajn</annotation>
 		<annotation cp="🐵">wiċċ | wiċċ ta’ xadina | xadina</annotation>
@@ -939,6 +939,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">qarnita</annotation>
 		<annotation cp="🐚">qoxra | spirali</annotation>
 		<annotation cp="🐚" type="tts">qoxra spirali</annotation>
+		<annotation cp="🦀">Cancer | granċ | żodjaku</annotation>
+		<annotation cp="🦀" type="tts">granċ</annotation>
+		<annotation cp="🦐">frott tal-baħar | gamblu | ikel | żgħir</annotation>
+		<annotation cp="🦐" type="tts">gamblu</annotation>
+		<annotation cp="🦑">ikel | klamari | mollusk</annotation>
+		<annotation cp="🦑" type="tts">klamari</annotation>
 		<annotation cp="🐌">bebbuxu</annotation>
 		<annotation cp="🐌" type="tts">bebbuxu</annotation>
 		<annotation cp="🦋">farfett | insett | sabiħ</annotation>
@@ -1141,12 +1147,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">fortune cookie</annotation>
 		<annotation cp="🥡">kaxxa tat-takeout | oyster pail</annotation>
 		<annotation cp="🥡" type="tts">kaxxa tat-takeout</annotation>
-		<annotation cp="🦀">Cancer | granċ | żodjaku</annotation>
-		<annotation cp="🦀" type="tts">granċ</annotation>
-		<annotation cp="🦐">frott tal-baħar | gamblu | ikel | żgħir</annotation>
-		<annotation cp="🦐" type="tts">gamblu</annotation>
-		<annotation cp="🦑">ikel | klamari | mollusk</annotation>
-		<annotation cp="🦑" type="tts">klamari</annotation>
 		<annotation cp="🍦">artab | deżerta | ġelat | ħelu | krema | silġ</annotation>
 		<annotation cp="🍦" type="tts">ġelat artab</annotation>
 		<annotation cp="🍧">deżerta | ħelu | imqaxxar | silġ</annotation>
@@ -1671,7 +1671,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏀" type="tts">basketball</annotation>
 		<annotation cp="🏐">ballun | logħba | volleyball</annotation>
 		<annotation cp="🏐" type="tts">volleyball</annotation>
-		<annotation cp="🏈">amerikan | ballun | futbol | futbol Amerikan</annotation>
+		<annotation cp="🏈">amerikan | ballun | futbol</annotation>
 		<annotation cp="🏈" type="tts">futbol Amerikan</annotation>
 		<annotation cp="🏉">ballun | futbol | futbol tar-rugby | rugby</annotation>
 		<annotation cp="🏉" type="tts">futbol tar-rugby</annotation>
@@ -1739,7 +1739,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🀄" type="tts">mahjong red dragon</annotation>
 		<annotation cp="🎴">fjuri | fjuri tal-karti tal-logħob | Ġappuniż | jilgħab | karta | logħba</annotation>
 		<annotation cp="🎴" type="tts">fjuri tal-karti tal-logħob</annotation>
-		<annotation cp="🎭">arti | arti, żfin u mużika | maskra | performattivi | teatru</annotation>
+		<annotation cp="🎭">arti | arti, żfin u mużika | maskra | performattivi | teatru | żfin u mużika</annotation>
 		<annotation cp="🎭" type="tts">arti, żfin u mużika</annotation>
 		<annotation cp="🖼">arti | frejm | mużew | pittura | stampa | stampa fi frejm</annotation>
 		<annotation cp="🖼" type="tts">stampa fi frejm</annotation>
@@ -2429,7 +2429,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="ℹ" type="tts">informazzjoni</annotation>
 		<annotation cp="🆔">buttuna ID | id | identità</annotation>
 		<annotation cp="🆔" type="tts">buttuna ID</annotation>
-		<annotation cp="Ⓜ">ċirku | ċirku M | m</annotation>
+		<annotation cp="Ⓜ">ċirku | m</annotation>
 		<annotation cp="Ⓜ" type="tts">ċirku M</annotation>
 		<annotation cp="🆕">buttuna NEW | new</annotation>
 		<annotation cp="🆕" type="tts">buttuna NEW</annotation>
@@ -2535,5 +2535,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">bandiera bajda</annotation>
 		<annotation cp="🏳‍🌈">bandiera tal-qawsalla | qawsalla</annotation>
 		<annotation cp="🏳‍🌈" type="tts">bandiera tal-qawsalla</annotation>
+		<annotation cp="0⃣">0 | keycap | żero</annotation>
+		<annotation cp="1⃣">1 | keycap | wieħed</annotation>
+		<annotation cp="2⃣">2 | keycap | tnejn</annotation>
+		<annotation cp="3⃣">3 | keycap | tlieta</annotation>
+		<annotation cp="4⃣">4 | erbgħa | keycap</annotation>
+		<annotation cp="5⃣">5 | ħamsa | keycap</annotation>
+		<annotation cp="6⃣">6 | keycap | sitta</annotation>
+		<annotation cp="7⃣">7 | keycap | sebgħa</annotation>
+		<annotation cp="8⃣">8 | keycap | tmienja</annotation>
+		<annotation cp="9⃣">9 | disgħa | keycap</annotation>
 	</annotations>
 </ldml>

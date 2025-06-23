@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -54,11 +54,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👮🏾" type="tts">afisa wa polisi: ngozi nyeusi kiasi</annotation>
 		<annotation cp="👮🏿">afisa | afisa wa polisi | ngozi nyeusi | polisi</annotation>
 		<annotation cp="👮🏿" type="tts">afisa wa polisi: ngozi nyeusi</annotation>
-		<annotation cp="🤰🏻">mjamzito | mwanamke | ngozi nyeupe</annotation>
-		<annotation cp="🤰🏼">mjamzito | mwanamke | ngozi nyeupe kiasi</annotation>
-		<annotation cp="🤰🏽">mjamzito | mwanamke | ngozi ya kahawia</annotation>
-		<annotation cp="🤰🏾">mjamzito | mwanamke | ngozi nyeusi kiasi</annotation>
-		<annotation cp="🤰🏿">mjamzito | mwanamke | ngozi nyeusi</annotation>
 		<annotation cp="🏋🏻‍♂">mbeba vyuma | mwanamume anayebeba vyuma vizito | ngozi nyeupe | uzani | uzito</annotation>
 		<annotation cp="🏋🏼‍♂">mbeba vyuma | mwanamume anayebeba vyuma vizito | ngozi nyeupe kiasi | uzani | uzito</annotation>
 		<annotation cp="🏋🏽‍♂">mbeba vyuma | mwanamume anayebeba vyuma vizito | ngozi ya kahawia | uzani | uzito</annotation>
@@ -101,7 +96,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇬🇹" type="tts">bendera: Gwatemala</annotation>
 		<annotation cp="🇬🇺" type="tts">bendera: Guami</annotation>
 		<annotation cp="🇭🇷" type="tts">bendera: Kroashia</annotation>
-		<annotation cp="🇮🇴" type="tts">bendera: Himaya ya Uingereza katika Bahari Hindi</annotation>
 		<annotation cp="🇯🇴" type="tts">bendera: Yordani</annotation>
 		<annotation cp="🇱🇦" type="tts">bendera: Laosi</annotation>
 		<annotation cp="🇱🇧" type="tts">bendera: Lebanoni</annotation>

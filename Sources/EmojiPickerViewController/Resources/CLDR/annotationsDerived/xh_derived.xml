@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -2802,14 +2802,14 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="฿" type="tts">I-Baht yaseThailand</annotation>
 		<annotation cp="៛" type="tts">I-Riel yaseCambodia</annotation>
 		<annotation cp="₡" type="tts">Costa Rican Colón</annotation>
-		<annotation cp="₦" type="tts">I-Naira yaseNigeria</annotation>
+		<annotation cp="₦" type="tts">INaira yaseNigeria</annotation>
 		<annotation cp="₪" type="tts">I-New Shekel yase-Israel</annotation>
 		<annotation cp="₫" type="tts">I-Dong yaseVietnam</annotation>
 		<annotation cp="₭" type="tts">I-Kip yaseLaos</annotation>
 		<annotation cp="₮" type="tts">I-Tugrik yaseMongolia</annotation>
 		<annotation cp="₲" type="tts">I-Guarani yaseParaguay</annotation>
 		<annotation cp="₴" type="tts">I-Hryvnia yase-Ukraine</annotation>
-		<annotation cp="₵" type="tts">I-Cedi yaseGhana</annotation>
+		<annotation cp="₵" type="tts">ICedi yaseGhana</annotation>
 		<annotation cp="₸" type="tts">I-Tenge yaseKhazakhstan</annotation>
 		<annotation cp="₺" type="tts">I-Lira yaseTurkey</annotation>
 		<annotation cp="₼" type="tts">I-Manat yase-Azerbeijan</annotation>
