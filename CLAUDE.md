@@ -53,3 +53,7 @@ The project uses XCTest with tests organized by component:
 ## Development Workflow
 
 When implementing features or fixes, create git commits after completing each logical unit of work. This helps maintain a clear history and makes it easier to track changes.
+
+## Claude AI Interactions
+
+- When using `/clear`, Claude will reset the context of the current conversation to prevent context overflow and maintain clean, focused interactions.
