@@ -48,7 +48,7 @@ import Testing
         let loader = EmojiAnnotationDerivedLoader(emojiDictionary: emojiDictionary, emojiLocale: EmojiLocale(localeIdentifier: "ja")!)
         loader.load()
 
-        #expect(emojiDictionary["👋🏾"]?.annotation == "バイバイ | やや濃い肌色 | 手 | 手を振る", "Failed to load `ja` annotations.")
+        #expect(emojiDictionary["👋🏾"]?.annotation == "あいさつ | さようなら | バイバイ | ハロー | またね | やや濃い肌色 | 手 | 手を振る", "Failed to load `ja` annotations.")
         #expect(emojiDictionary["👋🏾"]?.textToSpeech == "手を振る: やや濃い肌色", "Failed to load `ja` textToSpeech.")
         #expect(emojiDictionary["🇲🇽"]?.annotation == "旗", "Failed to load `ja` annotations.")
         #expect(emojiDictionary["🇲🇽"]?.textToSpeech == "旗: メキシコ", "Failed to load `ja` textToSpeech.")

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -985,15 +985,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙍🏾‍♂" type="tts">mann som rynkar bryna: hudtype 5</annotation>
 		<annotation cp="🙍🏿‍♂">hudtype 6 | mann | mann som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
 		<annotation cp="🙍🏿‍♂" type="tts">mann som rynkar bryna: hudtype 6</annotation>
-		<annotation cp="🙍🏻‍♀">hudtype 1–2 | kinne som rynkar bryna | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
+		<annotation cp="🙍🏻‍♀">hudtype 1–2 | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
 		<annotation cp="🙍🏻‍♀" type="tts">kvinne som rynkar bryna: hudtype 1–2</annotation>
-		<annotation cp="🙍🏼‍♀">hudtype 3 | kinne som rynkar bryna | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
+		<annotation cp="🙍🏼‍♀">hudtype 3 | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
 		<annotation cp="🙍🏼‍♀" type="tts">kvinne som rynkar bryna: hudtype 3</annotation>
-		<annotation cp="🙍🏽‍♀">hudtype 4 | kinne som rynkar bryna | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
+		<annotation cp="🙍🏽‍♀">hudtype 4 | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
 		<annotation cp="🙍🏽‍♀" type="tts">kvinne som rynkar bryna: hudtype 4</annotation>
-		<annotation cp="🙍🏾‍♀">hudtype 5 | kinne som rynkar bryna | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
+		<annotation cp="🙍🏾‍♀">hudtype 5 | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
 		<annotation cp="🙍🏾‍♀" type="tts">kvinne som rynkar bryna: hudtype 5</annotation>
-		<annotation cp="🙍🏿‍♀">hudtype 6 | kinne som rynkar bryna | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
+		<annotation cp="🙍🏿‍♀">hudtype 6 | kvinne | kvinne som rynkar bryna | mimikk | rynkar panna | skeptisk</annotation>
 		<annotation cp="🙍🏿‍♀" type="tts">kvinne som rynkar bryna: hudtype 6</annotation>
 		<annotation cp="🙎🏻">furtar | furting | hudtype 1–2 | mimikk | surmuling</annotation>
 		<annotation cp="🙎🏻" type="tts">furtar: hudtype 1–2</annotation>
@@ -1085,35 +1085,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💁🏾‍♀" type="tts">hjelpande kvinne: hudtype 5</annotation>
 		<annotation cp="💁🏿‍♀">hjelpande kvinne | hjelpe | hudtype 6 | informasjon | kvinne</annotation>
 		<annotation cp="💁🏿‍♀" type="tts">hjelpande kvinne: hudtype 6</annotation>
-		<annotation cp="🙋🏻">hand | hudtype 1–2 | person | rekker opp | rekker opp handa</annotation>
+		<annotation cp="🙋🏻">hand | helsing | hudtype 1–2 | person | rekker opp | rekker opp handa</annotation>
 		<annotation cp="🙋🏻" type="tts">rekker opp handa: hudtype 1–2</annotation>
-		<annotation cp="🙋🏼">hand | hudtype 3 | person | rekker opp | rekker opp handa</annotation>
+		<annotation cp="🙋🏼">hand | helsing | hudtype 3 | person | rekker opp | rekker opp handa</annotation>
 		<annotation cp="🙋🏼" type="tts">rekker opp handa: hudtype 3</annotation>
-		<annotation cp="🙋🏽">hand | hudtype 4 | person | rekker opp | rekker opp handa</annotation>
+		<annotation cp="🙋🏽">hand | helsing | hudtype 4 | person | rekker opp | rekker opp handa</annotation>
 		<annotation cp="🙋🏽" type="tts">rekker opp handa: hudtype 4</annotation>
-		<annotation cp="🙋🏾">hand | hudtype 5 | person | rekker opp | rekker opp handa</annotation>
+		<annotation cp="🙋🏾">hand | helsing | hudtype 5 | person | rekker opp | rekker opp handa</annotation>
 		<annotation cp="🙋🏾" type="tts">rekker opp handa: hudtype 5</annotation>
-		<annotation cp="🙋🏿">hand | hudtype 6 | person | rekker opp | rekker opp handa</annotation>
+		<annotation cp="🙋🏿">hand | helsing | hudtype 6 | person | rekker opp | rekker opp handa</annotation>
 		<annotation cp="🙋🏿" type="tts">rekker opp handa: hudtype 6</annotation>
-		<annotation cp="🙋🏻‍♂">hudtype 1–2 | mann | mann som rekker opp handa | rekke opp handa</annotation>
+		<annotation cp="🙋🏻‍♂">helsing | hudtype 1–2 | mann | mann som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋🏻‍♂" type="tts">mann som rekker opp handa: hudtype 1–2</annotation>
-		<annotation cp="🙋🏼‍♂">hudtype 3 | mann | mann som rekker opp handa | rekke opp handa</annotation>
+		<annotation cp="🙋🏼‍♂">helsing | hudtype 3 | mann | mann som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋🏼‍♂" type="tts">mann som rekker opp handa: hudtype 3</annotation>
-		<annotation cp="🙋🏽‍♂">hudtype 4 | mann | mann som rekker opp handa | rekke opp handa</annotation>
+		<annotation cp="🙋🏽‍♂">helsing | hudtype 4 | mann | mann som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋🏽‍♂" type="tts">mann som rekker opp handa: hudtype 4</annotation>
-		<annotation cp="🙋🏾‍♂">hudtype 5 | mann | mann som rekker opp handa | rekke opp handa</annotation>
+		<annotation cp="🙋🏾‍♂">helsing | hudtype 5 | mann | mann som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋🏾‍♂" type="tts">mann som rekker opp handa: hudtype 5</annotation>
-		<annotation cp="🙋🏿‍♂">hudtype 6 | mann | mann som rekker opp handa | rekke opp handa</annotation>
+		<annotation cp="🙋🏿‍♂">helsing | hudtype 6 | mann | mann som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋🏿‍♂" type="tts">mann som rekker opp handa: hudtype 6</annotation>
-		<annotation cp="🙋🏻‍♀">hudtype 1–2 | kinne som rekker opp handa | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
+		<annotation cp="🙋🏻‍♀">helsing | hudtype 1–2 | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋🏻‍♀" type="tts">kvinne som rekker opp handa: hudtype 1–2</annotation>
-		<annotation cp="🙋🏼‍♀">hudtype 3 | kinne som rekker opp handa | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
+		<annotation cp="🙋🏼‍♀">helsing | hudtype 3 | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋🏼‍♀" type="tts">kvinne som rekker opp handa: hudtype 3</annotation>
-		<annotation cp="🙋🏽‍♀">hudtype 4 | kinne som rekker opp handa | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
+		<annotation cp="🙋🏽‍♀">helsing | hudtype 4 | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋🏽‍♀" type="tts">kvinne som rekker opp handa: hudtype 4</annotation>
-		<annotation cp="🙋🏾‍♀">hudtype 5 | kinne som rekker opp handa | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
+		<annotation cp="🙋🏾‍♀">helsing | hudtype 5 | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋🏾‍♀" type="tts">kvinne som rekker opp handa: hudtype 5</annotation>
-		<annotation cp="🙋🏿‍♀">hudtype 6 | kinne som rekker opp handa | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
+		<annotation cp="🙋🏿‍♀">helsing | hudtype 6 | kvinne | kvinne som rekker opp handa | rekke opp handa</annotation>
 		<annotation cp="🙋🏿‍♀" type="tts">kvinne som rekker opp handa: hudtype 6</annotation>
 		<annotation cp="🧏🏻">døv | døv person | høyre | hudtype 1–2 | øyre | tilgjenge</annotation>
 		<annotation cp="🧏🏼">døv | døv person | høyre | hudtype 3 | øyre | tilgjenge</annotation>
@@ -1160,25 +1160,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤦🏾" type="tts">slår handa mot panna: hudtype 5</annotation>
 		<annotation cp="🤦🏿">andlet | facepalm | fjes | hudtype 6 | irritasjon | oppgjeven | slår handa mot panna | vantru</annotation>
 		<annotation cp="🤦🏿" type="tts">slår handa mot panna: hudtype 6</annotation>
-		<annotation cp="🤦🏻‍♂">ansikt | facepalm | fjes | hudtype 1–2 | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
+		<annotation cp="🤦🏻‍♂">andlet | facepalm | fjes | hudtype 1–2 | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦🏻‍♂" type="tts">mann som slår handa mot panna: hudtype 1–2</annotation>
-		<annotation cp="🤦🏼‍♂">ansikt | facepalm | fjes | hudtype 3 | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
+		<annotation cp="🤦🏼‍♂">andlet | facepalm | fjes | hudtype 3 | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦🏼‍♂" type="tts">mann som slår handa mot panna: hudtype 3</annotation>
-		<annotation cp="🤦🏽‍♂">ansikt | facepalm | fjes | hudtype 4 | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
+		<annotation cp="🤦🏽‍♂">andlet | facepalm | fjes | hudtype 4 | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦🏽‍♂" type="tts">mann som slår handa mot panna: hudtype 4</annotation>
-		<annotation cp="🤦🏾‍♂">ansikt | facepalm | fjes | hudtype 5 | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
+		<annotation cp="🤦🏾‍♂">andlet | facepalm | fjes | hudtype 5 | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦🏾‍♂" type="tts">mann som slår handa mot panna: hudtype 5</annotation>
-		<annotation cp="🤦🏿‍♂">ansikt | facepalm | fjes | hudtype 6 | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
+		<annotation cp="🤦🏿‍♂">andlet | facepalm | fjes | hudtype 6 | irritasjon | mann | mann som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦🏿‍♂" type="tts">mann som slår handa mot panna: hudtype 6</annotation>
-		<annotation cp="🤦🏻‍♀">ansikt | facepalm | fjes | hudtype 1–2 | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
+		<annotation cp="🤦🏻‍♀">andlet | facepalm | fjes | hudtype 1–2 | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦🏻‍♀" type="tts">kvinne som slår handa mot panna: hudtype 1–2</annotation>
-		<annotation cp="🤦🏼‍♀">ansikt | facepalm | fjes | hudtype 3 | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
+		<annotation cp="🤦🏼‍♀">andlet | facepalm | fjes | hudtype 3 | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦🏼‍♀" type="tts">kvinne som slår handa mot panna: hudtype 3</annotation>
-		<annotation cp="🤦🏽‍♀">ansikt | facepalm | fjes | hudtype 4 | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
+		<annotation cp="🤦🏽‍♀">andlet | facepalm | fjes | hudtype 4 | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦🏽‍♀" type="tts">kvinne som slår handa mot panna: hudtype 4</annotation>
-		<annotation cp="🤦🏾‍♀">ansikt | facepalm | fjes | hudtype 5 | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
+		<annotation cp="🤦🏾‍♀">andlet | facepalm | fjes | hudtype 5 | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦🏾‍♀" type="tts">kvinne som slår handa mot panna: hudtype 5</annotation>
-		<annotation cp="🤦🏿‍♀">ansikt | facepalm | fjes | hudtype 6 | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
+		<annotation cp="🤦🏿‍♀">andlet | facepalm | fjes | hudtype 6 | irritasjon | kvinne | kvinne som slår handa mot panna | oppgjeven | vantru</annotation>
 		<annotation cp="🤦🏿‍♀" type="tts">kvinne som slår handa mot panna: hudtype 6</annotation>
 		<annotation cp="🤷🏻">hudtype 1–2 | likesæle | skuldretrekning | trekkjer på skuldrene | tvil</annotation>
 		<annotation cp="🤷🏻" type="tts">trekkjer på skuldrene: hudtype 1–2</annotation>
@@ -1210,35 +1210,35 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾‍♀" type="tts">kvinne som trekkjer på skuldrene: hudtype 5</annotation>
 		<annotation cp="🤷🏿‍♀">hudtype 6 | kvinne | kvinne som trekkjer på skuldrene | likesæle | skuldertrekning | tvil</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">kvinne som trekkjer på skuldrene: hudtype 6</annotation>
-		<annotation cp="🧑🏻‍⚕">dokter | helsearbeidar | helsevesen | hudtype 1–2 | lege | sjukepleiar | terapaut</annotation>
+		<annotation cp="🧑🏻‍⚕">dokter | doktor | helsearbeidar | helsevesen | hudtype 1–2 | lege | sjukepleiar | terapeut</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">helsearbeidar: hudtype 1–2</annotation>
-		<annotation cp="🧑🏼‍⚕">dokter | helsearbeidar | helsevesen | hudtype 3 | lege | sjukepleiar | terapaut</annotation>
+		<annotation cp="🧑🏼‍⚕">dokter | doktor | helsearbeidar | helsevesen | hudtype 3 | lege | sjukepleiar | terapeut</annotation>
 		<annotation cp="🧑🏼‍⚕" type="tts">helsearbeidar: hudtype 3</annotation>
-		<annotation cp="🧑🏽‍⚕">dokter | helsearbeidar | helsevesen | hudtype 4 | lege | sjukepleiar | terapaut</annotation>
+		<annotation cp="🧑🏽‍⚕">dokter | doktor | helsearbeidar | helsevesen | hudtype 4 | lege | sjukepleiar | terapeut</annotation>
 		<annotation cp="🧑🏽‍⚕" type="tts">helsearbeidar: hudtype 4</annotation>
-		<annotation cp="🧑🏾‍⚕">dokter | helsearbeidar | helsevesen | hudtype 5 | lege | sjukepleiar | terapaut</annotation>
+		<annotation cp="🧑🏾‍⚕">dokter | doktor | helsearbeidar | helsevesen | hudtype 5 | lege | sjukepleiar | terapeut</annotation>
 		<annotation cp="🧑🏾‍⚕" type="tts">helsearbeidar: hudtype 5</annotation>
-		<annotation cp="🧑🏿‍⚕">dokter | helsearbeidar | helsevesen | hudtype 6 | lege | sjukepleiar | terapaut</annotation>
+		<annotation cp="🧑🏿‍⚕">dokter | doktor | helsearbeidar | helsevesen | hudtype 6 | lege | sjukepleiar | terapeut</annotation>
 		<annotation cp="🧑🏿‍⚕" type="tts">helsearbeidar: hudtype 6</annotation>
-		<annotation cp="👨🏻‍⚕">dokter | helsevesen | hudtype 1–2 | lege | mann | mannleg helsearbeidar | sjukepleiar | terapeut</annotation>
+		<annotation cp="👨🏻‍⚕">dokter | doktor | helsevesen | hudtype 1–2 | lege | mann | mannleg helsearbeidar | sjukepleiar | terapeut</annotation>
 		<annotation cp="👨🏻‍⚕" type="tts">mannleg helsearbeidar: hudtype 1–2</annotation>
-		<annotation cp="👨🏼‍⚕">dokter | helsevesen | hudtype 3 | lege | mann | mannleg helsearbeidar | sjukepleiar | terapeut</annotation>
+		<annotation cp="👨🏼‍⚕">dokter | doktor | helsevesen | hudtype 3 | lege | mann | mannleg helsearbeidar | sjukepleiar | terapeut</annotation>
 		<annotation cp="👨🏼‍⚕" type="tts">mannleg helsearbeidar: hudtype 3</annotation>
-		<annotation cp="👨🏽‍⚕">dokter | helsevesen | hudtype 4 | lege | mann | mannleg helsearbeidar | sjukepleiar | terapeut</annotation>
+		<annotation cp="👨🏽‍⚕">dokter | doktor | helsevesen | hudtype 4 | lege | mann | mannleg helsearbeidar | sjukepleiar | terapeut</annotation>
 		<annotation cp="👨🏽‍⚕" type="tts">mannleg helsearbeidar: hudtype 4</annotation>
-		<annotation cp="👨🏾‍⚕">dokter | helsevesen | hudtype 5 | lege | mann | mannleg helsearbeidar | sjukepleiar | terapeut</annotation>
+		<annotation cp="👨🏾‍⚕">dokter | doktor | helsevesen | hudtype 5 | lege | mann | mannleg helsearbeidar | sjukepleiar | terapeut</annotation>
 		<annotation cp="👨🏾‍⚕" type="tts">mannleg helsearbeidar: hudtype 5</annotation>
-		<annotation cp="👨🏿‍⚕">dokter | helsevesen | hudtype 6 | lege | mann | mannleg helsearbeidar | sjukepleiar | terapeut</annotation>
+		<annotation cp="👨🏿‍⚕">dokter | doktor | helsevesen | hudtype 6 | lege | mann | mannleg helsearbeidar | sjukepleiar | terapeut</annotation>
 		<annotation cp="👨🏿‍⚕" type="tts">mannleg helsearbeidar: hudtype 6</annotation>
-		<annotation cp="👩🏻‍⚕">dokter | helseesen | hudtype 1–2 | kvinne | kvinneleg helsearbeidar | lege | sjukepleiar | terapeut</annotation>
+		<annotation cp="👩🏻‍⚕">dokter | doktor | helsevesen | hudtype 1–2 | kvinne | kvinneleg helsearbeidar | lege | sjukepleiar | terapeut</annotation>
 		<annotation cp="👩🏻‍⚕" type="tts">kvinneleg helsearbeidar: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍⚕">dokter | helseesen | hudtype 3 | kvinne | kvinneleg helsearbeidar | lege | sjukepleiar | terapeut</annotation>
+		<annotation cp="👩🏼‍⚕">dokter | doktor | helsevesen | hudtype 3 | kvinne | kvinneleg helsearbeidar | lege | sjukepleiar | terapeut</annotation>
 		<annotation cp="👩🏼‍⚕" type="tts">kvinneleg helsearbeidar: hudtype 3</annotation>
-		<annotation cp="👩🏽‍⚕">dokter | helseesen | hudtype 4 | kvinne | kvinneleg helsearbeidar | lege | sjukepleiar | terapeut</annotation>
+		<annotation cp="👩🏽‍⚕">dokter | doktor | helsevesen | hudtype 4 | kvinne | kvinneleg helsearbeidar | lege | sjukepleiar | terapeut</annotation>
 		<annotation cp="👩🏽‍⚕" type="tts">kvinneleg helsearbeidar: hudtype 4</annotation>
-		<annotation cp="👩🏾‍⚕">dokter | helseesen | hudtype 5 | kvinne | kvinneleg helsearbeidar | lege | sjukepleiar | terapeut</annotation>
+		<annotation cp="👩🏾‍⚕">dokter | doktor | helsevesen | hudtype 5 | kvinne | kvinneleg helsearbeidar | lege | sjukepleiar | terapeut</annotation>
 		<annotation cp="👩🏾‍⚕" type="tts">kvinneleg helsearbeidar: hudtype 5</annotation>
-		<annotation cp="👩🏿‍⚕">dokter | helseesen | hudtype 6 | kvinne | kvinneleg helsearbeidar | lege | sjukepleiar | terapeut</annotation>
+		<annotation cp="👩🏿‍⚕">dokter | doktor | helsevesen | hudtype 6 | kvinne | kvinneleg helsearbeidar | lege | sjukepleiar | terapeut</annotation>
 		<annotation cp="👩🏿‍⚕" type="tts">kvinneleg helsearbeidar: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍🎓">hudtype 1–2 | skule | student | universitet</annotation>
 		<annotation cp="🧑🏼‍🎓">hudtype 3 | skule | student | universitet</annotation>
@@ -1375,15 +1375,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🍳" type="tts">kvinneleg kokk: hudtype 5</annotation>
 		<annotation cp="👩🏿‍🍳">hudtype 6 | kvinne | kvinneleg kokk | matlaging | restaurant</annotation>
 		<annotation cp="👩🏿‍🍳" type="tts">kvinneleg kokk: hudtype 6</annotation>
-		<annotation cp="🧑🏻‍🔧">bil | elektrikar | handverkar | hudtype 1–2 | mekanikar | motor | røyrleggjar</annotation>
+		<annotation cp="🧑🏻‍🔧">elektrikar | handverkar | hudtype 1–2 | mekanikar | røyrleggar | røyrleggjar</annotation>
 		<annotation cp="🧑🏻‍🔧" type="tts">mekanikar: hudtype 1–2</annotation>
-		<annotation cp="🧑🏼‍🔧">bil | elektrikar | handverkar | hudtype 3 | mekanikar | motor | røyrleggjar</annotation>
+		<annotation cp="🧑🏼‍🔧">elektrikar | handverkar | hudtype 3 | mekanikar | røyrleggar | røyrleggjar</annotation>
 		<annotation cp="🧑🏼‍🔧" type="tts">mekanikar: hudtype 3</annotation>
-		<annotation cp="🧑🏽‍🔧">bil | elektrikar | handverkar | hudtype 4 | mekanikar | motor | røyrleggjar</annotation>
+		<annotation cp="🧑🏽‍🔧">elektrikar | handverkar | hudtype 4 | mekanikar | røyrleggar | røyrleggjar</annotation>
 		<annotation cp="🧑🏽‍🔧" type="tts">mekanikar: hudtype 4</annotation>
-		<annotation cp="🧑🏾‍🔧">bil | elektrikar | handverkar | hudtype 5 | mekanikar | motor | røyrleggjar</annotation>
+		<annotation cp="🧑🏾‍🔧">elektrikar | handverkar | hudtype 5 | mekanikar | røyrleggar | røyrleggjar</annotation>
 		<annotation cp="🧑🏾‍🔧" type="tts">mekanikar: hudtype 5</annotation>
-		<annotation cp="🧑🏿‍🔧">bil | elektrikar | handverkar | hudtype 6 | mekanikar | motor | røyrleggjar</annotation>
+		<annotation cp="🧑🏿‍🔧">elektrikar | handverkar | hudtype 6 | mekanikar | røyrleggar | røyrleggjar</annotation>
 		<annotation cp="🧑🏿‍🔧" type="tts">mekanikar: hudtype 6</annotation>
 		<annotation cp="👨🏻‍🔧">bil | elektrikar | handverkar | hudtype 1–2 | mann | mannleg mekanikar | mekanikar | motor | røyrleggjar</annotation>
 		<annotation cp="👨🏻‍🔧" type="tts">mannleg mekanikar: hudtype 1–2</annotation>
@@ -1425,15 +1425,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🏭" type="tts">mannleg industriarbeidar: hudtype 5</annotation>
 		<annotation cp="👨🏿‍🏭">arbeidar | fabrikk | hudtype 6 | industri | industriarbeidar | mann | mannleg industriarbeidar | produksjon</annotation>
 		<annotation cp="👨🏿‍🏭" type="tts">mannleg industriarbeidar: hudtype 6</annotation>
-		<annotation cp="👩🏻‍🏭">fabrikk | hudtype 1–2 | industri | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
+		<annotation cp="👩🏻‍🏭">arbeidar | fabrikk | hudtype 1–2 | industri | industriarbeidar | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
 		<annotation cp="👩🏻‍🏭" type="tts">kvinneleg industriarbeidar: hudtype 1–2</annotation>
-		<annotation cp="👩🏼‍🏭">fabrikk | hudtype 3 | industri | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
+		<annotation cp="👩🏼‍🏭">arbeidar | fabrikk | hudtype 3 | industri | industriarbeidar | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
 		<annotation cp="👩🏼‍🏭" type="tts">kvinneleg industriarbeidar: hudtype 3</annotation>
-		<annotation cp="👩🏽‍🏭">fabrikk | hudtype 4 | industri | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
+		<annotation cp="👩🏽‍🏭">arbeidar | fabrikk | hudtype 4 | industri | industriarbeidar | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
 		<annotation cp="👩🏽‍🏭" type="tts">kvinneleg industriarbeidar: hudtype 4</annotation>
-		<annotation cp="👩🏾‍🏭">fabrikk | hudtype 5 | industri | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
+		<annotation cp="👩🏾‍🏭">arbeidar | fabrikk | hudtype 5 | industri | industriarbeidar | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
 		<annotation cp="👩🏾‍🏭" type="tts">kvinneleg industriarbeidar: hudtype 5</annotation>
-		<annotation cp="👩🏿‍🏭">fabrikk | hudtype 6 | industri | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
+		<annotation cp="👩🏿‍🏭">arbeidar | fabrikk | hudtype 6 | industri | industriarbeidar | kvinne | kvinneleg industriarbeidar | produksjon</annotation>
 		<annotation cp="👩🏿‍🏭" type="tts">kvinneleg industriarbeidar: hudtype 6</annotation>
 		<annotation cp="🧑🏻‍💼">hudtype 1–2 | kontor | kontorarbeidar | leiar | næringsliv</annotation>
 		<annotation cp="🧑🏻‍💼" type="tts">kontorarbeidar: hudtype 1–2</annotation>
@@ -1905,15 +1905,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧝🏾‍♀" type="tts">kvinneleg alv: hudtype 5</annotation>
 		<annotation cp="🧝🏿‍♀">hudtype 6 | kvinneleg alv | magi</annotation>
 		<annotation cp="🧝🏿‍♀" type="tts">kvinneleg alv: hudtype 6</annotation>
-		<annotation cp="💆🏻">andlet | andletsmassasje | hudtype 1–2 | massasje | venleikssalong</annotation>
+		<annotation cp="💆🏻">andlet | andletsmassasje | avslapping | hovudpine | hovudverk | hudtype 1–2 | massasje | person | venleikssalong</annotation>
 		<annotation cp="💆🏻" type="tts">andletsmassasje: hudtype 1–2</annotation>
-		<annotation cp="💆🏼">andlet | andletsmassasje | hudtype 3 | massasje | venleikssalong</annotation>
+		<annotation cp="💆🏼">andlet | andletsmassasje | avslapping | hovudpine | hovudverk | hudtype 3 | massasje | person | venleikssalong</annotation>
 		<annotation cp="💆🏼" type="tts">andletsmassasje: hudtype 3</annotation>
-		<annotation cp="💆🏽">andlet | andletsmassasje | hudtype 4 | massasje | venleikssalong</annotation>
+		<annotation cp="💆🏽">andlet | andletsmassasje | avslapping | hovudpine | hovudverk | hudtype 4 | massasje | person | venleikssalong</annotation>
 		<annotation cp="💆🏽" type="tts">andletsmassasje: hudtype 4</annotation>
-		<annotation cp="💆🏾">andlet | andletsmassasje | hudtype 5 | massasje | venleikssalong</annotation>
+		<annotation cp="💆🏾">andlet | andletsmassasje | avslapping | hovudpine | hovudverk | hudtype 5 | massasje | person | venleikssalong</annotation>
 		<annotation cp="💆🏾" type="tts">andletsmassasje: hudtype 5</annotation>
-		<annotation cp="💆🏿">andlet | andletsmassasje | hudtype 6 | massasje | venleikssalong</annotation>
+		<annotation cp="💆🏿">andlet | andletsmassasje | avslapping | hovudpine | hovudverk | hudtype 6 | massasje | person | venleikssalong</annotation>
 		<annotation cp="💆🏿" type="tts">andletsmassasje: hudtype 6</annotation>
 		<annotation cp="💆🏻‍♂">andlet | avslapping | hovudmassasje | hudtype 1–2 | mann | mann som får andletsmassasje | massasje | velvære</annotation>
 		<annotation cp="💆🏻‍♂" type="tts">mann som får andletsmassasje: hudtype 1–2</annotation>
@@ -1970,51 +1970,231 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">kvinneleg fotgjengar: hudtype 5</annotation>
 		<annotation cp="🚶🏿‍♀">fotgjengar | gå | hudtype 6 | kvinne | kvinneleg fotgjengar | tur</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">kvinneleg fotgjengar: hudtype 6</annotation>
+		<annotation cp="🚶‍➡">fotgjengar | gå | gåande | høgre | mot | vendt</annotation>
+		<annotation cp="🚶‍➡" type="tts">fotgjengar: vendt mot høgre</annotation>
+		<annotation cp="🚶🏻‍➡">fotgjengar | gå | gåande | høgre | hudtype 1–2 | mot | vendt</annotation>
+		<annotation cp="🚶🏻‍➡" type="tts">fotgjengar: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🚶🏼‍➡">fotgjengar | gå | gåande | høgre | hudtype 3 | mot | vendt</annotation>
+		<annotation cp="🚶🏼‍➡" type="tts">fotgjengar: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🚶🏽‍➡">fotgjengar | gå | gåande | høgre | hudtype 4 | mot | vendt</annotation>
+		<annotation cp="🚶🏽‍➡" type="tts">fotgjengar: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🚶🏾‍➡">fotgjengar | gå | gåande | høgre | hudtype 5 | mot | vendt</annotation>
+		<annotation cp="🚶🏾‍➡" type="tts">fotgjengar: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🚶🏿‍➡">fotgjengar | gå | gåande | høgre | hudtype 6 | mot | vendt</annotation>
+		<annotation cp="🚶🏿‍➡" type="tts">fotgjengar: hudtype 6, vendt mot høgre</annotation>
+		<annotation cp="🚶‍♀‍➡">fotgjengar | gå | høgre | kvinne | kvinneleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶‍♀‍➡" type="tts">kvinneleg fotgjengar: vendt mot høgre</annotation>
+		<annotation cp="🚶🏻‍♀‍➡">fotgjengar | gå | høgre | hudtype 1–2 | kvinne | kvinneleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶🏻‍♀‍➡" type="tts">kvinneleg fotgjengar: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🚶🏼‍♀‍➡">fotgjengar | gå | høgre | hudtype 3 | kvinne | kvinneleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶🏼‍♀‍➡" type="tts">kvinneleg fotgjengar: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🚶🏽‍♀‍➡">fotgjengar | gå | høgre | hudtype 4 | kvinne | kvinneleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶🏽‍♀‍➡" type="tts">kvinneleg fotgjengar: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🚶🏾‍♀‍➡">fotgjengar | gå | høgre | hudtype 5 | kvinne | kvinneleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶🏾‍♀‍➡" type="tts">kvinneleg fotgjengar: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🚶🏿‍♀‍➡">fotgjengar | gå | høgre | hudtype 6 | kvinne | kvinneleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶🏿‍♀‍➡" type="tts">kvinneleg fotgjengar: hudtype 6, vendt mot høgre</annotation>
+		<annotation cp="🚶‍♂‍➡">fotgjengar | gå | høgre | mann | mannleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶‍♂‍➡" type="tts">mannleg fotgjengar: vendt mot høgre</annotation>
+		<annotation cp="🚶🏻‍♂‍➡">fotgjengar | gå | høgre | hudtype 1–2 | mann | mannleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶🏻‍♂‍➡" type="tts">mannleg fotgjengar: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🚶🏼‍♂‍➡">fotgjengar | gå | høgre | hudtype 3 | mann | mannleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶🏼‍♂‍➡" type="tts">mannleg fotgjengar: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🚶🏽‍♂‍➡">fotgjengar | gå | høgre | hudtype 4 | mann | mannleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶🏽‍♂‍➡" type="tts">mannleg fotgjengar: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🚶🏾‍♂‍➡">fotgjengar | gå | høgre | hudtype 5 | mann | mannleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶🏾‍♂‍➡" type="tts">mannleg fotgjengar: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🚶🏿‍♂‍➡">fotgjengar | gå | høgre | hudtype 6 | mann | mannleg fotgjengar | mot | tur | vendt</annotation>
+		<annotation cp="🚶🏿‍♂‍➡" type="tts">mannleg fotgjengar: hudtype 6, vendt mot høgre</annotation>
+		<annotation cp="🧎‍➡">høgre | knele | kneler | mot | person som kneler | vendt</annotation>
+		<annotation cp="🧎‍➡" type="tts">person som kneler: vendt mot høgre</annotation>
+		<annotation cp="🧎🏻‍➡">høgre | hudtype 1–2 | knele | kneler | mot | person som kneler | vendt</annotation>
+		<annotation cp="🧎🏻‍➡" type="tts">person som kneler: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🧎🏼‍➡">høgre | hudtype 3 | knele | kneler | mot | person som kneler | vendt</annotation>
+		<annotation cp="🧎🏼‍➡" type="tts">person som kneler: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🧎🏽‍➡">høgre | hudtype 4 | knele | kneler | mot | person som kneler | vendt</annotation>
+		<annotation cp="🧎🏽‍➡" type="tts">person som kneler: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🧎🏾‍➡">høgre | hudtype 5 | knele | kneler | mot | person som kneler | vendt</annotation>
+		<annotation cp="🧎🏾‍➡" type="tts">person som kneler: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🧎🏿‍➡">høgre | hudtype 6 | knele | kneler | mot | person som kneler | vendt</annotation>
+		<annotation cp="🧎🏿‍➡" type="tts">person som kneler: hudtype 6, vendt mot høgre</annotation>
+		<annotation cp="🧎‍♀‍➡">høgre | kneler | kvinne | kvinne som kneler | mot | vendt</annotation>
+		<annotation cp="🧎‍♀‍➡" type="tts">kvinne som kneler: vendt mot høgre</annotation>
+		<annotation cp="🧎🏻‍♀‍➡">høgre | hudtype 1–2 | kneler | kvinne | kvinne som kneler | mot | vendt</annotation>
+		<annotation cp="🧎🏻‍♀‍➡" type="tts">kvinne som kneler: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🧎🏼‍♀‍➡">høgre | hudtype 3 | kneler | kvinne | kvinne som kneler | mot | vendt</annotation>
+		<annotation cp="🧎🏼‍♀‍➡" type="tts">kvinne som kneler: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🧎🏽‍♀‍➡">høgre | hudtype 4 | kneler | kvinne | kvinne som kneler | mot | vendt</annotation>
+		<annotation cp="🧎🏽‍♀‍➡" type="tts">kvinne som kneler: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🧎🏾‍♀‍➡">høgre | hudtype 5 | kneler | kvinne | kvinne som kneler | mot | vendt</annotation>
+		<annotation cp="🧎🏾‍♀‍➡" type="tts">kvinne som kneler: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🧎🏿‍♀‍➡">høgre | hudtype 6 | kneler | kvinne | kvinne som kneler | mot | vendt</annotation>
+		<annotation cp="🧎🏿‍♀‍➡" type="tts">kvinne som kneler: hudtype 6, vendt mot høgre</annotation>
+		<annotation cp="🧎‍♂‍➡">høgre | kneler | mann | mann som kneler | mot | vendt</annotation>
+		<annotation cp="🧎‍♂‍➡" type="tts">mann som kneler: vendt mot høgre</annotation>
+		<annotation cp="🧎🏻‍♂‍➡">høgre | hudtype 1–2 | kneler | mann | mann som kneler | mot | vendt</annotation>
+		<annotation cp="🧎🏻‍♂‍➡" type="tts">mann som kneler: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🧎🏼‍♂‍➡">høgre | hudtype 3 | kneler | mann | mann som kneler | mot | vendt</annotation>
+		<annotation cp="🧎🏼‍♂‍➡" type="tts">mann som kneler: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🧎🏽‍♂‍➡">høgre | hudtype 4 | kneler | mann | mann som kneler | mot | vendt</annotation>
+		<annotation cp="🧎🏽‍♂‍➡" type="tts">mann som kneler: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🧎🏾‍♂‍➡">høgre | hudtype 5 | kneler | mann | mann som kneler | mot | vendt</annotation>
+		<annotation cp="🧎🏾‍♂‍➡" type="tts">mann som kneler: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🧎🏿‍♂‍➡">høgre | hudtype 6 | kneler | mann | mann som kneler | mot | vendt</annotation>
+		<annotation cp="🧎🏿‍♂‍➡" type="tts">mann som kneler: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="🧑🏻‍🦯">blind | hudtype 1–2 | person med blindestokk | tilgjenge</annotation>
 		<annotation cp="🧑🏼‍🦯">blind | hudtype 3 | person med blindestokk | tilgjenge</annotation>
 		<annotation cp="🧑🏽‍🦯">blind | hudtype 4 | person med blindestokk | tilgjenge</annotation>
 		<annotation cp="🧑🏾‍🦯">blind | hudtype 5 | person med blindestokk | tilgjenge</annotation>
 		<annotation cp="🧑🏿‍🦯">blind | hudtype 6 | person med blindestokk | tilgjenge</annotation>
+		<annotation cp="🧑‍🦯‍➡">blind | høgre | mot | person med blindestokk | tilgjenge | vendt</annotation>
+		<annotation cp="🧑‍🦯‍➡" type="tts">person med blindestokk: vendt mot høgre</annotation>
+		<annotation cp="🧑🏻‍🦯‍➡">blind | høgre | hudtype 1–2 | mot | person med blindestokk | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏻‍🦯‍➡" type="tts">person med blindestokk: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🧑🏼‍🦯‍➡">blind | høgre | hudtype 3 | mot | person med blindestokk | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏼‍🦯‍➡" type="tts">person med blindestokk: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🧑🏽‍🦯‍➡">blind | høgre | hudtype 4 | mot | person med blindestokk | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏽‍🦯‍➡" type="tts">person med blindestokk: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🧑🏾‍🦯‍➡">blind | høgre | hudtype 5 | mot | person med blindestokk | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏾‍🦯‍➡" type="tts">person med blindestokk: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🧑🏿‍🦯‍➡">blind | høgre | hudtype 6 | mot | person med blindestokk | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏿‍🦯‍➡" type="tts">person med blindestokk: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="👨🏻‍🦯">blind | hudtype 1–2 | mann | mann med blindestokk | tilgjenge</annotation>
 		<annotation cp="👨🏼‍🦯">blind | hudtype 3 | mann | mann med blindestokk | tilgjenge</annotation>
 		<annotation cp="👨🏽‍🦯">blind | hudtype 4 | mann | mann med blindestokk | tilgjenge</annotation>
 		<annotation cp="👨🏾‍🦯">blind | hudtype 5 | mann | mann med blindestokk | tilgjenge</annotation>
 		<annotation cp="👨🏿‍🦯">blind | hudtype 6 | mann | mann med blindestokk | tilgjenge</annotation>
+		<annotation cp="👨‍🦯‍➡">blind | høgre | mann | mann med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👨‍🦯‍➡" type="tts">mann med blindestokk: vendt mot høgre</annotation>
+		<annotation cp="👨🏻‍🦯‍➡">blind | høgre | hudtype 1–2 | mann | mann med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏻‍🦯‍➡" type="tts">mann med blindestokk: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="👨🏼‍🦯‍➡">blind | høgre | hudtype 3 | mann | mann med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏼‍🦯‍➡" type="tts">mann med blindestokk: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="👨🏽‍🦯‍➡">blind | høgre | hudtype 4 | mann | mann med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏽‍🦯‍➡" type="tts">mann med blindestokk: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="👨🏾‍🦯‍➡">blind | høgre | hudtype 5 | mann | mann med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏾‍🦯‍➡" type="tts">mann med blindestokk: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="👨🏿‍🦯‍➡">blind | høgre | hudtype 6 | mann | mann med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏿‍🦯‍➡" type="tts">mann med blindestokk: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="👩🏻‍🦯">blind | hudtype 1–2 | kvinne | kvinne med blindestokk | tilgjenge</annotation>
 		<annotation cp="👩🏼‍🦯">blind | hudtype 3 | kvinne | kvinne med blindestokk | tilgjenge</annotation>
 		<annotation cp="👩🏽‍🦯">blind | hudtype 4 | kvinne | kvinne med blindestokk | tilgjenge</annotation>
 		<annotation cp="👩🏾‍🦯">blind | hudtype 5 | kvinne | kvinne med blindestokk | tilgjenge</annotation>
 		<annotation cp="👩🏿‍🦯">blind | hudtype 6 | kvinne | kvinne med blindestokk | tilgjenge</annotation>
+		<annotation cp="👩‍🦯‍➡">blind | høgre | kvinne | kvinne med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👩‍🦯‍➡" type="tts">kvinne med blindestokk: vendt mot høgre</annotation>
+		<annotation cp="👩🏻‍🦯‍➡">blind | høgre | hudtype 1–2 | kvinne | kvinne med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏻‍🦯‍➡" type="tts">kvinne med blindestokk: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="👩🏼‍🦯‍➡">blind | høgre | hudtype 3 | kvinne | kvinne med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏼‍🦯‍➡" type="tts">kvinne med blindestokk: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="👩🏽‍🦯‍➡">blind | høgre | hudtype 4 | kvinne | kvinne med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏽‍🦯‍➡" type="tts">kvinne med blindestokk: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="👩🏾‍🦯‍➡">blind | høgre | hudtype 5 | kvinne | kvinne med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏾‍🦯‍➡" type="tts">kvinne med blindestokk: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="👩🏿‍🦯‍➡">blind | høgre | hudtype 6 | kvinne | kvinne med blindestokk | mot | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏿‍🦯‍➡" type="tts">kvinne med blindestokk: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="🧑🏻‍🦼">hudtype 1–2 | person i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="🧑🏼‍🦼">hudtype 3 | person i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="🧑🏽‍🦼">hudtype 4 | person i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="🧑🏾‍🦼">hudtype 5 | person i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="🧑🏿‍🦼">hudtype 6 | person i motorisert rullestol | rullestol | tilgjenge</annotation>
+		<annotation cp="🧑‍🦼‍➡">høgre | mot | person i motorisert rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑‍🦼‍➡" type="tts">person i motorisert rullestol: vendt mot høgre</annotation>
+		<annotation cp="🧑🏻‍🦼‍➡">høgre | hudtype 1–2 | mot | person i motorisert rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏻‍🦼‍➡" type="tts">person i motorisert rullestol: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🧑🏼‍🦼‍➡">høgre | hudtype 3 | mot | person i motorisert rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏼‍🦼‍➡" type="tts">person i motorisert rullestol: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🧑🏽‍🦼‍➡">høgre | hudtype 4 | mot | person i motorisert rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏽‍🦼‍➡" type="tts">person i motorisert rullestol: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🧑🏾‍🦼‍➡">høgre | hudtype 5 | mot | person i motorisert rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏾‍🦼‍➡" type="tts">person i motorisert rullestol: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🧑🏿‍🦼‍➡">høgre | hudtype 6 | mot | person i motorisert rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏿‍🦼‍➡" type="tts">person i motorisert rullestol: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="👨🏻‍🦼">hudtype 1–2 | mann | mann i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👨🏼‍🦼">hudtype 3 | mann | mann i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👨🏽‍🦼">hudtype 4 | mann | mann i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👨🏾‍🦼">hudtype 5 | mann | mann i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👨🏿‍🦼">hudtype 6 | mann | mann i motorisert rullestol | rullestol | tilgjenge</annotation>
+		<annotation cp="👨‍🦼‍➡">høgre | mann | mann i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨‍🦼‍➡" type="tts">mann i motorisert rullestol: vendt mot høgre</annotation>
+		<annotation cp="👨🏻‍🦼‍➡">høgre | hudtype 1–2 | mann | mann i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏻‍🦼‍➡" type="tts">mann i motorisert rullestol: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="👨🏼‍🦼‍➡">høgre | hudtype 3 | mann | mann i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏼‍🦼‍➡" type="tts">mann i motorisert rullestol: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="👨🏽‍🦼‍➡">høgre | hudtype 4 | mann | mann i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏽‍🦼‍➡" type="tts">mann i motorisert rullestol: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="👨🏾‍🦼‍➡">høgre | hudtype 5 | mann | mann i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏾‍🦼‍➡" type="tts">mann i motorisert rullestol: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="👨🏿‍🦼‍➡">høgre | hudtype 6 | mann | mann i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏿‍🦼‍➡" type="tts">mann i motorisert rullestol: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="👩🏻‍🦼">hudtype 1–2 | kvinne | kvinne i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👩🏼‍🦼">hudtype 3 | kvinne | kvinne i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👩🏽‍🦼">hudtype 4 | kvinne | kvinne i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👩🏾‍🦼">hudtype 5 | kvinne | kvinne i motorisert rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👩🏿‍🦼">hudtype 6 | kvinne | kvinne i motorisert rullestol | rullestol | tilgjenge</annotation>
+		<annotation cp="👩‍🦼‍➡">høgre | kvinne | kvinne i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩‍🦼‍➡" type="tts">kvinne i motorisert rullestol: vendt mot høgre</annotation>
+		<annotation cp="👩🏻‍🦼‍➡">høgre | hudtype 1–2 | kvinne | kvinne i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏻‍🦼‍➡" type="tts">kvinne i motorisert rullestol: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="👩🏼‍🦼‍➡">høgre | hudtype 3 | kvinne | kvinne i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏼‍🦼‍➡" type="tts">kvinne i motorisert rullestol: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="👩🏽‍🦼‍➡">høgre | hudtype 4 | kvinne | kvinne i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏽‍🦼‍➡" type="tts">kvinne i motorisert rullestol: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="👩🏾‍🦼‍➡">høgre | hudtype 5 | kvinne | kvinne i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏾‍🦼‍➡" type="tts">kvinne i motorisert rullestol: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="👩🏿‍🦼‍➡">høgre | hudtype 6 | kvinne | kvinne i motorisert rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏿‍🦼‍➡" type="tts">kvinne i motorisert rullestol: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="🧑🏻‍🦽">hudtype 1–2 | person i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="🧑🏼‍🦽">hudtype 3 | person i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="🧑🏽‍🦽">hudtype 4 | person i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="🧑🏾‍🦽">hudtype 5 | person i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="🧑🏿‍🦽">hudtype 6 | person i manuell rullestol | rullestol | tilgjenge</annotation>
+		<annotation cp="🧑‍🦽‍➡">høgre | mot | person i manuell rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑‍🦽‍➡" type="tts">person i manuell rullestol: vendt mot høgre</annotation>
+		<annotation cp="🧑🏻‍🦽‍➡">høgre | hudtype 1–2 | mot | person i manuell rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏻‍🦽‍➡" type="tts">person i manuell rullestol: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🧑🏼‍🦽‍➡">høgre | hudtype 3 | mot | person i manuell rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏼‍🦽‍➡" type="tts">person i manuell rullestol: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🧑🏽‍🦽‍➡">høgre | hudtype 4 | mot | person i manuell rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏽‍🦽‍➡" type="tts">person i manuell rullestol: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🧑🏾‍🦽‍➡">høgre | hudtype 5 | mot | person i manuell rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏾‍🦽‍➡" type="tts">person i manuell rullestol: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🧑🏿‍🦽‍➡">høgre | hudtype 6 | mot | person i manuell rullestol | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="🧑🏿‍🦽‍➡" type="tts">person i manuell rullestol: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="👨🏻‍🦽">hudtype 1–2 | mann | mann i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👨🏼‍🦽">hudtype 3 | mann | mann i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👨🏽‍🦽">hudtype 4 | mann | mann i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👨🏾‍🦽">hudtype 5 | mann | mann i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👨🏿‍🦽">hudtype 6 | mann | mann i manuell rullestol | rullestol | tilgjenge</annotation>
+		<annotation cp="👨‍🦽‍➡">høgre | mann | mann i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨‍🦽‍➡" type="tts">mann i manuell rullestol: vendt mot høgre</annotation>
+		<annotation cp="👨🏻‍🦽‍➡">høgre | hudtype 1–2 | mann | mann i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏻‍🦽‍➡" type="tts">mann i manuell rullestol: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="👨🏼‍🦽‍➡">høgre | hudtype 3 | mann | mann i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏼‍🦽‍➡" type="tts">mann i manuell rullestol: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="👨🏽‍🦽‍➡">høgre | hudtype 4 | mann | mann i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏽‍🦽‍➡" type="tts">mann i manuell rullestol: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="👨🏾‍🦽‍➡">høgre | hudtype 5 | mann | mann i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏾‍🦽‍➡" type="tts">mann i manuell rullestol: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="👨🏿‍🦽‍➡">høgre | hudtype 6 | mann | mann i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👨🏿‍🦽‍➡" type="tts">mann i manuell rullestol: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="👩🏻‍🦽">hudtype 1–2 | kvinne | kvinne i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👩🏼‍🦽">hudtype 3 | kvinne | kvinne i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👩🏽‍🦽">hudtype 4 | kvinne | kvinne i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👩🏾‍🦽">hudtype 5 | kvinne | kvinne i manuell rullestol | rullestol | tilgjenge</annotation>
 		<annotation cp="👩🏿‍🦽">hudtype 6 | kvinne | kvinne i manuell rullestol | rullestol | tilgjenge</annotation>
+		<annotation cp="👩‍🦽‍➡">høgre | kvinne | kvinne i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩‍🦽‍➡" type="tts">kvinne i manuell rullestol: vendt mot høgre</annotation>
+		<annotation cp="👩🏻‍🦽‍➡">høgre | hudtype 1–2 | kvinne | kvinne i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏻‍🦽‍➡" type="tts">kvinne i manuell rullestol: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="👩🏼‍🦽‍➡">høgre | hudtype 3 | kvinne | kvinne i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏼‍🦽‍➡" type="tts">kvinne i manuell rullestol: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="👩🏽‍🦽‍➡">høgre | hudtype 4 | kvinne | kvinne i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏽‍🦽‍➡" type="tts">kvinne i manuell rullestol: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="👩🏾‍🦽‍➡">høgre | hudtype 5 | kvinne | kvinne i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏾‍🦽‍➡" type="tts">kvinne i manuell rullestol: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="👩🏿‍🦽‍➡">høgre | hudtype 6 | kvinne | kvinne i manuell rullestol | mot | rullestol | tilgjenge | vendt</annotation>
+		<annotation cp="👩🏿‍🦽‍➡" type="tts">kvinne i manuell rullestol: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="🏃🏻">hudtype 1–2 | joggar | jogging | løpar | løping | maraton | sport</annotation>
 		<annotation cp="🏃🏻" type="tts">løpar: hudtype 1–2</annotation>
 		<annotation cp="🏃🏼">hudtype 3 | joggar | jogging | løpar | løping | maraton | sport</annotation>
@@ -2045,6 +2225,42 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏃🏾‍♀" type="tts">kvineleg løpar: hudtype 5</annotation>
 		<annotation cp="🏃🏿‍♀">hudtype 6 | jogge | kvineleg løpar | kvinne | løpe | maraton</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">kvineleg løpar: hudtype 6</annotation>
+		<annotation cp="🏃‍➡">høgre | joggar | jogging | løpar | løping | maraton | mot | sport | vendt</annotation>
+		<annotation cp="🏃‍➡" type="tts">løpar: vendt mot høgre</annotation>
+		<annotation cp="🏃🏻‍➡">høgre | hudtype 1–2 | joggar | jogging | løpar | løping | maraton | mot | sport | vendt</annotation>
+		<annotation cp="🏃🏻‍➡" type="tts">løpar: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🏃🏼‍➡">høgre | hudtype 3 | joggar | jogging | løpar | løping | maraton | mot | sport | vendt</annotation>
+		<annotation cp="🏃🏼‍➡" type="tts">løpar: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🏃🏽‍➡">høgre | hudtype 4 | joggar | jogging | løpar | løping | maraton | mot | sport | vendt</annotation>
+		<annotation cp="🏃🏽‍➡" type="tts">løpar: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🏃🏾‍➡">høgre | hudtype 5 | joggar | jogging | løpar | løping | maraton | mot | sport | vendt</annotation>
+		<annotation cp="🏃🏾‍➡" type="tts">løpar: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🏃🏿‍➡">høgre | hudtype 6 | joggar | jogging | løpar | løping | maraton | mot | sport | vendt</annotation>
+		<annotation cp="🏃🏿‍➡" type="tts">løpar: hudtype 6, vendt mot høgre</annotation>
+		<annotation cp="🏃‍♀‍➡">høgre | jogge | kvineleg løpar | kvinne | løpe | maraton | mot | vendt</annotation>
+		<annotation cp="🏃‍♀‍➡" type="tts">kvineleg løpar: vendt mot høgre</annotation>
+		<annotation cp="🏃🏻‍♀‍➡">høgre | hudtype 1–2 | jogge | kvineleg løpar | kvinne | løpe | maraton | mot | vendt</annotation>
+		<annotation cp="🏃🏻‍♀‍➡" type="tts">kvineleg løpar: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🏃🏼‍♀‍➡">høgre | hudtype 3 | jogge | kvineleg løpar | kvinne | løpe | maraton | mot | vendt</annotation>
+		<annotation cp="🏃🏼‍♀‍➡" type="tts">kvineleg løpar: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🏃🏽‍♀‍➡">høgre | hudtype 4 | jogge | kvineleg løpar | kvinne | løpe | maraton | mot | vendt</annotation>
+		<annotation cp="🏃🏽‍♀‍➡" type="tts">kvineleg løpar: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🏃🏾‍♀‍➡">høgre | hudtype 5 | jogge | kvineleg løpar | kvinne | løpe | maraton | mot | vendt</annotation>
+		<annotation cp="🏃🏾‍♀‍➡" type="tts">kvineleg løpar: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🏃🏿‍♀‍➡">høgre | hudtype 6 | jogge | kvineleg løpar | kvinne | løpe | maraton | mot | vendt</annotation>
+		<annotation cp="🏃🏿‍♀‍➡" type="tts">kvineleg løpar: hudtype 6, vendt mot høgre</annotation>
+		<annotation cp="🏃‍♂‍➡">høgre | jogge | løpe | mann | mannleg løpar | maraton | mot | vendt</annotation>
+		<annotation cp="🏃‍♂‍➡" type="tts">mannleg løpar: vendt mot høgre</annotation>
+		<annotation cp="🏃🏻‍♂‍➡">høgre | hudtype 1–2 | jogge | løpe | mann | mannleg løpar | maraton | mot | vendt</annotation>
+		<annotation cp="🏃🏻‍♂‍➡" type="tts">mannleg løpar: hudtype 1–2, vendt mot høgre</annotation>
+		<annotation cp="🏃🏼‍♂‍➡">høgre | hudtype 3 | jogge | løpe | mann | mannleg løpar | maraton | mot | vendt</annotation>
+		<annotation cp="🏃🏼‍♂‍➡" type="tts">mannleg løpar: hudtype 3, vendt mot høgre</annotation>
+		<annotation cp="🏃🏽‍♂‍➡">høgre | hudtype 4 | jogge | løpe | mann | mannleg løpar | maraton | mot | vendt</annotation>
+		<annotation cp="🏃🏽‍♂‍➡" type="tts">mannleg løpar: hudtype 4, vendt mot høgre</annotation>
+		<annotation cp="🏃🏾‍♂‍➡">høgre | hudtype 5 | jogge | løpe | mann | mannleg løpar | maraton | mot | vendt</annotation>
+		<annotation cp="🏃🏾‍♂‍➡" type="tts">mannleg løpar: hudtype 5, vendt mot høgre</annotation>
+		<annotation cp="🏃🏿‍♂‍➡">høgre | hudtype 6 | jogge | løpe | mann | mannleg løpar | maraton | mot | vendt</annotation>
+		<annotation cp="🏃🏿‍♂‍➡" type="tts">mannleg løpar: hudtype 6, vendt mot høgre</annotation>
 		<annotation cp="💃🏻">dans | dansande kvinne | hudtype 1–2 | kvinne</annotation>
 		<annotation cp="💃🏻" type="tts">dansande kvinne: hudtype 1–2</annotation>
 		<annotation cp="💃🏼">dans | dansande kvinne | hudtype 3 | kvinne</annotation>
@@ -2370,106 +2586,106 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤹🏾‍♀" type="tts">kvinneleg sjonglør: hudtype 5</annotation>
 		<annotation cp="🤹🏿‍♀">hudtype 6 | kvinne | kvinneleg sjonglør | multitasking | sirkus | sjonglere</annotation>
 		<annotation cp="🤹🏿‍♀" type="tts">kvinneleg sjonglør: hudtype 6</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏻">halde hender | hand | hudtype 1–2 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏻">halda hender | hand | hudtype 1–2 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏻" type="tts">personar som leiar: hudtype 1–2</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏼">halde hender | hand | hudtype 1–2 | hudtype 3 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏼">halda hender | hand | hudtype 1–2 | hudtype 3 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏼" type="tts">personar som leiar: hudtype 1–2, hudtype 3</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏽">halde hender | hand | hudtype 1–2 | hudtype 4 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏽">halda hender | hand | hudtype 1–2 | hudtype 4 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏽" type="tts">personar som leiar: hudtype 1–2, hudtype 4</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏾">halde hender | hand | hudtype 1–2 | hudtype 5 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏾">halda hender | hand | hudtype 1–2 | hudtype 5 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏾" type="tts">personar som leiar: hudtype 1–2, hudtype 5</annotation>
-		<annotation cp="🧑🏻‍🤝‍🧑🏿">halde hender | hand | hudtype 1–2 | hudtype 6 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏻‍🤝‍🧑🏿">halda hender | hand | hudtype 1–2 | hudtype 6 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏻‍🤝‍🧑🏿" type="tts">personar som leiar: hudtype 1–2, hudtype 6</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏻">halde hender | hand | hudtype 1–2 | hudtype 3 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏻">halda hender | hand | hudtype 1–2 | hudtype 3 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏻" type="tts">personar som leiar: hudtype 3, hudtype 1–2</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏼">halde hender | hand | hudtype 3 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏼">halda hender | hand | hudtype 3 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏼" type="tts">personar som leiar: hudtype 3</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏽">halde hender | hand | hudtype 3 | hudtype 4 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏽">halda hender | hand | hudtype 3 | hudtype 4 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏽" type="tts">personar som leiar: hudtype 3, hudtype 4</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏾">halde hender | hand | hudtype 3 | hudtype 5 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏾">halda hender | hand | hudtype 3 | hudtype 5 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏾" type="tts">personar som leiar: hudtype 3, hudtype 5</annotation>
-		<annotation cp="🧑🏼‍🤝‍🧑🏿">halde hender | hand | hudtype 3 | hudtype 6 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏼‍🤝‍🧑🏿">halda hender | hand | hudtype 3 | hudtype 6 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏼‍🤝‍🧑🏿" type="tts">personar som leiar: hudtype 3, hudtype 6</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏻">halde hender | hand | hudtype 1–2 | hudtype 4 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏻">halda hender | hand | hudtype 1–2 | hudtype 4 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏻" type="tts">personar som leiar: hudtype 4, hudtype 1–2</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏼">halde hender | hand | hudtype 3 | hudtype 4 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏼">halda hender | hand | hudtype 3 | hudtype 4 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏼" type="tts">personar som leiar: hudtype 4, hudtype 3</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏽">halde hender | hand | hudtype 4 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏽">halda hender | hand | hudtype 4 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏽" type="tts">personar som leiar: hudtype 4</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏾">halde hender | hand | hudtype 4 | hudtype 5 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏾">halda hender | hand | hudtype 4 | hudtype 5 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏾" type="tts">personar som leiar: hudtype 4, hudtype 5</annotation>
-		<annotation cp="🧑🏽‍🤝‍🧑🏿">halde hender | hand | hudtype 4 | hudtype 6 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏽‍🤝‍🧑🏿">halda hender | hand | hudtype 4 | hudtype 6 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏽‍🤝‍🧑🏿" type="tts">personar som leiar: hudtype 4, hudtype 6</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏻">halde hender | hand | hudtype 1–2 | hudtype 5 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏻">halda hender | hand | hudtype 1–2 | hudtype 5 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏻" type="tts">personar som leiar: hudtype 5, hudtype 1–2</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏼">halde hender | hand | hudtype 3 | hudtype 5 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏼">halda hender | hand | hudtype 3 | hudtype 5 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏼" type="tts">personar som leiar: hudtype 5, hudtype 3</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏽">halde hender | hand | hudtype 4 | hudtype 5 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏽">halda hender | hand | hudtype 4 | hudtype 5 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏽" type="tts">personar som leiar: hudtype 5, hudtype 4</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏾">halde hender | hand | hudtype 5 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏾">halda hender | hand | hudtype 5 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏾" type="tts">personar som leiar: hudtype 5</annotation>
-		<annotation cp="🧑🏾‍🤝‍🧑🏿">halde hender | hand | hudtype 5 | hudtype 6 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏾‍🤝‍🧑🏿">halda hender | hand | hudtype 5 | hudtype 6 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏾‍🤝‍🧑🏿" type="tts">personar som leiar: hudtype 5, hudtype 6</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏻">halde hender | hand | hudtype 1–2 | hudtype 6 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏻">halda hender | hand | hudtype 1–2 | hudtype 6 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏻" type="tts">personar som leiar: hudtype 6, hudtype 1–2</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏼">halde hender | hand | hudtype 3 | hudtype 6 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏼">halda hender | hand | hudtype 3 | hudtype 6 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏼" type="tts">personar som leiar: hudtype 6, hudtype 3</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏽">halde hender | hand | hudtype 4 | hudtype 6 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏽">halda hender | hand | hudtype 4 | hudtype 6 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏽" type="tts">personar som leiar: hudtype 6, hudtype 4</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏾">halde hender | hand | hudtype 5 | hudtype 6 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏾">halda hender | hand | hudtype 5 | hudtype 6 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏾" type="tts">personar som leiar: hudtype 6, hudtype 5</annotation>
-		<annotation cp="🧑🏿‍🤝‍🧑🏿">halde hender | hand | hudtype 6 | par | personar | personar som leiar</annotation>
+		<annotation cp="🧑🏿‍🤝‍🧑🏿">halda hender | hand | hudtype 6 | par | personar | personar som leiar</annotation>
 		<annotation cp="🧑🏿‍🤝‍🧑🏿" type="tts">personar som leiar: hudtype 6</annotation>
-		<annotation cp="👭🏻">halde hender | hand | hudtype 1–2 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👭🏻" type="tts">kinner som leiar: hudtype 1–2</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏼">halde hender | hand | hudtype 1–2 | hudtype 3 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">kinner som leiar: hudtype 1–2, hudtype 3</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏽">halde hender | hand | hudtype 1–2 | hudtype 4 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">kinner som leiar: hudtype 1–2, hudtype 4</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏾">halde hender | hand | hudtype 1–2 | hudtype 5 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">kinner som leiar: hudtype 1–2, hudtype 5</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏿">halde hender | hand | hudtype 1–2 | hudtype 6 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">kinner som leiar: hudtype 1–2, hudtype 6</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻">halde hender | hand | hudtype 1–2 | hudtype 3 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">kinner som leiar: hudtype 3, hudtype 1–2</annotation>
-		<annotation cp="👭🏼">halde hender | hand | hudtype 3 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👭🏼" type="tts">kinner som leiar: hudtype 3</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏽">halde hender | hand | hudtype 3 | hudtype 4 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">kinner som leiar: hudtype 3, hudtype 4</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏾">halde hender | hand | hudtype 3 | hudtype 5 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">kinner som leiar: hudtype 3, hudtype 5</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏿">halde hender | hand | hudtype 3 | hudtype 6 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">kinner som leiar: hudtype 3, hudtype 6</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻">halde hender | hand | hudtype 1–2 | hudtype 4 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">kinner som leiar: hudtype 4, hudtype 1–2</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼">halde hender | hand | hudtype 3 | hudtype 4 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">kinner som leiar: hudtype 4, hudtype 3</annotation>
-		<annotation cp="👭🏽">halde hender | hand | hudtype 4 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👭🏽" type="tts">kinner som leiar: hudtype 4</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏾">halde hender | hand | hudtype 4 | hudtype 5 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">kinner som leiar: hudtype 4, hudtype 5</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏿">halde hender | hand | hudtype 4 | hudtype 6 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">kinner som leiar: hudtype 4, hudtype 6</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻">halde hender | hand | hudtype 1–2 | hudtype 5 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">kinner som leiar: hudtype 5, hudtype 1–2</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼">halde hender | hand | hudtype 3 | hudtype 5 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">kinner som leiar: hudtype 5, hudtype 3</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽">halde hender | hand | hudtype 4 | hudtype 5 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">kinner som leiar: hudtype 5, hudtype 4</annotation>
-		<annotation cp="👭🏾">halde hender | hand | hudtype 5 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👭🏾" type="tts">kinner som leiar: hudtype 5</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏿">halde hender | hand | hudtype 5 | hudtype 6 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">kinner som leiar: hudtype 5, hudtype 6</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻">halde hender | hand | hudtype 1–2 | hudtype 6 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">kinner som leiar: hudtype 6, hudtype 1–2</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼">halde hender | hand | hudtype 3 | hudtype 6 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">kinner som leiar: hudtype 6, hudtype 3</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽">halde hender | hand | hudtype 4 | hudtype 6 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">kinner som leiar: hudtype 6, hudtype 4</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾">halde hender | hand | hudtype 5 | hudtype 6 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">kinner som leiar: hudtype 6, hudtype 5</annotation>
-		<annotation cp="👭🏿">halde hender | hand | hudtype 6 | kinner som leiar | kvinne | kvinner som leiar | par</annotation>
-		<annotation cp="👭🏿" type="tts">kinner som leiar: hudtype 6</annotation>
+		<annotation cp="👭🏻">halda hender | hand | hudtype 1–2 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👭🏻" type="tts">kvinner som leiar: hudtype 1–2</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼">halda hender | hand | hudtype 1–2 | hudtype 3 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏼" type="tts">kvinner som leiar: hudtype 1–2, hudtype 3</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽">halda hender | hand | hudtype 1–2 | hudtype 4 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏽" type="tts">kvinner som leiar: hudtype 1–2, hudtype 4</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾">halda hender | hand | hudtype 1–2 | hudtype 5 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏾" type="tts">kvinner som leiar: hudtype 1–2, hudtype 5</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿">halda hender | hand | hudtype 1–2 | hudtype 6 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏻‍🤝‍👩🏿" type="tts">kvinner som leiar: hudtype 1–2, hudtype 6</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻">halda hender | hand | hudtype 1–2 | hudtype 3 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏻" type="tts">kvinner som leiar: hudtype 3, hudtype 1–2</annotation>
+		<annotation cp="👭🏼">halda hender | hand | hudtype 3 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👭🏼" type="tts">kvinner som leiar: hudtype 3</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽">halda hender | hand | hudtype 3 | hudtype 4 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏽" type="tts">kvinner som leiar: hudtype 3, hudtype 4</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾">halda hender | hand | hudtype 3 | hudtype 5 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏾" type="tts">kvinner som leiar: hudtype 3, hudtype 5</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿">halda hender | hand | hudtype 3 | hudtype 6 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏼‍🤝‍👩🏿" type="tts">kvinner som leiar: hudtype 3, hudtype 6</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻">halda hender | hand | hudtype 1–2 | hudtype 4 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏻" type="tts">kvinner som leiar: hudtype 4, hudtype 1–2</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼">halda hender | hand | hudtype 3 | hudtype 4 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏼" type="tts">kvinner som leiar: hudtype 4, hudtype 3</annotation>
+		<annotation cp="👭🏽">halda hender | hand | hudtype 4 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👭🏽" type="tts">kvinner som leiar: hudtype 4</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾">halda hender | hand | hudtype 4 | hudtype 5 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏾" type="tts">kvinner som leiar: hudtype 4, hudtype 5</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿">halda hender | hand | hudtype 4 | hudtype 6 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏽‍🤝‍👩🏿" type="tts">kvinner som leiar: hudtype 4, hudtype 6</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻">halda hender | hand | hudtype 1–2 | hudtype 5 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏻" type="tts">kvinner som leiar: hudtype 5, hudtype 1–2</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼">halda hender | hand | hudtype 3 | hudtype 5 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏼" type="tts">kvinner som leiar: hudtype 5, hudtype 3</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽">halda hender | hand | hudtype 4 | hudtype 5 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏽" type="tts">kvinner som leiar: hudtype 5, hudtype 4</annotation>
+		<annotation cp="👭🏾">halda hender | hand | hudtype 5 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👭🏾" type="tts">kvinner som leiar: hudtype 5</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿">halda hender | hand | hudtype 5 | hudtype 6 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏾‍🤝‍👩🏿" type="tts">kvinner som leiar: hudtype 5, hudtype 6</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻">halda hender | hand | hudtype 1–2 | hudtype 6 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏻" type="tts">kvinner som leiar: hudtype 6, hudtype 1–2</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼">halda hender | hand | hudtype 3 | hudtype 6 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏼" type="tts">kvinner som leiar: hudtype 6, hudtype 3</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽">halda hender | hand | hudtype 4 | hudtype 6 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏽" type="tts">kvinner som leiar: hudtype 6, hudtype 4</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾">halda hender | hand | hudtype 5 | hudtype 6 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👩🏿‍🤝‍👩🏾" type="tts">kvinner som leiar: hudtype 6, hudtype 5</annotation>
+		<annotation cp="👭🏿">halda hender | hand | hudtype 6 | kvinne | kvinner som leiar | par</annotation>
+		<annotation cp="👭🏿" type="tts">kvinner som leiar: hudtype 6</annotation>
 		<annotation cp="👫🏻">hand | held hender | hudtype 1–2 | kvinne | mann | mann og kvinne som leiar | par</annotation>
 		<annotation cp="👫🏻" type="tts">mann og kvinne som leiar: hudtype 1–2</annotation>
 		<annotation cp="👩🏻‍🤝‍👨🏼">hand | held hender | hudtype 1–2 | hudtype 3 | kvinne | mann | mann og kvinne som leiar | par</annotation>
@@ -2642,7 +2858,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🔟" type="tts">tastar: 10</annotation>
 		<annotation cp="🇦🇪" type="tts">flagg: Dei sameinte arabiske emirata</annotation>
 		<annotation cp="🇦🇹" type="tts">flagg: Austerrike</annotation>
-		<annotation cp="🇧🇾" type="tts">flagg: Kviterussland</annotation>
 		<annotation cp="🇨🇨" type="tts">flagg: Kokosøyane</annotation>
 		<annotation cp="🇨🇩" type="tts">flagg: Kongo-Kinshasa</annotation>
 		<annotation cp="🇨🇫" type="tts">flagg: Den sentralafrikanske republikken</annotation>
@@ -2671,7 +2886,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇹🇫" type="tts">flagg: Dei franske sørterritoria</annotation>
 		<annotation cp="🇹🇱" type="tts">flagg: Aust-Timor</annotation>
 		<annotation cp="🇺🇲" type="tts">flagg: USAs ytre småøyar</annotation>
-		<annotation cp="🇺🇳" type="tts">flagg: SN</annotation>
+		<annotation cp="🇺🇳" type="tts">flagg: Dei sameinte nasjonane</annotation>
 		<annotation cp="🇻🇨" type="tts">flagg: St. Vincent og Grenadinane</annotation>
 		<annotation cp="🇻🇬" type="tts">flagg: Dei britiske Jomfruøyane</annotation>
 		<annotation cp="🇻🇮" type="tts">flagg: Dei amerikanske Jomfruøyane</annotation>
@@ -2679,6 +2894,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₡" type="tts">kostarikanske colón</annotation>
 		<annotation cp="₪" type="tts">nye israelske sheklar</annotation>
 		<annotation cp="₲" type="tts">paraguayanske guaraní</annotation>
+		<annotation cp="₺" type="tts">tyrkiske lira</annotation>
 		<annotation cp="0⃣">tastar</annotation>
 		<annotation cp="0⃣" type="tts">tastar: 0</annotation>
 		<annotation cp="1⃣">tastar</annotation>

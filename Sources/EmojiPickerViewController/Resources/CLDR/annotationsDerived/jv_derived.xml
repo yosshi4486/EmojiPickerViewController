@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -13,15 +13,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<language type="jv"/>
 	</identity>
 	<annotations>
-		<annotation cp="👋🏻">awe-awe | kulit putih | tangan | tangan ngawe-awe</annotation>
+		<annotation cp="👋🏻">awe-awe | dada | kulit putih | tangan | tangan ngawe-awe</annotation>
 		<annotation cp="👋🏻" type="tts">tangan ngawe-awe: kulit putih</annotation>
-		<annotation cp="👋🏼">awe-awe | kulit putih langsep | tangan | tangan ngawe-awe</annotation>
+		<annotation cp="👋🏼">awe-awe | dada | kulit putih langsep | tangan | tangan ngawe-awe</annotation>
 		<annotation cp="👋🏼" type="tts">tangan ngawe-awe: kulit putih langsep</annotation>
-		<annotation cp="👋🏽">awe-awe | kulit kuning | tangan | tangan ngawe-awe</annotation>
+		<annotation cp="👋🏽">awe-awe | dada | kulit kuning | tangan | tangan ngawe-awe</annotation>
 		<annotation cp="👋🏽" type="tts">tangan ngawe-awe: kulit kuning</annotation>
-		<annotation cp="👋🏾">awe-awe | kulit sawo mateng | tangan | tangan ngawe-awe</annotation>
+		<annotation cp="👋🏾">awe-awe | dada | kulit sawo mateng | tangan | tangan ngawe-awe</annotation>
 		<annotation cp="👋🏾" type="tts">tangan ngawe-awe: kulit sawo mateng</annotation>
-		<annotation cp="👋🏿">awe-awe | kulit ireng | tangan | tangan ngawe-awe</annotation>
+		<annotation cp="👋🏿">awe-awe | dada | kulit ireng | tangan | tangan ngawe-awe</annotation>
 		<annotation cp="👋🏿" type="tts">tangan ngawe-awe: kulit ireng</annotation>
 		<annotation cp="🤚🏻">diangkat | geger tangan | kulit putih | tangan diangkat nuduhake gegere bae</annotation>
 		<annotation cp="🤚🏻" type="tts">tangan diangkat nuduhake gegere bae: kulit putih</annotation>
@@ -113,55 +113,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫱🏿‍🫲🏽" type="tts">salaman: kulit ireng, kulit kuning</annotation>
 		<annotation cp="🫱🏿‍🫲🏾">kulit ireng | kulit sawo mateng | rapat | salam | salaman | sarujuk | tangan</annotation>
 		<annotation cp="🫱🏿‍🫲🏾" type="tts">salaman: kulit ireng, kulit sawo mateng</annotation>
-		<annotation cp="🫲🏻">kiwo | kulit putih | ngiwo | tangan</annotation>
+		<annotation cp="🫲🏻">kiwa | kulit putih | ngiwa | tangan</annotation>
 		<annotation cp="🫲🏻" type="tts">tangan kiwo: kulit putih</annotation>
-		<annotation cp="🫲🏼">kiwo | kulit putih langsep | ngiwo | tangan</annotation>
+		<annotation cp="🫲🏼">kiwa | kulit putih langsep | ngiwa | tangan</annotation>
 		<annotation cp="🫲🏼" type="tts">tangan kiwo: kulit putih langsep</annotation>
-		<annotation cp="🫲🏽">kiwo | kulit kuning | ngiwo | tangan</annotation>
+		<annotation cp="🫲🏽">kiwa | kulit kuning | ngiwa | tangan</annotation>
 		<annotation cp="🫲🏽" type="tts">tangan kiwo: kulit kuning</annotation>
-		<annotation cp="🫲🏾">kiwo | kulit sawo mateng | ngiwo | tangan</annotation>
+		<annotation cp="🫲🏾">kiwa | kulit sawo mateng | ngiwa | tangan</annotation>
 		<annotation cp="🫲🏾" type="tts">tangan kiwo: kulit sawo mateng</annotation>
-		<annotation cp="🫲🏿">kiwo | kulit ireng | ngiwo | tangan</annotation>
+		<annotation cp="🫲🏿">kiwa | kulit ireng | ngiwa | tangan</annotation>
 		<annotation cp="🫲🏿" type="tts">tangan kiwo: kulit ireng</annotation>
-		<annotation cp="🫳🏻">kulit putih | ndeleh | ngilangke | ngusir | tangan madep ngisor</annotation>
+		<annotation cp="🫳🏻">kulit putih | ndeleh | ngilangke | ngusir | tangan madhep ngisor</annotation>
 		<annotation cp="🫳🏻" type="tts">tangan madep ngisor: kulit putih</annotation>
-		<annotation cp="🫳🏼">kulit putih langsep | ndeleh | ngilangke | ngusir | tangan madep ngisor</annotation>
+		<annotation cp="🫳🏼">kulit putih langsep | ndeleh | ngilangke | ngusir | tangan madhep ngisor</annotation>
 		<annotation cp="🫳🏼" type="tts">tangan madep ngisor: kulit putih langsep</annotation>
-		<annotation cp="🫳🏽">kulit kuning | ndeleh | ngilangke | ngusir | tangan madep ngisor</annotation>
+		<annotation cp="🫳🏽">kulit kuning | ndeleh | ngilangke | ngusir | tangan madhep ngisor</annotation>
 		<annotation cp="🫳🏽" type="tts">tangan madep ngisor: kulit kuning</annotation>
-		<annotation cp="🫳🏾">kulit sawo mateng | ndeleh | ngilangke | ngusir | tangan madep ngisor</annotation>
+		<annotation cp="🫳🏾">kulit sawo mateng | ndeleh | ngilangke | ngusir | tangan madhep ngisor</annotation>
 		<annotation cp="🫳🏾" type="tts">tangan madep ngisor: kulit sawo mateng</annotation>
-		<annotation cp="🫳🏿">kulit ireng | ndeleh | ngilangke | ngusir | tangan madep ngisor</annotation>
+		<annotation cp="🫳🏿">kulit ireng | ndeleh | ngilangke | ngusir | tangan madhep ngisor</annotation>
 		<annotation cp="🫳🏿" type="tts">tangan madep ngisor: kulit ireng</annotation>
-		<annotation cp="🫴🏻">kulit putih | nangkap | nawareke | tangan madep nduwur | teko | wenehke</annotation>
+		<annotation cp="🫴🏻">kulit putih | nadhah | nampani | nangkap | tangan madhep ndhuwur | teka | wenehke</annotation>
 		<annotation cp="🫴🏻" type="tts">tangan madep nduwur: kulit putih</annotation>
-		<annotation cp="🫴🏼">kulit putih langsep | nangkap | nawareke | tangan madep nduwur | teko | wenehke</annotation>
+		<annotation cp="🫴🏼">kulit putih langsep | nadhah | nampani | nangkap | tangan madhep ndhuwur | teka | wenehke</annotation>
 		<annotation cp="🫴🏼" type="tts">tangan madep nduwur: kulit putih langsep</annotation>
-		<annotation cp="🫴🏽">kulit kuning | nangkap | nawareke | tangan madep nduwur | teko | wenehke</annotation>
+		<annotation cp="🫴🏽">kulit kuning | nadhah | nampani | nangkap | tangan madhep ndhuwur | teka | wenehke</annotation>
 		<annotation cp="🫴🏽" type="tts">tangan madep nduwur: kulit kuning</annotation>
-		<annotation cp="🫴🏾">kulit sawo mateng | nangkap | nawareke | tangan madep nduwur | teko | wenehke</annotation>
+		<annotation cp="🫴🏾">kulit sawo mateng | nadhah | nampani | nangkap | tangan madhep ndhuwur | teka | wenehke</annotation>
 		<annotation cp="🫴🏾" type="tts">tangan madep nduwur: kulit sawo mateng</annotation>
-		<annotation cp="🫴🏿">kulit ireng | nangkap | nawareke | tangan madep nduwur | teko | wenehke</annotation>
+		<annotation cp="🫴🏿">kulit ireng | nadhah | nampani | nangkap | tangan madhep ndhuwur | teka | wenehke</annotation>
 		<annotation cp="🫴🏿" type="tts">tangan madep nduwur: kulit ireng</annotation>
-		<annotation cp="🫷🏻">kulit putih | mandeg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
+		<annotation cp="🫷🏻">kulit putih | mandheg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
 		<annotation cp="🫷🏻" type="tts">tangan sisih kiwa nyurung: kulit putih</annotation>
-		<annotation cp="🫷🏼">kulit putih langsep | mandeg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
+		<annotation cp="🫷🏼">kulit putih langsep | mandheg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
 		<annotation cp="🫷🏼" type="tts">tangan sisih kiwa nyurung: kulit putih langsep</annotation>
-		<annotation cp="🫷🏽">kulit kuning | mandeg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
+		<annotation cp="🫷🏽">kulit kuning | mandheg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
 		<annotation cp="🫷🏽" type="tts">tangan sisih kiwa nyurung: kulit kuning</annotation>
-		<annotation cp="🫷🏾">kulit sawo mateng | mandeg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
+		<annotation cp="🫷🏾">kulit sawo mateng | mandheg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
 		<annotation cp="🫷🏾" type="tts">tangan sisih kiwa nyurung: kulit sawo mateng</annotation>
-		<annotation cp="🫷🏿">kulit ireng | mandeg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
+		<annotation cp="🫷🏿">kulit ireng | mandheg | ngenteni | nolak | nyurung | sisih kiwa | tangan sisih kiwa nyurung | tos</annotation>
 		<annotation cp="🫷🏿" type="tts">tangan sisih kiwa nyurung: kulit ireng</annotation>
-		<annotation cp="🫸🏻">kulit putih | mandeg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
+		<annotation cp="🫸🏻">kulit putih | mandheg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
 		<annotation cp="🫸🏻" type="tts">tangan sisih tengen nyurung: kulit putih</annotation>
-		<annotation cp="🫸🏼">kulit putih langsep | mandeg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
+		<annotation cp="🫸🏼">kulit putih langsep | mandheg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
 		<annotation cp="🫸🏼" type="tts">tangan sisih tengen nyurung: kulit putih langsep</annotation>
-		<annotation cp="🫸🏽">kulit kuning | mandeg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
+		<annotation cp="🫸🏽">kulit kuning | mandheg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
 		<annotation cp="🫸🏽" type="tts">tangan sisih tengen nyurung: kulit kuning</annotation>
-		<annotation cp="🫸🏾">kulit sawo mateng | mandeg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
+		<annotation cp="🫸🏾">kulit sawo mateng | mandheg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
 		<annotation cp="🫸🏾" type="tts">tangan sisih tengen nyurung: kulit sawo mateng</annotation>
-		<annotation cp="🫸🏿">kulit ireng | mandeg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
+		<annotation cp="🫸🏿">kulit ireng | mandheg | ngenteni | nolak | nyurung | sisih tengen | tangan sisih tengen nyurung | tos</annotation>
 		<annotation cp="🫸🏿" type="tts">tangan sisih tengen nyurung: kulit ireng</annotation>
 		<annotation cp="👌🏻">kulit putih | OK | tangan | tangan nuduhake tandha OK</annotation>
 		<annotation cp="👌🏻" type="tts">tangan nuduhake tandha OK: kulit putih</annotation>
@@ -173,15 +173,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👌🏾" type="tts">tangan nuduhake tandha OK: kulit sawo mateng</annotation>
 		<annotation cp="👌🏿">kulit ireng | OK | tangan | tangan nuduhake tandha OK</annotation>
 		<annotation cp="👌🏿" type="tts">tangan nuduhake tandha OK: kulit ireng</annotation>
-		<annotation cp="🤌🏻">basa tangan | digatukake | driji | interogasi | kulit putih | landep</annotation>
+		<annotation cp="🤌🏻">basa tangan | digathukake | driji | interogasi | kulit putih | landhep | sarkas</annotation>
 		<annotation cp="🤌🏻" type="tts">driji digatukake: kulit putih</annotation>
-		<annotation cp="🤌🏼">basa tangan | digatukake | driji | interogasi | kulit putih langsep | landep</annotation>
+		<annotation cp="🤌🏼">basa tangan | digathukake | driji | interogasi | kulit putih langsep | landhep | sarkas</annotation>
 		<annotation cp="🤌🏼" type="tts">driji digatukake: kulit putih langsep</annotation>
-		<annotation cp="🤌🏽">basa tangan | digatukake | driji | interogasi | kulit kuning | landep</annotation>
+		<annotation cp="🤌🏽">basa tangan | digathukake | driji | interogasi | kulit kuning | landhep | sarkas</annotation>
 		<annotation cp="🤌🏽" type="tts">driji digatukake: kulit kuning</annotation>
-		<annotation cp="🤌🏾">basa tangan | digatukake | driji | interogasi | kulit sawo mateng | landep</annotation>
+		<annotation cp="🤌🏾">basa tangan | digathukake | driji | interogasi | kulit sawo mateng | landhep | sarkas</annotation>
 		<annotation cp="🤌🏾" type="tts">driji digatukake: kulit sawo mateng</annotation>
-		<annotation cp="🤌🏿">basa tangan | digatukake | driji | interogasi | kulit ireng | landep</annotation>
+		<annotation cp="🤌🏿">basa tangan | digathukake | driji | interogasi | kulit ireng | landhep | sarkas</annotation>
 		<annotation cp="🤌🏿" type="tts">driji digatukake: kulit ireng</annotation>
 		<annotation cp="🤏🏻">kulit putih | sethithik bae | tangan njiwit</annotation>
 		<annotation cp="🤏🏻" type="tts">tangan njiwit: kulit putih</annotation>
@@ -213,15 +213,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤞🏾" type="tts">driji loro tetalenan: kulit sawo mateng</annotation>
 		<annotation cp="🤞🏿">driji | driji loro tetalenan | kabegjan | kulit ireng | tangan | tetalen</annotation>
 		<annotation cp="🤞🏿" type="tts">driji loro tetalenan: kulit ireng</annotation>
-		<annotation cp="🫰🏻">ati | duwit | kulit putih | larang | swara seru | tangan mawa jempol karo driji telunjuk tetalenan | trisno</annotation>
+		<annotation cp="🫰🏻">ati | dhuwit | kulit putih | larang | swara seru | tangan mawa jempol karo driji telunjuk tetalenan | tresna</annotation>
 		<annotation cp="🫰🏻" type="tts">tangan mawa jempol karo driji telunjuk tetalenan: kulit putih</annotation>
-		<annotation cp="🫰🏼">ati | duwit | kulit putih langsep | larang | swara seru | tangan mawa jempol karo driji telunjuk tetalenan | trisno</annotation>
+		<annotation cp="🫰🏼">ati | dhuwit | kulit putih langsep | larang | swara seru | tangan mawa jempol karo driji telunjuk tetalenan | tresna</annotation>
 		<annotation cp="🫰🏼" type="tts">tangan mawa jempol karo driji telunjuk tetalenan: kulit putih langsep</annotation>
-		<annotation cp="🫰🏽">ati | duwit | kulit kuning | larang | swara seru | tangan mawa jempol karo driji telunjuk tetalenan | trisno</annotation>
+		<annotation cp="🫰🏽">ati | dhuwit | kulit kuning | larang | swara seru | tangan mawa jempol karo driji telunjuk tetalenan | tresna</annotation>
 		<annotation cp="🫰🏽" type="tts">tangan mawa jempol karo driji telunjuk tetalenan: kulit kuning</annotation>
-		<annotation cp="🫰🏾">ati | duwit | kulit sawo mateng | larang | swara seru | tangan mawa jempol karo driji telunjuk tetalenan | trisno</annotation>
+		<annotation cp="🫰🏾">ati | dhuwit | kulit sawo mateng | larang | swara seru | tangan mawa jempol karo driji telunjuk tetalenan | tresna</annotation>
 		<annotation cp="🫰🏾" type="tts">tangan mawa jempol karo driji telunjuk tetalenan: kulit sawo mateng</annotation>
-		<annotation cp="🫰🏿">ati | duwit | kulit ireng | larang | swara seru | tangan mawa jempol karo driji telunjuk tetalenan | trisno</annotation>
+		<annotation cp="🫰🏿">ati | dhuwit | kulit ireng | larang | swara seru | tangan mawa jempol karo driji telunjuk tetalenan | tresna</annotation>
 		<annotation cp="🫰🏿" type="tts">tangan mawa jempol karo driji telunjuk tetalenan: kulit ireng</annotation>
 		<annotation cp="🤟🏻">ILY | kulit putih | tangan | tangan nuduhake tandha tresna sliramu</annotation>
 		<annotation cp="🤟🏻" type="tts">tangan nuduhake tandha tresna sliramu: kulit putih</annotation>
@@ -323,25 +323,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫵🏾" type="tts">driji panuduh seng ngewasi: kulit sawo mateng</annotation>
 		<annotation cp="🫵🏿">driji panuduh seng ngewasi | kowe | kulit ireng | panuduh</annotation>
 		<annotation cp="🫵🏿" type="tts">driji panuduh seng ngewasi: kulit ireng</annotation>
-		<annotation cp="👍🏻">+1 | jempol | kulit putih | ngacung | tangan</annotation>
+		<annotation cp="👍🏻">+1 | bener | iya | jempol | kulit putih | ngacung | tangan</annotation>
 		<annotation cp="👍🏻" type="tts">jempol ngacung: kulit putih</annotation>
-		<annotation cp="👍🏼">+1 | jempol | kulit putih langsep | ngacung | tangan</annotation>
+		<annotation cp="👍🏼">+1 | bener | iya | jempol | kulit putih langsep | ngacung | tangan</annotation>
 		<annotation cp="👍🏼" type="tts">jempol ngacung: kulit putih langsep</annotation>
-		<annotation cp="👍🏽">+1 | jempol | kulit kuning | ngacung | tangan</annotation>
+		<annotation cp="👍🏽">+1 | bener | iya | jempol | kulit kuning | ngacung | tangan</annotation>
 		<annotation cp="👍🏽" type="tts">jempol ngacung: kulit kuning</annotation>
-		<annotation cp="👍🏾">+1 | jempol | kulit sawo mateng | ngacung | tangan</annotation>
+		<annotation cp="👍🏾">+1 | bener | iya | jempol | kulit sawo mateng | ngacung | tangan</annotation>
 		<annotation cp="👍🏾" type="tts">jempol ngacung: kulit sawo mateng</annotation>
-		<annotation cp="👍🏿">+1 | jempol | kulit ireng | ngacung | tangan</annotation>
+		<annotation cp="👍🏿">+1 | bener | iya | jempol | kulit ireng | ngacung | tangan</annotation>
 		<annotation cp="👍🏿" type="tts">jempol ngacung: kulit ireng</annotation>
-		<annotation cp="👎🏻">-1 | jempol | jempol ngacung mudhun | kulit putih | ngacung mudhun | tangan</annotation>
+		<annotation cp="👎🏻">-1 | ala | elek | jempol | jempol ngacung mudhun | kulit putih | ngacung mudhun | tangan</annotation>
 		<annotation cp="👎🏻" type="tts">jempol ngacung mudhun: kulit putih</annotation>
-		<annotation cp="👎🏼">-1 | jempol | jempol ngacung mudhun | kulit putih langsep | ngacung mudhun | tangan</annotation>
+		<annotation cp="👎🏼">-1 | ala | elek | jempol | jempol ngacung mudhun | kulit putih langsep | ngacung mudhun | tangan</annotation>
 		<annotation cp="👎🏼" type="tts">jempol ngacung mudhun: kulit putih langsep</annotation>
-		<annotation cp="👎🏽">-1 | jempol | jempol ngacung mudhun | kulit kuning | ngacung mudhun | tangan</annotation>
+		<annotation cp="👎🏽">-1 | ala | elek | jempol | jempol ngacung mudhun | kulit kuning | ngacung mudhun | tangan</annotation>
 		<annotation cp="👎🏽" type="tts">jempol ngacung mudhun: kulit kuning</annotation>
-		<annotation cp="👎🏾">-1 | jempol | jempol ngacung mudhun | kulit sawo mateng | ngacung mudhun | tangan</annotation>
+		<annotation cp="👎🏾">-1 | ala | elek | jempol | jempol ngacung mudhun | kulit sawo mateng | ngacung mudhun | tangan</annotation>
 		<annotation cp="👎🏾" type="tts">jempol ngacung mudhun: kulit sawo mateng</annotation>
-		<annotation cp="👎🏿">-1 | jempol | jempol ngacung mudhun | kulit ireng | ngacung mudhun | tangan</annotation>
+		<annotation cp="👎🏿">-1 | ala | elek | jempol | jempol ngacung mudhun | kulit ireng | ngacung mudhun | tangan</annotation>
 		<annotation cp="👎🏿" type="tts">jempol ngacung mudhun: kulit ireng</annotation>
 		<annotation cp="✊🏻">kepel | kulit putih | ngacungake kepel | ngantem | nggegem | tangan</annotation>
 		<annotation cp="✊🏻" type="tts">ngacungake kepel: kulit putih</annotation>
@@ -403,15 +403,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙌🏾" type="tts">tangan loro diangkat: kulit sawo mateng</annotation>
 		<annotation cp="🙌🏿">diangkat | hore | isarat | kulit ireng | pista | tangan | tangan loro diangkat</annotation>
 		<annotation cp="🙌🏿" type="tts">tangan loro diangkat: kulit ireng</annotation>
-		<annotation cp="🫶🏻">kulit putih | tangan loro mbentuk ati | trisno</annotation>
+		<annotation cp="🫶🏻">kulit putih | tangan loro mbentuk ati | tresna</annotation>
 		<annotation cp="🫶🏻" type="tts">tangan loro mbentuk ati: kulit putih</annotation>
-		<annotation cp="🫶🏼">kulit putih langsep | tangan loro mbentuk ati | trisno</annotation>
+		<annotation cp="🫶🏼">kulit putih langsep | tangan loro mbentuk ati | tresna</annotation>
 		<annotation cp="🫶🏼" type="tts">tangan loro mbentuk ati: kulit putih langsep</annotation>
-		<annotation cp="🫶🏽">kulit kuning | tangan loro mbentuk ati | trisno</annotation>
+		<annotation cp="🫶🏽">kulit kuning | tangan loro mbentuk ati | tresna</annotation>
 		<annotation cp="🫶🏽" type="tts">tangan loro mbentuk ati: kulit kuning</annotation>
-		<annotation cp="🫶🏾">kulit sawo mateng | tangan loro mbentuk ati | trisno</annotation>
+		<annotation cp="🫶🏾">kulit sawo mateng | tangan loro mbentuk ati | tresna</annotation>
 		<annotation cp="🫶🏾" type="tts">tangan loro mbentuk ati: kulit sawo mateng</annotation>
-		<annotation cp="🫶🏿">kulit ireng | tangan loro mbentuk ati | trisno</annotation>
+		<annotation cp="🫶🏿">kulit ireng | tangan loro mbentuk ati | tresna</annotation>
 		<annotation cp="🫶🏿" type="tts">tangan loro mbentuk ati: kulit ireng</annotation>
 		<annotation cp="👐🏻">kulit putih | mlumah | tangan | tangan loro mlumah</annotation>
 		<annotation cp="👐🏻" type="tts">tangan loro mlumah: kulit putih</annotation>
@@ -423,15 +423,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👐🏾" type="tts">tangan loro mlumah: kulit sawo mateng</annotation>
 		<annotation cp="👐🏿">kulit ireng | mlumah | tangan | tangan loro mlumah</annotation>
 		<annotation cp="👐🏿" type="tts">tangan loro mlumah: kulit ireng</annotation>
-		<annotation cp="🤲🏻">kulit putih | ndonga | tangan loro mandho nadhah amin | tangan loro nadhah</annotation>
+		<annotation cp="🤲🏻">dedonga | kulit putih | ndonga | tangan loro nadhah | tangan loro nadhah amin</annotation>
 		<annotation cp="🤲🏻" type="tts">tangan loro mandho nadhah amin: kulit putih</annotation>
-		<annotation cp="🤲🏼">kulit putih langsep | ndonga | tangan loro mandho nadhah amin | tangan loro nadhah</annotation>
+		<annotation cp="🤲🏼">dedonga | kulit putih langsep | ndonga | tangan loro nadhah | tangan loro nadhah amin</annotation>
 		<annotation cp="🤲🏼" type="tts">tangan loro mandho nadhah amin: kulit putih langsep</annotation>
-		<annotation cp="🤲🏽">kulit kuning | ndonga | tangan loro mandho nadhah amin | tangan loro nadhah</annotation>
+		<annotation cp="🤲🏽">dedonga | kulit kuning | ndonga | tangan loro nadhah | tangan loro nadhah amin</annotation>
 		<annotation cp="🤲🏽" type="tts">tangan loro mandho nadhah amin: kulit kuning</annotation>
-		<annotation cp="🤲🏾">kulit sawo mateng | ndonga | tangan loro mandho nadhah amin | tangan loro nadhah</annotation>
+		<annotation cp="🤲🏾">dedonga | kulit sawo mateng | ndonga | tangan loro nadhah | tangan loro nadhah amin</annotation>
 		<annotation cp="🤲🏾" type="tts">tangan loro mandho nadhah amin: kulit sawo mateng</annotation>
-		<annotation cp="🤲🏿">kulit ireng | ndonga | tangan loro mandho nadhah amin | tangan loro nadhah</annotation>
+		<annotation cp="🤲🏿">dedonga | kulit ireng | ndonga | tangan loro nadhah | tangan loro nadhah amin</annotation>
 		<annotation cp="🤲🏿" type="tts">tangan loro mandho nadhah amin: kulit ireng</annotation>
 		<annotation cp="🤝🏻">kulit putih | rapat | salam | salaman | sarujuk | tangan</annotation>
 		<annotation cp="🤝🏻" type="tts">salaman: kulit putih</annotation>
@@ -483,15 +483,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤳🏾" type="tts">foto selfi: kulit sawo mateng</annotation>
 		<annotation cp="🤳🏿">foto selfi | hp | kamera | kulit ireng | selfi</annotation>
 		<annotation cp="🤳🏿" type="tts">foto selfi: kulit ireng</annotation>
-		<annotation cp="💪🏻">kulit putih | lelucon | ngotot | otot | otot lengen | otot lengen mlenthung</annotation>
+		<annotation cp="💪🏻">binaraga | bisep | gym | kulit putih | lelucon | ngotot | otot | otot lengen | otot lengen methekol</annotation>
 		<annotation cp="💪🏻" type="tts">otot lengen mlenthung: kulit putih</annotation>
-		<annotation cp="💪🏼">kulit putih langsep | lelucon | ngotot | otot | otot lengen | otot lengen mlenthung</annotation>
+		<annotation cp="💪🏼">binaraga | bisep | gym | kulit putih langsep | lelucon | ngotot | otot | otot lengen | otot lengen methekol</annotation>
 		<annotation cp="💪🏼" type="tts">otot lengen mlenthung: kulit putih langsep</annotation>
-		<annotation cp="💪🏽">kulit kuning | lelucon | ngotot | otot | otot lengen | otot lengen mlenthung</annotation>
+		<annotation cp="💪🏽">binaraga | bisep | gym | kulit kuning | lelucon | ngotot | otot | otot lengen | otot lengen methekol</annotation>
 		<annotation cp="💪🏽" type="tts">otot lengen mlenthung: kulit kuning</annotation>
-		<annotation cp="💪🏾">kulit sawo mateng | lelucon | ngotot | otot | otot lengen | otot lengen mlenthung</annotation>
+		<annotation cp="💪🏾">binaraga | bisep | gym | kulit sawo mateng | lelucon | ngotot | otot | otot lengen | otot lengen methekol</annotation>
 		<annotation cp="💪🏾" type="tts">otot lengen mlenthung: kulit sawo mateng</annotation>
-		<annotation cp="💪🏿">kulit ireng | lelucon | ngotot | otot | otot lengen | otot lengen mlenthung</annotation>
+		<annotation cp="💪🏿">binaraga | bisep | gym | kulit ireng | lelucon | ngotot | otot | otot lengen | otot lengen methekol</annotation>
 		<annotation cp="💪🏿" type="tts">otot lengen mlenthung: kulit ireng</annotation>
 		<annotation cp="🦵🏻">kulit putih | perangan awak | sikil | tendhang</annotation>
 		<annotation cp="🦵🏻" type="tts">sikil: kulit putih</annotation>
@@ -563,15 +563,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧒🏾" type="tts">bocah: kulit sawo mateng</annotation>
 		<annotation cp="🧒🏿">bocah | jender netral | kulit ireng | nom | ora tamtu lanang wadone</annotation>
 		<annotation cp="🧒🏿" type="tts">bocah: kulit ireng</annotation>
-		<annotation cp="👦🏻">bocah lanang | kulit putih | nom</annotation>
+		<annotation cp="👦🏻">bocah lanang | kulit putih | nom | putu</annotation>
 		<annotation cp="👦🏻" type="tts">bocah lanang: kulit putih</annotation>
-		<annotation cp="👦🏼">bocah lanang | kulit putih langsep | nom</annotation>
+		<annotation cp="👦🏼">bocah lanang | kulit putih langsep | nom | putu</annotation>
 		<annotation cp="👦🏼" type="tts">bocah lanang: kulit putih langsep</annotation>
-		<annotation cp="👦🏽">bocah lanang | kulit kuning | nom</annotation>
+		<annotation cp="👦🏽">bocah lanang | kulit kuning | nom | putu</annotation>
 		<annotation cp="👦🏽" type="tts">bocah lanang: kulit kuning</annotation>
-		<annotation cp="👦🏾">bocah lanang | kulit sawo mateng | nom</annotation>
+		<annotation cp="👦🏾">bocah lanang | kulit sawo mateng | nom | putu</annotation>
 		<annotation cp="👦🏾" type="tts">bocah lanang: kulit sawo mateng</annotation>
-		<annotation cp="👦🏿">bocah lanang | kulit ireng | nom</annotation>
+		<annotation cp="👦🏿">bocah lanang | kulit ireng | nom | putu</annotation>
 		<annotation cp="👦🏿" type="tts">bocah lanang: kulit ireng</annotation>
 		<annotation cp="👧🏻">bocah wadon | kulit putih | nom | palintangan | Virgo</annotation>
 		<annotation cp="👧🏻" type="tts">bocah wadon: kulit putih</annotation>
@@ -741,15 +741,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾" type="tts">wong lanang: kulit sawo mateng</annotation>
 		<annotation cp="👨🏿">kulit ireng | lanang | wong diwasa | wong lanang</annotation>
 		<annotation cp="👨🏿" type="tts">wong lanang: kulit ireng</annotation>
-		<annotation cp="🧔🏻">jenggot | kulit putih | wong | wong: jenggot</annotation>
+		<annotation cp="🧔🏻">brewok | jenggot | kulit putih | wong | wong brewoken | wong jenggoten</annotation>
 		<annotation cp="🧔🏻" type="tts">wong: kulit putih, jenggot</annotation>
-		<annotation cp="🧔🏼">jenggot | kulit putih langsep | wong | wong: jenggot</annotation>
+		<annotation cp="🧔🏼">brewok | jenggot | kulit putih langsep | wong | wong brewoken | wong jenggoten</annotation>
 		<annotation cp="🧔🏼" type="tts">wong: kulit putih langsep, jenggot</annotation>
-		<annotation cp="🧔🏽">jenggot | kulit kuning | wong | wong: jenggot</annotation>
+		<annotation cp="🧔🏽">brewok | jenggot | kulit kuning | wong | wong brewoken | wong jenggoten</annotation>
 		<annotation cp="🧔🏽" type="tts">wong: kulit kuning, jenggot</annotation>
-		<annotation cp="🧔🏾">jenggot | kulit sawo mateng | wong | wong: jenggot</annotation>
+		<annotation cp="🧔🏾">brewok | jenggot | kulit sawo mateng | wong | wong brewoken | wong jenggoten</annotation>
 		<annotation cp="🧔🏾" type="tts">wong: kulit sawo mateng, jenggot</annotation>
-		<annotation cp="🧔🏿">jenggot | kulit ireng | wong | wong: jenggot</annotation>
+		<annotation cp="🧔🏿">brewok | jenggot | kulit ireng | wong | wong brewoken | wong jenggoten</annotation>
 		<annotation cp="🧔🏿" type="tts">wong: kulit ireng, jenggot</annotation>
 		<annotation cp="🧔🏻‍♂">jenggot | kulit putih | wong lanang | wong lanang: jenggot</annotation>
 		<annotation cp="🧔🏻‍♂" type="tts">wong lanang: kulit putih, jenggot</annotation>
@@ -1207,25 +1207,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧓🏾" type="tts">wong tuwa: kulit sawo mateng</annotation>
 		<annotation cp="🧓🏿">jender netral | kulit ireng | ora tamtu lanang wadone | tuwa | wong diwasa | wong tuwa</annotation>
 		<annotation cp="🧓🏿" type="tts">wong tuwa: kulit ireng</annotation>
-		<annotation cp="👴🏻">kulit putih | tuwa | wong diwasa | wong lanang | wong tuwa lanang</annotation>
+		<annotation cp="👴🏻">kulit putih | simbah kakung | tuwa | wong diwasa | wong lanang | wong tuwa lanang</annotation>
 		<annotation cp="👴🏻" type="tts">wong tuwa lanang: kulit putih</annotation>
-		<annotation cp="👴🏼">kulit putih langsep | tuwa | wong diwasa | wong lanang | wong tuwa lanang</annotation>
+		<annotation cp="👴🏼">kulit putih langsep | simbah kakung | tuwa | wong diwasa | wong lanang | wong tuwa lanang</annotation>
 		<annotation cp="👴🏼" type="tts">wong tuwa lanang: kulit putih langsep</annotation>
-		<annotation cp="👴🏽">kulit kuning | tuwa | wong diwasa | wong lanang | wong tuwa lanang</annotation>
+		<annotation cp="👴🏽">kulit kuning | simbah kakung | tuwa | wong diwasa | wong lanang | wong tuwa lanang</annotation>
 		<annotation cp="👴🏽" type="tts">wong tuwa lanang: kulit kuning</annotation>
-		<annotation cp="👴🏾">kulit sawo mateng | tuwa | wong diwasa | wong lanang | wong tuwa lanang</annotation>
+		<annotation cp="👴🏾">kulit sawo mateng | simbah kakung | tuwa | wong diwasa | wong lanang | wong tuwa lanang</annotation>
 		<annotation cp="👴🏾" type="tts">wong tuwa lanang: kulit sawo mateng</annotation>
-		<annotation cp="👴🏿">kulit ireng | tuwa | wong diwasa | wong lanang | wong tuwa lanang</annotation>
+		<annotation cp="👴🏿">kulit ireng | simbah kakung | tuwa | wong diwasa | wong lanang | wong tuwa lanang</annotation>
 		<annotation cp="👴🏿" type="tts">wong tuwa lanang: kulit ireng</annotation>
-		<annotation cp="👵🏻">kulit putih | tuwa | wong diwasa | wong wadon | wong wadon tuwa</annotation>
+		<annotation cp="👵🏻">kulit putih | simbah putri | tuwa | wong diwasa | wong wadon | wong wadon tuwa</annotation>
 		<annotation cp="👵🏻" type="tts">wong wadon tuwa: kulit putih</annotation>
-		<annotation cp="👵🏼">kulit putih langsep | tuwa | wong diwasa | wong wadon | wong wadon tuwa</annotation>
+		<annotation cp="👵🏼">kulit putih langsep | simbah putri | tuwa | wong diwasa | wong wadon | wong wadon tuwa</annotation>
 		<annotation cp="👵🏼" type="tts">wong wadon tuwa: kulit putih langsep</annotation>
-		<annotation cp="👵🏽">kulit kuning | tuwa | wong diwasa | wong wadon | wong wadon tuwa</annotation>
+		<annotation cp="👵🏽">kulit kuning | simbah putri | tuwa | wong diwasa | wong wadon | wong wadon tuwa</annotation>
 		<annotation cp="👵🏽" type="tts">wong wadon tuwa: kulit kuning</annotation>
-		<annotation cp="👵🏾">kulit sawo mateng | tuwa | wong diwasa | wong wadon | wong wadon tuwa</annotation>
+		<annotation cp="👵🏾">kulit sawo mateng | simbah putri | tuwa | wong diwasa | wong wadon | wong wadon tuwa</annotation>
 		<annotation cp="👵🏾" type="tts">wong wadon tuwa: kulit sawo mateng</annotation>
-		<annotation cp="👵🏿">kulit ireng | tuwa | wong diwasa | wong wadon | wong wadon tuwa</annotation>
+		<annotation cp="👵🏿">kulit ireng | simbah putri | tuwa | wong diwasa | wong wadon | wong wadon tuwa</annotation>
 		<annotation cp="👵🏿" type="tts">wong wadon tuwa: kulit ireng</annotation>
 		<annotation cp="🙍🏻">isarat | kulit putih | sedhih | wong sedhih</annotation>
 		<annotation cp="🙍🏻" type="tts">wong sedhih: kulit putih</annotation>
@@ -1377,15 +1377,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="💁🏾‍♀" type="tts">wong wadon tangane anyangga: kulit sawo mateng</annotation>
 		<annotation cp="💁🏿‍♀">kulit ireng | nggaya | tangan anyangga | wong wadon | wong wadon tangane anyangga</annotation>
 		<annotation cp="💁🏿‍♀" type="tts">wong wadon tangane anyangga: kulit ireng</annotation>
-		<annotation cp="🙋🏻">bungah | isarat | kulit putih | ngacung | tangan | wong ngacungake tangan</annotation>
+		<annotation cp="🙋🏻">bungah | isarat | kulit putih | ngacung | pitakon | tangan | wong ngacungake tangan</annotation>
 		<annotation cp="🙋🏻" type="tts">wong ngacungake tangan: kulit putih</annotation>
-		<annotation cp="🙋🏼">bungah | isarat | kulit putih langsep | ngacung | tangan | wong ngacungake tangan</annotation>
+		<annotation cp="🙋🏼">bungah | isarat | kulit putih langsep | ngacung | pitakon | tangan | wong ngacungake tangan</annotation>
 		<annotation cp="🙋🏼" type="tts">wong ngacungake tangan: kulit putih langsep</annotation>
-		<annotation cp="🙋🏽">bungah | isarat | kulit kuning | ngacung | tangan | wong ngacungake tangan</annotation>
+		<annotation cp="🙋🏽">bungah | isarat | kulit kuning | ngacung | pitakon | tangan | wong ngacungake tangan</annotation>
 		<annotation cp="🙋🏽" type="tts">wong ngacungake tangan: kulit kuning</annotation>
-		<annotation cp="🙋🏾">bungah | isarat | kulit sawo mateng | ngacung | tangan | wong ngacungake tangan</annotation>
+		<annotation cp="🙋🏾">bungah | isarat | kulit sawo mateng | ngacung | pitakon | tangan | wong ngacungake tangan</annotation>
 		<annotation cp="🙋🏾" type="tts">wong ngacungake tangan: kulit sawo mateng</annotation>
-		<annotation cp="🙋🏿">bungah | isarat | kulit ireng | ngacung | tangan | wong ngacungake tangan</annotation>
+		<annotation cp="🙋🏿">bungah | isarat | kulit ireng | ngacung | pitakon | tangan | wong ngacungake tangan</annotation>
 		<annotation cp="🙋🏿" type="tts">wong ngacungake tangan: kulit ireng</annotation>
 		<annotation cp="🙋🏻‍♂">isarat | kulit putih | ngacungake tangan | wong lanang | wong lanang ngacungake tangan</annotation>
 		<annotation cp="🙋🏻‍♂" type="tts">wong lanang ngacungake tangan: kulit putih</annotation>
@@ -1457,15 +1457,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙇🏾‍♂" type="tts">wong lanang mbungkuk ngurmati: kulit sawo mateng</annotation>
 		<annotation cp="🙇🏿‍♂">isarat | kilap | kulit ireng | mbungkuk | njaluk ngapura | njaluk tulung | wong lanang | wong lanang mbungkuk ngurmati</annotation>
 		<annotation cp="🙇🏿‍♂" type="tts">wong lanang mbungkuk ngurmati: kulit ireng</annotation>
-		<annotation cp="🙇🏻‍♀">isarat | kilap | kulit putih | mbungkuk | njaluk ngapura | njaluk tulung | wong wadon | wong wadon mbungkuk ngurmati</annotation>
+		<annotation cp="🙇🏻‍♀">isarat | kulit putih | mbungkuk | njaluk ngapura | njaluk tulung | takon | wong wadon | wong wadon mbungkuk ngurmati</annotation>
 		<annotation cp="🙇🏻‍♀" type="tts">wong wadon mbungkuk ngurmati: kulit putih</annotation>
-		<annotation cp="🙇🏼‍♀">isarat | kilap | kulit putih langsep | mbungkuk | njaluk ngapura | njaluk tulung | wong wadon | wong wadon mbungkuk ngurmati</annotation>
+		<annotation cp="🙇🏼‍♀">isarat | kulit putih langsep | mbungkuk | njaluk ngapura | njaluk tulung | takon | wong wadon | wong wadon mbungkuk ngurmati</annotation>
 		<annotation cp="🙇🏼‍♀" type="tts">wong wadon mbungkuk ngurmati: kulit putih langsep</annotation>
-		<annotation cp="🙇🏽‍♀">isarat | kilap | kulit kuning | mbungkuk | njaluk ngapura | njaluk tulung | wong wadon | wong wadon mbungkuk ngurmati</annotation>
+		<annotation cp="🙇🏽‍♀">isarat | kulit kuning | mbungkuk | njaluk ngapura | njaluk tulung | takon | wong wadon | wong wadon mbungkuk ngurmati</annotation>
 		<annotation cp="🙇🏽‍♀" type="tts">wong wadon mbungkuk ngurmati: kulit kuning</annotation>
-		<annotation cp="🙇🏾‍♀">isarat | kilap | kulit sawo mateng | mbungkuk | njaluk ngapura | njaluk tulung | wong wadon | wong wadon mbungkuk ngurmati</annotation>
+		<annotation cp="🙇🏾‍♀">isarat | kulit sawo mateng | mbungkuk | njaluk ngapura | njaluk tulung | takon | wong wadon | wong wadon mbungkuk ngurmati</annotation>
 		<annotation cp="🙇🏾‍♀" type="tts">wong wadon mbungkuk ngurmati: kulit sawo mateng</annotation>
-		<annotation cp="🙇🏿‍♀">isarat | kilap | kulit ireng | mbungkuk | njaluk ngapura | njaluk tulung | wong wadon | wong wadon mbungkuk ngurmati</annotation>
+		<annotation cp="🙇🏿‍♀">isarat | kulit ireng | mbungkuk | njaluk ngapura | njaluk tulung | takon | wong wadon | wong wadon mbungkuk ngurmati</annotation>
 		<annotation cp="🙇🏿‍♀" type="tts">wong wadon mbungkuk ngurmati: kulit ireng</annotation>
 		<annotation cp="🤦🏻">dlamakan | gumun | kulit putih | mangkel | rai | wong anutup raine mawa dlamakan</annotation>
 		<annotation cp="🤦🏻" type="tts">wong anutup raine mawa dlamakan: kulit putih</annotation>
@@ -1507,25 +1507,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤷🏾" type="tts">wong angangkat pundhak: kulit sawo mateng</annotation>
 		<annotation cp="🤷🏿">angangkat pundhak | kulit ireng | mangu-mangu | ora gati | ora sudi | wong angangkat pundhak</annotation>
 		<annotation cp="🤷🏿" type="tts">wong angangkat pundhak: kulit ireng</annotation>
-		<annotation cp="🤷🏻‍♂">kulit putih | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | wong lanang | wong lanang angangkat pundhak</annotation>
+		<annotation cp="🤷🏻‍♂">kulit putih | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | sapa | wong lanang | wong lanang angangkat pundhak</annotation>
 		<annotation cp="🤷🏻‍♂" type="tts">wong lanang angangkat pundhak: kulit putih</annotation>
-		<annotation cp="🤷🏼‍♂">kulit putih langsep | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | wong lanang | wong lanang angangkat pundhak</annotation>
+		<annotation cp="🤷🏼‍♂">kulit putih langsep | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | sapa | wong lanang | wong lanang angangkat pundhak</annotation>
 		<annotation cp="🤷🏼‍♂" type="tts">wong lanang angangkat pundhak: kulit putih langsep</annotation>
-		<annotation cp="🤷🏽‍♂">kulit kuning | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | wong lanang | wong lanang angangkat pundhak</annotation>
+		<annotation cp="🤷🏽‍♂">kulit kuning | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | sapa | wong lanang | wong lanang angangkat pundhak</annotation>
 		<annotation cp="🤷🏽‍♂" type="tts">wong lanang angangkat pundhak: kulit kuning</annotation>
-		<annotation cp="🤷🏾‍♂">kulit sawo mateng | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | wong lanang | wong lanang angangkat pundhak</annotation>
+		<annotation cp="🤷🏾‍♂">kulit sawo mateng | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | sapa | wong lanang | wong lanang angangkat pundhak</annotation>
 		<annotation cp="🤷🏾‍♂" type="tts">wong lanang angangkat pundhak: kulit sawo mateng</annotation>
-		<annotation cp="🤷🏿‍♂">kulit ireng | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | wong lanang | wong lanang angangkat pundhak</annotation>
+		<annotation cp="🤷🏿‍♂">kulit ireng | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | sapa | wong lanang | wong lanang angangkat pundhak</annotation>
 		<annotation cp="🤷🏿‍♂" type="tts">wong lanang angangkat pundhak: kulit ireng</annotation>
-		<annotation cp="🤷🏻‍♀">kulit putih | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | wong wadon | wong wadon ngangkat pundhak</annotation>
+		<annotation cp="🤷🏻‍♀">kulit putih | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | ragu | wong wadon | wong wadon ngangkat pundhak</annotation>
 		<annotation cp="🤷🏻‍♀" type="tts">wong wadon ngangkat pundhak: kulit putih</annotation>
-		<annotation cp="🤷🏼‍♀">kulit putih langsep | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | wong wadon | wong wadon ngangkat pundhak</annotation>
+		<annotation cp="🤷🏼‍♀">kulit putih langsep | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | ragu | wong wadon | wong wadon ngangkat pundhak</annotation>
 		<annotation cp="🤷🏼‍♀" type="tts">wong wadon ngangkat pundhak: kulit putih langsep</annotation>
-		<annotation cp="🤷🏽‍♀">kulit kuning | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | wong wadon | wong wadon ngangkat pundhak</annotation>
+		<annotation cp="🤷🏽‍♀">kulit kuning | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | ragu | wong wadon | wong wadon ngangkat pundhak</annotation>
 		<annotation cp="🤷🏽‍♀" type="tts">wong wadon ngangkat pundhak: kulit kuning</annotation>
-		<annotation cp="🤷🏾‍♀">kulit sawo mateng | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | wong wadon | wong wadon ngangkat pundhak</annotation>
+		<annotation cp="🤷🏾‍♀">kulit sawo mateng | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | ragu | wong wadon | wong wadon ngangkat pundhak</annotation>
 		<annotation cp="🤷🏾‍♀" type="tts">wong wadon ngangkat pundhak: kulit sawo mateng</annotation>
-		<annotation cp="🤷🏿‍♀">kulit ireng | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | wong wadon | wong wadon ngangkat pundhak</annotation>
+		<annotation cp="🤷🏿‍♀">kulit ireng | mangu-mangu | ngangkat pundhak | ora gati | ora sudi | ragu | wong wadon | wong wadon ngangkat pundhak</annotation>
 		<annotation cp="🤷🏿‍♀" type="tts">wong wadon ngangkat pundhak: kulit ireng</annotation>
 		<annotation cp="🧑🏻‍⚕">dokter | kulit putih | mantri | parumatan kasehatan | perawat | terapis</annotation>
 		<annotation cp="🧑🏻‍⚕" type="tts">mantri: kulit putih</annotation>
@@ -2067,26 +2067,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🕵🏾‍♀" type="tts">dhetektif wadon: kulit sawo mateng</annotation>
 		<annotation cp="🕵🏿‍♀">dhetektif | kulit ireng | nelik | telik sandi | wadon</annotation>
 		<annotation cp="🕵🏿‍♀" type="tts">dhetektif wadon: kulit ireng</annotation>
-		<annotation cp="💂🏻">kulit putih | prejurit</annotation>
-		<annotation cp="💂🏻" type="tts">prejurit: kulit putih</annotation>
-		<annotation cp="💂🏼">kulit putih langsep | prejurit</annotation>
-		<annotation cp="💂🏼" type="tts">prejurit: kulit putih langsep</annotation>
-		<annotation cp="💂🏽">kulit kuning | prejurit</annotation>
-		<annotation cp="💂🏽" type="tts">prejurit: kulit kuning</annotation>
-		<annotation cp="💂🏾">kulit sawo mateng | prejurit</annotation>
-		<annotation cp="💂🏾" type="tts">prejurit: kulit sawo mateng</annotation>
-		<annotation cp="💂🏿">kulit ireng | prejurit</annotation>
-		<annotation cp="💂🏿" type="tts">prejurit: kulit ireng</annotation>
+		<annotation cp="💂🏻">kulit putih | panjaga | prajurit</annotation>
+		<annotation cp="💂🏻" type="tts">panjaga: kulit putih</annotation>
+		<annotation cp="💂🏼">kulit putih langsep | panjaga | prajurit</annotation>
+		<annotation cp="💂🏼" type="tts">panjaga: kulit putih langsep</annotation>
+		<annotation cp="💂🏽">kulit kuning | panjaga | prajurit</annotation>
+		<annotation cp="💂🏽" type="tts">panjaga: kulit kuning</annotation>
+		<annotation cp="💂🏾">kulit sawo mateng | panjaga | prajurit</annotation>
+		<annotation cp="💂🏾" type="tts">panjaga: kulit sawo mateng</annotation>
+		<annotation cp="💂🏿">kulit ireng | panjaga | prajurit</annotation>
+		<annotation cp="💂🏿" type="tts">panjaga: kulit ireng</annotation>
 		<annotation cp="💂🏻‍♂">kulit putih | lanang | prejurit</annotation>
-		<annotation cp="💂🏻‍♂" type="tts">prejurit lanang: kulit putih</annotation>
+		<annotation cp="💂🏻‍♂" type="tts">panjaga lanang: kulit putih</annotation>
 		<annotation cp="💂🏼‍♂">kulit putih langsep | lanang | prejurit</annotation>
-		<annotation cp="💂🏼‍♂" type="tts">prejurit lanang: kulit putih langsep</annotation>
+		<annotation cp="💂🏼‍♂" type="tts">panjaga lanang: kulit putih langsep</annotation>
 		<annotation cp="💂🏽‍♂">kulit kuning | lanang | prejurit</annotation>
-		<annotation cp="💂🏽‍♂" type="tts">prejurit lanang: kulit kuning</annotation>
+		<annotation cp="💂🏽‍♂" type="tts">panjaga lanang: kulit kuning</annotation>
 		<annotation cp="💂🏾‍♂">kulit sawo mateng | lanang | prejurit</annotation>
-		<annotation cp="💂🏾‍♂" type="tts">prejurit lanang: kulit sawo mateng</annotation>
+		<annotation cp="💂🏾‍♂" type="tts">panjaga lanang: kulit sawo mateng</annotation>
 		<annotation cp="💂🏿‍♂">kulit ireng | lanang | prejurit</annotation>
-		<annotation cp="💂🏿‍♂" type="tts">prejurit lanang: kulit ireng</annotation>
+		<annotation cp="💂🏿‍♂" type="tts">panjaga lanang: kulit ireng</annotation>
 		<annotation cp="💂🏻‍♀">kulit putih | prejurit | wadon</annotation>
 		<annotation cp="💂🏻‍♀" type="tts">prejurit wadon: kulit putih</annotation>
 		<annotation cp="💂🏼‍♀">kulit putih langsep | prejurit | wadon</annotation>
@@ -2107,15 +2107,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🥷🏾" type="tts">ninja: kulit sawo mateng</annotation>
 		<annotation cp="🥷🏿">didhelikake | kulit ireng | ndhelik-ndhelik | ninja | wira</annotation>
 		<annotation cp="🥷🏿" type="tts">ninja: kulit ireng</annotation>
-		<annotation cp="👷🏻">bangunan | buruh | helem | kulit putih</annotation>
+		<annotation cp="👷🏻">bangunan | buruh | helem | kulit putih | ndandani</annotation>
 		<annotation cp="👷🏻" type="tts">buruh bangunan: kulit putih</annotation>
-		<annotation cp="👷🏼">bangunan | buruh | helem | kulit putih langsep</annotation>
+		<annotation cp="👷🏼">bangunan | buruh | helem | kulit putih langsep | ndandani</annotation>
 		<annotation cp="👷🏼" type="tts">buruh bangunan: kulit putih langsep</annotation>
-		<annotation cp="👷🏽">bangunan | buruh | helem | kulit kuning</annotation>
+		<annotation cp="👷🏽">bangunan | buruh | helem | kulit kuning | ndandani</annotation>
 		<annotation cp="👷🏽" type="tts">buruh bangunan: kulit kuning</annotation>
-		<annotation cp="👷🏾">bangunan | buruh | helem | kulit sawo mateng</annotation>
+		<annotation cp="👷🏾">bangunan | buruh | helem | kulit sawo mateng | ndandani</annotation>
 		<annotation cp="👷🏾" type="tts">buruh bangunan: kulit sawo mateng</annotation>
-		<annotation cp="👷🏿">bangunan | buruh | helem | kulit ireng</annotation>
+		<annotation cp="👷🏿">bangunan | buruh | helem | kulit ireng | ndandani</annotation>
 		<annotation cp="👷🏿" type="tts">buruh bangunan: kulit ireng</annotation>
 		<annotation cp="👷🏻‍♂">bangunan | buruh | kulit putih | lanang</annotation>
 		<annotation cp="👷🏻‍♂" type="tts">buruh bangunan lanang: kulit putih</annotation>
@@ -2367,25 +2367,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🎅🏾" type="tts">Sinter Klas: kulit sawo mateng</annotation>
 		<annotation cp="🎅🏿">bapa | Klas | kulit ireng | Natal | pista | Sinter Klas</annotation>
 		<annotation cp="🎅🏿" type="tts">Sinter Klas: kulit ireng</annotation>
-		<annotation cp="🤶🏻">ibu | Ibu Klas | Klas | kulit putih | Natal | pista</annotation>
+		<annotation cp="🤶🏻">ibu | Klas | kulit putih | Natal | pista</annotation>
 		<annotation cp="🤶🏻" type="tts">Ibu Klas: kulit putih</annotation>
-		<annotation cp="🤶🏼">ibu | Ibu Klas | Klas | kulit putih langsep | Natal | pista</annotation>
+		<annotation cp="🤶🏼">ibu | Klas | kulit putih langsep | Natal | pista</annotation>
 		<annotation cp="🤶🏼" type="tts">Ibu Klas: kulit putih langsep</annotation>
-		<annotation cp="🤶🏽">ibu | Ibu Klas | Klas | kulit kuning | Natal | pista</annotation>
+		<annotation cp="🤶🏽">ibu | Klas | kulit kuning | Natal | pista</annotation>
 		<annotation cp="🤶🏽" type="tts">Ibu Klas: kulit kuning</annotation>
-		<annotation cp="🤶🏾">ibu | Ibu Klas | Klas | kulit sawo mateng | Natal | pista</annotation>
+		<annotation cp="🤶🏾">ibu | Klas | kulit sawo mateng | Natal | pista</annotation>
 		<annotation cp="🤶🏾" type="tts">Ibu Klas: kulit sawo mateng</annotation>
-		<annotation cp="🤶🏿">ibu | Ibu Klas | Klas | kulit ireng | Natal | pista</annotation>
+		<annotation cp="🤶🏿">ibu | Klas | kulit ireng | Natal | pista</annotation>
 		<annotation cp="🤶🏿" type="tts">Ibu Klas: kulit ireng</annotation>
-		<annotation cp="🧑🏻‍🎄">bapa/ibu klas | Klas, natal | kulit putih</annotation>
+		<annotation cp="🧑🏻‍🎄">bapa/ibu klas | Klas | kulit putih | natal</annotation>
 		<annotation cp="🧑🏻‍🎄" type="tts">bapa/ibu klas: kulit putih</annotation>
-		<annotation cp="🧑🏼‍🎄">bapa/ibu klas | Klas, natal | kulit putih langsep</annotation>
+		<annotation cp="🧑🏼‍🎄">bapa/ibu klas | Klas | kulit putih langsep | natal</annotation>
 		<annotation cp="🧑🏼‍🎄" type="tts">bapa/ibu klas: kulit putih langsep</annotation>
-		<annotation cp="🧑🏽‍🎄">bapa/ibu klas | Klas, natal | kulit kuning</annotation>
+		<annotation cp="🧑🏽‍🎄">bapa/ibu klas | Klas | kulit kuning | natal</annotation>
 		<annotation cp="🧑🏽‍🎄" type="tts">bapa/ibu klas: kulit kuning</annotation>
-		<annotation cp="🧑🏾‍🎄">bapa/ibu klas | Klas, natal | kulit sawo mateng</annotation>
+		<annotation cp="🧑🏾‍🎄">bapa/ibu klas | Klas | kulit sawo mateng | natal</annotation>
 		<annotation cp="🧑🏾‍🎄" type="tts">bapa/ibu klas: kulit sawo mateng</annotation>
-		<annotation cp="🧑🏿‍🎄">bapa/ibu klas | Klas, natal | kulit ireng</annotation>
+		<annotation cp="🧑🏿‍🎄">bapa/ibu klas | Klas | kulit ireng | natal</annotation>
 		<annotation cp="🧑🏿‍🎄" type="tts">bapa/ibu klas: kulit ireng</annotation>
 		<annotation cp="🦸🏻">becik | kadigdayan linuwih | kulit putih | satriya | satriya mandraguna | srikandhi</annotation>
 		<annotation cp="🦸🏻" type="tts">satriya mandraguna: kulit putih</annotation>
@@ -2477,15 +2477,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧙🏾‍♀" type="tts">wong winasis wadon: kulit sawo mateng</annotation>
 		<annotation cp="🧙🏿‍♀">bagawan | dhukun | kulit ireng | wong winasis wadon</annotation>
 		<annotation cp="🧙🏿‍♀" type="tts">wong winasis wadon: kulit ireng</annotation>
-		<annotation cp="🧚🏻">bangsa dewi | dewi | kulit putih | Oberon | Puck | Titania</annotation>
+		<annotation cp="🧚🏻">bangsa dewi | dewi | kulit putih | Oberon | peri | Puck | suwiwi | Titania</annotation>
 		<annotation cp="🧚🏻" type="tts">bangsa dewi: kulit putih</annotation>
-		<annotation cp="🧚🏼">bangsa dewi | dewi | kulit putih langsep | Oberon | Puck | Titania</annotation>
+		<annotation cp="🧚🏼">bangsa dewi | dewi | kulit putih langsep | Oberon | peri | Puck | suwiwi | Titania</annotation>
 		<annotation cp="🧚🏼" type="tts">bangsa dewi: kulit putih langsep</annotation>
-		<annotation cp="🧚🏽">bangsa dewi | dewi | kulit kuning | Oberon | Puck | Titania</annotation>
+		<annotation cp="🧚🏽">bangsa dewi | dewi | kulit kuning | Oberon | peri | Puck | suwiwi | Titania</annotation>
 		<annotation cp="🧚🏽" type="tts">bangsa dewi: kulit kuning</annotation>
-		<annotation cp="🧚🏾">bangsa dewi | dewi | kulit sawo mateng | Oberon | Puck | Titania</annotation>
+		<annotation cp="🧚🏾">bangsa dewi | dewi | kulit sawo mateng | Oberon | peri | Puck | suwiwi | Titania</annotation>
 		<annotation cp="🧚🏾" type="tts">bangsa dewi: kulit sawo mateng</annotation>
-		<annotation cp="🧚🏿">bangsa dewi | dewi | kulit ireng | Oberon | Puck | Titania</annotation>
+		<annotation cp="🧚🏿">bangsa dewi | dewi | kulit ireng | Oberon | peri | Puck | suwiwi | Titania</annotation>
 		<annotation cp="🧚🏿" type="tts">bangsa dewi: kulit ireng</annotation>
 		<annotation cp="🧚🏻‍♂">dewa | kulit putih | Oberon | Puck</annotation>
 		<annotation cp="🧚🏻‍♂" type="tts">dewa: kulit putih</annotation>
@@ -2567,15 +2567,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧜🏾‍♀" type="tts">duyung wadon: kulit sawo mateng</annotation>
 		<annotation cp="🧜🏿‍♀">duyung wadon | kulit ireng</annotation>
 		<annotation cp="🧜🏿‍♀" type="tts">duyung wadon: kulit ireng</annotation>
-		<annotation cp="🧝🏻">ajaib | kulit putih | peri</annotation>
+		<annotation cp="🧝🏻">ajaib | elf | kulit putih | peri</annotation>
 		<annotation cp="🧝🏻" type="tts">peri: kulit putih</annotation>
-		<annotation cp="🧝🏼">ajaib | kulit putih langsep | peri</annotation>
+		<annotation cp="🧝🏼">ajaib | elf | kulit putih langsep | peri</annotation>
 		<annotation cp="🧝🏼" type="tts">peri: kulit putih langsep</annotation>
-		<annotation cp="🧝🏽">ajaib | kulit kuning | peri</annotation>
+		<annotation cp="🧝🏽">ajaib | elf | kulit kuning | peri</annotation>
 		<annotation cp="🧝🏽" type="tts">peri: kulit kuning</annotation>
-		<annotation cp="🧝🏾">ajaib | kulit sawo mateng | peri</annotation>
+		<annotation cp="🧝🏾">ajaib | elf | kulit sawo mateng | peri</annotation>
 		<annotation cp="🧝🏾" type="tts">peri: kulit sawo mateng</annotation>
-		<annotation cp="🧝🏿">ajaib | kulit ireng | peri</annotation>
+		<annotation cp="🧝🏿">ajaib | elf | kulit ireng | peri</annotation>
 		<annotation cp="🧝🏿" type="tts">peri: kulit ireng</annotation>
 		<annotation cp="🧝🏻‍♂">ajaib | kulit putih | peri lanang</annotation>
 		<annotation cp="🧝🏻‍♂" type="tts">peri lanang: kulit putih</annotation>
@@ -2687,6 +2687,42 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">wong wadon mlaku: kulit sawo mateng</annotation>
 		<annotation cp="🚶🏿‍♀">kulit ireng | mlaku-mlaku | wadon | wong mlaku | wong wadon mlaku</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">wong wadon mlaku: kulit ireng</annotation>
+		<annotation cp="🚶‍➡">madhep | mlaku-mlaku | tengen | wong mlaku</annotation>
+		<annotation cp="🚶‍➡" type="tts">wong mlaku: madhep tengen</annotation>
+		<annotation cp="🚶🏻‍➡">kulit putih | madhep | mlaku-mlaku | tengen | wong mlaku</annotation>
+		<annotation cp="🚶🏻‍➡" type="tts">wong mlaku: kulit putih, madhep tengen</annotation>
+		<annotation cp="🚶🏼‍➡">kulit putih langsep | madhep | mlaku-mlaku | tengen | wong mlaku</annotation>
+		<annotation cp="🚶🏼‍➡" type="tts">wong mlaku: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🚶🏽‍➡">kulit kuning | madhep | mlaku-mlaku | tengen | wong mlaku</annotation>
+		<annotation cp="🚶🏽‍➡" type="tts">wong mlaku: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🚶🏾‍➡">kulit sawo mateng | madhep | mlaku-mlaku | tengen | wong mlaku</annotation>
+		<annotation cp="🚶🏾‍➡" type="tts">wong mlaku: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🚶🏿‍➡">kulit ireng | madhep | mlaku-mlaku | tengen | wong mlaku</annotation>
+		<annotation cp="🚶🏿‍➡" type="tts">wong mlaku: kulit ireng, madhep tengen</annotation>
+		<annotation cp="🚶‍♀‍➡">madhep | mlaku-mlaku | tengen | wadon | wong mlaku | wong wadon mlaku</annotation>
+		<annotation cp="🚶‍♀‍➡" type="tts">wong wadon mlaku: madhep tengen</annotation>
+		<annotation cp="🚶🏻‍♀‍➡">kulit putih | madhep | mlaku-mlaku | tengen | wadon | wong mlaku | wong wadon mlaku</annotation>
+		<annotation cp="🚶🏻‍♀‍➡" type="tts">wong wadon mlaku: kulit putih, madhep tengen</annotation>
+		<annotation cp="🚶🏼‍♀‍➡">kulit putih langsep | madhep | mlaku-mlaku | tengen | wadon | wong mlaku | wong wadon mlaku</annotation>
+		<annotation cp="🚶🏼‍♀‍➡" type="tts">wong wadon mlaku: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🚶🏽‍♀‍➡">kulit kuning | madhep | mlaku-mlaku | tengen | wadon | wong mlaku | wong wadon mlaku</annotation>
+		<annotation cp="🚶🏽‍♀‍➡" type="tts">wong wadon mlaku: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🚶🏾‍♀‍➡">kulit sawo mateng | madhep | mlaku-mlaku | tengen | wadon | wong mlaku | wong wadon mlaku</annotation>
+		<annotation cp="🚶🏾‍♀‍➡" type="tts">wong wadon mlaku: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🚶🏿‍♀‍➡">kulit ireng | madhep | mlaku-mlaku | tengen | wadon | wong mlaku | wong wadon mlaku</annotation>
+		<annotation cp="🚶🏿‍♀‍➡" type="tts">wong wadon mlaku: kulit ireng, madhep tengen</annotation>
+		<annotation cp="🚶‍♂‍➡">lanang | madhep | mlaku-mlaku | tengen | wong lanang mlaku | wong mlaku</annotation>
+		<annotation cp="🚶‍♂‍➡" type="tts">wong lanang mlaku: madhep tengen</annotation>
+		<annotation cp="🚶🏻‍♂‍➡">kulit putih | lanang | madhep | mlaku-mlaku | tengen | wong lanang mlaku | wong mlaku</annotation>
+		<annotation cp="🚶🏻‍♂‍➡" type="tts">wong lanang mlaku: kulit putih, madhep tengen</annotation>
+		<annotation cp="🚶🏼‍♂‍➡">kulit putih langsep | lanang | madhep | mlaku-mlaku | tengen | wong lanang mlaku | wong mlaku</annotation>
+		<annotation cp="🚶🏼‍♂‍➡" type="tts">wong lanang mlaku: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🚶🏽‍♂‍➡">kulit kuning | lanang | madhep | mlaku-mlaku | tengen | wong lanang mlaku | wong mlaku</annotation>
+		<annotation cp="🚶🏽‍♂‍➡" type="tts">wong lanang mlaku: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🚶🏾‍♂‍➡">kulit sawo mateng | lanang | madhep | mlaku-mlaku | tengen | wong lanang mlaku | wong mlaku</annotation>
+		<annotation cp="🚶🏾‍♂‍➡" type="tts">wong lanang mlaku: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🚶🏿‍♂‍➡">kulit ireng | lanang | madhep | mlaku-mlaku | tengen | wong lanang mlaku | wong mlaku</annotation>
+		<annotation cp="🚶🏿‍♂‍➡" type="tts">wong lanang mlaku: kulit ireng, madhep tengen</annotation>
 		<annotation cp="🧍🏻">adeg | kulit putih | ngadeg | wong ngadeg</annotation>
 		<annotation cp="🧍🏻" type="tts">wong ngadeg: kulit putih</annotation>
 		<annotation cp="🧍🏼">adeg | kulit putih langsep | ngadeg | wong ngadeg</annotation>
@@ -2747,6 +2783,42 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧎🏾‍♀" type="tts">wong wadon timpuh: kulit sawo mateng</annotation>
 		<annotation cp="🧎🏿‍♀">kulit ireng | timpuh | wadon | wong wadon timpuh</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">wong wadon timpuh: kulit ireng</annotation>
+		<annotation cp="🧎‍➡">madhep | tengen | timpuh | wong timpuh</annotation>
+		<annotation cp="🧎‍➡" type="tts">wong timpuh: madhep tengen</annotation>
+		<annotation cp="🧎🏻‍➡">kulit putih | madhep | tengen | timpuh | wong timpuh</annotation>
+		<annotation cp="🧎🏻‍➡" type="tts">wong timpuh: kulit putih, madhep tengen</annotation>
+		<annotation cp="🧎🏼‍➡">kulit putih langsep | madhep | tengen | timpuh | wong timpuh</annotation>
+		<annotation cp="🧎🏼‍➡" type="tts">wong timpuh: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🧎🏽‍➡">kulit kuning | madhep | tengen | timpuh | wong timpuh</annotation>
+		<annotation cp="🧎🏽‍➡" type="tts">wong timpuh: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🧎🏾‍➡">kulit sawo mateng | madhep | tengen | timpuh | wong timpuh</annotation>
+		<annotation cp="🧎🏾‍➡" type="tts">wong timpuh: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🧎🏿‍➡">kulit ireng | madhep | tengen | timpuh | wong timpuh</annotation>
+		<annotation cp="🧎🏿‍➡" type="tts">wong timpuh: kulit ireng, madhep tengen</annotation>
+		<annotation cp="🧎‍♀‍➡">madhep | tengen | timpuh | wadon | wong wadon timpuh</annotation>
+		<annotation cp="🧎‍♀‍➡" type="tts">wong wadon timpuh: madhep tengen</annotation>
+		<annotation cp="🧎🏻‍♀‍➡">kulit putih | madhep | tengen | timpuh | wadon | wong wadon timpuh</annotation>
+		<annotation cp="🧎🏻‍♀‍➡" type="tts">wong wadon timpuh: kulit putih, madhep tengen</annotation>
+		<annotation cp="🧎🏼‍♀‍➡">kulit putih langsep | madhep | tengen | timpuh | wadon | wong wadon timpuh</annotation>
+		<annotation cp="🧎🏼‍♀‍➡" type="tts">wong wadon timpuh: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🧎🏽‍♀‍➡">kulit kuning | madhep | tengen | timpuh | wadon | wong wadon timpuh</annotation>
+		<annotation cp="🧎🏽‍♀‍➡" type="tts">wong wadon timpuh: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🧎🏾‍♀‍➡">kulit sawo mateng | madhep | tengen | timpuh | wadon | wong wadon timpuh</annotation>
+		<annotation cp="🧎🏾‍♀‍➡" type="tts">wong wadon timpuh: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🧎🏿‍♀‍➡">kulit ireng | madhep | tengen | timpuh | wadon | wong wadon timpuh</annotation>
+		<annotation cp="🧎🏿‍♀‍➡" type="tts">wong wadon timpuh: kulit ireng, madhep tengen</annotation>
+		<annotation cp="🧎‍♂‍➡">lanang | madhep | tengen | timpuh | wong lanang timpuh</annotation>
+		<annotation cp="🧎‍♂‍➡" type="tts">wong lanang timpuh: madhep tengen</annotation>
+		<annotation cp="🧎🏻‍♂‍➡">kulit putih | lanang | madhep | tengen | timpuh | wong lanang timpuh</annotation>
+		<annotation cp="🧎🏻‍♂‍➡" type="tts">wong lanang timpuh: kulit putih, madhep tengen</annotation>
+		<annotation cp="🧎🏼‍♂‍➡">kulit putih langsep | lanang | madhep | tengen | timpuh | wong lanang timpuh</annotation>
+		<annotation cp="🧎🏼‍♂‍➡" type="tts">wong lanang timpuh: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🧎🏽‍♂‍➡">kulit kuning | lanang | madhep | tengen | timpuh | wong lanang timpuh</annotation>
+		<annotation cp="🧎🏽‍♂‍➡" type="tts">wong lanang timpuh: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🧎🏾‍♂‍➡">kulit sawo mateng | lanang | madhep | tengen | timpuh | wong lanang timpuh</annotation>
+		<annotation cp="🧎🏾‍♂‍➡" type="tts">wong lanang timpuh: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🧎🏿‍♂‍➡">kulit ireng | lanang | madhep | tengen | timpuh | wong lanang timpuh</annotation>
+		<annotation cp="🧎🏿‍♂‍➡" type="tts">wong lanang timpuh: kulit ireng, madhep tengen</annotation>
 		<annotation cp="🧑🏻‍🦯">kalancaran | kulit putih | wong nyekeli teken | wong nyekeli teken putih | wuta</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">wong nyekeli teken: kulit putih</annotation>
 		<annotation cp="🧑🏼‍🦯">kalancaran | kulit putih langsep | wong nyekeli teken | wong nyekeli teken putih | wuta</annotation>
@@ -2757,6 +2829,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦯" type="tts">wong nyekeli teken: kulit sawo mateng</annotation>
 		<annotation cp="🧑🏿‍🦯">kalancaran | kulit ireng | wong nyekeli teken | wong nyekeli teken putih | wuta</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">wong nyekeli teken: kulit ireng</annotation>
+		<annotation cp="🧑‍🦯‍➡">kalancaran | madhep | tengen | wong nyekeli teken | wong nyekeli teken putih | wuta</annotation>
+		<annotation cp="🧑‍🦯‍➡" type="tts">wong nyekeli teken: madhep tengen</annotation>
+		<annotation cp="🧑🏻‍🦯‍➡">kalancaran | kulit putih | madhep | tengen | wong nyekeli teken | wong nyekeli teken putih | wuta</annotation>
+		<annotation cp="🧑🏻‍🦯‍➡" type="tts">wong nyekeli teken: kulit putih, madhep tengen</annotation>
+		<annotation cp="🧑🏼‍🦯‍➡">kalancaran | kulit putih langsep | madhep | tengen | wong nyekeli teken | wong nyekeli teken putih | wuta</annotation>
+		<annotation cp="🧑🏼‍🦯‍➡" type="tts">wong nyekeli teken: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🧑🏽‍🦯‍➡">kalancaran | kulit kuning | madhep | tengen | wong nyekeli teken | wong nyekeli teken putih | wuta</annotation>
+		<annotation cp="🧑🏽‍🦯‍➡" type="tts">wong nyekeli teken: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🧑🏾‍🦯‍➡">kalancaran | kulit sawo mateng | madhep | tengen | wong nyekeli teken | wong nyekeli teken putih | wuta</annotation>
+		<annotation cp="🧑🏾‍🦯‍➡" type="tts">wong nyekeli teken: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🧑🏿‍🦯‍➡">kalancaran | kulit ireng | madhep | tengen | wong nyekeli teken | wong nyekeli teken putih | wuta</annotation>
+		<annotation cp="🧑🏿‍🦯‍➡" type="tts">wong nyekeli teken: kulit ireng, madhep tengen</annotation>
 		<annotation cp="👨🏻‍🦯">kalancaran | kulit putih | lanang | wong lanang nyekeli teken | wuta</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">wong lanang nyekeli teken: kulit putih</annotation>
 		<annotation cp="👨🏼‍🦯">kalancaran | kulit putih langsep | lanang | wong lanang nyekeli teken | wuta</annotation>
@@ -2767,6 +2851,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦯" type="tts">wong lanang nyekeli teken: kulit sawo mateng</annotation>
 		<annotation cp="👨🏿‍🦯">kalancaran | kulit ireng | lanang | wong lanang nyekeli teken | wuta</annotation>
 		<annotation cp="👨🏿‍🦯" type="tts">wong lanang nyekeli teken: kulit ireng</annotation>
+		<annotation cp="👨‍🦯‍➡">kalancaran | lanang | madhep | tengen | wong lanang nyekeli teken | wuta</annotation>
+		<annotation cp="👨‍🦯‍➡" type="tts">wong lanang nyekeli teken: madhep tengen</annotation>
+		<annotation cp="👨🏻‍🦯‍➡">kalancaran | kulit putih | lanang | madhep | tengen | wong lanang nyekeli teken | wuta</annotation>
+		<annotation cp="👨🏻‍🦯‍➡" type="tts">wong lanang nyekeli teken: kulit putih, madhep tengen</annotation>
+		<annotation cp="👨🏼‍🦯‍➡">kalancaran | kulit putih langsep | lanang | madhep | tengen | wong lanang nyekeli teken | wuta</annotation>
+		<annotation cp="👨🏼‍🦯‍➡" type="tts">wong lanang nyekeli teken: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="👨🏽‍🦯‍➡">kalancaran | kulit kuning | lanang | madhep | tengen | wong lanang nyekeli teken | wuta</annotation>
+		<annotation cp="👨🏽‍🦯‍➡" type="tts">wong lanang nyekeli teken: kulit kuning, madhep tengen</annotation>
+		<annotation cp="👨🏾‍🦯‍➡">kalancaran | kulit sawo mateng | lanang | madhep | tengen | wong lanang nyekeli teken | wuta</annotation>
+		<annotation cp="👨🏾‍🦯‍➡" type="tts">wong lanang nyekeli teken: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="👨🏿‍🦯‍➡">kalancaran | kulit ireng | lanang | madhep | tengen | wong lanang nyekeli teken | wuta</annotation>
+		<annotation cp="👨🏿‍🦯‍➡" type="tts">wong lanang nyekeli teken: kulit ireng, madhep tengen</annotation>
 		<annotation cp="👩🏻‍🦯">kalancaran | kulit putih | wadon | wong wadon nyekeli teken | wuta</annotation>
 		<annotation cp="👩🏻‍🦯" type="tts">wong wadon nyekeli teken: kulit putih</annotation>
 		<annotation cp="👩🏼‍🦯">kalancaran | kulit putih langsep | wadon | wong wadon nyekeli teken | wuta</annotation>
@@ -2777,6 +2873,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦯" type="tts">wong wadon nyekeli teken: kulit sawo mateng</annotation>
 		<annotation cp="👩🏿‍🦯">kalancaran | kulit ireng | wadon | wong wadon nyekeli teken | wuta</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">wong wadon nyekeli teken: kulit ireng</annotation>
+		<annotation cp="👩‍🦯‍➡">kalancaran | madhep | tengen | wadon | wong wadon nyekeli teken | wuta</annotation>
+		<annotation cp="👩‍🦯‍➡" type="tts">wong wadon nyekeli teken: madhep tengen</annotation>
+		<annotation cp="👩🏻‍🦯‍➡">kalancaran | kulit putih | madhep | tengen | wadon | wong wadon nyekeli teken | wuta</annotation>
+		<annotation cp="👩🏻‍🦯‍➡" type="tts">wong wadon nyekeli teken: kulit putih, madhep tengen</annotation>
+		<annotation cp="👩🏼‍🦯‍➡">kalancaran | kulit putih langsep | madhep | tengen | wadon | wong wadon nyekeli teken | wuta</annotation>
+		<annotation cp="👩🏼‍🦯‍➡" type="tts">wong wadon nyekeli teken: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="👩🏽‍🦯‍➡">kalancaran | kulit kuning | madhep | tengen | wadon | wong wadon nyekeli teken | wuta</annotation>
+		<annotation cp="👩🏽‍🦯‍➡" type="tts">wong wadon nyekeli teken: kulit kuning, madhep tengen</annotation>
+		<annotation cp="👩🏾‍🦯‍➡">kalancaran | kulit sawo mateng | madhep | tengen | wadon | wong wadon nyekeli teken | wuta</annotation>
+		<annotation cp="👩🏾‍🦯‍➡" type="tts">wong wadon nyekeli teken: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="👩🏿‍🦯‍➡">kalancaran | kulit ireng | madhep | tengen | wadon | wong wadon nyekeli teken | wuta</annotation>
+		<annotation cp="👩🏿‍🦯‍➡" type="tts">wong wadon nyekeli teken: kulit ireng, madhep tengen</annotation>
 		<annotation cp="🧑🏻‍🦼">kalancaran | kulit putih | kursi rodha | wong numpak kursi rodha mesin</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">wong numpak kursi rodha mesin: kulit putih</annotation>
 		<annotation cp="🧑🏼‍🦼">kalancaran | kulit putih langsep | kursi rodha | wong numpak kursi rodha mesin</annotation>
@@ -2787,6 +2895,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦼" type="tts">wong numpak kursi rodha mesin: kulit sawo mateng</annotation>
 		<annotation cp="🧑🏿‍🦼">kalancaran | kulit ireng | kursi rodha | wong numpak kursi rodha mesin</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">wong numpak kursi rodha mesin: kulit ireng</annotation>
+		<annotation cp="🧑‍🦼‍➡">kalancaran | kursi rodha | madhep | tengen | wong numpak kursi rodha mesin</annotation>
+		<annotation cp="🧑‍🦼‍➡" type="tts">wong numpak kursi rodha mesin: madhep tengen</annotation>
+		<annotation cp="🧑🏻‍🦼‍➡">kalancaran | kulit putih | kursi rodha | madhep | tengen | wong numpak kursi rodha mesin</annotation>
+		<annotation cp="🧑🏻‍🦼‍➡" type="tts">wong numpak kursi rodha mesin: kulit putih, madhep tengen</annotation>
+		<annotation cp="🧑🏼‍🦼‍➡">kalancaran | kulit putih langsep | kursi rodha | madhep | tengen | wong numpak kursi rodha mesin</annotation>
+		<annotation cp="🧑🏼‍🦼‍➡" type="tts">wong numpak kursi rodha mesin: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🧑🏽‍🦼‍➡">kalancaran | kulit kuning | kursi rodha | madhep | tengen | wong numpak kursi rodha mesin</annotation>
+		<annotation cp="🧑🏽‍🦼‍➡" type="tts">wong numpak kursi rodha mesin: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🧑🏾‍🦼‍➡">kalancaran | kulit sawo mateng | kursi rodha | madhep | tengen | wong numpak kursi rodha mesin</annotation>
+		<annotation cp="🧑🏾‍🦼‍➡" type="tts">wong numpak kursi rodha mesin: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🧑🏿‍🦼‍➡">kalancaran | kulit ireng | kursi rodha | madhep | tengen | wong numpak kursi rodha mesin</annotation>
+		<annotation cp="🧑🏿‍🦼‍➡" type="tts">wong numpak kursi rodha mesin: kulit ireng, madhep tengen</annotation>
 		<annotation cp="👨🏻‍🦼">kalancaran | kulit putih | kursi rodha | lanang | wong lanang numpak kursi rodha mesin</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">wong lanang numpak kursi rodha mesin: kulit putih</annotation>
 		<annotation cp="👨🏼‍🦼">kalancaran | kulit putih langsep | kursi rodha | lanang | wong lanang numpak kursi rodha mesin</annotation>
@@ -2797,6 +2917,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦼" type="tts">wong lanang numpak kursi rodha mesin: kulit sawo mateng</annotation>
 		<annotation cp="👨🏿‍🦼">kalancaran | kulit ireng | kursi rodha | lanang | wong lanang numpak kursi rodha mesin</annotation>
 		<annotation cp="👨🏿‍🦼" type="tts">wong lanang numpak kursi rodha mesin: kulit ireng</annotation>
+		<annotation cp="👨‍🦼‍➡">kalancaran | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha mesin</annotation>
+		<annotation cp="👨‍🦼‍➡" type="tts">wong lanang numpak kursi rodha mesin: madhep tengen</annotation>
+		<annotation cp="👨🏻‍🦼‍➡">kalancaran | kulit putih | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha mesin</annotation>
+		<annotation cp="👨🏻‍🦼‍➡" type="tts">wong lanang numpak kursi rodha mesin: kulit putih, madhep tengen</annotation>
+		<annotation cp="👨🏼‍🦼‍➡">kalancaran | kulit putih langsep | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha mesin</annotation>
+		<annotation cp="👨🏼‍🦼‍➡" type="tts">wong lanang numpak kursi rodha mesin: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="👨🏽‍🦼‍➡">kalancaran | kulit kuning | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha mesin</annotation>
+		<annotation cp="👨🏽‍🦼‍➡" type="tts">wong lanang numpak kursi rodha mesin: kulit kuning, madhep tengen</annotation>
+		<annotation cp="👨🏾‍🦼‍➡">kalancaran | kulit sawo mateng | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha mesin</annotation>
+		<annotation cp="👨🏾‍🦼‍➡" type="tts">wong lanang numpak kursi rodha mesin: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="👨🏿‍🦼‍➡">kalancaran | kulit ireng | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha mesin</annotation>
+		<annotation cp="👨🏿‍🦼‍➡" type="tts">wong lanang numpak kursi rodha mesin: kulit ireng, madhep tengen</annotation>
 		<annotation cp="👩🏻‍🦼">kalancaran | kulit putih | kursi rodha | wadon | wong wadon numpak kursi rodha mesin</annotation>
 		<annotation cp="👩🏻‍🦼" type="tts">wong wadon numpak kursi rodha mesin: kulit putih</annotation>
 		<annotation cp="👩🏼‍🦼">kalancaran | kulit putih langsep | kursi rodha | wadon | wong wadon numpak kursi rodha mesin</annotation>
@@ -2807,6 +2939,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦼" type="tts">wong wadon numpak kursi rodha mesin: kulit sawo mateng</annotation>
 		<annotation cp="👩🏿‍🦼">kalancaran | kulit ireng | kursi rodha | wadon | wong wadon numpak kursi rodha mesin</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">wong wadon numpak kursi rodha mesin: kulit ireng</annotation>
+		<annotation cp="👩‍🦼‍➡">kalancaran | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha mesin</annotation>
+		<annotation cp="👩‍🦼‍➡" type="tts">wong wadon numpak kursi rodha mesin: madhep tengen</annotation>
+		<annotation cp="👩🏻‍🦼‍➡">kalancaran | kulit putih | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha mesin</annotation>
+		<annotation cp="👩🏻‍🦼‍➡" type="tts">wong wadon numpak kursi rodha mesin: kulit putih, madhep tengen</annotation>
+		<annotation cp="👩🏼‍🦼‍➡">kalancaran | kulit putih langsep | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha mesin</annotation>
+		<annotation cp="👩🏼‍🦼‍➡" type="tts">wong wadon numpak kursi rodha mesin: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="👩🏽‍🦼‍➡">kalancaran | kulit kuning | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha mesin</annotation>
+		<annotation cp="👩🏽‍🦼‍➡" type="tts">wong wadon numpak kursi rodha mesin: kulit kuning, madhep tengen</annotation>
+		<annotation cp="👩🏾‍🦼‍➡">kalancaran | kulit sawo mateng | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha mesin</annotation>
+		<annotation cp="👩🏾‍🦼‍➡" type="tts">wong wadon numpak kursi rodha mesin: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="👩🏿‍🦼‍➡">kalancaran | kulit ireng | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha mesin</annotation>
+		<annotation cp="👩🏿‍🦼‍➡" type="tts">wong wadon numpak kursi rodha mesin: kulit ireng, madhep tengen</annotation>
 		<annotation cp="🧑🏻‍🦽">kalancaran | kulit putih | kursi rodha | wong numpak kursi rodha manual</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">wong numpak kursi rodha manual: kulit putih</annotation>
 		<annotation cp="🧑🏼‍🦽">kalancaran | kulit putih langsep | kursi rodha | wong numpak kursi rodha manual</annotation>
@@ -2817,6 +2961,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦽" type="tts">wong numpak kursi rodha manual: kulit sawo mateng</annotation>
 		<annotation cp="🧑🏿‍🦽">kalancaran | kulit ireng | kursi rodha | wong numpak kursi rodha manual</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">wong numpak kursi rodha manual: kulit ireng</annotation>
+		<annotation cp="🧑‍🦽‍➡">kalancaran | kursi rodha | madhep | tengen | wong numpak kursi rodha manual</annotation>
+		<annotation cp="🧑‍🦽‍➡" type="tts">wong numpak kursi rodha manual: madhep tengen</annotation>
+		<annotation cp="🧑🏻‍🦽‍➡">kalancaran | kulit putih | kursi rodha | madhep | tengen | wong numpak kursi rodha manual</annotation>
+		<annotation cp="🧑🏻‍🦽‍➡" type="tts">wong numpak kursi rodha manual: kulit putih, madhep tengen</annotation>
+		<annotation cp="🧑🏼‍🦽‍➡">kalancaran | kulit putih langsep | kursi rodha | madhep | tengen | wong numpak kursi rodha manual</annotation>
+		<annotation cp="🧑🏼‍🦽‍➡" type="tts">wong numpak kursi rodha manual: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🧑🏽‍🦽‍➡">kalancaran | kulit kuning | kursi rodha | madhep | tengen | wong numpak kursi rodha manual</annotation>
+		<annotation cp="🧑🏽‍🦽‍➡" type="tts">wong numpak kursi rodha manual: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🧑🏾‍🦽‍➡">kalancaran | kulit sawo mateng | kursi rodha | madhep | tengen | wong numpak kursi rodha manual</annotation>
+		<annotation cp="🧑🏾‍🦽‍➡" type="tts">wong numpak kursi rodha manual: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🧑🏿‍🦽‍➡">kalancaran | kulit ireng | kursi rodha | madhep | tengen | wong numpak kursi rodha manual</annotation>
+		<annotation cp="🧑🏿‍🦽‍➡" type="tts">wong numpak kursi rodha manual: kulit ireng, madhep tengen</annotation>
 		<annotation cp="👨🏻‍🦽">kalancaran | kulit putih | kursi rodha | lanang | wong lanang numpak kursi rodha manual</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">wong lanang numpak kursi rodha manual: kulit putih</annotation>
 		<annotation cp="👨🏼‍🦽">kalancaran | kulit putih langsep | kursi rodha | lanang | wong lanang numpak kursi rodha manual</annotation>
@@ -2827,6 +2983,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦽" type="tts">wong lanang numpak kursi rodha manual: kulit sawo mateng</annotation>
 		<annotation cp="👨🏿‍🦽">kalancaran | kulit ireng | kursi rodha | lanang | wong lanang numpak kursi rodha manual</annotation>
 		<annotation cp="👨🏿‍🦽" type="tts">wong lanang numpak kursi rodha manual: kulit ireng</annotation>
+		<annotation cp="👨‍🦽‍➡">kalancaran | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha manual</annotation>
+		<annotation cp="👨‍🦽‍➡" type="tts">wong lanang numpak kursi rodha manual: madhep tengen</annotation>
+		<annotation cp="👨🏻‍🦽‍➡">kalancaran | kulit putih | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha manual</annotation>
+		<annotation cp="👨🏻‍🦽‍➡" type="tts">wong lanang numpak kursi rodha manual: kulit putih, madhep tengen</annotation>
+		<annotation cp="👨🏼‍🦽‍➡">kalancaran | kulit putih langsep | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha manual</annotation>
+		<annotation cp="👨🏼‍🦽‍➡" type="tts">wong lanang numpak kursi rodha manual: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="👨🏽‍🦽‍➡">kalancaran | kulit kuning | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha manual</annotation>
+		<annotation cp="👨🏽‍🦽‍➡" type="tts">wong lanang numpak kursi rodha manual: kulit kuning, madhep tengen</annotation>
+		<annotation cp="👨🏾‍🦽‍➡">kalancaran | kulit sawo mateng | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha manual</annotation>
+		<annotation cp="👨🏾‍🦽‍➡" type="tts">wong lanang numpak kursi rodha manual: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="👨🏿‍🦽‍➡">kalancaran | kulit ireng | kursi rodha | lanang | madhep | tengen | wong lanang numpak kursi rodha manual</annotation>
+		<annotation cp="👨🏿‍🦽‍➡" type="tts">wong lanang numpak kursi rodha manual: kulit ireng, madhep tengen</annotation>
 		<annotation cp="👩🏻‍🦽">kalancaran | kulit putih | kursi rodha | wadon | wong wadon numpak kursi rodha manual</annotation>
 		<annotation cp="👩🏻‍🦽" type="tts">wong wadon numpak kursi rodha manual: kulit putih</annotation>
 		<annotation cp="👩🏼‍🦽">kalancaran | kulit putih langsep | kursi rodha | wadon | wong wadon numpak kursi rodha manual</annotation>
@@ -2837,6 +3005,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦽" type="tts">wong wadon numpak kursi rodha manual: kulit sawo mateng</annotation>
 		<annotation cp="👩🏿‍🦽">kalancaran | kulit ireng | kursi rodha | wadon | wong wadon numpak kursi rodha manual</annotation>
 		<annotation cp="👩🏿‍🦽" type="tts">wong wadon numpak kursi rodha manual: kulit ireng</annotation>
+		<annotation cp="👩‍🦽‍➡">kalancaran | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha manual</annotation>
+		<annotation cp="👩‍🦽‍➡" type="tts">wong wadon numpak kursi rodha manual: madhep tengen</annotation>
+		<annotation cp="👩🏻‍🦽‍➡">kalancaran | kulit putih | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha manual</annotation>
+		<annotation cp="👩🏻‍🦽‍➡" type="tts">wong wadon numpak kursi rodha manual: kulit putih, madhep tengen</annotation>
+		<annotation cp="👩🏼‍🦽‍➡">kalancaran | kulit putih langsep | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha manual</annotation>
+		<annotation cp="👩🏼‍🦽‍➡" type="tts">wong wadon numpak kursi rodha manual: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="👩🏽‍🦽‍➡">kalancaran | kulit kuning | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha manual</annotation>
+		<annotation cp="👩🏽‍🦽‍➡" type="tts">wong wadon numpak kursi rodha manual: kulit kuning, madhep tengen</annotation>
+		<annotation cp="👩🏾‍🦽‍➡">kalancaran | kulit sawo mateng | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha manual</annotation>
+		<annotation cp="👩🏾‍🦽‍➡" type="tts">wong wadon numpak kursi rodha manual: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="👩🏿‍🦽‍➡">kalancaran | kulit ireng | kursi rodha | madhep | tengen | wadon | wong wadon numpak kursi rodha manual</annotation>
+		<annotation cp="👩🏿‍🦽‍➡" type="tts">wong wadon numpak kursi rodha manual: kulit ireng, madhep tengen</annotation>
 		<annotation cp="🏃🏻">kulit putih | maraton | mlayu | wong mlayu</annotation>
 		<annotation cp="🏃🏻" type="tts">wong mlayu: kulit putih</annotation>
 		<annotation cp="🏃🏼">kulit putih langsep | maraton | mlayu | wong mlayu</annotation>
@@ -2867,6 +3047,42 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏃🏾‍♀" type="tts">wong wadon mlayu: kulit sawo mateng</annotation>
 		<annotation cp="🏃🏿‍♀">balapan | kulit ireng | maraton | mlayu | wadon | wong wadon mlayu</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">wong wadon mlayu: kulit ireng</annotation>
+		<annotation cp="🏃‍➡">madhep | maraton | mlayu | tengen | wong mlayu</annotation>
+		<annotation cp="🏃‍➡" type="tts">wong mlayu: madhep tengen</annotation>
+		<annotation cp="🏃🏻‍➡">kulit putih | madhep | maraton | mlayu | tengen | wong mlayu</annotation>
+		<annotation cp="🏃🏻‍➡" type="tts">wong mlayu: kulit putih, madhep tengen</annotation>
+		<annotation cp="🏃🏼‍➡">kulit putih langsep | madhep | maraton | mlayu | tengen | wong mlayu</annotation>
+		<annotation cp="🏃🏼‍➡" type="tts">wong mlayu: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🏃🏽‍➡">kulit kuning | madhep | maraton | mlayu | tengen | wong mlayu</annotation>
+		<annotation cp="🏃🏽‍➡" type="tts">wong mlayu: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🏃🏾‍➡">kulit sawo mateng | madhep | maraton | mlayu | tengen | wong mlayu</annotation>
+		<annotation cp="🏃🏾‍➡" type="tts">wong mlayu: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🏃🏿‍➡">kulit ireng | madhep | maraton | mlayu | tengen | wong mlayu</annotation>
+		<annotation cp="🏃🏿‍➡" type="tts">wong mlayu: kulit ireng, madhep tengen</annotation>
+		<annotation cp="🏃‍♀‍➡">balapan | madhep | maraton | mlayu | tengen | wadon | wong wadon mlayu</annotation>
+		<annotation cp="🏃‍♀‍➡" type="tts">wong wadon mlayu: madhep tengen</annotation>
+		<annotation cp="🏃🏻‍♀‍➡">balapan | kulit putih | madhep | maraton | mlayu | tengen | wadon | wong wadon mlayu</annotation>
+		<annotation cp="🏃🏻‍♀‍➡" type="tts">wong wadon mlayu: kulit putih, madhep tengen</annotation>
+		<annotation cp="🏃🏼‍♀‍➡">balapan | kulit putih langsep | madhep | maraton | mlayu | tengen | wadon | wong wadon mlayu</annotation>
+		<annotation cp="🏃🏼‍♀‍➡" type="tts">wong wadon mlayu: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🏃🏽‍♀‍➡">balapan | kulit kuning | madhep | maraton | mlayu | tengen | wadon | wong wadon mlayu</annotation>
+		<annotation cp="🏃🏽‍♀‍➡" type="tts">wong wadon mlayu: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🏃🏾‍♀‍➡">balapan | kulit sawo mateng | madhep | maraton | mlayu | tengen | wadon | wong wadon mlayu</annotation>
+		<annotation cp="🏃🏾‍♀‍➡" type="tts">wong wadon mlayu: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🏃🏿‍♀‍➡">balapan | kulit ireng | madhep | maraton | mlayu | tengen | wadon | wong wadon mlayu</annotation>
+		<annotation cp="🏃🏿‍♀‍➡" type="tts">wong wadon mlayu: kulit ireng, madhep tengen</annotation>
+		<annotation cp="🏃‍♂‍➡">balapan | lanang | madhep | maraton | mlayu | tengen | wong lanang mlayu</annotation>
+		<annotation cp="🏃‍♂‍➡" type="tts">wong lanang mlayu: madhep tengen</annotation>
+		<annotation cp="🏃🏻‍♂‍➡">balapan | kulit putih | lanang | madhep | maraton | mlayu | tengen | wong lanang mlayu</annotation>
+		<annotation cp="🏃🏻‍♂‍➡" type="tts">wong lanang mlayu: kulit putih, madhep tengen</annotation>
+		<annotation cp="🏃🏼‍♂‍➡">balapan | kulit putih langsep | lanang | madhep | maraton | mlayu | tengen | wong lanang mlayu</annotation>
+		<annotation cp="🏃🏼‍♂‍➡" type="tts">wong lanang mlayu: kulit putih langsep, madhep tengen</annotation>
+		<annotation cp="🏃🏽‍♂‍➡">balapan | kulit kuning | lanang | madhep | maraton | mlayu | tengen | wong lanang mlayu</annotation>
+		<annotation cp="🏃🏽‍♂‍➡" type="tts">wong lanang mlayu: kulit kuning, madhep tengen</annotation>
+		<annotation cp="🏃🏾‍♂‍➡">balapan | kulit sawo mateng | lanang | madhep | maraton | mlayu | tengen | wong lanang mlayu</annotation>
+		<annotation cp="🏃🏾‍♂‍➡" type="tts">wong lanang mlayu: kulit sawo mateng, madhep tengen</annotation>
+		<annotation cp="🏃🏿‍♂‍➡">balapan | kulit ireng | lanang | madhep | maraton | mlayu | tengen | wong lanang mlayu</annotation>
+		<annotation cp="🏃🏿‍♂‍➡" type="tts">wong lanang mlayu: kulit ireng, madhep tengen</annotation>
 		<annotation cp="💃🏻">kulit putih | njoget | wadon | wong wadon njoget</annotation>
 		<annotation cp="💃🏻" type="tts">wong wadon njoget: kulit putih</annotation>
 		<annotation cp="💃🏼">kulit putih langsep | njoget | wadon | wong wadon njoget</annotation>
@@ -3619,55 +3835,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨‍❤‍👨" type="tts">pasangan lan tandha ati: wong lanang, wong lanang</annotation>
 		<annotation cp="👩‍❤‍👩">loro | pasangan lan tandha ati | tresna | wong wadon</annotation>
 		<annotation cp="👩‍❤‍👩" type="tts">pasangan lan tandha ati: wong wadon, wong wadon</annotation>
-		<annotation cp="👨‍👩‍👦">bocah lanang | kluwarga | wong lanang | wong wadon</annotation>
+		<annotation cp="👨‍👩‍👦">anak | bocah lanang | kulawarga | wong lanang | wong wadon</annotation>
 		<annotation cp="👨‍👩‍👦" type="tts">kluwarga: wong lanang, wong wadon, bocah lanang</annotation>
-		<annotation cp="👨‍👩‍👧">bocah wadon | kluwarga | wong lanang | wong wadon</annotation>
+		<annotation cp="👨‍👩‍👧">anak | bocah wadon | kulawarga | wong lanang | wong wadon</annotation>
 		<annotation cp="👨‍👩‍👧" type="tts">kluwarga: wong lanang, wong wadon, bocah wadon</annotation>
-		<annotation cp="👨‍👩‍👧‍👦">bocah lanang | bocah wadon | kluwarga | wong lanang | wong wadon</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">anak | bocah lanang | bocah wadon | kulawarga | wong lanang | wong wadon</annotation>
 		<annotation cp="👨‍👩‍👧‍👦" type="tts">kluwarga: wong lanang, wong wadon, bocah wadon, bocah lanang</annotation>
-		<annotation cp="👨‍👩‍👦‍👦">bocah lanang | kluwarga | wong lanang | wong wadon</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">anak | bocah lanang | kulawarga | wong lanang | wong wadon</annotation>
 		<annotation cp="👨‍👩‍👦‍👦" type="tts">kluwarga: wong lanang, wong wadon, bocah lanang, bocah lanang</annotation>
-		<annotation cp="👨‍👩‍👧‍👧">bocah wadon | kluwarga | wong lanang | wong wadon</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">anak | bocah wadon | kulawarga | wong lanang | wong wadon</annotation>
 		<annotation cp="👨‍👩‍👧‍👧" type="tts">kluwarga: wong lanang, wong wadon, bocah wadon, bocah wadon</annotation>
-		<annotation cp="👨‍👨‍👦">bocah lanang | kluwarga | wong lanang</annotation>
+		<annotation cp="👨‍👨‍👦">anak | bocah lanang | kulawarga | wong lanang</annotation>
 		<annotation cp="👨‍👨‍👦" type="tts">kluwarga: wong lanang, wong lanang, bocah lanang</annotation>
-		<annotation cp="👨‍👨‍👧">bocah wadon | kluwarga | wong lanang</annotation>
+		<annotation cp="👨‍👨‍👧">anak | bocah wadon | kulawarga | wong lanang</annotation>
 		<annotation cp="👨‍👨‍👧" type="tts">kluwarga: wong lanang, wong lanang, bocah wadon</annotation>
-		<annotation cp="👨‍👨‍👧‍👦">bocah lanang | bocah wadon | kluwarga | wong lanang</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">anak | bocah lanang | bocah wadon | kulawarga | wong lanang</annotation>
 		<annotation cp="👨‍👨‍👧‍👦" type="tts">kluwarga: wong lanang, wong lanang, bocah wadon, bocah lanang</annotation>
-		<annotation cp="👨‍👨‍👦‍👦">bocah lanang | kluwarga | wong lanang</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">anak | bocah lanang | kulawarga | wong lanang</annotation>
 		<annotation cp="👨‍👨‍👦‍👦" type="tts">kluwarga: wong lanang, wong lanang, bocah lanang, bocah lanang</annotation>
-		<annotation cp="👨‍👨‍👧‍👧">bocah wadon | kluwarga | wong lanang</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">anak | bocah wadon | kulawarga | wong lanang</annotation>
 		<annotation cp="👨‍👨‍👧‍👧" type="tts">kluwarga: wong lanang, wong lanang, bocah wadon, bocah wadon</annotation>
-		<annotation cp="👩‍👩‍👦">bocah lanang | kluwarga | wong wadon</annotation>
+		<annotation cp="👩‍👩‍👦">anak | bocah lanang | kulawarga | wong wadon</annotation>
 		<annotation cp="👩‍👩‍👦" type="tts">kluwarga: wong wadon, wong wadon, bocah lanang</annotation>
-		<annotation cp="👩‍👩‍👧">bocah wadon | kluwarga | wong wadon</annotation>
+		<annotation cp="👩‍👩‍👧">anak | bocah wadon | kulawarga | wong wadon</annotation>
 		<annotation cp="👩‍👩‍👧" type="tts">kluwarga: wong wadon, wong wadon, bocah wadon</annotation>
-		<annotation cp="👩‍👩‍👧‍👦">bocah lanang | bocah wadon | kluwarga | wong wadon</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">anak | bocah lanang | bocah wadon | kulawarga | wong wadon</annotation>
 		<annotation cp="👩‍👩‍👧‍👦" type="tts">kluwarga: wong wadon, wong wadon, bocah wadon, bocah lanang</annotation>
-		<annotation cp="👩‍👩‍👦‍👦">bocah lanang | kluwarga | wong wadon</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">anak | bocah lanang | kulawarga | wong wadon</annotation>
 		<annotation cp="👩‍👩‍👦‍👦" type="tts">kluwarga: wong wadon, wong wadon, bocah lanang, bocah lanang</annotation>
-		<annotation cp="👩‍👩‍👧‍👧">bocah wadon | kluwarga | wong wadon</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">anak | bocah wadon | kulawarga | wong wadon</annotation>
 		<annotation cp="👩‍👩‍👧‍👧" type="tts">kluwarga: wong wadon, wong wadon, bocah wadon, bocah wadon</annotation>
-		<annotation cp="👨‍👦">bocah lanang | kluwarga | wong lanang</annotation>
+		<annotation cp="👨‍👦">anak | bocah lanang | kulawarga | wong lanang</annotation>
 		<annotation cp="👨‍👦" type="tts">kluwarga: wong lanang, bocah lanang</annotation>
-		<annotation cp="👨‍👦‍👦">bocah lanang | kluwarga | wong lanang</annotation>
+		<annotation cp="👨‍👦‍👦">anak | bocah lanang | kulawarga | wong lanang</annotation>
 		<annotation cp="👨‍👦‍👦" type="tts">kluwarga: wong lanang, bocah lanang, bocah lanang</annotation>
-		<annotation cp="👨‍👧">bocah wadon | kluwarga | wong lanang</annotation>
+		<annotation cp="👨‍👧">anak | bocah wadon | kulawarga | wong lanang</annotation>
 		<annotation cp="👨‍👧" type="tts">kluwarga: wong lanang, bocah wadon</annotation>
-		<annotation cp="👨‍👧‍👦">bocah lanang | bocah wadon | kluwarga | wong lanang</annotation>
+		<annotation cp="👨‍👧‍👦">anak | bocah lanang | bocah wadon | kulawarga | wong lanang</annotation>
 		<annotation cp="👨‍👧‍👦" type="tts">kluwarga: wong lanang, bocah wadon, bocah lanang</annotation>
-		<annotation cp="👨‍👧‍👧">bocah wadon | kluwarga | wong lanang</annotation>
+		<annotation cp="👨‍👧‍👧">anak | bocah wadon | kulawarga | wong lanang</annotation>
 		<annotation cp="👨‍👧‍👧" type="tts">kluwarga: wong lanang, bocah wadon, bocah wadon</annotation>
-		<annotation cp="👩‍👦">bocah lanang | kluwarga | wong wadon</annotation>
+		<annotation cp="👩‍👦">anak | bocah lanang | kulawarga | wong wadon</annotation>
 		<annotation cp="👩‍👦" type="tts">kluwarga: wong wadon, bocah lanang</annotation>
-		<annotation cp="👩‍👦‍👦">bocah lanang | kluwarga | wong wadon</annotation>
+		<annotation cp="👩‍👦‍👦">anak | bocah lanang | kulawarga | wong wadon</annotation>
 		<annotation cp="👩‍👦‍👦" type="tts">kluwarga: wong wadon, bocah lanang, bocah lanang</annotation>
-		<annotation cp="👩‍👧">bocah wadon | kluwarga | wong wadon</annotation>
+		<annotation cp="👩‍👧">anak | bocah wadon | kulawarga | wong wadon</annotation>
 		<annotation cp="👩‍👧" type="tts">kluwarga: wong wadon, bocah wadon</annotation>
-		<annotation cp="👩‍👧‍👦">bocah lanang | bocah wadon | kluwarga | wong wadon</annotation>
+		<annotation cp="👩‍👧‍👦">anak | bocah lanang | bocah wadon | kulawarga | wong wadon</annotation>
 		<annotation cp="👩‍👧‍👦" type="tts">kluwarga: wong wadon, bocah wadon, bocah lanang</annotation>
-		<annotation cp="👩‍👧‍👧">bocah wadon | kluwarga | wong wadon</annotation>
+		<annotation cp="👩‍👧‍👧">anak | bocah wadon | kulawarga | wong wadon</annotation>
 		<annotation cp="👩‍👧‍👧" type="tts">kluwarga: wong wadon, bocah wadon, bocah wadon</annotation>
 		<annotation cp="🇦🇨">gendera</annotation>
 		<annotation cp="🇦🇨" type="tts">gendera: Pulo Ascension</annotation>
@@ -3734,7 +3950,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇧🇷">gendera</annotation>
 		<annotation cp="🇧🇷" type="tts">gendera: Brasil</annotation>
 		<annotation cp="🇧🇸">gendera</annotation>
-		<annotation cp="🇧🇸" type="tts">gendera: Bahamas</annotation>
+		<annotation cp="🇧🇸" type="tts">gendera: Bahama</annotation>
 		<annotation cp="🇧🇹">gendera</annotation>
 		<annotation cp="🇧🇹" type="tts">gendera: Bhutan</annotation>
 		<annotation cp="🇧🇻">gendera</annotation>
@@ -3892,7 +4108,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇮🇳">gendera</annotation>
 		<annotation cp="🇮🇳" type="tts">gendera: Indhia</annotation>
 		<annotation cp="🇮🇴">gendera</annotation>
-		<annotation cp="🇮🇴" type="tts">gendera: Wilayah Inggris nang Segoro Hindia</annotation>
+		<annotation cp="🇮🇴" type="tts">gendera: Wilayah Inggris ing Segara Hindia</annotation>
 		<annotation cp="🇮🇶">gendera</annotation>
 		<annotation cp="🇮🇶" type="tts">gendera: Irak</annotation>
 		<annotation cp="🇮🇷">gendera</annotation>

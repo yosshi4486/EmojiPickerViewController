@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2025 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -279,9 +279,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✋" type="tts">løftet hånd</annotation>
 		<annotation cp="🖖">finger | hånd | krop | vulcan-hilsen</annotation>
 		<annotation cp="🖖" type="tts">vulcan-hilsen</annotation>
-		<annotation cp="👌">OK-håndtegn | ok-tegn | OK-tegn</annotation>
+		<annotation cp="👌">OK-håndtegn | OK-tegn</annotation>
 		<annotation cp="👌" type="tts">ok-tegn</annotation>
-		<annotation cp="✌">v-tegn | V-tegn | yeah</annotation>
+		<annotation cp="✌">V-tegn | yeah</annotation>
 		<annotation cp="✌" type="tts">v-tegn</annotation>
 		<annotation cp="🤞">finger | håb | hånd | held og lykke | krop | krydsede fingre | krydser fingre</annotation>
 		<annotation cp="🤞" type="tts">krydsede fingre</annotation>
@@ -645,14 +645,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💏" type="tts">kys</annotation>
 		<annotation cp="💑">kærlighed | par med hjerte | romantik</annotation>
 		<annotation cp="💑" type="tts">par med hjerte</annotation>
-		<annotation cp="👪">barn | familie | far | menneske | mor</annotation>
-		<annotation cp="👪" type="tts">familie</annotation>
 		<annotation cp="🗣">ansigt | hoved | silhuet | tale | talende</annotation>
 		<annotation cp="🗣" type="tts">talende hoved</annotation>
 		<annotation cp="👤">buste | buste i silhuet</annotation>
 		<annotation cp="👤" type="tts">buste i silhuet</annotation>
 		<annotation cp="👥">buster | buster i silhuet</annotation>
 		<annotation cp="👥" type="tts">buster i silhuet</annotation>
+		<annotation cp="👪">barn | familie | far | menneske | mor</annotation>
+		<annotation cp="👪" type="tts">familie</annotation>
 		<annotation cp="👣">fødder | fodspor</annotation>
 		<annotation cp="👣" type="tts">fodspor</annotation>
 		<annotation cp="🐵">abe | abeansigt | dyr | hoved</annotation>
@@ -801,6 +801,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">blæksprutte</annotation>
 		<annotation cp="🐚">dyr | konkylie</annotation>
 		<annotation cp="🐚" type="tts">konkylie</annotation>
+		<annotation cp="🦀">krabbe | krebsen | stjernetegn</annotation>
+		<annotation cp="🦀" type="tts">krabbe</annotation>
+		<annotation cp="🦐">dyr | havdyr | mad | reje | skaldyr</annotation>
+		<annotation cp="🦐" type="tts">reje</annotation>
+		<annotation cp="🦑">arme | blæk | blæksprutte | bløddyr | dyr | flerarmet | havdyr | mad | multitasking | sprutte</annotation>
+		<annotation cp="🦑" type="tts">sprutte</annotation>
 		<annotation cp="🐌">dyr | snegl</annotation>
 		<annotation cp="🐌" type="tts">snegl</annotation>
 		<annotation cp="🦋">dyr | insekt | sommer | sommerfugl | vinger</annotation>
@@ -981,12 +987,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍥" type="tts">fiskebolle</annotation>
 		<annotation cp="🍡">iskugler | iskugler på pind</annotation>
 		<annotation cp="🍡" type="tts">iskugler på pind</annotation>
-		<annotation cp="🦀">krabbe | krebsen | stjernetegn</annotation>
-		<annotation cp="🦀" type="tts">krabbe</annotation>
-		<annotation cp="🦐">dyr | havdyr | mad | reje | skaldyr</annotation>
-		<annotation cp="🦐" type="tts">reje</annotation>
-		<annotation cp="🦑">arme | blæk | blæksprutte | bløddyr | dyr | flerarmet | havdyr | mad | multitasking | sprutte</annotation>
-		<annotation cp="🦑" type="tts">sprutte</annotation>
 		<annotation cp="🍦">is | softice</annotation>
 		<annotation cp="🍦" type="tts">softice</annotation>
 		<annotation cp="🍧">is | isdessert | snedessert</annotation>
@@ -2349,5 +2349,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏳" type="tts">hvidt flag</annotation>
 		<annotation cp="🏳‍🌈">flag | regnbue | regnbueflag</annotation>
 		<annotation cp="🏳‍🌈" type="tts">regnbueflag</annotation>
+		<annotation cp="0⃣">0 | keycap | nuulu</annotation>
+		<annotation cp="1⃣">1 | ataaseq | keycap</annotation>
+		<annotation cp="2⃣">2 | keycap | marluk</annotation>
+		<annotation cp="3⃣">3 | keycap | pingasut</annotation>
+		<annotation cp="4⃣">4 | keycap | sisamat</annotation>
+		<annotation cp="5⃣">5 | keycap | tallimat</annotation>
+		<annotation cp="6⃣">6 | arfinillit | keycap</annotation>
+		<annotation cp="7⃣">7 | arfineq-marluk | keycap</annotation>
+		<annotation cp="8⃣">8 | arfineq-pingasut | keycap</annotation>
+		<annotation cp="9⃣">9 | arfineq-sisamat | keycap</annotation>
 	</annotations>
 </ldml>

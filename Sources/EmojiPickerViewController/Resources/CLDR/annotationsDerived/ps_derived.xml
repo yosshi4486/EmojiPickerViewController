@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -13,15 +13,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<language type="ps"/>
 	</identity>
 	<annotations>
-		<annotation cp="👋🏻">خوځول | خورول | د روڼ پوستکي ټون | لاس</annotation>
+		<annotation cp="👋🏻">cya | g2g | gtg | outie | ttfn | ttyl | الوداع | ته | څپې | د روڼ پوستکي ټون | سلام | سلامونه | لاس | وروسته</annotation>
 		<annotation cp="👋🏻" type="tts">لاس خورول: د روڼ پوستکي ټون</annotation>
-		<annotation cp="👋🏼">خوځول | خورول | غنمی-روښانه پوستکۍ | لاس</annotation>
+		<annotation cp="👋🏼">cya | g2g | gtg | outie | ttfn | ttyl | الوداع | ته | څپې | سلام | سلامونه | غنمی-روښانه پوستکۍ | لاس | وروسته</annotation>
 		<annotation cp="👋🏼" type="tts">لاس خورول: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="👋🏽">خوځول | خورول | غنم رنګه | لاس</annotation>
+		<annotation cp="👋🏽">cya | g2g | gtg | outie | ttfn | ttyl | الوداع | ته | څپې | سلام | سلامونه | غنم رنګه | لاس | وروسته</annotation>
 		<annotation cp="👋🏽" type="tts">لاس خورول: غنم رنګه</annotation>
-		<annotation cp="👋🏾">خوځول | خورول | غنمی-تورنګه پوستکۍ | لاس</annotation>
+		<annotation cp="👋🏾">cya | g2g | gtg | outie | ttfn | ttyl | الوداع | ته | څپې | سلام | سلامونه | غنمی-تورنګه پوستکۍ | لاس | وروسته</annotation>
 		<annotation cp="👋🏾" type="tts">لاس خورول: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="👋🏿">تور پوستکۍ | خوځول | خورول | لاس</annotation>
+		<annotation cp="👋🏿">cya | g2g | gtg | outie | ttfn | ttyl | الوداع | ته | تور پوستکۍ | څپې | سلام | سلامونه | لاس | وروسته</annotation>
 		<annotation cp="👋🏿" type="tts">لاس خورول: تور پوستکۍ</annotation>
 		<annotation cp="🤚🏻">اوچت | د روڼ پوستکي ټون | لاس شاخوا | لاس شاخوا اچوتول</annotation>
 		<annotation cp="🤚🏻" type="tts">لاس شاخوا اچوتول: د روڼ پوستکي ټون</annotation>
@@ -63,15 +63,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🖖🏾" type="tts">ښه راغلاست: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🖖🏿">تور پوستکۍ | ټوپ | ښه | ښه راغلاست | ګوتي | لاس</annotation>
 		<annotation cp="🖖🏿" type="tts">ښه راغلاست: تور پوستکۍ</annotation>
-		<annotation cp="🫱🏻">د روڼ پوستکي ټون | ښي | ښي لاس ته | لاس</annotation>
+		<annotation cp="🫱🏻">حق | د روڼ پوستکي ټون | رسېدل | ساتل | ښي خواته | لاس | لاس ورکول | ولړزول</annotation>
 		<annotation cp="🫱🏻" type="tts">ښي لاس: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫱🏼">ښي | ښي لاس ته | غنمی-روښانه پوستکۍ | لاس</annotation>
+		<annotation cp="🫱🏼">حق | رسېدل | ساتل | ښي خواته | غنمی-روښانه پوستکۍ | لاس | لاس ورکول | ولړزول</annotation>
 		<annotation cp="🫱🏼" type="tts">ښي لاس: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫱🏽">ښي | ښي لاس ته | غنم رنګه | لاس</annotation>
+		<annotation cp="🫱🏽">حق | رسېدل | ساتل | ښي خواته | غنم رنګه | لاس | لاس ورکول | ولړزول</annotation>
 		<annotation cp="🫱🏽" type="tts">ښي لاس: غنم رنګه</annotation>
-		<annotation cp="🫱🏾">ښي | ښي لاس ته | غنمی-تورنګه پوستکۍ | لاس</annotation>
+		<annotation cp="🫱🏾">حق | رسېدل | ساتل | ښي خواته | غنمی-تورنګه پوستکۍ | لاس | لاس ورکول | ولړزول</annotation>
 		<annotation cp="🫱🏾" type="tts">ښي لاس: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫱🏿">تور پوستکۍ | ښي | ښي لاس ته | لاس</annotation>
+		<annotation cp="🫱🏿">تور پوستکۍ | حق | رسېدل | ساتل | ښي خواته | لاس | لاس ورکول | ولړزول</annotation>
 		<annotation cp="🫱🏿" type="tts">ښي لاس: تور پوستکۍ</annotation>
 		<annotation cp="🫱🏻‍🫲🏼">خوځول | د روڼ پوستکي ټون | ستړې مشي | غنمی-روښانه پوستکۍ | لاس | ملاقات | موافقه</annotation>
 		<annotation cp="🫱🏻‍🫲🏼" type="tts">ستړې مشي: د روڼ پوستکي ټون و غنمی-روښانه پوستکۍ</annotation>
@@ -113,55 +113,55 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫱🏿‍🫲🏽" type="tts">ستړې مشي: تور پوستکۍ و غنم رنګه</annotation>
 		<annotation cp="🫱🏿‍🫲🏾">تور پوستکۍ | خوځول | ستړې مشي | غنمی-تورنګه پوستکۍ | لاس | ملاقات | موافقه</annotation>
 		<annotation cp="🫱🏿‍🫲🏾" type="tts">ستړې مشي: تور پوستکۍ و غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫲🏻">د روڼ پوستکي ټون | کی | کیڼ اړخ ته | کیڼ لاس | لاس</annotation>
+		<annotation cp="🫲🏻">پاتې | د روڼ پوستکي ټون | رسېدل | ساتل | کیڼ لورته | لاس | لاس ورکول | ولړزول</annotation>
 		<annotation cp="🫲🏻" type="tts">کیڼ لاس: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫲🏼">غنمی-روښانه پوستکۍ | کی | کیڼ اړخ ته | کیڼ لاس | لاس</annotation>
+		<annotation cp="🫲🏼">پاتې | رسېدل | ساتل | غنمی-روښانه پوستکۍ | کیڼ لورته | لاس | لاس ورکول | ولړزول</annotation>
 		<annotation cp="🫲🏼" type="tts">کیڼ لاس: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫲🏽">غنم رنګه | کی | کیڼ اړخ ته | کیڼ لاس | لاس</annotation>
+		<annotation cp="🫲🏽">پاتې | رسېدل | ساتل | غنم رنګه | کیڼ لورته | لاس | لاس ورکول | ولړزول</annotation>
 		<annotation cp="🫲🏽" type="tts">کیڼ لاس: غنم رنګه</annotation>
-		<annotation cp="🫲🏾">غنمی-تورنګه پوستکۍ | کی | کیڼ اړخ ته | کیڼ لاس | لاس</annotation>
+		<annotation cp="🫲🏾">پاتې | رسېدل | ساتل | غنمی-تورنګه پوستکۍ | کیڼ لورته | لاس | لاس ورکول | ولړزول</annotation>
 		<annotation cp="🫲🏾" type="tts">کیڼ لاس: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫲🏿">تور پوستکۍ | کی | کیڼ اړخ ته | کیڼ لاس | لاس</annotation>
+		<annotation cp="🫲🏿">پاتې | تور پوستکۍ | رسېدل | ساتل | کیڼ لورته | لاس | لاس ورکول | ولړزول</annotation>
 		<annotation cp="🫲🏿" type="tts">کیڼ لاس: تور پوستکۍ</annotation>
-		<annotation cp="🫳🏻">بو | د روڼ پوستکي ټون | غورځول | ګوښه کول | ورغوې ښکته اړخ لاس</annotation>
+		<annotation cp="🫳🏻">پام | پورته | د روڼ پوستکي ټون | شو | ښکته | غورځول | غورځول شوی | غوره کول | ګوښه کول | لاس</annotation>
 		<annotation cp="🫳🏻" type="tts">ورغوې ښکته اړخ لاس: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫳🏼">بو | غنمی-روښانه پوستکۍ | غورځول | ګوښه کول | ورغوې ښکته اړخ لاس</annotation>
+		<annotation cp="🫳🏼">پام | پورته | شو | ښکته | غنمی-روښانه پوستکۍ | غورځول | غورځول شوی | غوره کول | ګوښه کول | لاس</annotation>
 		<annotation cp="🫳🏼" type="tts">ورغوې ښکته اړخ لاس: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫳🏽">بو | غنم رنګه | غورځول | ګوښه کول | ورغوې ښکته اړخ لاس</annotation>
+		<annotation cp="🫳🏽">پام | پورته | شو | ښکته | غنم رنګه | غورځول | غورځول شوی | غوره کول | ګوښه کول | لاس</annotation>
 		<annotation cp="🫳🏽" type="tts">ورغوې ښکته اړخ لاس: غنم رنګه</annotation>
-		<annotation cp="🫳🏾">بو | غنمی-تورنګه پوستکۍ | غورځول | ګوښه کول | ورغوې ښکته اړخ لاس</annotation>
+		<annotation cp="🫳🏾">پام | پورته | شو | ښکته | غنمی-تورنګه پوستکۍ | غورځول | غورځول شوی | غوره کول | ګوښه کول | لاس</annotation>
 		<annotation cp="🫳🏾" type="tts">ورغوې ښکته اړخ لاس: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫳🏿">بو | تور پوستکۍ | غورځول | ګوښه کول | ورغوې ښکته اړخ لاس</annotation>
+		<annotation cp="🫳🏿">پام | پورته | تور پوستکۍ | شو | ښکته | غورځول | غورځول شوی | غوره کول | ګوښه کول | لاس</annotation>
 		<annotation cp="🫳🏿" type="tts">ورغوې ښکته اړخ لاس: تور پوستکۍ</annotation>
-		<annotation cp="🫴🏻">اشاره | د روڼ پوستکي ټون | راځئ | نیول | ورغوس پورته لاس | وړاندیز</annotation>
+		<annotation cp="🫴🏻">اشاره | پام | پورته | پوهه | د روڼ پوستکي ټون | راځي | زه | ساتل | لاس | نیول | وړاندیز | ووایه</annotation>
 		<annotation cp="🫴🏻" type="tts">ورغوس پورته لاس: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫴🏼">اشاره | راځئ | غنمی-روښانه پوستکۍ | نیول | ورغوس پورته لاس | وړاندیز</annotation>
+		<annotation cp="🫴🏼">اشاره | پام | پورته | پوهه | راځي | زه | ساتل | غنمی-روښانه پوستکۍ | لاس | نیول | وړاندیز | ووایه</annotation>
 		<annotation cp="🫴🏼" type="tts">ورغوس پورته لاس: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫴🏽">اشاره | راځئ | غنم رنګه | نیول | ورغوس پورته لاس | وړاندیز</annotation>
+		<annotation cp="🫴🏽">اشاره | پام | پورته | پوهه | راځي | زه | ساتل | غنم رنګه | لاس | نیول | وړاندیز | ووایه</annotation>
 		<annotation cp="🫴🏽" type="tts">ورغوس پورته لاس: غنم رنګه</annotation>
-		<annotation cp="🫴🏾">اشاره | راځئ | غنمی-تورنګه پوستکۍ | نیول | ورغوس پورته لاس | وړاندیز</annotation>
+		<annotation cp="🫴🏾">اشاره | پام | پورته | پوهه | راځي | زه | ساتل | غنمی-تورنګه پوستکۍ | لاس | نیول | وړاندیز | ووایه</annotation>
 		<annotation cp="🫴🏾" type="tts">ورغوس پورته لاس: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫴🏿">اشاره | تور پوستکۍ | راځئ | نیول | ورغوس پورته لاس | وړاندیز</annotation>
+		<annotation cp="🫴🏿">اشاره | پام | پورته | پوهه | تور پوستکۍ | راځي | زه | ساتل | لاس | نیول | وړاندیز | ووایه</annotation>
 		<annotation cp="🫴🏿" type="tts">ورغوس پورته لاس: تور پوستکۍ</annotation>
-		<annotation cp="🫷🏻">انتظار | انکار | د روڼ پوستکي ټون | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫷🏻">انتظار | انکار | بلاک | پنځه | ټوپ | د روڼ پوستکي ټون | زورول | ساتل | فشار | کیڼ لورته | لاس | لوړ | ودرول | ودریږي | وقفه</annotation>
 		<annotation cp="🫷🏻" type="tts">کیڼ اړخ ته لاس وهل: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫷🏼">انتظار | انکار | غنمی-روښانه پوستکۍ | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫷🏼">انتظار | انکار | بلاک | پنځه | ټوپ | زورول | ساتل | غنمی-روښانه پوستکۍ | فشار | کیڼ لورته | لاس | لوړ | ودرول | ودریږي | وقفه</annotation>
 		<annotation cp="🫷🏼" type="tts">کیڼ اړخ ته لاس وهل: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫷🏽">انتظار | انکار | غنم رنګه | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫷🏽">انتظار | انکار | بلاک | پنځه | ټوپ | زورول | ساتل | غنم رنګه | فشار | کیڼ لورته | لاس | لوړ | ودرول | ودریږي | وقفه</annotation>
 		<annotation cp="🫷🏽" type="tts">کیڼ اړخ ته لاس وهل: غنم رنګه</annotation>
-		<annotation cp="🫷🏾">انتظار | انکار | غنمی-تورنګه پوستکۍ | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫷🏾">انتظار | انکار | بلاک | پنځه | ټوپ | زورول | ساتل | غنمی-تورنګه پوستکۍ | فشار | کیڼ لورته | لاس | لوړ | ودرول | ودریږي | وقفه</annotation>
 		<annotation cp="🫷🏾" type="tts">کیڼ اړخ ته لاس وهل: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫷🏿">انتظار | انکار | تور پوستکۍ | فشار | کیڼ اړخ ته لاس وهل | کیڼ لورته | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫷🏿">انتظار | انکار | بلاک | پنځه | تور پوستکۍ | ټوپ | زورول | ساتل | فشار | کیڼ لورته | لاس | لوړ | ودرول | ودریږي | وقفه</annotation>
 		<annotation cp="🫷🏿" type="tts">کیڼ اړخ ته لاس وهل: تور پوستکۍ</annotation>
-		<annotation cp="🫸🏻">انتظار | انکار | د روڼ پوستکي ټون | ښي خوا ته لاس وهل | ښي خواته | فشار | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫸🏻">انتظار | انکار | بلاک | پنځه | ټوپ | د روڼ پوستکي ټون | زورول | ساتل | ښي خواته | فشار | لاس | لوړ | ودرول | ودریږي | وقفه</annotation>
 		<annotation cp="🫸🏻" type="tts">ښي خوا ته لاس وهل: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫸🏼">انتظار | انکار | ښي خوا ته لاس وهل | ښي خواته | غنمی-روښانه پوستکۍ | فشار | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫸🏼">انتظار | انکار | بلاک | پنځه | ټوپ | زورول | ساتل | ښي خواته | غنمی-روښانه پوستکۍ | فشار | لاس | لوړ | ودرول | ودریږي | وقفه</annotation>
 		<annotation cp="🫸🏼" type="tts">ښي خوا ته لاس وهل: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫸🏽">انتظار | انکار | ښي خوا ته لاس وهل | ښي خواته | غنم رنګه | فشار | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫸🏽">انتظار | انکار | بلاک | پنځه | ټوپ | زورول | ساتل | ښي خواته | غنم رنګه | فشار | لاس | لوړ | ودرول | ودریږي | وقفه</annotation>
 		<annotation cp="🫸🏽" type="tts">ښي خوا ته لاس وهل: غنم رنګه</annotation>
-		<annotation cp="🫸🏾">انتظار | انکار | ښي خوا ته لاس وهل | ښي خواته | غنمی-تورنګه پوستکۍ | فشار | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫸🏾">انتظار | انکار | بلاک | پنځه | ټوپ | زورول | ساتل | ښي خواته | غنمی-تورنګه پوستکۍ | فشار | لاس | لوړ | ودرول | ودریږي | وقفه</annotation>
 		<annotation cp="🫸🏾" type="tts">ښي خوا ته لاس وهل: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫸🏿">انتظار | انکار | تور پوستکۍ | ښي خوا ته لاس وهل | ښي خواته | فشار | لوړ پنځه | ودریږي</annotation>
+		<annotation cp="🫸🏿">انتظار | انکار | بلاک | پنځه | تور پوستکۍ | ټوپ | زورول | ساتل | ښي خواته | فشار | لاس | لوړ | ودرول | ودریږي | وقفه</annotation>
 		<annotation cp="🫸🏿" type="tts">ښي خوا ته لاس وهل: تور پوستکۍ</annotation>
 		<annotation cp="👌🏻">اوکی | د روڼ پوستکي ټون | لاس</annotation>
 		<annotation cp="👌🏻" type="tts">اوکی لاس: د روڼ پوستکي ټون</annotation>
@@ -193,15 +193,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤏🏾" type="tts">سکونډونکی لاس: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🤏🏿">تور پوستکۍ | سکونډونکی لاس | کوچنی مقدار</annotation>
 		<annotation cp="🤏🏿" type="tts">سکونډونکی لاس: تور پوستکۍ</annotation>
-		<annotation cp="✌🏻">v | بریا | د بریا نښه | د روڼ پوستکي ټون | لاس</annotation>
+		<annotation cp="✌🏻">v | بریا | د روڼ پوستکي ټون | سوله | لاس</annotation>
 		<annotation cp="✌🏻" type="tts">د بریا نښه: د روڼ پوستکي ټون</annotation>
-		<annotation cp="✌🏼">v | بریا | د بریا نښه | غنمی-روښانه پوستکۍ | لاس</annotation>
+		<annotation cp="✌🏼">v | بریا | سوله | غنمی-روښانه پوستکۍ | لاس</annotation>
 		<annotation cp="✌🏼" type="tts">د بریا نښه: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="✌🏽">v | بریا | د بریا نښه | غنم رنګه | لاس</annotation>
+		<annotation cp="✌🏽">v | بریا | سوله | غنم رنګه | لاس</annotation>
 		<annotation cp="✌🏽" type="tts">د بریا نښه: غنم رنګه</annotation>
-		<annotation cp="✌🏾">v | بریا | د بریا نښه | غنمی-تورنګه پوستکۍ | لاس</annotation>
+		<annotation cp="✌🏾">v | بریا | سوله | غنمی-تورنګه پوستکۍ | لاس</annotation>
 		<annotation cp="✌🏾" type="tts">د بریا نښه: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="✌🏿">v | بریا | تور پوستکۍ | د بریا نښه | لاس</annotation>
+		<annotation cp="✌🏿">v | بریا | تور پوستکۍ | سوله | لاس</annotation>
 		<annotation cp="✌🏿" type="tts">د بریا نښه: تور پوستکۍ</annotation>
 		<annotation cp="🤞🏻">بخت | د روڼ پوستکي ټون | ګوتي | لاس | متقاطع</annotation>
 		<annotation cp="🤞🏻" type="tts">متقاطع ګوتي: د روڼ پوستکي ټون</annotation>
@@ -213,25 +213,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤞🏾" type="tts">متقاطع ګوتي: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🤞🏿">بخت | تور پوستکۍ | ګوتي | لاس | متقاطع</annotation>
 		<annotation cp="🤞🏿" type="tts">متقاطع ګوتي: تور پوستکۍ</annotation>
-		<annotation cp="🫰🏻">پیسې | د روڼ پوستکي ټون | د شاخص د ګوتو او ګوتو سره لاس تېر شو | زړه | سنیپ | ګران | مینه</annotation>
+		<annotation cp="🫰🏻">&lt;3 | پیسې | تجاوز | د روڼ پوستکي ټون | زړه | شاخص | عکس | ګران | ګوته | ګوتې | لاس | مینه</annotation>
 		<annotation cp="🫰🏻" type="tts">د شاخص د ګوتو او ګوتو سره لاس تېر شو: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫰🏼">پیسې | د شاخص د ګوتو او ګوتو سره لاس تېر شو | زړه | سنیپ | غنمی-روښانه پوستکۍ | ګران | مینه</annotation>
+		<annotation cp="🫰🏼">&lt;3 | پیسې | تجاوز | زړه | شاخص | عکس | غنمی-روښانه پوستکۍ | ګران | ګوته | ګوتې | لاس | مینه</annotation>
 		<annotation cp="🫰🏼" type="tts">د شاخص د ګوتو او ګوتو سره لاس تېر شو: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫰🏽">پیسې | د شاخص د ګوتو او ګوتو سره لاس تېر شو | زړه | سنیپ | غنم رنګه | ګران | مینه</annotation>
+		<annotation cp="🫰🏽">&lt;3 | پیسې | تجاوز | زړه | شاخص | عکس | غنم رنګه | ګران | ګوته | ګوتې | لاس | مینه</annotation>
 		<annotation cp="🫰🏽" type="tts">د شاخص د ګوتو او ګوتو سره لاس تېر شو: غنم رنګه</annotation>
-		<annotation cp="🫰🏾">پیسې | د شاخص د ګوتو او ګوتو سره لاس تېر شو | زړه | سنیپ | غنمی-تورنګه پوستکۍ | ګران | مینه</annotation>
+		<annotation cp="🫰🏾">&lt;3 | پیسې | تجاوز | زړه | شاخص | عکس | غنمی-تورنګه پوستکۍ | ګران | ګوته | ګوتې | لاس | مینه</annotation>
 		<annotation cp="🫰🏾" type="tts">د شاخص د ګوتو او ګوتو سره لاس تېر شو: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫰🏿">پیسې | تور پوستکۍ | د شاخص د ګوتو او ګوتو سره لاس تېر شو | زړه | سنیپ | ګران | مینه</annotation>
+		<annotation cp="🫰🏿">&lt;3 | پیسې | تجاوز | تور پوستکۍ | زړه | شاخص | عکس | ګران | ګوته | ګوتې | لاس | مینه</annotation>
 		<annotation cp="🫰🏿" type="tts">د شاخص د ګوتو او ګوتو سره لاس تېر شو: تور پوستکۍ</annotation>
-		<annotation cp="🤟🏻">ILY | د روڼ پوستکي ټون | د مینې اشاره | لاس</annotation>
+		<annotation cp="🤟🏻">ILY | اشاره | ته | د روڼ پوستکي ټون | درې | ګوتې | لاس | مینه | مینه-تاسو</annotation>
 		<annotation cp="🤟🏻" type="tts">د مینې اشاره: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🤟🏼">ILY | د مینې اشاره | غنمی-روښانه پوستکۍ | لاس</annotation>
+		<annotation cp="🤟🏼">ILY | اشاره | ته | درې | غنمی-روښانه پوستکۍ | ګوتې | لاس | مینه | مینه-تاسو</annotation>
 		<annotation cp="🤟🏼" type="tts">د مینې اشاره: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🤟🏽">ILY | د مینې اشاره | غنم رنګه | لاس</annotation>
+		<annotation cp="🤟🏽">ILY | اشاره | ته | درې | غنم رنګه | ګوتې | لاس | مینه | مینه-تاسو</annotation>
 		<annotation cp="🤟🏽" type="tts">د مینې اشاره: غنم رنګه</annotation>
-		<annotation cp="🤟🏾">ILY | د مینې اشاره | غنمی-تورنګه پوستکۍ | لاس</annotation>
+		<annotation cp="🤟🏾">ILY | اشاره | ته | درې | غنمی-تورنګه پوستکۍ | ګوتې | لاس | مینه | مینه-تاسو</annotation>
 		<annotation cp="🤟🏾" type="tts">د مینې اشاره: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🤟🏿">ILY | تور پوستکۍ | د مینې اشاره | لاس</annotation>
+		<annotation cp="🤟🏿">ILY | اشاره | ته | تور پوستکۍ | درې | ګوتې | لاس | مینه | مینه-تاسو</annotation>
 		<annotation cp="🤟🏿" type="tts">د مینې اشاره: تور پوستکۍ</annotation>
 		<annotation cp="🤘🏻">د روڼ پوستکي ټون | دوشاخ | دوشاخه | ګوتي | لاس | مست</annotation>
 		<annotation cp="🤘🏻" type="tts">دوشاخه: د روڼ پوستکي ټون</annotation>
@@ -313,15 +313,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="☝🏾" type="tts">شهادت ګوته پورته نیول: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="☝🏿">پورته | تور پوستکۍ | شهادت ګوته | شهادت ګوته پورته نیول | ګوته | لاس</annotation>
 		<annotation cp="☝🏿" type="tts">شهادت ګوته پورته نیول: تور پوستکۍ</annotation>
-		<annotation cp="🫵🏻">point | you | د روڼ پوستکي ټون | شاخص لیدونکی ته اشاره کول</annotation>
+		<annotation cp="🫵🏻">اشاره کول | په | ته | ټوپ | د روڼ پوستکي ټون | شاخص | ګوته | لاس | لیدونکی</annotation>
 		<annotation cp="🫵🏻" type="tts">شاخص لیدونکی ته اشاره کول: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫵🏼">point | you | شاخص لیدونکی ته اشاره کول | غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🫵🏼">اشاره کول | په | ته | ټوپ | شاخص | غنمی-روښانه پوستکۍ | ګوته | لاس | لیدونکی</annotation>
 		<annotation cp="🫵🏼" type="tts">شاخص لیدونکی ته اشاره کول: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫵🏽">point | you | شاخص لیدونکی ته اشاره کول | غنم رنګه</annotation>
+		<annotation cp="🫵🏽">اشاره کول | په | ته | ټوپ | شاخص | غنم رنګه | ګوته | لاس | لیدونکی</annotation>
 		<annotation cp="🫵🏽" type="tts">شاخص لیدونکی ته اشاره کول: غنم رنګه</annotation>
-		<annotation cp="🫵🏾">point | you | شاخص لیدونکی ته اشاره کول | غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🫵🏾">اشاره کول | په | ته | ټوپ | شاخص | غنمی-تورنګه پوستکۍ | ګوته | لاس | لیدونکی</annotation>
 		<annotation cp="🫵🏾" type="tts">شاخص لیدونکی ته اشاره کول: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫵🏿">point | you | تور پوستکۍ | شاخص لیدونکی ته اشاره کول</annotation>
+		<annotation cp="🫵🏿">اشاره کول | په | ته | تور پوستکۍ | ټوپ | شاخص | ګوته | لاس | لیدونکی</annotation>
 		<annotation cp="🫵🏿" type="tts">شاخص لیدونکی ته اشاره کول: تور پوستکۍ</annotation>
 		<annotation cp="👍🏻">+1 | پورته | د روڼ پوستکي ټون | ډیر ښه | غټه ګوته | لاس</annotation>
 		<annotation cp="👍🏻" type="tts">ډیر ښه: د روڼ پوستکي ټون</annotation>
@@ -403,15 +403,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🙌🏾" type="tts">لاسونه اوچتول: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🙌🏿">اشاره | اوچت | تور پوستکۍ | لاس | لاسونه اوچتول | لاسونه اوچول | لمانځل | هوری</annotation>
 		<annotation cp="🙌🏿" type="tts">لاسونه اوچتول: تور پوستکۍ</annotation>
-		<annotation cp="🫶🏻">د روڼ پوستکي ټون | زړه لاسونه | مینه</annotation>
+		<annotation cp="🫶🏻">&lt;3 | ته | د روڼ پوستکي ټون | زړه | لاسونه | مینه</annotation>
 		<annotation cp="🫶🏻" type="tts">زړه لاسونه: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫶🏼">زړه لاسونه | غنمی-روښانه پوستکۍ | مینه</annotation>
+		<annotation cp="🫶🏼">&lt;3 | ته | زړه | غنمی-روښانه پوستکۍ | لاسونه | مینه</annotation>
 		<annotation cp="🫶🏼" type="tts">زړه لاسونه: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫶🏽">زړه لاسونه | غنم رنګه | مینه</annotation>
+		<annotation cp="🫶🏽">&lt;3 | ته | زړه | غنم رنګه | لاسونه | مینه</annotation>
 		<annotation cp="🫶🏽" type="tts">زړه لاسونه: غنم رنګه</annotation>
-		<annotation cp="🫶🏾">زړه لاسونه | غنمی-تورنګه پوستکۍ | مینه</annotation>
+		<annotation cp="🫶🏾">&lt;3 | ته | زړه | غنمی-تورنګه پوستکۍ | لاسونه | مینه</annotation>
 		<annotation cp="🫶🏾" type="tts">زړه لاسونه: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫶🏿">تور پوستکۍ | زړه لاسونه | مینه</annotation>
+		<annotation cp="🫶🏿">&lt;3 | ته | تور پوستکۍ | زړه | لاسونه | مینه</annotation>
 		<annotation cp="🫶🏿" type="tts">زړه لاسونه: تور پوستکۍ</annotation>
 		<annotation cp="👐🏻">خلاص | خلاص لاسونه | د روڼ پوستکي ټون | لاس</annotation>
 		<annotation cp="👐🏻" type="tts">خلاص لاسونه: د روڼ پوستکي ټون</annotation>
@@ -2137,15 +2137,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👷🏾‍♀" type="tts">ښځه ساختماني کارګر: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="👷🏿‍♀">تور پوستکۍ | ساختماني | ښځه | ښځه ساختماني کارګر | کارګره</annotation>
 		<annotation cp="👷🏿‍♀" type="tts">ښځه ساختماني کارګر: تور پوستکۍ</annotation>
-		<annotation cp="🫅🏻">پاچا | د تاج کس | د روڼ پوستکي ټون | رائلټي | ریګال | نوبل</annotation>
+		<annotation cp="🫅🏻">پاچا | تاج | د روڼ پوستکي ټون | رجال | سړی | شاهي | شاهيت | عالي</annotation>
 		<annotation cp="🫅🏻" type="tts">د تاج کس: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫅🏼">پاچا | د تاج کس | رائلټي | ریګال | غنمی-روښانه پوستکۍ | نوبل</annotation>
+		<annotation cp="🫅🏼">پاچا | تاج | رجال | سړی | شاهي | شاهيت | عالي | غنمی-روښانه پوستکۍ</annotation>
 		<annotation cp="🫅🏼" type="tts">د تاج کس: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫅🏽">پاچا | د تاج کس | رائلټي | ریګال | غنم رنګه | نوبل</annotation>
+		<annotation cp="🫅🏽">پاچا | تاج | رجال | سړی | شاهي | شاهيت | عالي | غنم رنګه</annotation>
 		<annotation cp="🫅🏽" type="tts">د تاج کس: غنم رنګه</annotation>
-		<annotation cp="🫅🏾">پاچا | د تاج کس | رائلټي | ریګال | غنمی-تورنګه پوستکۍ | نوبل</annotation>
+		<annotation cp="🫅🏾">پاچا | تاج | رجال | سړی | شاهي | شاهيت | عالي | غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🫅🏾" type="tts">د تاج کس: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫅🏿">پاچا | تور پوستکۍ | د تاج کس | رائلټي | ریګال | نوبل</annotation>
+		<annotation cp="🫅🏿">پاچا | تاج | تور پوستکۍ | رجال | سړی | شاهي | شاهيت | عالي</annotation>
 		<annotation cp="🫅🏿" type="tts">د تاج کس: تور پوستکۍ</annotation>
 		<annotation cp="🤴🏻">د روڼ پوستکي ټون | شهزاده</annotation>
 		<annotation cp="🤴🏻" type="tts">شهزاده: د روڼ پوستکي ټون</annotation>
@@ -2287,25 +2287,25 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤰🏾" type="tts">امیندواره ښځه: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🤰🏿">امیندواره | تور پوستکۍ | ښځه</annotation>
 		<annotation cp="🤰🏿" type="tts">امیندواره ښځه: تور پوستکۍ</annotation>
-		<annotation cp="🫃🏻">امیندواره | امیندواره سړی | بشپړ | پړسیدلی | د روڼ پوستکي ټون | نس</annotation>
+		<annotation cp="🫃🏻">بشپړ | حامله | د روڼ پوستکي ټون | ډیر خوړل | سړی | غوړېدلی | معدې</annotation>
 		<annotation cp="🫃🏻" type="tts">امیندواره سړی: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫃🏼">امیندواره | امیندواره سړی | بشپړ | پړسیدلی | غنمی-روښانه پوستکۍ | نس</annotation>
+		<annotation cp="🫃🏼">بشپړ | حامله | ډیر خوړل | سړی | غنمی-روښانه پوستکۍ | غوړېدلی | معدې</annotation>
 		<annotation cp="🫃🏼" type="tts">امیندواره سړی: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫃🏽">امیندواره | امیندواره سړی | بشپړ | پړسیدلی | غنم رنګه | نس</annotation>
+		<annotation cp="🫃🏽">بشپړ | حامله | ډیر خوړل | سړی | غنم رنګه | غوړېدلی | معدې</annotation>
 		<annotation cp="🫃🏽" type="tts">امیندواره سړی: غنم رنګه</annotation>
-		<annotation cp="🫃🏾">امیندواره | امیندواره سړی | بشپړ | پړسیدلی | غنمی-تورنګه پوستکۍ | نس</annotation>
+		<annotation cp="🫃🏾">بشپړ | حامله | ډیر خوړل | سړی | غنمی-تورنګه پوستکۍ | غوړېدلی | معدې</annotation>
 		<annotation cp="🫃🏾" type="tts">امیندواره سړی: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫃🏿">امیندواره | امیندواره سړی | بشپړ | پړسیدلی | تور پوستکۍ | نس</annotation>
+		<annotation cp="🫃🏿">بشپړ | تور پوستکۍ | حامله | ډیر خوړل | سړی | غوړېدلی | معدې</annotation>
 		<annotation cp="🫃🏿" type="tts">امیندواره سړی: تور پوستکۍ</annotation>
-		<annotation cp="🫄🏻">امیندواره | امیندواره کس | بشپړ | پړسیدلی | د روڼ پوستکي ټون | نس</annotation>
+		<annotation cp="🫄🏻">بشپړ | حامله | د روڼ پوستکي ټون | ډک | ډیر خوړل | سړی | غوړېدلی | معدې</annotation>
 		<annotation cp="🫄🏻" type="tts">امیندواره کس: د روڼ پوستکي ټون</annotation>
-		<annotation cp="🫄🏼">امیندواره | امیندواره کس | بشپړ | پړسیدلی | غنمی-روښانه پوستکۍ | نس</annotation>
+		<annotation cp="🫄🏼">بشپړ | حامله | ډک | ډیر خوړل | سړی | غنمی-روښانه پوستکۍ | غوړېدلی | معدې</annotation>
 		<annotation cp="🫄🏼" type="tts">امیندواره کس: غنمی-روښانه پوستکۍ</annotation>
-		<annotation cp="🫄🏽">امیندواره | امیندواره کس | بشپړ | پړسیدلی | غنم رنګه | نس</annotation>
+		<annotation cp="🫄🏽">بشپړ | حامله | ډک | ډیر خوړل | سړی | غنم رنګه | غوړېدلی | معدې</annotation>
 		<annotation cp="🫄🏽" type="tts">امیندواره کس: غنم رنګه</annotation>
-		<annotation cp="🫄🏾">امیندواره | امیندواره کس | بشپړ | پړسیدلی | غنمی-تورنګه پوستکۍ | نس</annotation>
+		<annotation cp="🫄🏾">بشپړ | حامله | ډک | ډیر خوړل | سړی | غنمی-تورنګه پوستکۍ | غوړېدلی | معدې</annotation>
 		<annotation cp="🫄🏾" type="tts">امیندواره کس: غنمی-تورنګه پوستکۍ</annotation>
-		<annotation cp="🫄🏿">امیندواره | امیندواره کس | بشپړ | پړسیدلی | تور پوستکۍ | نس</annotation>
+		<annotation cp="🫄🏿">بشپړ | تور پوستکۍ | حامله | ډک | ډیر خوړل | سړی | غوړېدلی | معدې</annotation>
 		<annotation cp="🫄🏿" type="tts">امیندواره کس: تور پوستکۍ</annotation>
 		<annotation cp="🤱🏻">د روڼ پوستکي ټون | د سينې شيدې ورکول | سينه | شيدې ورکول | ماشوم | نرسنګ</annotation>
 		<annotation cp="🤱🏻" type="tts">د سينې شيدې ورکول: د روڼ پوستکي ټون</annotation>
@@ -2558,15 +2558,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧜🏿‍♂">تور پوستکۍ | ټريټان | مرمین</annotation>
 		<annotation cp="🧜🏿‍♂" type="tts">مرمین: تور پوستکۍ</annotation>
 		<annotation cp="🧜🏻‍♀">د روڼ پوستکي ټون | مرمیڈ</annotation>
-		<annotation cp="🧜🏻‍♀" type="tts">مرمیڈ: د روڼ پوستکي ټون</annotation>
+		<annotation cp="🧜🏻‍♀" type="tts">مرمیډ: د روڼ پوستکي ټون</annotation>
 		<annotation cp="🧜🏼‍♀">غنمی-روښانه پوستکۍ | مرمیڈ</annotation>
-		<annotation cp="🧜🏼‍♀" type="tts">مرمیڈ: غنمی-روښانه پوستکۍ</annotation>
+		<annotation cp="🧜🏼‍♀" type="tts">مرمیډ: غنمی-روښانه پوستکۍ</annotation>
 		<annotation cp="🧜🏽‍♀">غنم رنګه | مرمیڈ</annotation>
-		<annotation cp="🧜🏽‍♀" type="tts">مرمیڈ: غنم رنګه</annotation>
+		<annotation cp="🧜🏽‍♀" type="tts">مرمیډ: غنم رنګه</annotation>
 		<annotation cp="🧜🏾‍♀">غنمی-تورنګه پوستکۍ | مرمیڈ</annotation>
-		<annotation cp="🧜🏾‍♀" type="tts">مرمیڈ: غنمی-تورنګه پوستکۍ</annotation>
+		<annotation cp="🧜🏾‍♀" type="tts">مرمیډ: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🧜🏿‍♀">تور پوستکۍ | مرمیڈ</annotation>
-		<annotation cp="🧜🏿‍♀" type="tts">مرمیڈ: تور پوستکۍ</annotation>
+		<annotation cp="🧜🏿‍♀" type="tts">مرمیډ: تور پوستکۍ</annotation>
 		<annotation cp="🧝🏻">جادويي | د روڼ پوستکي ټون | ګوړا</annotation>
 		<annotation cp="🧝🏻" type="tts">ګوړا: د روڼ پوستکي ټون</annotation>
 		<annotation cp="🧝🏼">جادويي | غنمی-روښانه پوستکۍ | ګوړا</annotation>
@@ -2687,6 +2687,42 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾‍♀" type="tts">روانه ښځه: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🚶🏿‍♀">په غر ختل | تګ | تور پوستکۍ | روانه ښځه | ښځه</annotation>
 		<annotation cp="🚶🏿‍♀" type="tts">روانه ښځه: تور پوستکۍ</annotation>
+		<annotation cp="🚶‍➡">په غر ختل | تګ | ته | خوا | روان | روان شخص | ښي | مخامخ</annotation>
+		<annotation cp="🚶‍➡" type="tts">روان شخص: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏻‍➡">په غر ختل | تګ | ته | خوا | د روڼ پوستکي ټون | روان | روان شخص | ښي | مخامخ</annotation>
+		<annotation cp="🚶🏻‍➡" type="tts">روان شخص: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏼‍➡">په غر ختل | تګ | ته | خوا | روان | روان شخص | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🚶🏼‍➡" type="tts">روان شخص: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏽‍➡">په غر ختل | تګ | ته | خوا | روان | روان شخص | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="🚶🏽‍➡" type="tts">روان شخص: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏾‍➡">په غر ختل | تګ | ته | خوا | روان | روان شخص | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🚶🏾‍➡" type="tts">روان شخص: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏿‍➡">په غر ختل | تګ | ته | تور پوستکۍ | خوا | روان | روان شخص | ښي | مخامخ</annotation>
+		<annotation cp="🚶🏿‍➡" type="tts">روان شخص: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶‍♀‍➡">په غر ختل | تګ | ته | خوا | روانه ښځه | ښځه | ښي | مخامخ</annotation>
+		<annotation cp="🚶‍♀‍➡" type="tts">روانه ښځه: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏻‍♀‍➡">په غر ختل | تګ | ته | خوا | د روڼ پوستکي ټون | روانه ښځه | ښځه | ښي | مخامخ</annotation>
+		<annotation cp="🚶🏻‍♀‍➡" type="tts">روانه ښځه: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏼‍♀‍➡">په غر ختل | تګ | ته | خوا | روانه ښځه | ښځه | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🚶🏼‍♀‍➡" type="tts">روانه ښځه: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏽‍♀‍➡">په غر ختل | تګ | ته | خوا | روانه ښځه | ښځه | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="🚶🏽‍♀‍➡" type="tts">روانه ښځه: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏾‍♀‍➡">په غر ختل | تګ | ته | خوا | روانه ښځه | ښځه | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🚶🏾‍♀‍➡" type="tts">روانه ښځه: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏿‍♀‍➡">په غر ختل | تګ | ته | تور پوستکۍ | خوا | روانه ښځه | ښځه | ښي | مخامخ</annotation>
+		<annotation cp="🚶🏿‍♀‍➡" type="tts">روانه ښځه: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶‍♂‍➡">په غر ختل | تګ | ته | خوا | روان سړی | سړی | ښي | مخامخ</annotation>
+		<annotation cp="🚶‍♂‍➡" type="tts">روان سړی: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏻‍♂‍➡">په غر ختل | تګ | ته | خوا | د روڼ پوستکي ټون | روان سړی | سړی | ښي | مخامخ</annotation>
+		<annotation cp="🚶🏻‍♂‍➡" type="tts">روان سړی: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏼‍♂‍➡">په غر ختل | تګ | ته | خوا | روان سړی | سړی | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🚶🏼‍♂‍➡" type="tts">روان سړی: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏽‍♂‍➡">په غر ختل | تګ | ته | خوا | روان سړی | سړی | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="🚶🏽‍♂‍➡" type="tts">روان سړی: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏾‍♂‍➡">په غر ختل | تګ | ته | خوا | روان سړی | سړی | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🚶🏾‍♂‍➡" type="tts">روان سړی: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🚶🏿‍♂‍➡">په غر ختل | تګ | ته | تور پوستکۍ | خوا | روان سړی | سړی | ښي | مخامخ</annotation>
+		<annotation cp="🚶🏿‍♂‍➡" type="tts">روان سړی: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="🧍🏻">پاڅه | د روڼ پوستکي ټون | ولاړ | ولاړ شخص</annotation>
 		<annotation cp="🧍🏻" type="tts">ولاړ شخص: د روڼ پوستکي ټون</annotation>
 		<annotation cp="🧍🏼">پاڅه | غنمی-روښانه پوستکۍ | ولاړ | ولاړ شخص</annotation>
@@ -2747,6 +2783,42 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧎🏾‍♀" type="tts">ښځه چوکېږي: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🧎🏿‍♀">تور پوستکۍ | چوکېږي | ښځه</annotation>
 		<annotation cp="🧎🏿‍♀" type="tts">ښځه چوکېږي: تور پوستکۍ</annotation>
+		<annotation cp="🧎‍➡">ته | چوکېدل | چوکېږي | خوا | شخص چوکېږي | ښي | مخامخ</annotation>
+		<annotation cp="🧎‍➡" type="tts">شخص چوکېږي: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏻‍➡">ته | چوکېدل | چوکېږي | خوا | د روڼ پوستکي ټون | شخص چوکېږي | ښي | مخامخ</annotation>
+		<annotation cp="🧎🏻‍➡" type="tts">شخص چوکېږي: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏼‍➡">ته | چوکېدل | چوکېږي | خوا | شخص چوکېږي | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🧎🏼‍➡" type="tts">شخص چوکېږي: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏽‍➡">ته | چوکېدل | چوکېږي | خوا | شخص چوکېږي | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="🧎🏽‍➡" type="tts">شخص چوکېږي: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏾‍➡">ته | چوکېدل | چوکېږي | خوا | شخص چوکېږي | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🧎🏾‍➡" type="tts">شخص چوکېږي: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏿‍➡">ته | تور پوستکۍ | چوکېدل | چوکېږي | خوا | شخص چوکېږي | ښي | مخامخ</annotation>
+		<annotation cp="🧎🏿‍➡" type="tts">شخص چوکېږي: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎‍♀‍➡">ته | چوکېږي | خوا | ښځه | ښي | مخامخ</annotation>
+		<annotation cp="🧎‍♀‍➡" type="tts">ښځه چوکېږي: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏻‍♀‍➡">ته | چوکېږي | خوا | د روڼ پوستکي ټون | ښځه | ښي | مخامخ</annotation>
+		<annotation cp="🧎🏻‍♀‍➡" type="tts">ښځه چوکېږي: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏼‍♀‍➡">ته | چوکېږي | خوا | ښځه | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🧎🏼‍♀‍➡" type="tts">ښځه چوکېږي: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏽‍♀‍➡">ته | چوکېږي | خوا | ښځه | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="🧎🏽‍♀‍➡" type="tts">ښځه چوکېږي: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏾‍♀‍➡">ته | چوکېږي | خوا | ښځه | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🧎🏾‍♀‍➡" type="tts">ښځه چوکېږي: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏿‍♀‍➡">ته | تور پوستکۍ | چوکېږي | خوا | ښځه | ښي | مخامخ</annotation>
+		<annotation cp="🧎🏿‍♀‍➡" type="tts">ښځه چوکېږي: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎‍♂‍➡">ته | چوکېږي | خوا | سړی | ښي | مخامخ</annotation>
+		<annotation cp="🧎‍♂‍➡" type="tts">سړی چوکېږي: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏻‍♂‍➡">ته | چوکېږي | خوا | د روڼ پوستکي ټون | سړی | ښي | مخامخ</annotation>
+		<annotation cp="🧎🏻‍♂‍➡" type="tts">سړی چوکېږي: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏼‍♂‍➡">ته | چوکېږي | خوا | سړی | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🧎🏼‍♂‍➡" type="tts">سړی چوکېږي: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏽‍♂‍➡">ته | چوکېږي | خوا | سړی | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="🧎🏽‍♂‍➡" type="tts">سړی چوکېږي: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏾‍♂‍➡">ته | چوکېږي | خوا | سړی | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="🧎🏾‍♂‍➡" type="tts">سړی چوکېږي: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧎🏿‍♂‍➡">ته | تور پوستکۍ | چوکېږي | خوا | سړی | ښي | مخامخ</annotation>
+		<annotation cp="🧎🏿‍♂‍➡" type="tts">سړی چوکېږي: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="🧑🏻‍🦯">د روڼ پوستکي ټون | ړوند | شخص د معلولينو د امسا سره | لاسرسی</annotation>
 		<annotation cp="🧑🏻‍🦯" type="tts">شخص د معلولينو د امسا سره: د روڼ پوستکي ټون</annotation>
 		<annotation cp="🧑🏼‍🦯">ړوند | شخص د معلولينو د امسا سره | غنمی-روښانه پوستکۍ | لاسرسی</annotation>
@@ -2757,6 +2829,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦯" type="tts">شخص د معلولينو د امسا سره: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🧑🏿‍🦯">تور پوستکۍ | ړوند | شخص د معلولينو د امسا سره | لاسرسی</annotation>
 		<annotation cp="🧑🏿‍🦯" type="tts">شخص د معلولينو د امسا سره: تور پوستکۍ</annotation>
+		<annotation cp="🧑‍🦯‍➡">ته | خوا | ړوند | شخص د معلولينو د امسا سره | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑‍🦯‍➡" type="tts">شخص د معلولينو د امسا سره: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏻‍🦯‍➡">ته | خوا | د روڼ پوستکي ټون | ړوند | شخص د معلولينو د امسا سره | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏻‍🦯‍➡" type="tts">شخص د معلولينو د امسا سره: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏼‍🦯‍➡">ته | خوا | ړوند | شخص د معلولينو د امسا سره | ښي | غنمی-روښانه پوستکۍ | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏼‍🦯‍➡" type="tts">شخص د معلولينو د امسا سره: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏽‍🦯‍➡">ته | خوا | ړوند | شخص د معلولينو د امسا سره | ښي | غنم رنګه | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏽‍🦯‍➡" type="tts">شخص د معلولينو د امسا سره: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏾‍🦯‍➡">ته | خوا | ړوند | شخص د معلولينو د امسا سره | ښي | غنمی-تورنګه پوستکۍ | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏾‍🦯‍➡" type="tts">شخص د معلولينو د امسا سره: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏿‍🦯‍➡">ته | تور پوستکۍ | خوا | ړوند | شخص د معلولينو د امسا سره | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏿‍🦯‍➡" type="tts">شخص د معلولينو د امسا سره: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="👨🏻‍🦯">د روڼ پوستکي ټون | ړوند | سړی | سړی د معلولينو د همسا سره | لاسرسی</annotation>
 		<annotation cp="👨🏻‍🦯" type="tts">سړی د معلولينو د همسا سره: د روڼ پوستکي ټون</annotation>
 		<annotation cp="👨🏼‍🦯">ړوند | سړی | سړی د معلولينو د همسا سره | غنمی-روښانه پوستکۍ | لاسرسی</annotation>
@@ -2767,6 +2851,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦯" type="tts">سړی د معلولينو د همسا سره: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="👨🏿‍🦯">تور پوستکۍ | ړوند | سړی | سړی د معلولينو د همسا سره | لاسرسی</annotation>
 		<annotation cp="👨🏿‍🦯" type="tts">سړی د معلولينو د همسا سره: تور پوستکۍ</annotation>
+		<annotation cp="👨‍🦯‍➡">ته | خوا | ړوند | سړی | سړی د معلولينو د همسا سره | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="👨‍🦯‍➡" type="tts">سړی د معلولينو د همسا سره: ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏻‍🦯‍➡">ته | خوا | د روڼ پوستکي ټون | ړوند | سړی | سړی د معلولينو د همسا سره | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="👨🏻‍🦯‍➡" type="tts">سړی د معلولينو د همسا سره: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏼‍🦯‍➡">ته | خوا | ړوند | سړی | سړی د معلولينو د همسا سره | ښي | غنمی-روښانه پوستکۍ | لاسرسی | مخامخ</annotation>
+		<annotation cp="👨🏼‍🦯‍➡" type="tts">سړی د معلولينو د همسا سره: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏽‍🦯‍➡">ته | خوا | ړوند | سړی | سړی د معلولينو د همسا سره | ښي | غنم رنګه | لاسرسی | مخامخ</annotation>
+		<annotation cp="👨🏽‍🦯‍➡" type="tts">سړی د معلولينو د همسا سره: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏾‍🦯‍➡">ته | خوا | ړوند | سړی | سړی د معلولينو د همسا سره | ښي | غنمی-تورنګه پوستکۍ | لاسرسی | مخامخ</annotation>
+		<annotation cp="👨🏾‍🦯‍➡" type="tts">سړی د معلولينو د همسا سره: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏿‍🦯‍➡">ته | تور پوستکۍ | خوا | ړوند | سړی | سړی د معلولينو د همسا سره | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="👨🏿‍🦯‍➡" type="tts">سړی د معلولينو د همسا سره: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="👩🏻‍🦯">د روڼ پوستکي ټون | رسوړتيا | ړوند | ښځه | ښځه د معلولينو د همسا سره</annotation>
 		<annotation cp="👩🏻‍🦯" type="tts">ښځه د معلولينو د همسا سره: د روڼ پوستکي ټون</annotation>
 		<annotation cp="👩🏼‍🦯">رسوړتيا | ړوند | ښځه | ښځه د معلولينو د همسا سره | غنمی-روښانه پوستکۍ</annotation>
@@ -2777,6 +2873,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦯" type="tts">ښځه د معلولينو د همسا سره: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="👩🏿‍🦯">تور پوستکۍ | رسوړتيا | ړوند | ښځه | ښځه د معلولينو د همسا سره</annotation>
 		<annotation cp="👩🏿‍🦯" type="tts">ښځه د معلولينو د همسا سره: تور پوستکۍ</annotation>
+		<annotation cp="👩‍🦯‍➡">ته | خوا | رسوړتيا | ړوند | ښځه | ښځه د معلولينو د همسا سره | ښي | مخامخ</annotation>
+		<annotation cp="👩‍🦯‍➡" type="tts">ښځه د معلولينو د همسا سره: ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏻‍🦯‍➡">ته | خوا | د روڼ پوستکي ټون | رسوړتيا | ړوند | ښځه | ښځه د معلولينو د همسا سره | ښي | مخامخ</annotation>
+		<annotation cp="👩🏻‍🦯‍➡" type="tts">ښځه د معلولينو د همسا سره: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏼‍🦯‍➡">ته | خوا | رسوړتيا | ړوند | ښځه | ښځه د معلولينو د همسا سره | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="👩🏼‍🦯‍➡" type="tts">ښځه د معلولينو د همسا سره: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏽‍🦯‍➡">ته | خوا | رسوړتيا | ړوند | ښځه | ښځه د معلولينو د همسا سره | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="👩🏽‍🦯‍➡" type="tts">ښځه د معلولينو د همسا سره: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏾‍🦯‍➡">ته | خوا | رسوړتيا | ړوند | ښځه | ښځه د معلولينو د همسا سره | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="👩🏾‍🦯‍➡" type="tts">ښځه د معلولينو د همسا سره: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏿‍🦯‍➡">ته | تور پوستکۍ | خوا | رسوړتيا | ړوند | ښځه | ښځه د معلولينو د همسا سره | ښي | مخامخ</annotation>
+		<annotation cp="👩🏿‍🦯‍➡" type="tts">ښځه د معلولينو د همسا سره: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="🧑🏻‍🦼">د روڼ پوستکي ټون | د معلولينو چوکۍ | شخص د معلولينو په موټر چوکۍ کې | لاسرسی</annotation>
 		<annotation cp="🧑🏻‍🦼" type="tts">شخص د معلولينو په موټر چوکۍ کې: د روڼ پوستکي ټون</annotation>
 		<annotation cp="🧑🏼‍🦼">د معلولينو چوکۍ | شخص د معلولينو په موټر چوکۍ کې | غنمی-روښانه پوستکۍ | لاسرسی</annotation>
@@ -2787,6 +2895,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦼" type="tts">شخص د معلولينو په موټر چوکۍ کې: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🧑🏿‍🦼">تور پوستکۍ | د معلولينو چوکۍ | شخص د معلولينو په موټر چوکۍ کې | لاسرسی</annotation>
 		<annotation cp="🧑🏿‍🦼" type="tts">شخص د معلولينو په موټر چوکۍ کې: تور پوستکۍ</annotation>
+		<annotation cp="🧑‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | شخص د معلولينو په موټر چوکۍ کې | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑‍🦼‍➡" type="tts">شخص د معلولينو په موټر چوکۍ کې: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏻‍🦼‍➡">ته | خوا | د روڼ پوستکي ټون | د معلولينو چوکۍ | شخص د معلولينو په موټر چوکۍ کې | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏻‍🦼‍➡" type="tts">شخص د معلولينو په موټر چوکۍ کې: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏼‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | شخص د معلولينو په موټر چوکۍ کې | ښي | غنمی-روښانه پوستکۍ | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏼‍🦼‍➡" type="tts">شخص د معلولينو په موټر چوکۍ کې: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏽‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | شخص د معلولينو په موټر چوکۍ کې | ښي | غنم رنګه | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏽‍🦼‍➡" type="tts">شخص د معلولينو په موټر چوکۍ کې: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏾‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | شخص د معلولينو په موټر چوکۍ کې | ښي | غنمی-تورنګه پوستکۍ | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏾‍🦼‍➡" type="tts">شخص د معلولينو په موټر چوکۍ کې: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏿‍🦼‍➡">ته | تور پوستکۍ | خوا | د معلولينو چوکۍ | شخص د معلولينو په موټر چوکۍ کې | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏿‍🦼‍➡" type="tts">شخص د معلولينو په موټر چوکۍ کې: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="👨🏻‍🦼">د روڼ پوستکي ټون | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په موټر چوکۍ کې</annotation>
 		<annotation cp="👨🏻‍🦼" type="tts">سړی د معلولينو په موټر چوکۍ کې: د روڼ پوستکي ټون</annotation>
 		<annotation cp="👨🏼‍🦼">د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په موټر چوکۍ کې | غنمی-روښانه پوستکۍ</annotation>
@@ -2797,6 +2917,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦼" type="tts">سړی د معلولينو په موټر چوکۍ کې: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="👨🏿‍🦼">تور پوستکۍ | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په موټر چوکۍ کې</annotation>
 		<annotation cp="👨🏿‍🦼" type="tts">سړی د معلولينو په موټر چوکۍ کې: تور پوستکۍ</annotation>
+		<annotation cp="👨‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په موټر چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👨‍🦼‍➡" type="tts">سړی د معلولينو په موټر چوکۍ کې: ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏻‍🦼‍➡">ته | خوا | د روڼ پوستکي ټون | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په موټر چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👨🏻‍🦼‍➡" type="tts">سړی د معلولينو په موټر چوکۍ کې: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏼‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په موټر چوکۍ کې | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="👨🏼‍🦼‍➡" type="tts">سړی د معلولينو په موټر چوکۍ کې: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏽‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په موټر چوکۍ کې | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="👨🏽‍🦼‍➡" type="tts">سړی د معلولينو په موټر چوکۍ کې: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏾‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په موټر چوکۍ کې | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="👨🏾‍🦼‍➡" type="tts">سړی د معلولينو په موټر چوکۍ کې: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏿‍🦼‍➡">ته | تور پوستکۍ | خوا | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په موټر چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👨🏿‍🦼‍➡" type="tts">سړی د معلولينو په موټر چوکۍ کې: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="👩🏻‍🦼">د روڼ پوستکي ټون | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په موټر چوکۍ کې</annotation>
 		<annotation cp="👩🏻‍🦼" type="tts">ښځه د معلولينو په موټر چوکۍ کې: د روڼ پوستکي ټون</annotation>
 		<annotation cp="👩🏼‍🦼">د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په موټر چوکۍ کې | غنمی-روښانه پوستکۍ</annotation>
@@ -2807,6 +2939,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦼" type="tts">ښځه د معلولينو په موټر چوکۍ کې: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="👩🏿‍🦼">تور پوستکۍ | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په موټر چوکۍ کې</annotation>
 		<annotation cp="👩🏿‍🦼" type="tts">ښځه د معلولينو په موټر چوکۍ کې: تور پوستکۍ</annotation>
+		<annotation cp="👩‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په موټر چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👩‍🦼‍➡" type="tts">ښځه د معلولينو په موټر چوکۍ کې: ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏻‍🦼‍➡">ته | خوا | د روڼ پوستکي ټون | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په موټر چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👩🏻‍🦼‍➡" type="tts">ښځه د معلولينو په موټر چوکۍ کې: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏼‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په موټر چوکۍ کې | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="👩🏼‍🦼‍➡" type="tts">ښځه د معلولينو په موټر چوکۍ کې: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏽‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په موټر چوکۍ کې | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="👩🏽‍🦼‍➡" type="tts">ښځه د معلولينو په موټر چوکۍ کې: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏾‍🦼‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په موټر چوکۍ کې | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="👩🏾‍🦼‍➡" type="tts">ښځه د معلولينو په موټر چوکۍ کې: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏿‍🦼‍➡">ته | تور پوستکۍ | خوا | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په موټر چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👩🏿‍🦼‍➡" type="tts">ښځه د معلولينو په موټر چوکۍ کې: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="🧑🏻‍🦽">د روڼ پوستکي ټون | د معلولينو چوکۍ | شخص د معلولينو په لاسي چوکۍ کې | لاسرسی</annotation>
 		<annotation cp="🧑🏻‍🦽" type="tts">شخص د معلولينو په لاسي چوکۍ کې: د روڼ پوستکي ټون</annotation>
 		<annotation cp="🧑🏼‍🦽">د معلولينو چوکۍ | شخص د معلولينو په لاسي چوکۍ کې | غنمی-روښانه پوستکۍ | لاسرسی</annotation>
@@ -2817,6 +2961,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧑🏾‍🦽" type="tts">شخص د معلولينو په لاسي چوکۍ کې: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🧑🏿‍🦽">تور پوستکۍ | د معلولينو چوکۍ | شخص د معلولينو په لاسي چوکۍ کې | لاسرسی</annotation>
 		<annotation cp="🧑🏿‍🦽" type="tts">شخص د معلولينو په لاسي چوکۍ کې: تور پوستکۍ</annotation>
+		<annotation cp="🧑‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | شخص د معلولينو په لاسي چوکۍ کې | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑‍🦽‍➡" type="tts">شخص د معلولينو په لاسي چوکۍ کې: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏻‍🦽‍➡">ته | خوا | د روڼ پوستکي ټون | د معلولينو چوکۍ | شخص د معلولينو په لاسي چوکۍ کې | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏻‍🦽‍➡" type="tts">شخص د معلولينو په لاسي چوکۍ کې: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏼‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | شخص د معلولينو په لاسي چوکۍ کې | ښي | غنمی-روښانه پوستکۍ | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏼‍🦽‍➡" type="tts">شخص د معلولينو په لاسي چوکۍ کې: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏽‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | شخص د معلولينو په لاسي چوکۍ کې | ښي | غنم رنګه | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏽‍🦽‍➡" type="tts">شخص د معلولينو په لاسي چوکۍ کې: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏾‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | شخص د معلولينو په لاسي چوکۍ کې | ښي | غنمی-تورنګه پوستکۍ | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏾‍🦽‍➡" type="tts">شخص د معلولينو په لاسي چوکۍ کې: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🧑🏿‍🦽‍➡">ته | تور پوستکۍ | خوا | د معلولينو چوکۍ | شخص د معلولينو په لاسي چوکۍ کې | ښي | لاسرسی | مخامخ</annotation>
+		<annotation cp="🧑🏿‍🦽‍➡" type="tts">شخص د معلولينو په لاسي چوکۍ کې: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="👨🏻‍🦽">د روڼ پوستکي ټون | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په لاسي چوکۍ کې</annotation>
 		<annotation cp="👨🏻‍🦽" type="tts">سړی د معلولينو په لاسي چوکۍ کې: د روڼ پوستکي ټون</annotation>
 		<annotation cp="👨🏼‍🦽">د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په لاسي چوکۍ کې | غنمی-روښانه پوستکۍ</annotation>
@@ -2827,6 +2983,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👨🏾‍🦽" type="tts">سړی د معلولينو په لاسي چوکۍ کې: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="👨🏿‍🦽">تور پوستکۍ | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په لاسي چوکۍ کې</annotation>
 		<annotation cp="👨🏿‍🦽" type="tts">سړی د معلولينو په لاسي چوکۍ کې: تور پوستکۍ</annotation>
+		<annotation cp="👨‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په لاسي چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👨‍🦽‍➡" type="tts">سړی د معلولينو په لاسي چوکۍ کې: ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏻‍🦽‍➡">ته | خوا | د روڼ پوستکي ټون | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په لاسي چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👨🏻‍🦽‍➡" type="tts">سړی د معلولينو په لاسي چوکۍ کې: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏼‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په لاسي چوکۍ کې | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="👨🏼‍🦽‍➡" type="tts">سړی د معلولينو په لاسي چوکۍ کې: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏽‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په لاسي چوکۍ کې | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="👨🏽‍🦽‍➡" type="tts">سړی د معلولينو په لاسي چوکۍ کې: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏾‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په لاسي چوکۍ کې | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="👨🏾‍🦽‍➡" type="tts">سړی د معلولينو په لاسي چوکۍ کې: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👨🏿‍🦽‍➡">ته | تور پوستکۍ | خوا | د معلولينو چوکۍ | رسوړتيا | سړی | سړی د معلولينو په لاسي چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👨🏿‍🦽‍➡" type="tts">سړی د معلولينو په لاسي چوکۍ کې: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="👩🏻‍🦽">د روڼ پوستکي ټون | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په لاسي چوکۍ کې</annotation>
 		<annotation cp="👩🏻‍🦽" type="tts">ښځه د معلولينو په لاسي چوکۍ کې: د روڼ پوستکي ټون</annotation>
 		<annotation cp="👩🏼‍🦽">د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په لاسي چوکۍ کې | غنمی-روښانه پوستکۍ</annotation>
@@ -2837,6 +3005,18 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾‍🦽" type="tts">ښځه د معلولينو په لاسي چوکۍ کې: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="👩🏿‍🦽">تور پوستکۍ | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په لاسي چوکۍ کې</annotation>
 		<annotation cp="👩🏿‍🦽" type="tts">ښځه د معلولينو په لاسي چوکۍ کې: تور پوستکۍ</annotation>
+		<annotation cp="👩‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په لاسي چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👩‍🦽‍➡" type="tts">ښځه د معلولينو په لاسي چوکۍ کې: ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏻‍🦽‍➡">ته | خوا | د روڼ پوستکي ټون | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په لاسي چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👩🏻‍🦽‍➡" type="tts">ښځه د معلولينو په لاسي چوکۍ کې: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏼‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په لاسي چوکۍ کې | ښي | غنمی-روښانه پوستکۍ | مخامخ</annotation>
+		<annotation cp="👩🏼‍🦽‍➡" type="tts">ښځه د معلولينو په لاسي چوکۍ کې: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏽‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په لاسي چوکۍ کې | ښي | غنم رنګه | مخامخ</annotation>
+		<annotation cp="👩🏽‍🦽‍➡" type="tts">ښځه د معلولينو په لاسي چوکۍ کې: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏾‍🦽‍➡">ته | خوا | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په لاسي چوکۍ کې | ښي | غنمی-تورنګه پوستکۍ | مخامخ</annotation>
+		<annotation cp="👩🏾‍🦽‍➡" type="tts">ښځه د معلولينو په لاسي چوکۍ کې: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="👩🏿‍🦽‍➡">ته | تور پوستکۍ | خوا | د معلولينو چوکۍ | رسوړتيا | ښځه | ښځه د معلولينو په لاسي چوکۍ کې | ښي | مخامخ</annotation>
+		<annotation cp="👩🏿‍🦽‍➡" type="tts">ښځه د معلولينو په لاسي چوکۍ کې: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="🏃🏻">ځغښټ | د روڼ پوستکي ټون | شخص ځغلي | ميراتن</annotation>
 		<annotation cp="🏃🏻" type="tts">شخص ځغلي: د روڼ پوستکي ټون</annotation>
 		<annotation cp="🏃🏼">ځغښټ | شخص ځغلي | غنمی-روښانه پوستکۍ | ميراتن</annotation>
@@ -2867,6 +3047,42 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏃🏾‍♀" type="tts">ښځه ځغلي: غنمی-تورنګه پوستکۍ</annotation>
 		<annotation cp="🏃🏿‍♀">تور پوستکۍ | ځغښت | ښځه | ښځه ځغلي | منډه وهل | ميراتن</annotation>
 		<annotation cp="🏃🏿‍♀" type="tts">ښځه ځغلي: تور پوستکۍ</annotation>
+		<annotation cp="🏃‍➡">ته | خوا | ځغښټ | شخص ځغلي | ښي | مخامخ | ميراتن</annotation>
+		<annotation cp="🏃‍➡" type="tts">شخص ځغلي: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏻‍➡">ته | خوا | ځغښټ | د روڼ پوستکي ټون | شخص ځغلي | ښي | مخامخ | ميراتن</annotation>
+		<annotation cp="🏃🏻‍➡" type="tts">شخص ځغلي: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏼‍➡">ته | خوا | ځغښټ | شخص ځغلي | ښي | غنمی-روښانه پوستکۍ | مخامخ | ميراتن</annotation>
+		<annotation cp="🏃🏼‍➡" type="tts">شخص ځغلي: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏽‍➡">ته | خوا | ځغښټ | شخص ځغلي | ښي | غنم رنګه | مخامخ | ميراتن</annotation>
+		<annotation cp="🏃🏽‍➡" type="tts">شخص ځغلي: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏾‍➡">ته | خوا | ځغښټ | شخص ځغلي | ښي | غنمی-تورنګه پوستکۍ | مخامخ | ميراتن</annotation>
+		<annotation cp="🏃🏾‍➡" type="tts">شخص ځغلي: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏿‍➡">ته | تور پوستکۍ | خوا | ځغښټ | شخص ځغلي | ښي | مخامخ | ميراتن</annotation>
+		<annotation cp="🏃🏿‍➡" type="tts">شخص ځغلي: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃‍♀‍➡">ته | خوا | ځغښت | ښځه | ښځه ځغلي | ښي | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃‍♀‍➡" type="tts">ښځه ځغلي: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏻‍♀‍➡">ته | خوا | ځغښت | د روڼ پوستکي ټون | ښځه | ښځه ځغلي | ښي | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃🏻‍♀‍➡" type="tts">ښځه ځغلي: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏼‍♀‍➡">ته | خوا | ځغښت | ښځه | ښځه ځغلي | ښي | غنمی-روښانه پوستکۍ | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃🏼‍♀‍➡" type="tts">ښځه ځغلي: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏽‍♀‍➡">ته | خوا | ځغښت | ښځه | ښځه ځغلي | ښي | غنم رنګه | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃🏽‍♀‍➡" type="tts">ښځه ځغلي: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏾‍♀‍➡">ته | خوا | ځغښت | ښځه | ښځه ځغلي | ښي | غنمی-تورنګه پوستکۍ | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃🏾‍♀‍➡" type="tts">ښځه ځغلي: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏿‍♀‍➡">ته | تور پوستکۍ | خوا | ځغښت | ښځه | ښځه ځغلي | ښي | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃🏿‍♀‍➡" type="tts">ښځه ځغلي: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃‍♂‍➡">ته | خوا | ځغښت | سړی | سړی ځغلي | ښي | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃‍♂‍➡" type="tts">سړی ځغلي: ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏻‍♂‍➡">ته | خوا | ځغښت | د روڼ پوستکي ټون | سړی | سړی ځغلي | ښي | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃🏻‍♂‍➡" type="tts">سړی ځغلي: د روڼ پوستکي ټون و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏼‍♂‍➡">ته | خوا | ځغښت | سړی | سړی ځغلي | ښي | غنمی-روښانه پوستکۍ | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃🏼‍♂‍➡" type="tts">سړی ځغلي: غنمی-روښانه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏽‍♂‍➡">ته | خوا | ځغښت | سړی | سړی ځغلي | ښي | غنم رنګه | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃🏽‍♂‍➡" type="tts">سړی ځغلي: غنم رنګه و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏾‍♂‍➡">ته | خوا | ځغښت | سړی | سړی ځغلي | ښي | غنمی-تورنګه پوستکۍ | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃🏾‍♂‍➡" type="tts">سړی ځغلي: غنمی-تورنګه پوستکۍ و ښي خوا ته مخامخ</annotation>
+		<annotation cp="🏃🏿‍♂‍➡">ته | تور پوستکۍ | خوا | ځغښت | سړی | سړی ځغلي | ښي | مخامخ | منډه وهل | ميراتن</annotation>
+		<annotation cp="🏃🏿‍♂‍➡" type="tts">سړی ځغلي: تور پوستکۍ و ښي خوا ته مخامخ</annotation>
 		<annotation cp="💃🏻">د روڼ پوستکي ټون | ښځه | ښځه نڅيږې | نڅا</annotation>
 		<annotation cp="💃🏻" type="tts">ښځه نڅيږې: د روڼ پوستکي ټون</annotation>
 		<annotation cp="💃🏼">ښځه | ښځه نڅيږې | غنمی-روښانه پوستکۍ | نڅا</annotation>
@@ -4193,6 +4409,10 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇿🇼" type="tts">بيرغ: زیمبابوی</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿">بيرغ</annotation>
 		<annotation cp="🏴󠁧󠁢󠁥󠁮󠁧󠁿" type="tts">بيرغ: انګلېنډ</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿">بيرغ</annotation>
+		<annotation cp="🏴󠁧󠁢󠁳󠁣󠁴󠁿" type="tts">بيرغ: سکاټ لينډ</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿">بيرغ</annotation>
+		<annotation cp="🏴󠁧󠁢󠁷󠁬󠁳󠁿" type="tts">بيرغ: ولز</annotation>
 		<annotation cp="¤" type="tts">نامعلومه مروجه پېسې</annotation>
 		<annotation cp="֏" type="tts">ارمينيايي ډرام</annotation>
 		<annotation cp="؋" type="tts">افغانۍ</annotation>

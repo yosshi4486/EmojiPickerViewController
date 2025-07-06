@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -921,6 +921,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇨🇴" type="tts">bandera: Colòmbia</annotation>
 		<annotation cp="🇨🇵">bandera</annotation>
 		<annotation cp="🇨🇵" type="tts">bandera: Ìsula de Clipperton</annotation>
+		<annotation cp="🇨🇶">bandera</annotation>
+		<annotation cp="🇨🇶" type="tts">bandera: Sark</annotation>
 		<annotation cp="🇨🇷">bandera</annotation>
 		<annotation cp="🇨🇷" type="tts">bandera: Costa Rica</annotation>
 		<annotation cp="🇨🇺">bandera</annotation>
@@ -1343,7 +1345,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="៛" type="tts">riel cambogianu</annotation>
 		<annotation cp="₡" type="tts">colón costaricanu</annotation>
 		<annotation cp="₦" type="tts">naira nigeriana</annotation>
-		<annotation cp="₧" type="tts">peseta ispagnola</annotation>
 		<annotation cp="₪" type="tts">siclu nou israelianu</annotation>
 		<annotation cp="₫" type="tts">dong vietnamesu</annotation>
 		<annotation cp="₭" type="tts">kip laotianu</annotation>
@@ -1375,5 +1376,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="8⃣" type="tts">tecla: 8</annotation>
 		<annotation cp="9⃣">tecla</annotation>
 		<annotation cp="9⃣" type="tts">tecla: 9</annotation>
+		<annotation cp="₧" type="tts">peseta ispagnola</annotation>
 	</annotations>
 </ldml>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -43,16 +43,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🖐🏾" type="tts">afus s yiḍudan yeldin: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🖐🏿">afus s yiḍudan yeldin | taglimt tubrikt</annotation>
 		<annotation cp="🖐🏿" type="tts">afus s yiḍudan yeldin: taglimt tubrikt</annotation>
-		<annotation cp="✋🏻">afus irefden | taglimt taceɛlalt</annotation>
-		<annotation cp="✋🏻" type="tts">afus irefden: taglimt taceɛlalt</annotation>
-		<annotation cp="✋🏼">afus irefden | tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="✋🏼" type="tts">afus irefden: tagwlimt taceɛlalt talemmast</annotation>
-		<annotation cp="✋🏽">afus irefden | taglimt talemmast</annotation>
-		<annotation cp="✋🏽" type="tts">afus irefden: taglimt talemmast</annotation>
-		<annotation cp="✋🏾">afus irefden | taglimt tubrikt talemmast</annotation>
-		<annotation cp="✋🏾" type="tts">afus irefden: taglimt tubrikt talemmast</annotation>
-		<annotation cp="✋🏿">afus irefden | taglimt tubrikt</annotation>
-		<annotation cp="✋🏿" type="tts">afus irefden: taglimt tubrikt</annotation>
+		<annotation cp="✋🏻">afus irefden | argaz: acebbub awreɣ | taglimt taceɛlalt</annotation>
+		<annotation cp="✋🏻" type="tts">argaz: acebbub awreɣ: taglimt taceɛlalt</annotation>
+		<annotation cp="✋🏼">afus irefden | argaz: acebbub awreɣ | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="✋🏼" type="tts">argaz: acebbub awreɣ: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="✋🏽">afus irefden | argaz: acebbub awreɣ | taglimt talemmast</annotation>
+		<annotation cp="✋🏽" type="tts">argaz: acebbub awreɣ: taglimt talemmast</annotation>
+		<annotation cp="✋🏾">afus irefden | argaz: acebbub awreɣ | taglimt tubrikt talemmast</annotation>
+		<annotation cp="✋🏾" type="tts">argaz: acebbub awreɣ: taglimt tubrikt talemmast</annotation>
+		<annotation cp="✋🏿">afus irefden | argaz: acebbub awreɣ | taglimt tubrikt</annotation>
+		<annotation cp="✋🏿" type="tts">argaz: acebbub awreɣ: taglimt tubrikt</annotation>
 		<annotation cp="🖖🏻">aburkan n tezmert | taglimt taceɛlalt</annotation>
 		<annotation cp="🖖🏻" type="tts">aburkan n tezmert: taglimt taceɛlalt</annotation>
 		<annotation cp="🖖🏼">aburkan n tezmert | tagwlimt taceɛlalt talemmast</annotation>
@@ -143,6 +143,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🫴🏾" type="tts">tidikelt d asawen: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🫴🏿">taglimt tubrikt | tidikelt d asawen</annotation>
 		<annotation cp="🫴🏿" type="tts">tidikelt d asawen: taglimt tubrikt</annotation>
+		<annotation cp="🫷🏻">afus ijebden ɣer zelmeḍ | taglimt taceɛlalt</annotation>
+		<annotation cp="🫷🏻" type="tts">afus ijebden ɣer zelmeḍ: taglimt taceɛlalt</annotation>
+		<annotation cp="🫷🏼">afus ijebden ɣer zelmeḍ | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫷🏼" type="tts">afus ijebden ɣer zelmeḍ: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫷🏽">afus ijebden ɣer zelmeḍ | taglimt talemmast</annotation>
+		<annotation cp="🫷🏽" type="tts">afus ijebden ɣer zelmeḍ: taglimt talemmast</annotation>
+		<annotation cp="🫷🏾">afus ijebden ɣer zelmeḍ | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫷🏾" type="tts">afus ijebden ɣer zelmeḍ: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫷🏿">afus ijebden ɣer zelmeḍ | taglimt tubrikt</annotation>
+		<annotation cp="🫷🏿" type="tts">afus ijebden ɣer zelmeḍ: taglimt tubrikt</annotation>
+		<annotation cp="🫸🏻">afus ijebden ɣer yeffus | taglimt taceɛlalt</annotation>
+		<annotation cp="🫸🏻" type="tts">afus ijebden ɣer yeffus: taglimt taceɛlalt</annotation>
+		<annotation cp="🫸🏼">afus ijebden ɣer yeffus | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫸🏼" type="tts">afus ijebden ɣer yeffus: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🫸🏽">afus ijebden ɣer yeffus | taglimt talemmast</annotation>
+		<annotation cp="🫸🏽" type="tts">afus ijebden ɣer yeffus: taglimt talemmast</annotation>
+		<annotation cp="🫸🏾">afus ijebden ɣer yeffus | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫸🏾" type="tts">afus ijebden ɣer yeffus: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🫸🏿">afus ijebden ɣer yeffus | taglimt tubrikt</annotation>
+		<annotation cp="🫸🏿" type="tts">afus ijebden ɣer yeffus: taglimt tubrikt</annotation>
 		<annotation cp="👌🏻">afus n IH | taglimt taceɛlalt</annotation>
 		<annotation cp="👌🏻" type="tts">afus n IH: taglimt taceɛlalt</annotation>
 		<annotation cp="👌🏼">afus n IH | tagwlimt taceɛlalt talemmast</annotation>
@@ -463,6 +483,16 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤳🏾" type="tts">asilfi: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🤳🏿">asilfi | taglimt tubrikt</annotation>
 		<annotation cp="🤳🏿" type="tts">asilfi: taglimt tubrikt</annotation>
+		<annotation cp="💪🏻">akras n lbunya | taglimt taceɛlalt</annotation>
+		<annotation cp="💪🏻" type="tts">akras n lbunya: taglimt taceɛlalt</annotation>
+		<annotation cp="💪🏼">akras n lbunya | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="💪🏼" type="tts">akras n lbunya: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="💪🏽">akras n lbunya | taglimt talemmast</annotation>
+		<annotation cp="💪🏽" type="tts">akras n lbunya: taglimt talemmast</annotation>
+		<annotation cp="💪🏾">akras n lbunya | taglimt tubrikt talemmast</annotation>
+		<annotation cp="💪🏾" type="tts">akras n lbunya: taglimt tubrikt talemmast</annotation>
+		<annotation cp="💪🏿">akras n lbunya | taglimt tubrikt</annotation>
+		<annotation cp="💪🏿" type="tts">akras n lbunya: taglimt tubrikt</annotation>
 		<annotation cp="🦵🏻">aqejjir | taglimt taceɛlalt</annotation>
 		<annotation cp="🦵🏻" type="tts">aqejjir: taglimt taceɛlalt</annotation>
 		<annotation cp="🦵🏼">aqejjir | tagwlimt taceɛlalt talemmast</annotation>
@@ -681,6 +711,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧔🏾" type="tts">amdan: taglimt tubrikt talemmast, tamart</annotation>
 		<annotation cp="🧔🏿">amdan: tamart | taglimt tubrikt | tamart</annotation>
 		<annotation cp="🧔🏿" type="tts">amdan: taglimt tubrikt, tamart</annotation>
+		<annotation cp="🧔🏻‍♂">argaz: tamart | taglimt taceɛlalt | tamart</annotation>
+		<annotation cp="🧔🏻‍♂" type="tts">argaz: taglimt taceɛlalt, tamart</annotation>
+		<annotation cp="🧔🏼‍♂">argaz: tamart | tagwlimt taceɛlalt talemmast | tamart</annotation>
+		<annotation cp="🧔🏼‍♂" type="tts">argaz: tagwlimt taceɛlalt talemmast, tamart</annotation>
+		<annotation cp="🧔🏽‍♂">argaz: tamart | taglimt talemmast | tamart</annotation>
+		<annotation cp="🧔🏽‍♂" type="tts">argaz: taglimt talemmast, tamart</annotation>
+		<annotation cp="🧔🏾‍♂">argaz: tamart | taglimt tubrikt talemmast | tamart</annotation>
+		<annotation cp="🧔🏾‍♂" type="tts">argaz: taglimt tubrikt talemmast, tamart</annotation>
+		<annotation cp="🧔🏿‍♂">argaz: tamart | taglimt tubrikt | tamart</annotation>
+		<annotation cp="🧔🏿‍♂" type="tts">argaz: taglimt tubrikt, tamart</annotation>
+		<annotation cp="👱🏻‍♂">acebbub aceɛlla | argaz: acebbub aceɛlal | argaz: acebbub aceɛlla | taglimt taceɛlalt</annotation>
+		<annotation cp="👱🏻‍♂" type="tts">argaz: taglimt taceɛlalt, acebbub aceɛlla</annotation>
+		<annotation cp="👱🏼‍♂">acebbub aceɛlla | argaz: acebbub aceɛlal | argaz: acebbub aceɛlla | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="👱🏼‍♂" type="tts">argaz: tagwlimt taceɛlalt talemmast, acebbub aceɛlla</annotation>
+		<annotation cp="👱🏽‍♂">acebbub aceɛlla | argaz: acebbub aceɛlal | argaz: acebbub aceɛlla | taglimt talemmast</annotation>
+		<annotation cp="👱🏽‍♂" type="tts">argaz: taglimt talemmast, acebbub aceɛlla</annotation>
+		<annotation cp="👱🏾‍♂">acebbub aceɛlla | argaz: acebbub aceɛlal | argaz: acebbub aceɛlla | taglimt tubrikt talemmast</annotation>
+		<annotation cp="👱🏾‍♂" type="tts">argaz: taglimt tubrikt talemmast, acebbub aceɛlla</annotation>
+		<annotation cp="👱🏿‍♂">acebbub aceɛlla | argaz: acebbub aceɛlal | argaz: acebbub aceɛlla | taglimt tubrikt</annotation>
+		<annotation cp="👱🏿‍♂" type="tts">argaz: taglimt tubrikt, acebbub aceɛlla</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏻">argaz | taglimt taceɛlalt | tayuga s wul</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏻" type="tts">tayuga s wul: argaz, argaz, taglimt taceɛlalt</annotation>
 		<annotation cp="👨🏻‍❤‍👨🏼">argaz | taglimt taceɛlalt | tagwlimt taceɛlalt talemmast | tayuga s wul</annotation>
@@ -789,6 +839,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩🏾" type="tts">tameṭṭut: taglimt tubrikt talemmast</annotation>
 		<annotation cp="👩🏿">taglimt tubrikt | tameṭṭut</annotation>
 		<annotation cp="👩🏿" type="tts">tameṭṭut: taglimt tubrikt</annotation>
+		<annotation cp="🧔🏻‍♀">taglimt taceɛlalt | tamart | tameṭṭut: tamart</annotation>
+		<annotation cp="🧔🏻‍♀" type="tts">tameṭṭut: taglimt taceɛlalt, tamart</annotation>
+		<annotation cp="🧔🏼‍♀">tagwlimt taceɛlalt talemmast | tamart | tameṭṭut: tamart</annotation>
+		<annotation cp="🧔🏼‍♀" type="tts">tameṭṭut: tagwlimt taceɛlalt talemmast, tamart</annotation>
+		<annotation cp="🧔🏽‍♀">taglimt talemmast | tamart | tameṭṭut: tamart</annotation>
+		<annotation cp="🧔🏽‍♀" type="tts">tameṭṭut: taglimt talemmast, tamart</annotation>
+		<annotation cp="🧔🏾‍♀">taglimt tubrikt talemmast | tamart | tameṭṭut: tamart</annotation>
+		<annotation cp="🧔🏾‍♀" type="tts">tameṭṭut: taglimt tubrikt talemmast, tamart</annotation>
+		<annotation cp="🧔🏿‍♀">taglimt tubrikt | tamart | tameṭṭut: tamart</annotation>
+		<annotation cp="🧔🏿‍♀" type="tts">tameṭṭut: taglimt tubrikt, tamart</annotation>
+		<annotation cp="👱🏻‍♀">acebbub awreɣ | taglimt taceɛlalt | tameṭṭut: acebbub awreɣ</annotation>
+		<annotation cp="👱🏻‍♀" type="tts">tameṭṭut: taglimt taceɛlalt, acebbub awreɣ</annotation>
+		<annotation cp="👱🏼‍♀">acebbub awreɣ | tagwlimt taceɛlalt talemmast | tameṭṭut: acebbub awreɣ</annotation>
+		<annotation cp="👱🏼‍♀" type="tts">tameṭṭut: tagwlimt taceɛlalt talemmast, acebbub awreɣ</annotation>
+		<annotation cp="👱🏽‍♀">acebbub awreɣ | taglimt talemmast | tameṭṭut: acebbub awreɣ</annotation>
+		<annotation cp="👱🏽‍♀" type="tts">tameṭṭut: taglimt talemmast, acebbub awreɣ</annotation>
+		<annotation cp="👱🏾‍♀">acebbub awreɣ | taglimt tubrikt talemmast | tameṭṭut: acebbub awreɣ</annotation>
+		<annotation cp="👱🏾‍♀" type="tts">tameṭṭut: taglimt tubrikt talemmast, acebbub awreɣ</annotation>
+		<annotation cp="👱🏿‍♀">acebbub awreɣ | taglimt tubrikt | tameṭṭut: acebbub awreɣ</annotation>
+		<annotation cp="👱🏿‍♀" type="tts">tameṭṭut: taglimt tubrikt, acebbub awreɣ</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏻">argaz | taglimt taceɛlalt | tameṭṭut | tayuga s wul</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏻" type="tts">tayuga s wul: tameṭṭut, argaz, taglimt taceɛlalt</annotation>
 		<annotation cp="👩🏻‍❤‍👨🏼">argaz | taglimt taceɛlalt | tagwlimt taceɛlalt talemmast | tameṭṭut | tayuga s wul</annotation>
@@ -967,6 +1037,66 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👵🏾" type="tts">tamɣart: taglimt tubrikt talemmast</annotation>
 		<annotation cp="👵🏿">taglimt tubrikt | tamɣart</annotation>
 		<annotation cp="👵🏿" type="tts">tamɣart: taglimt tubrikt</annotation>
+		<annotation cp="🙍🏻">amdan imesxenfeṛ | taglimt taceɛlalt</annotation>
+		<annotation cp="🙍🏻" type="tts">amdan imexenfeṛ: taglimt taceɛlalt</annotation>
+		<annotation cp="🙍🏼">amdan imesxenfeṛ | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙍🏼" type="tts">amdan imexenfeṛ: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙍🏽">amdan imesxenfeṛ | taglimt talemmast</annotation>
+		<annotation cp="🙍🏽" type="tts">amdan imexenfeṛ: taglimt talemmast</annotation>
+		<annotation cp="🙍🏾">amdan imesxenfeṛ | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙍🏾" type="tts">amdan imexenfeṛ: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙍🏿">amdan imesxenfeṛ | taglimt tubrikt</annotation>
+		<annotation cp="🙍🏿" type="tts">amdan imexenfeṛ: taglimt tubrikt</annotation>
+		<annotation cp="🙍🏻‍♂">argaz imesxenfeṛ | taglimt taceɛlalt</annotation>
+		<annotation cp="🙍🏻‍♂" type="tts">argaz imesxenfeṛ: taglimt taceɛlalt</annotation>
+		<annotation cp="🙍🏼‍♂">argaz imesxenfeṛ | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙍🏼‍♂" type="tts">argaz imesxenfeṛ: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙍🏽‍♂">argaz imesxenfeṛ | taglimt talemmast</annotation>
+		<annotation cp="🙍🏽‍♂" type="tts">argaz imesxenfeṛ: taglimt talemmast</annotation>
+		<annotation cp="🙍🏾‍♂">argaz imesxenfeṛ | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙍🏾‍♂" type="tts">argaz imesxenfeṛ: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙍🏿‍♂">argaz imesxenfeṛ | taglimt tubrikt</annotation>
+		<annotation cp="🙍🏿‍♂" type="tts">argaz imesxenfeṛ: taglimt tubrikt</annotation>
+		<annotation cp="🙍🏻‍♀">taglimt taceɛlalt | tameṭṭut timesxenfeṛt</annotation>
+		<annotation cp="🙍🏻‍♀" type="tts">tameṭṭut timesxenfeṛt: taglimt taceɛlalt</annotation>
+		<annotation cp="🙍🏼‍♀">tagwlimt taceɛlalt talemmast | tameṭṭut timesxenfeṛt</annotation>
+		<annotation cp="🙍🏼‍♀" type="tts">tameṭṭut timesxenfeṛt: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙍🏽‍♀">taglimt talemmast | tameṭṭut timesxenfeṛt</annotation>
+		<annotation cp="🙍🏽‍♀" type="tts">tameṭṭut timesxenfeṛt: taglimt talemmast</annotation>
+		<annotation cp="🙍🏾‍♀">taglimt tubrikt talemmast | tameṭṭut timesxenfeṛt</annotation>
+		<annotation cp="🙍🏾‍♀" type="tts">tameṭṭut timesxenfeṛt: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙍🏿‍♀">taglimt tubrikt | tameṭṭut timesxenfeṛt</annotation>
+		<annotation cp="🙍🏿‍♀" type="tts">tameṭṭut timesxenfeṛt: taglimt tubrikt</annotation>
+		<annotation cp="🙎🏻">amdan imcennef | taglimt taceɛlalt</annotation>
+		<annotation cp="🙎🏻" type="tts">amdan imcennef: taglimt taceɛlalt</annotation>
+		<annotation cp="🙎🏼">amdan imcennef | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙎🏼" type="tts">amdan imcennef: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙎🏽">amdan imcennef | taglimt talemmast</annotation>
+		<annotation cp="🙎🏽" type="tts">amdan imcennef: taglimt talemmast</annotation>
+		<annotation cp="🙎🏾">amdan imcennef | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙎🏾" type="tts">amdan imcennef: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙎🏿">amdan imcennef | taglimt tubrikt</annotation>
+		<annotation cp="🙎🏿" type="tts">amdan imcennef: taglimt tubrikt</annotation>
+		<annotation cp="🙎🏻‍♂">argaz imcennef | taglimt taceɛlalt</annotation>
+		<annotation cp="🙎🏻‍♂" type="tts">argaz imcennef: taglimt taceɛlalt</annotation>
+		<annotation cp="🙎🏼‍♂">argaz imcennef | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙎🏼‍♂" type="tts">argaz imcennef: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙎🏽‍♂">argaz imcennef | taglimt talemmast</annotation>
+		<annotation cp="🙎🏽‍♂" type="tts">argaz imcennef: taglimt talemmast</annotation>
+		<annotation cp="🙎🏾‍♂">argaz imcennef | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙎🏾‍♂" type="tts">argaz imcennef: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙎🏿‍♂">argaz imcennef | taglimt tubrikt</annotation>
+		<annotation cp="🙎🏿‍♂" type="tts">argaz imcennef: taglimt tubrikt</annotation>
+		<annotation cp="🙎🏻‍♀">taglimt taceɛlalt | tameṭṭut timcenneft</annotation>
+		<annotation cp="🙎🏻‍♀" type="tts">tameṭṭut timcenneft: taglimt taceɛlalt</annotation>
+		<annotation cp="🙎🏼‍♀">tagwlimt taceɛlalt talemmast | tameṭṭut timcenneft</annotation>
+		<annotation cp="🙎🏼‍♀" type="tts">tameṭṭut timcenneft: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙎🏽‍♀">taglimt talemmast | tameṭṭut timcenneft</annotation>
+		<annotation cp="🙎🏽‍♀" type="tts">tameṭṭut timcenneft: taglimt talemmast</annotation>
+		<annotation cp="🙎🏾‍♀">taglimt tubrikt talemmast | tameṭṭut timcenneft</annotation>
+		<annotation cp="🙎🏾‍♀" type="tts">tameṭṭut timcenneft: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙎🏿‍♀">taglimt tubrikt | tameṭṭut timcenneft</annotation>
+		<annotation cp="🙎🏿‍♀" type="tts">tameṭṭut timcenneft: taglimt tubrikt</annotation>
 		<annotation cp="🧏🏻">amdan aɛeẓẓug | taglimt taceɛlalt</annotation>
 		<annotation cp="🧏🏻" type="tts">amdan aɛeẓẓug: taglimt taceɛlalt</annotation>
 		<annotation cp="🧏🏼">amdan aɛeẓẓug | tagwlimt taceɛlalt talemmast</annotation>
@@ -977,6 +1107,116 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧏🏾" type="tts">amdan aɛeẓẓug: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🧏🏿">amdan aɛeẓẓug | taglimt tubrikt</annotation>
 		<annotation cp="🧏🏿" type="tts">amdan aɛeẓẓug: taglimt tubrikt</annotation>
+		<annotation cp="🧏🏻‍♂">argaz aεeẓẓug | taglimt taceɛlalt</annotation>
+		<annotation cp="🧏🏻‍♂" type="tts">argaz aεeẓẓug: taglimt taceɛlalt</annotation>
+		<annotation cp="🧏🏼‍♂">argaz aεeẓẓug | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧏🏼‍♂" type="tts">argaz aεeẓẓug: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧏🏽‍♂">argaz aεeẓẓug | taglimt talemmast</annotation>
+		<annotation cp="🧏🏽‍♂" type="tts">argaz aεeẓẓug: taglimt talemmast</annotation>
+		<annotation cp="🧏🏾‍♂">argaz aεeẓẓug | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧏🏾‍♂" type="tts">argaz aεeẓẓug: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧏🏿‍♂">argaz aεeẓẓug | taglimt tubrikt</annotation>
+		<annotation cp="🧏🏿‍♂" type="tts">argaz aεeẓẓug: taglimt tubrikt</annotation>
+		<annotation cp="🧏🏻‍♀">taglimt taceɛlalt | tameṭṭut taεeẓẓugt</annotation>
+		<annotation cp="🧏🏻‍♀" type="tts">tameṭṭut taεeẓẓugt: taglimt taceɛlalt</annotation>
+		<annotation cp="🧏🏼‍♀">tagwlimt taceɛlalt talemmast | tameṭṭut taεeẓẓugt</annotation>
+		<annotation cp="🧏🏼‍♀" type="tts">tameṭṭut taεeẓẓugt: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧏🏽‍♀">taglimt talemmast | tameṭṭut taεeẓẓugt</annotation>
+		<annotation cp="🧏🏽‍♀" type="tts">tameṭṭut taεeẓẓugt: taglimt talemmast</annotation>
+		<annotation cp="🧏🏾‍♀">taglimt tubrikt talemmast | tameṭṭut taεeẓẓugt</annotation>
+		<annotation cp="🧏🏾‍♀" type="tts">tameṭṭut taεeẓẓugt: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧏🏿‍♀">taglimt tubrikt | tameṭṭut taεeẓẓugt</annotation>
+		<annotation cp="🧏🏿‍♀" type="tts">tameṭṭut taεeẓẓugt: taglimt tubrikt</annotation>
+		<annotation cp="🙇🏻">amdan yettanez | taglimt taceɛlalt</annotation>
+		<annotation cp="🙇🏻" type="tts">amdan yettanez: taglimt taceɛlalt</annotation>
+		<annotation cp="🙇🏼">amdan yettanez | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙇🏼" type="tts">amdan yettanez: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙇🏽">amdan yettanez | taglimt talemmast</annotation>
+		<annotation cp="🙇🏽" type="tts">amdan yettanez: taglimt talemmast</annotation>
+		<annotation cp="🙇🏾">amdan yettanez | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙇🏾" type="tts">amdan yettanez: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙇🏿">amdan yettanez | taglimt tubrikt</annotation>
+		<annotation cp="🙇🏿" type="tts">amdan yettanez: taglimt tubrikt</annotation>
+		<annotation cp="🙇🏻‍♂">argaz yettanez | taglimt taceɛlalt</annotation>
+		<annotation cp="🙇🏻‍♂" type="tts">argaz yettanez: taglimt taceɛlalt</annotation>
+		<annotation cp="🙇🏼‍♂">argaz yettanez | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙇🏼‍♂" type="tts">argaz yettanez: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙇🏽‍♂">argaz yettanez | taglimt talemmast</annotation>
+		<annotation cp="🙇🏽‍♂" type="tts">argaz yettanez: taglimt talemmast</annotation>
+		<annotation cp="🙇🏾‍♂">argaz yettanez | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙇🏾‍♂" type="tts">argaz yettanez: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙇🏿‍♂">argaz yettanez | taglimt tubrikt</annotation>
+		<annotation cp="🙇🏿‍♂" type="tts">argaz yettanez: taglimt tubrikt</annotation>
+		<annotation cp="🙇🏻‍♀">taglimt taceɛlalt | tameṭṭut tettanez</annotation>
+		<annotation cp="🙇🏻‍♀" type="tts">tameṭṭut tettanez: taglimt taceɛlalt</annotation>
+		<annotation cp="🙇🏼‍♀">tagwlimt taceɛlalt talemmast | tameṭṭut tettanez</annotation>
+		<annotation cp="🙇🏼‍♀" type="tts">tameṭṭut tettanez: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🙇🏽‍♀">taglimt talemmast | tameṭṭut tettanez</annotation>
+		<annotation cp="🙇🏽‍♀" type="tts">tameṭṭut tettanez: taglimt talemmast</annotation>
+		<annotation cp="🙇🏾‍♀">taglimt tubrikt talemmast | tameṭṭut tettanez</annotation>
+		<annotation cp="🙇🏾‍♀" type="tts">tameṭṭut tettanez: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🙇🏿‍♀">taglimt tubrikt | tameṭṭut tettanez</annotation>
+		<annotation cp="🙇🏿‍♀" type="tts">tameṭṭut tettanez: taglimt tubrikt</annotation>
+		<annotation cp="🧑🏻‍🎓">anelmad | taglimt taceɛlalt</annotation>
+		<annotation cp="🧑🏻‍🎓" type="tts">anelmad: taglimt taceɛlalt</annotation>
+		<annotation cp="🧑🏼‍🎓">anelmad | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧑🏼‍🎓" type="tts">anelmad: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧑🏽‍🎓">anelmad | taglimt talemmast</annotation>
+		<annotation cp="🧑🏽‍🎓" type="tts">anelmad: taglimt talemmast</annotation>
+		<annotation cp="🧑🏾‍🎓">anelmad | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧑🏾‍🎓" type="tts">anelmad: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧑🏿‍🎓">anelmad | taglimt tubrikt</annotation>
+		<annotation cp="🧑🏿‍🎓" type="tts">anelmad: taglimt tubrikt</annotation>
+		<annotation cp="👨🏻‍🎓">argaz anelmad | taglimt taceɛlalt</annotation>
+		<annotation cp="👨🏻‍🎓" type="tts">argaz anelmad: taglimt taceɛlalt</annotation>
+		<annotation cp="👨🏼‍🎓">argaz anelmad | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="👨🏼‍🎓" type="tts">argaz anelmad: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="👨🏽‍🎓">argaz anelmad | taglimt talemmast</annotation>
+		<annotation cp="👨🏽‍🎓" type="tts">argaz anelmad: taglimt talemmast</annotation>
+		<annotation cp="👨🏾‍🎓">argaz anelmad | taglimt tubrikt talemmast</annotation>
+		<annotation cp="👨🏾‍🎓" type="tts">argaz anelmad: taglimt tubrikt talemmast</annotation>
+		<annotation cp="👨🏿‍🎓">argaz anelmad | taglimt tubrikt</annotation>
+		<annotation cp="👨🏿‍🎓" type="tts">argaz anelmad: taglimt tubrikt</annotation>
+		<annotation cp="👩🏻‍🎓">taglimt taceɛlalt | tameṭṭut tanelmadt</annotation>
+		<annotation cp="👩🏻‍🎓" type="tts">tameṭṭut tanelmadt: taglimt taceɛlalt</annotation>
+		<annotation cp="👩🏼‍🎓">tagwlimt taceɛlalt talemmast | tameṭṭut tanelmadt</annotation>
+		<annotation cp="👩🏼‍🎓" type="tts">tameṭṭut tanelmadt: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="👩🏽‍🎓">taglimt talemmast | tameṭṭut tanelmadt</annotation>
+		<annotation cp="👩🏽‍🎓" type="tts">tameṭṭut tanelmadt: taglimt talemmast</annotation>
+		<annotation cp="👩🏾‍🎓">taglimt tubrikt talemmast | tameṭṭut tanelmadt</annotation>
+		<annotation cp="👩🏾‍🎓" type="tts">tameṭṭut tanelmadt: taglimt tubrikt talemmast</annotation>
+		<annotation cp="👩🏿‍🎓">taglimt tubrikt | tameṭṭut tanelmadt</annotation>
+		<annotation cp="👩🏿‍🎓" type="tts">tameṭṭut tanelmadt: taglimt tubrikt</annotation>
+		<annotation cp="🧑🏻‍🏫">aselmad | taglimt taceɛlalt</annotation>
+		<annotation cp="🧑🏻‍🏫" type="tts">aselmad: taglimt taceɛlalt</annotation>
+		<annotation cp="🧑🏼‍🏫">aselmad | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧑🏼‍🏫" type="tts">aselmad: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧑🏽‍🏫">aselmad | taglimt talemmast</annotation>
+		<annotation cp="🧑🏽‍🏫" type="tts">aselmad: taglimt talemmast</annotation>
+		<annotation cp="🧑🏾‍🏫">aselmad | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧑🏾‍🏫" type="tts">aselmad: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧑🏿‍🏫">aselmad | taglimt tubrikt</annotation>
+		<annotation cp="🧑🏿‍🏫" type="tts">aselmad: taglimt tubrikt</annotation>
+		<annotation cp="👨🏻‍🏫">argaz aselmad | taglimt taceɛlalt</annotation>
+		<annotation cp="👨🏻‍🏫" type="tts">argaz aselmad: taglimt taceɛlalt</annotation>
+		<annotation cp="👨🏼‍🏫">argaz aselmad | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="👨🏼‍🏫" type="tts">argaz aselmad: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="👨🏽‍🏫">argaz aselmad | taglimt talemmast</annotation>
+		<annotation cp="👨🏽‍🏫" type="tts">argaz aselmad: taglimt talemmast</annotation>
+		<annotation cp="👨🏾‍🏫">argaz aselmad | taglimt tubrikt talemmast</annotation>
+		<annotation cp="👨🏾‍🏫" type="tts">argaz aselmad: taglimt tubrikt talemmast</annotation>
+		<annotation cp="👨🏿‍🏫">argaz aselmad | taglimt tubrikt</annotation>
+		<annotation cp="👨🏿‍🏫" type="tts">argaz aselmad: taglimt tubrikt</annotation>
+		<annotation cp="👩🏻‍🏫">taglimt taceɛlalt | tameṭṭut taselmadt</annotation>
+		<annotation cp="👩🏻‍🏫" type="tts">tameṭṭut taselmadt: taglimt taceɛlalt</annotation>
+		<annotation cp="👩🏼‍🏫">tagwlimt taceɛlalt talemmast | tameṭṭut taselmadt</annotation>
+		<annotation cp="👩🏼‍🏫" type="tts">tameṭṭut taselmadt: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="👩🏽‍🏫">taglimt talemmast | tameṭṭut taselmadt</annotation>
+		<annotation cp="👩🏽‍🏫" type="tts">tameṭṭut taselmadt: taglimt talemmast</annotation>
+		<annotation cp="👩🏾‍🏫">taglimt tubrikt talemmast | tameṭṭut taselmadt</annotation>
+		<annotation cp="👩🏾‍🏫" type="tts">tameṭṭut taselmadt: taglimt tubrikt talemmast</annotation>
+		<annotation cp="👩🏿‍🏫">taglimt tubrikt | tameṭṭut taselmadt</annotation>
+		<annotation cp="👩🏿‍🏫" type="tts">tameṭṭut taselmadt: taglimt tubrikt</annotation>
 		<annotation cp="👮🏻">amsaltu | taglimt taceɛlalt</annotation>
 		<annotation cp="👮🏻" type="tts">amsaltu: taglimt taceɛlalt</annotation>
 		<annotation cp="👮🏼">amsaltu | tagwlimt taceɛlalt talemmast</annotation>
@@ -1087,6 +1327,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🚶🏾" type="tts">amdan ileḥḥun: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🚶🏿">amdan ileḥḥun | taglimt tubrikt</annotation>
 		<annotation cp="🚶🏿" type="tts">amdan ileḥḥun: taglimt tubrikt</annotation>
+		<annotation cp="🚶🏻‍♂">argaz ileḥḥun | taglimt taceɛlalt</annotation>
+		<annotation cp="🚶🏻‍♂" type="tts">argaz ileḥḥun: taglimt taceɛlalt</annotation>
+		<annotation cp="🚶🏼‍♂">argaz ileḥḥun | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🚶🏼‍♂" type="tts">argaz ileḥḥun: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🚶🏽‍♂">argaz ileḥḥun | taglimt talemmast</annotation>
+		<annotation cp="🚶🏽‍♂" type="tts">argaz ileḥḥun: taglimt talemmast</annotation>
+		<annotation cp="🚶🏾‍♂">argaz ileḥḥun | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🚶🏾‍♂" type="tts">argaz ileḥḥun: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🚶🏿‍♂">argaz ileḥḥun | taglimt tubrikt</annotation>
+		<annotation cp="🚶🏿‍♂" type="tts">argaz ileḥḥun: taglimt tubrikt</annotation>
+		<annotation cp="🚶🏻‍♀">taglimt taceɛlalt | tameṭṭut ileḥḥun</annotation>
+		<annotation cp="🚶🏻‍♀" type="tts">tameṭṭut ileḥḥun: taglimt taceɛlalt</annotation>
+		<annotation cp="🚶🏼‍♀">tagwlimt taceɛlalt talemmast | tameṭṭut ileḥḥun</annotation>
+		<annotation cp="🚶🏼‍♀" type="tts">tameṭṭut ileḥḥun: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🚶🏽‍♀">taglimt talemmast | tameṭṭut ileḥḥun</annotation>
+		<annotation cp="🚶🏽‍♀" type="tts">tameṭṭut ileḥḥun: taglimt talemmast</annotation>
+		<annotation cp="🚶🏾‍♀">taglimt tubrikt talemmast | tameṭṭut ileḥḥun</annotation>
+		<annotation cp="🚶🏾‍♀" type="tts">tameṭṭut ileḥḥun: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🚶🏿‍♀">taglimt tubrikt | tameṭṭut ileḥḥun</annotation>
+		<annotation cp="🚶🏿‍♀" type="tts">tameṭṭut ileḥḥun: taglimt tubrikt</annotation>
 		<annotation cp="🧍🏻">amdan ibedden | taglimt taceɛlalt</annotation>
 		<annotation cp="🧍🏻" type="tts">amdan ibedden: taglimt taceɛlalt</annotation>
 		<annotation cp="🧍🏼">amdan ibedden | tagwlimt taceɛlalt talemmast</annotation>
@@ -1097,6 +1357,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧍🏾" type="tts">amdan ibedden: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🧍🏿">amdan ibedden | taglimt tubrikt</annotation>
 		<annotation cp="🧍🏿" type="tts">amdan ibedden: taglimt tubrikt</annotation>
+		<annotation cp="🧍🏻‍♂">argaz ibedden | taglimt taceɛlalt</annotation>
+		<annotation cp="🧍🏻‍♂" type="tts">argaz ibedden: taglimt taceɛlalt</annotation>
+		<annotation cp="🧍🏼‍♂">argaz ibedden | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧍🏼‍♂" type="tts">argaz ibedden: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧍🏽‍♂">argaz ibedden | taglimt talemmast</annotation>
+		<annotation cp="🧍🏽‍♂" type="tts">argaz ibedden: taglimt talemmast</annotation>
+		<annotation cp="🧍🏾‍♂">argaz ibedden | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧍🏾‍♂" type="tts">argaz ibedden: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧍🏿‍♂">argaz ibedden | taglimt tubrikt</annotation>
+		<annotation cp="🧍🏿‍♂" type="tts">argaz ibedden: taglimt tubrikt</annotation>
+		<annotation cp="🧍🏻‍♀">taglimt taceɛlalt | tameṭṭut ibedden</annotation>
+		<annotation cp="🧍🏻‍♀" type="tts">tameṭṭut ibedden: taglimt taceɛlalt</annotation>
+		<annotation cp="🧍🏼‍♀">tagwlimt taceɛlalt talemmast | tameṭṭut ibedden</annotation>
+		<annotation cp="🧍🏼‍♀" type="tts">tameṭṭut ibedden: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧍🏽‍♀">taglimt talemmast | tameṭṭut ibedden</annotation>
+		<annotation cp="🧍🏽‍♀" type="tts">tameṭṭut ibedden: taglimt talemmast</annotation>
+		<annotation cp="🧍🏾‍♀">taglimt tubrikt talemmast | tameṭṭut ibedden</annotation>
+		<annotation cp="🧍🏾‍♀" type="tts">tameṭṭut ibedden: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧍🏿‍♀">taglimt tubrikt | tameṭṭut ibedden</annotation>
+		<annotation cp="🧍🏿‍♀" type="tts">tameṭṭut ibedden: taglimt tubrikt</annotation>
 		<annotation cp="🧎🏻">amdan ɣef tgecrar | taglimt taceɛlalt</annotation>
 		<annotation cp="🧎🏻" type="tts">amdan ɣef tgecrar: taglimt taceɛlalt</annotation>
 		<annotation cp="🧎🏼">amdan ɣef tgecrar | tagwlimt taceɛlalt talemmast</annotation>
@@ -1107,6 +1387,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🧎🏾" type="tts">amdan ɣef tgecrar: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🧎🏿">amdan ɣef tgecrar | taglimt tubrikt</annotation>
 		<annotation cp="🧎🏿" type="tts">amdan ɣef tgecrar: taglimt tubrikt</annotation>
+		<annotation cp="🧎🏻‍♂">argaz ɣef tgecrar | taglimt taceɛlalt</annotation>
+		<annotation cp="🧎🏻‍♂" type="tts">argaz ɣef tgecrar: taglimt taceɛlalt</annotation>
+		<annotation cp="🧎🏼‍♂">argaz ɣef tgecrar | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧎🏼‍♂" type="tts">argaz ɣef tgecrar: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧎🏽‍♂">argaz ɣef tgecrar | taglimt talemmast</annotation>
+		<annotation cp="🧎🏽‍♂" type="tts">argaz ɣef tgecrar: taglimt talemmast</annotation>
+		<annotation cp="🧎🏾‍♂">argaz ɣef tgecrar | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧎🏾‍♂" type="tts">argaz ɣef tgecrar: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧎🏿‍♂">argaz ɣef tgecrar | taglimt tubrikt</annotation>
+		<annotation cp="🧎🏿‍♂" type="tts">argaz ɣef tgecrar: taglimt tubrikt</annotation>
+		<annotation cp="🧎🏻‍♀">taglimt taceɛlalt | tameṭṭut ɣef tgecrar</annotation>
+		<annotation cp="🧎🏻‍♀" type="tts">tameṭṭut ɣef tgecrar: taglimt taceɛlalt</annotation>
+		<annotation cp="🧎🏼‍♀">tagwlimt taceɛlalt talemmast | tameṭṭut ɣef tgecrar</annotation>
+		<annotation cp="🧎🏼‍♀" type="tts">tameṭṭut ɣef tgecrar: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🧎🏽‍♀">taglimt talemmast | tameṭṭut ɣef tgecrar</annotation>
+		<annotation cp="🧎🏽‍♀" type="tts">tameṭṭut ɣef tgecrar: taglimt talemmast</annotation>
+		<annotation cp="🧎🏾‍♀">taglimt tubrikt talemmast | tameṭṭut ɣef tgecrar</annotation>
+		<annotation cp="🧎🏾‍♀" type="tts">tameṭṭut ɣef tgecrar: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🧎🏿‍♀">taglimt tubrikt | tameṭṭut ɣef tgecrar</annotation>
+		<annotation cp="🧎🏿‍♀" type="tts">tameṭṭut ɣef tgecrar: taglimt tubrikt</annotation>
 		<annotation cp="🏃🏻">amdan yettazzalen | taglimt taceɛlalt</annotation>
 		<annotation cp="🏃🏻" type="tts">amdan yettazzalen: taglimt taceɛlalt</annotation>
 		<annotation cp="🏃🏼">amdan yettazzalen | tagwlimt taceɛlalt talemmast</annotation>
@@ -1117,6 +1417,26 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🏃🏾" type="tts">amdan yettazzalen: taglimt tubrikt talemmast</annotation>
 		<annotation cp="🏃🏿">amdan yettazzalen | taglimt tubrikt</annotation>
 		<annotation cp="🏃🏿" type="tts">amdan yettazzalen: taglimt tubrikt</annotation>
+		<annotation cp="🏃🏻‍♂">argaz yettazzalen | taglimt taceɛlalt</annotation>
+		<annotation cp="🏃🏻‍♂" type="tts">argaz yettazzalen: taglimt taceɛlalt</annotation>
+		<annotation cp="🏃🏼‍♂">argaz yettazzalen | tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🏃🏼‍♂" type="tts">argaz yettazzalen: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🏃🏽‍♂">argaz yettazzalen | taglimt talemmast</annotation>
+		<annotation cp="🏃🏽‍♂" type="tts">argaz yettazzalen: taglimt talemmast</annotation>
+		<annotation cp="🏃🏾‍♂">argaz yettazzalen | taglimt tubrikt talemmast</annotation>
+		<annotation cp="🏃🏾‍♂" type="tts">argaz yettazzalen: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🏃🏿‍♂">argaz yettazzalen | taglimt tubrikt</annotation>
+		<annotation cp="🏃🏿‍♂" type="tts">argaz yettazzalen: taglimt tubrikt</annotation>
+		<annotation cp="🏃🏻‍♀">taglimt taceɛlalt | tameṭṭut yettazzalen</annotation>
+		<annotation cp="🏃🏻‍♀" type="tts">tameṭṭut yettazzalen: taglimt taceɛlalt</annotation>
+		<annotation cp="🏃🏼‍♀">tagwlimt taceɛlalt talemmast | tameṭṭut yettazzalen</annotation>
+		<annotation cp="🏃🏼‍♀" type="tts">tameṭṭut yettazzalen: tagwlimt taceɛlalt talemmast</annotation>
+		<annotation cp="🏃🏽‍♀">taglimt talemmast | tameṭṭut yettazzalen</annotation>
+		<annotation cp="🏃🏽‍♀" type="tts">tameṭṭut yettazzalen: taglimt talemmast</annotation>
+		<annotation cp="🏃🏾‍♀">taglimt tubrikt talemmast | tameṭṭut yettazzalen</annotation>
+		<annotation cp="🏃🏾‍♀" type="tts">tameṭṭut yettazzalen: taglimt tubrikt talemmast</annotation>
+		<annotation cp="🏃🏿‍♀">taglimt tubrikt | tameṭṭut yettazzalen</annotation>
+		<annotation cp="🏃🏿‍♀" type="tts">tameṭṭut yettazzalen: taglimt tubrikt</annotation>
 		<annotation cp="💃🏻">taglimt taceɛlalt | tameṭṭut iceṭṭḥen</annotation>
 		<annotation cp="💃🏻" type="tts">tameṭṭut iceṭṭḥen: taglimt taceɛlalt</annotation>
 		<annotation cp="💃🏼">tagwlimt taceɛlalt talemmast | tameṭṭut iceṭṭḥen</annotation>
@@ -1403,12 +1723,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="👩‍👧‍👦" type="tts">tawacult: tameṭṭut, taqcict, aqcic</annotation>
 		<annotation cp="👩‍👧‍👧">tameṭṭut | taqcict | tawacult</annotation>
 		<annotation cp="👩‍👧‍👧" type="tts">tawacult: tameṭṭut, taqcict, taqcict</annotation>
-		<annotation cp="#⃣">keycap</annotation>
-		<annotation cp="#⃣" type="tts">keycap: #</annotation>
-		<annotation cp="*⃣">keycap</annotation>
-		<annotation cp="*⃣" type="tts">keycap: *</annotation>
-		<annotation cp="🔟">keycap</annotation>
-		<annotation cp="🔟" type="tts">keycap: 10</annotation>
 		<annotation cp="🇦🇨">anay</annotation>
 		<annotation cp="🇦🇨" type="tts">anay: Tigzirt n Aṣunsyun</annotation>
 		<annotation cp="🇦🇩">anay</annotation>
@@ -1841,6 +2155,8 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇸🇹" type="tts">anay: Saw Tumi d Pransip</annotation>
 		<annotation cp="🇸🇻">anay</annotation>
 		<annotation cp="🇸🇻" type="tts">anay: Salvadur</annotation>
+		<annotation cp="🇸🇽">anay</annotation>
+		<annotation cp="🇸🇽" type="tts">anay: Sint Maarten</annotation>
 		<annotation cp="🇸🇾">anay</annotation>
 		<annotation cp="🇸🇾" type="tts">anay: Surya</annotation>
 		<annotation cp="🇸🇿">anay</annotation>
@@ -1931,7 +2247,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="៛" type="tts">Ariyil n Kambuj</annotation>
 		<annotation cp="₡" type="tts">Akulun n Kusta Rika</annotation>
 		<annotation cp="₦" type="tts">Anayra Anijiri</annotation>
-		<annotation cp="₧" type="tts">Apisetas n Spanya</annotation>
 		<annotation cp="₪" type="tts">Acikil amaynut n Izrayil</annotation>
 		<annotation cp="₫" type="tts">Adung n Vyitnam</annotation>
 		<annotation cp="₭" type="tts">Akip n Laws</annotation>
@@ -1943,25 +2258,6 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="₺" type="tts">Apund n Ṭurk</annotation>
 		<annotation cp="₼" type="tts">Amanat Aziri</annotation>
 		<annotation cp="₾" type="tts">Alari n Jyurjya</annotation>
-		<annotation cp="0⃣">keycap</annotation>
-		<annotation cp="0⃣" type="tts">keycap: 0</annotation>
-		<annotation cp="1⃣">keycap</annotation>
-		<annotation cp="1⃣" type="tts">keycap: 1</annotation>
-		<annotation cp="2⃣">keycap</annotation>
-		<annotation cp="2⃣" type="tts">keycap: 2</annotation>
-		<annotation cp="3⃣">keycap</annotation>
-		<annotation cp="3⃣" type="tts">keycap: 3</annotation>
-		<annotation cp="4⃣">keycap</annotation>
-		<annotation cp="4⃣" type="tts">keycap: 4</annotation>
-		<annotation cp="5⃣">keycap</annotation>
-		<annotation cp="5⃣" type="tts">keycap: 5</annotation>
-		<annotation cp="6⃣">keycap</annotation>
-		<annotation cp="6⃣" type="tts">keycap: 6</annotation>
-		<annotation cp="7⃣">keycap</annotation>
-		<annotation cp="7⃣" type="tts">keycap: 7</annotation>
-		<annotation cp="8⃣">keycap</annotation>
-		<annotation cp="8⃣" type="tts">keycap: 8</annotation>
-		<annotation cp="9⃣">keycap</annotation>
-		<annotation cp="9⃣" type="tts">keycap: 9</annotation>
+		<annotation cp="₧" type="tts">Apisetas n Spanya</annotation>
 	</annotations>
 </ldml>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2022 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -2377,15 +2377,15 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🤶🏾" type="tts">Misis Klọz: Mídíọ́m Dák Skín Ton</annotation>
 		<annotation cp="🤶🏿">Dák Skín Ton | Klọz | Krísmas | Mamá | Misis | Mọ́da | Sẹlibréshọn</annotation>
 		<annotation cp="🤶🏿" type="tts">Misis Klọz: Dák Skín Ton</annotation>
-		<annotation cp="🧑🏻‍🎄">Klọz, Krísmas | Laít Skín Ton | Mx Klọz</annotation>
+		<annotation cp="🧑🏻‍🎄">Klọz | Krísmas | Laít Skín Ton | Mx Klọz</annotation>
 		<annotation cp="🧑🏻‍🎄" type="tts">Mx Klọz: Laít Skín Ton</annotation>
-		<annotation cp="🧑🏼‍🎄">Klọz, Krísmas | Mídíọ́m-Laít Skín Ton | Mx Klọz</annotation>
+		<annotation cp="🧑🏼‍🎄">Klọz | Krísmas | Mídíọ́m-Laít Skín Ton | Mx Klọz</annotation>
 		<annotation cp="🧑🏼‍🎄" type="tts">Mx Klọz: Mídíọ́m-Laít Skín Ton</annotation>
-		<annotation cp="🧑🏽‍🎄">Klọz, Krísmas | Mídíọ́m Skín Ton | Mx Klọz</annotation>
+		<annotation cp="🧑🏽‍🎄">Klọz | Krísmas | Mídíọ́m Skín Ton | Mx Klọz</annotation>
 		<annotation cp="🧑🏽‍🎄" type="tts">Mx Klọz: Mídíọ́m Skín Ton</annotation>
-		<annotation cp="🧑🏾‍🎄">Klọz, Krísmas | Mídíọ́m Dák Skín Ton | Mx Klọz</annotation>
+		<annotation cp="🧑🏾‍🎄">Klọz | Krísmas | Mídíọ́m Dák Skín Ton | Mx Klọz</annotation>
 		<annotation cp="🧑🏾‍🎄" type="tts">Mx Klọz: Mídíọ́m Dák Skín Ton</annotation>
-		<annotation cp="🧑🏿‍🎄">Dák Skín Ton | Klọz, Krísmas | Mx Klọz</annotation>
+		<annotation cp="🧑🏿‍🎄">Dák Skín Ton | Klọz | Krísmas | Mx Klọz</annotation>
 		<annotation cp="🧑🏿‍🎄" type="tts">Mx Klọz: Dák Skín Ton</annotation>
 		<annotation cp="🦸🏻">Bẹtá | Gud | Híro | Laít Skín Ton | Supahíro | Supapáwa | Wúmán Híro</annotation>
 		<annotation cp="🦸🏻" type="tts">Supahíro: Laít Skín Ton</annotation>
@@ -3868,7 +3868,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇬🇹">Flag</annotation>
 		<annotation cp="🇬🇹" type="tts">Flag: Guátẹmála</annotation>
 		<annotation cp="🇬🇺">Flag</annotation>
-		<annotation cp="🇬🇺" type="tts">Flag: Guam</annotation>
+		<annotation cp="🇬🇺" type="tts">Flag: Guám</annotation>
 		<annotation cp="🇬🇼">Flag</annotation>
 		<annotation cp="🇬🇼" type="tts">Flag: Gíní-Bisáu</annotation>
 		<annotation cp="🇬🇾">Flag</annotation>
@@ -3902,7 +3902,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇮🇶">Flag</annotation>
 		<annotation cp="🇮🇶" type="tts">Flag: Irak</annotation>
 		<annotation cp="🇮🇷">Flag</annotation>
-		<annotation cp="🇮🇷" type="tts">Flag: Iran</annotation>
+		<annotation cp="🇮🇷" type="tts">Flag: Irán</annotation>
 		<annotation cp="🇮🇸">Flag</annotation>
 		<annotation cp="🇮🇸" type="tts">Flag: Aísland</annotation>
 		<annotation cp="🇮🇹">Flag</annotation>
@@ -3914,7 +3914,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇯🇴">Flag</annotation>
 		<annotation cp="🇯🇴" type="tts">Flag: Jọ́dan</annotation>
 		<annotation cp="🇯🇵">Flag</annotation>
-		<annotation cp="🇯🇵" type="tts">Flag: Japan</annotation>
+		<annotation cp="🇯🇵" type="tts">Flag: Japán</annotation>
 		<annotation cp="🇰🇪">Flag</annotation>
 		<annotation cp="🇰🇪" type="tts">Flag: Kẹ́nya</annotation>
 		<annotation cp="🇰🇬">Flag</annotation>
@@ -3938,7 +3938,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇰🇿">Flag</annotation>
 		<annotation cp="🇰🇿" type="tts">Flag: Kazakstan</annotation>
 		<annotation cp="🇱🇦">Flag</annotation>
-		<annotation cp="🇱🇦" type="tts">Flag: Laos</annotation>
+		<annotation cp="🇱🇦" type="tts">Flag: Láos</annotation>
 		<annotation cp="🇱🇧">Flag</annotation>
 		<annotation cp="🇱🇧" type="tts">Flag: Lẹ́bánọn</annotation>
 		<annotation cp="🇱🇨">Flag</annotation>
@@ -4030,7 +4030,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇳🇿">Flag</annotation>
 		<annotation cp="🇳🇿" type="tts">Flag: Niú Zíland</annotation>
 		<annotation cp="🇴🇲">Flag</annotation>
-		<annotation cp="🇴🇲" type="tts">Flag: Oman</annotation>
+		<annotation cp="🇴🇲" type="tts">Flag: Omán</annotation>
 		<annotation cp="🇵🇦">Flag</annotation>
 		<annotation cp="🇵🇦" type="tts">Flag: Pánáma</annotation>
 		<annotation cp="🇵🇪">Flag</annotation>
@@ -4056,7 +4056,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇵🇹">Flag</annotation>
 		<annotation cp="🇵🇹" type="tts">Flag: Pọ́túgal</annotation>
 		<annotation cp="🇵🇼">Flag</annotation>
-		<annotation cp="🇵🇼" type="tts">Flag: Palau</annotation>
+		<annotation cp="🇵🇼" type="tts">Flag: Paláu</annotation>
 		<annotation cp="🇵🇾">Flag</annotation>
 		<annotation cp="🇵🇾" type="tts">Flag: Párágwue</annotation>
 		<annotation cp="🇶🇦">Flag</annotation>
@@ -4078,7 +4078,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇸🇨">Flag</annotation>
 		<annotation cp="🇸🇨" type="tts">Flag: Sẹ́chẹls</annotation>
 		<annotation cp="🇸🇩">Flag</annotation>
-		<annotation cp="🇸🇩" type="tts">Flag: Sudan</annotation>
+		<annotation cp="🇸🇩" type="tts">Flag: Sudán</annotation>
 		<annotation cp="🇸🇪">Flag</annotation>
 		<annotation cp="🇸🇪" type="tts">Flag: Swídẹn</annotation>
 		<annotation cp="🇸🇬">Flag</annotation>
@@ -4118,7 +4118,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇹🇨">Flag</annotation>
 		<annotation cp="🇹🇨" type="tts">Flag: Tọks an Kaíkọ́s Aílands</annotation>
 		<annotation cp="🇹🇩">Flag</annotation>
-		<annotation cp="🇹🇩" type="tts">Flag: Chad</annotation>
+		<annotation cp="🇹🇩" type="tts">Flag: Chád</annotation>
 		<annotation cp="🇹🇫">Flag</annotation>
 		<annotation cp="🇹🇫" type="tts">Flag: Frẹ́nch Saútán Tẹ́rẹ́tris</annotation>
 		<annotation cp="🇹🇬">Flag</annotation>
@@ -4144,7 +4144,7 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<annotation cp="🇹🇻">Flag</annotation>
 		<annotation cp="🇹🇻" type="tts">Flag: Tuválu</annotation>
 		<annotation cp="🇹🇼">Flag</annotation>
-		<annotation cp="🇹🇼" type="tts">Flag: Taiwan</annotation>
+		<annotation cp="🇹🇼" type="tts">Flag: Taíwán</annotation>
 		<annotation cp="🇹🇿">Flag</annotation>
 		<annotation cp="🇹🇿" type="tts">Flag: Tanzánia</annotation>
 		<annotation cp="🇺🇦">Flag</annotation>
