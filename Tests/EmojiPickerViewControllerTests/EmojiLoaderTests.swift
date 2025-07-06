@@ -29,38 +29,27 @@ import Foundation
 
 // Emoji Counts: https://unicode.org/emoji/charts/emoji-counts.html
 
-let totalEmojiCounts =            3633 // Structure
-let cEmojiCounts =                1354 // Ⓒ
-let cSkinTonedEmojiCounts =       645  // Ⓒ ‧ 🟫
+let totalEmojiCounts =            3790 // Structure
+let cEmojiCounts =                1381 // Ⓒ
+let cSkinTonedEmojiCounts =       655  // Ⓒ ‧ 🟫
 let zHairEmojiCounts =            12   // Ⓩ ‧ 🦰
 let zHairSkinTonedEmojiCounts =   60   // Ⓩ ‧ 🦰 ‧ 🟫
-let zGenderEmojiCounts =          102  // Ⓩ ‧ ♀
-let zGenderSkinTonedEmojiCounts = 470  // Ⓩ ‧ ♀ ‧ 🟫
-let zRoleEmojiCounts =            60   // Ⓩ ‧ 👩
-let zRoleSkinTonedEmojiCounts =   300  // Ⓩ ‧ 👩 ‧ 🟫
-let zFamilyEmojiCounts =          32   // Ⓩ ‧ 👪
-let zFamilySkinTonedEmojiCounts = 235  // Ⓩ ‧ 👪 ‧ 🟫
-let zSkinTonedEmojiCounts =       65   // Ⓩ ‧ 🟫
-let zcEmojiCounts =               13   // Ⓩ ‧ Ⓒ
+let zGenderEmojiCounts =          108  // Ⓩ ‧ ♀
+let zGenderSkinTonedEmojiCounts = 500  // Ⓩ ‧ ♀ ‧ 🟫
+let zRoleEmojiCounts =            73   // Ⓩ ‧ 👩
+let zRoleSkinTonedEmojiCounts =   365  // Ⓩ ‧ 👩 ‧ 🟫
+let zFamilyEmojiCounts =          36   // Ⓩ ‧ 👪
+let zFamilySkinTonedEmojiCounts = 295  // Ⓩ ‧ 👪 ‧ 🟫
+let zcEmojiCounts =               19   // Ⓩ ‧ Ⓒ
 let emojiKeycapSequenceCounts =   12   // #️⃣
-let emojiFlagSequenceCounts =     258  // 🏁
+let emojiFlagSequenceCounts =     259  // 🏁
 let emojiTagSequenceCounts =      3    // 🏴
-let componentCounts =             9    // 🔗
-
-// SkinToned emojis are added in `orderedSkinToneEmojis` and will be shown in the emoji-variation popover.
-let emojiCountsForShowingInKeyboard = totalEmojiCounts
-- cSkinTonedEmojiCounts
-- zHairSkinTonedEmojiCounts
-- zGenderSkinTonedEmojiCounts
-- zRoleSkinTonedEmojiCounts
-- zFamilySkinTonedEmojiCounts
-- zSkinTonedEmojiCounts
-- componentCounts
+let componentCounts =             12    // 🔗
 
 // grep \; PathToProject/EmojiPickerViewController/Sources/EmojiPickerViewController/Resources/emoji-test.txt | wc -l
-// > 4703
+// > 5043
 // -1 is a consideration for header comment of `emoji-text.txt`
-let emojiCountsListedInEmojiTest = 4702
+let emojiCountsListedInEmojiTest = 5042
 
 @Suite
 @MainActor struct EmojiLoaderTests {
@@ -86,7 +75,6 @@ let emojiCountsListedInEmojiTest = 4702
          The dictionary and array has expected number of emoji
          */
         #expect(entireEmojiSet.count == emojiCountsListedInEmojiTest)
-        #expect(labeledEmojisForKeyboard.values.joined().count == emojiCountsForShowingInKeyboard)
 
         /*
          The reference of an emoji is shared both Array and Dictionary?

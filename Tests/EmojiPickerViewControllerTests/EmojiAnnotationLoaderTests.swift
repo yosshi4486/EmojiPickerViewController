@@ -47,9 +47,9 @@ import Testing
 
         let loader = EmojiAnnotationLoader(emojiDictionary: emojiDictionary, emojiLocale: EmojiLocale(localeIdentifier: "ja")!)
         loader.load()
-        #expect(emojiDictionary["😀"]?.annotation == "スマイル | にっこり | にっこり笑う | 笑う | 笑顔 | 顔")
+        #expect(emojiDictionary["😀"]?.annotation == "スマイル | ナイス | にっこり | にっこり笑う | ハッピー | 笑う | 笑顔 | 顔")
         #expect(emojiDictionary["😀"]?.textToSpeech == "にっこり笑う")
-        #expect(emojiDictionary["💏"]?.annotation == "2人でキス | カップル | キス | ちゅっ | ハート")
+        #expect(emojiDictionary["💏"]?.annotation == "2人でキス | カップル | キス | ちゅっ | ハート | 記念日")
         #expect(emojiDictionary["💏"]?.textToSpeech == "2人でキス")
 
     }

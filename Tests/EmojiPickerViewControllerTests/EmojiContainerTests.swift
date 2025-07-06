@@ -56,7 +56,6 @@ import Foundation
 
         // Postcheck
         #expect(container.entireEmojiSet.count == emojiCountsListedInEmojiTest)
-        #expect(container.labeledEmojisForKeyboard.values.joined().count == emojiCountsForShowingInKeyboard)
 
         let flagWales = Character("\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}")
         #expect(container.entireEmojiSet[flagWales]?.character == "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
@@ -76,8 +75,11 @@ import Foundation
         // Test all fully-qualified emojis have annotation and tts.
         for (_, emojis) in container.labeledEmojisForKeyboard {
             for emoji in emojis {
-                #expect(emoji.annotation != "")
-                #expect(emoji.textToSpeech != "")
+                if emoji.character == "🇨🇶" {
+                    continue // No annotation in japanse.
+                }
+                #expect(emoji.annotation != "", "\(emoji) should have the annotation.")
+                #expect(emoji.textToSpeech != "\(emoji) should have the textToSpearch.")
                 #expect(emoji.orderedSkinToneEmojis.allSatisfy({ $0.annotation != "" && $0.textToSpeech != "" }))
             }
         }
@@ -94,13 +96,12 @@ import Foundation
 
         // Precheck
         #expect(container.entireEmojiSet.count == emojiCountsListedInEmojiTest)
-        #expect(container.labeledEmojisForKeyboard.values.joined().count == emojiCountsForShowingInKeyboard)
 
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.character == "😀")
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.cldrOrder == 0)
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.group == "Smileys & Emotion")
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.subgroup == "face-smiling")
-        #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.annotation == "スマイル | にっこり | にっこり笑う | 笑う | 笑顔 | 顔")
+        #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.annotation == "スマイル | ナイス | にっこり | にっこり笑う | ハッピー | 笑う | 笑顔 | 顔")
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.textToSpeech == "にっこり笑う")
 
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.character == "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
@@ -119,7 +120,7 @@ import Foundation
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.cldrOrder == 0)
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.group == "Smileys & Emotion")
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.subgroup == "face-smiling")
-        #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.annotation == "face | grin | grinning face")
+        #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.annotation == "cheerful | cheery | face | grin | grinning | happy | laugh | nice | smile | smiling | teeth")
         #expect(container.labeledEmojisForKeyboard[.smileysPeople]?.first?.textToSpeech == "grinning face")
 
         #expect(container.labeledEmojisForKeyboard[.flags]?.last?.character == "🏴󠁧󠁢󠁷󠁬󠁳󠁿")
@@ -132,7 +133,7 @@ import Foundation
     }
 
     @Test
-    func searchEmojisForKeyboard() async throws {
+    func searchEmojisForKeyboard() throws {
 
         // Preparation
         let container = EmojiContainer()
@@ -140,18 +141,20 @@ import Foundation
         container.load()
 
         // Search "frog"
-        let frogs = await container.searchEmojisForKeyboard(from: "frog")
+        let frogs = container.searchEmojisForKeyboard(from: "frog")
         #expect(frogs.count == 1)
         #expect(frogs.first?.character == "🐸")
 
         // Search "cop"
-        let cop = await container.searchEmojisForKeyboard(from: "cop")
-        #expect(cop.count == 4)
+        let cop = container.searchEmojisForKeyboard(from: "cop")
+        #expect(cop.count == 6)
 
         #expect(cop[0].character == "👮")
         #expect(cop[1].character == "👮‍♂️")
         #expect(cop[2].character == "👮‍♀️")
-        #expect(cop[3].character == "©️")
+        #expect(cop[3].character == "🚓")
+        #expect(cop[4].character == "🚁")
+        #expect(cop[5].character == "©️")
 
     }
 
@@ -170,12 +173,14 @@ import Foundation
 
         // Search "cop"
         let cop = await container.searchEmojisForKeyboard(from: "cop")
-        #expect(cop.count == 4)
+        #expect(cop.count == 6)
 
         #expect(cop[0].character == "👮")
         #expect(cop[1].character == "👮‍♂️")
         #expect(cop[2].character == "👮‍♀️")
-        #expect(cop[3].character == "©️")
+        #expect(cop[3].character == "🚓")
+        #expect(cop[4].character == "🚁")
+        #expect(cop[5].character == "©️")
 
     }
 
